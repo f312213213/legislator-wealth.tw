@@ -40,11 +40,13 @@ async function main() {
   if (!res.ok) throw new Error(`Failed to fetch: ${res.status}`)
   const html = await res.text()
 
+  // Only parse current legislators — cut off at the "離職" section
+  const resignedIdx = html.indexOf('離職')
+  const activeHtml = resignedIdx > 0 ? html.slice(0, resignedIdx) : html
+
   // Parse legislators from HTML
-  // Each legislator block contains: avatar img, party icon img, name div
   const legislators: { name: string; party: string; avatarUrl: string }[] = []
 
-  // Match each legislator's avatar image, party icon, and name
   const avatarRegex = /<img[^>]+src="(\/Images\/Legislators\/\d+\.jpg)"[^>]+alt="([^"]+)"/g
   const partyRegex = /<img[^>]+class="six-party-icon"[^>]+alt="([^"]+)"/g
   const nameRegex = /<div\s+class="legislatorname"[^>]*>([\s\S]*?)<\/div>/g
@@ -54,13 +56,13 @@ async function main() {
   const names: string[] = []
 
   let m: RegExpExecArray | null
-  while ((m = avatarRegex.exec(html)) !== null) {
+  while ((m = avatarRegex.exec(activeHtml)) !== null) {
     avatars.push({ src: m[1], alt: m[2] })
   }
-  while ((m = partyRegex.exec(html)) !== null) {
+  while ((m = partyRegex.exec(activeHtml)) !== null) {
     parties.push(m[1])
   }
-  while ((m = nameRegex.exec(html)) !== null) {
+  while ((m = nameRegex.exec(activeHtml)) !== null) {
     names.push(m[1].replace(/\s+/g, ' ').trim())
   }
 
