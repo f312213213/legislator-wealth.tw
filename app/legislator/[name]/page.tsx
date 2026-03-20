@@ -2,8 +2,9 @@ import { getIndex, getDeclarationBySlug, getChangesBySlug, lookupStockPrice, get
 import { PropertySummary } from '@/components/property-summary'
 import { CategoryTabs, type HoldingRow } from '@/components/category-tabs'
 import { notFound } from 'next/navigation'
-import { formatDate } from '@/lib/format'
+import { formatDate, formatNTD } from '@/lib/format'
 import Image from 'next/image'
+import type { Metadata } from 'next'
 import type { LegislatorDeclaration } from '@/lib/types'
 
 export async function generateStaticParams() {
@@ -13,12 +14,48 @@ export async function generateStaticParams() {
   }))
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ name: string }> }) {
-  const { name } = await params
-  const data = getDeclarationBySlug(name)
+export async function generateMetadata({ params }: { params: Promise<{ name: string }> }): Promise<Metadata> {
+  const { name: slug } = await params
+  const data = getDeclarationBySlug(slug)
+  if (!data) return { title: slug }
+
+  const meta = getLegislatorMeta(data.name)
+  const amount = calcMarketTotal(data)
+  const description = `${data.name}${meta?.party ? `（${meta.party}）` : ''}的股票及基金持有市值為 NT$ ${formatNTD(amount)}。`
+
   return {
-    title: `${data?.name || name} — 立委持股公開平台`,
+    title: data.name,
+    description,
+    openGraph: {
+      title: data.name,
+      description,
+      images: [{
+        url: `/og/${slug}.svg`,
+        width: 1200,
+        height: 630,
+        alt: data.name,
+      }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: data.name,
+      description,
+      images: [`/og/${slug}.svg`],
+    },
   }
+}
+
+function calcMarketTotal(data: LegislatorDeclaration): number {
+  let total = 0
+  for (const s of data.securities.stocks.items) {
+    const p = lookupStockPrice(s.name)
+    total += p ? Math.round(s.shares * p.price) : s.ntdTotal
+  }
+  for (const f of data.securities.funds.items) {
+    const p = lookupStockPrice(f.name)
+    total += p ? Math.round(f.units * p.price) : f.ntdTotal
+  }
+  return total
 }
 
 function buildHoldings(data: LegislatorDeclaration): HoldingRow[] {
@@ -51,9 +88,9 @@ function buildHoldings(data: LegislatorDeclaration): HoldingRow[] {
 }
 
 const PARTY_COLOR: Record<string, string> = {
-  '國民黨': 'bg-[#000099]',
-  '民進黨': 'bg-[#1B9431]',
-  '民眾黨': 'bg-[#28C8C8]',
+  '中國國民黨': 'bg-[#000099]',
+  '民主進步黨': 'bg-[#1B9431]',
+  '台灣民眾黨': 'bg-[#28C8C8]',
   '無黨籍': 'bg-[#999999]',
 }
 

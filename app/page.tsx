@@ -19,16 +19,16 @@ function calcMarketTotal(decl: LegislatorDeclaration): number {
 }
 
 const PARTY_BORDER: Record<string, string> = {
-  '國民黨': 'border-l-[#000099]',
-  '民進黨': 'border-l-[#1B9431]',
-  '民眾黨': 'border-l-[#28C8C8]',
+  '中國國民黨': 'border-l-[#000099]',
+  '民主進步黨': 'border-l-[#1B9431]',
+  '台灣民眾黨': 'border-l-[#28C8C8]',
   '無黨籍': 'border-l-[#999999]',
 }
 
 const PARTY_BAR: Record<string, string> = {
-  '國民黨': 'bar-kmt',
-  '民進黨': 'bar-dpp',
-  '民眾黨': 'bar-tpp',
+  '中國國民黨': 'bar-kmt',
+  '民主進步黨': 'bar-dpp',
+  '台灣民眾黨': 'bar-tpp',
   '無黨籍': 'bar-ind',
 }
 

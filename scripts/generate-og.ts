@@ -1,0 +1,157 @@
+import fs from 'fs'
+import path from 'path'
+import type { LegislatorIndex } from '../lib/types'
+
+const DATA_DIR = path.join(process.cwd(), 'data')
+const PUBLIC_DIR = path.join(process.cwd(), 'public')
+const OG_DIR = path.join(PUBLIC_DIR, 'og')
+
+function formatNTD(amount: number): string {
+  return new Intl.NumberFormat('zh-TW').format(amount)
+}
+
+function calcMarketTotal(decl: any, priceMap: Map<string, number>): number {
+  let total = 0
+  for (const s of decl.securities?.stocks?.items || []) {
+    const p = priceMap.get(s.name)
+    total += p ? Math.round(s.shares * p) : s.ntdTotal
+  }
+  for (const f of decl.securities?.funds?.items || []) {
+    const p = priceMap.get(f.name)
+    total += p ? Math.round(f.units * p) : f.ntdTotal
+  }
+  return total
+}
+
+function loadPriceMap(): Map<string, number> {
+  const map = new Map<string, number>()
+  try {
+    const entries: any[] = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'STOCK_DAY_ALL.json'), 'utf-8'))
+    for (const e of entries) {
+      const p = parseFloat(e.ClosingPrice)
+      if (p && !isNaN(p)) map.set(e.Name, p)
+    }
+  } catch {}
+  try {
+    const entries: any[] = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'tpex_mainboard_quotes.json'), 'utf-8'))
+    for (const e of entries) {
+      if (map.has(e.CompanyName)) continue
+      const p = parseFloat(e.Close)
+      if (p && !isNaN(p)) map.set(e.CompanyName, p)
+    }
+  } catch {}
+  try {
+    const entries: any[] = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'tpex_esb_latest_statistics.json'), 'utf-8'))
+    for (const e of entries) {
+      if (map.has(e.CompanyName)) continue
+      const p = parseFloat(e.LatestPrice)
+      if (p && !isNaN(p)) map.set(e.CompanyName, p)
+    }
+  } catch {}
+  return map
+}
+
+function escapeXml(s: string): string {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+}
+
+function generateSiteSvg(): string {
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#fafafa"/>
+  <rect x="0" y="0" width="6" height="630" fill="#1a1a1a"/>
+  <text x="80" y="240" font-family="serif" font-size="96" font-weight="900" fill="#1a1a1a">立委持股</text>
+  <text x="80" y="320" font-family="sans-serif" font-size="32" fill="#666666">台灣立法委員股票及基金申報資料公開透明平台</text>
+  <text x="80" y="520" font-family="sans-serif" font-size="24" fill="#999999">legislator-wealth.tw</text>
+  <text x="80" y="560" font-family="sans-serif" font-size="20" fill="#bbbbbb">資料來源：監察院公報</text>
+</svg>`
+}
+
+function generateLegislatorSvg(name: string, party: string, amount: number, avatarPath: string): string {
+  const amountText = amount > 0 ? `NT$ ${formatNTD(amount)}` : '未持有股票'
+  const stockLabel = amount > 0 ? '股票及基金市值' : ''
+
+  // Party color for accent bar
+  const partyColors: Record<string, string> = {
+    '中國國民黨': '#000099',
+    '民主進步黨': '#1B9431',
+    '台灣民眾黨': '#28C8C8',
+    '無黨籍': '#999999',
+  }
+  const barColor = partyColors[party] || '#cccccc'
+
+  // Check if avatar exists as a file we can embed
+  const fullAvatarPath = path.join(PUBLIC_DIR, avatarPath.replace(/^\//, ''))
+  let avatarEmbed = ''
+  if (avatarPath && fs.existsSync(fullAvatarPath)) {
+    const avatarData = fs.readFileSync(fullAvatarPath)
+    const b64 = avatarData.toString('base64')
+    const ext = avatarPath.endsWith('.png') ? 'png' : 'jpeg'
+    avatarEmbed = `<image x="80" y="140" width="200" height="200" href="data:image/${ext};base64,${b64}" preserveAspectRatio="xMidYMid slice" clip-path="url(#avatarClip)"/>`
+  }
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <clipPath id="avatarClip"><rect x="80" y="140" width="200" height="200"/></clipPath>
+  </defs>
+  <rect width="1200" height="630" fill="#fafafa"/>
+  <rect x="0" y="0" width="6" height="630" fill="${barColor}"/>
+
+  <!-- Avatar -->
+  ${avatarEmbed || `<rect x="80" y="140" width="200" height="200" fill="#e5e5e5"/><text x="180" y="260" font-family="serif" font-size="64" font-weight="900" fill="#999" text-anchor="middle">${escapeXml(name.charAt(0))}</text>`}
+
+  <!-- Name -->
+  <text x="320" y="230" font-family="serif" font-size="72" font-weight="900" fill="#1a1a1a">${escapeXml(name)}</text>
+
+  <!-- Party -->
+  <text x="320" y="280" font-family="sans-serif" font-size="28" fill="#666666">${escapeXml(party)}</text>
+
+  <!-- Amount label -->
+  <text x="320" y="340" font-family="sans-serif" font-size="20" fill="#999999">${escapeXml(stockLabel)}</text>
+
+  <!-- Amount -->
+  <text x="320" y="390" font-family="serif" font-size="48" font-weight="900" fill="#1a1a1a">${escapeXml(amountText)}</text>
+
+  <!-- Site -->
+  <text x="80" y="560" font-family="sans-serif" font-size="20" fill="#bbbbbb">legislator-wealth.tw</text>
+</svg>`
+}
+
+function main() {
+  fs.mkdirSync(OG_DIR, { recursive: true })
+
+  // Load data
+  const index: LegislatorIndex = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'index.json'), 'utf-8'))
+  const priceMap = loadPriceMap()
+
+  let metaRaw: Record<string, { party: string; avatar: string }> = {}
+  try {
+    metaRaw = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'legislators-meta.json'), 'utf-8'))
+  } catch {}
+
+  // Generate site OG
+  fs.writeFileSync(path.join(PUBLIC_DIR, 'og.svg'), generateSiteSvg(), 'utf-8')
+  console.log('Generated og.svg')
+
+  // Generate per-legislator OG
+  let count = 0
+  for (const leg of index.legislators) {
+    if (leg.declarations.length === 0) continue
+
+    const declPath = path.join(DATA_DIR, 'legislators', leg.declarations[0])
+    if (!fs.existsSync(declPath)) continue
+
+    const decl = JSON.parse(fs.readFileSync(declPath, 'utf-8'))
+    const amount = calcMarketTotal(decl, priceMap)
+    const meta = metaRaw[leg.name]
+    const party = meta?.party || ''
+    const avatar = meta?.avatar || ''
+
+    const svg = generateLegislatorSvg(leg.name, party, amount, avatar)
+    fs.writeFileSync(path.join(OG_DIR, `${leg.slug}.svg`), svg, 'utf-8')
+    count++
+  }
+
+  console.log(`Generated ${count} legislator OG images`)
+}
+
+main()

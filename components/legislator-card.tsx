@@ -5,9 +5,9 @@ import type { LegislatorDeclaration } from '@/lib/types'
 import type { LegislatorMeta } from '@/lib/data'
 
 const PARTY_BORDER: Record<string, string> = {
-  '國民黨': 'border-l-[#000099]',
-  '民進黨': 'border-l-[#1B9431]',
-  '民眾黨': 'border-l-[#28C8C8]',
+  '中國國民黨': 'border-l-[#000099]',
+  '民主進步黨': 'border-l-[#1B9431]',
+  '台灣民眾黨': 'border-l-[#28C8C8]',
   '無黨籍': 'border-l-[#999999]',
 }
 

@@ -2,7 +2,8 @@ import { getAllFlatChanges } from '@/lib/data'
 import { ChangeFeed } from '@/components/change-feed'
 
 export const metadata = {
-  title: '變動紀錄 — 立委持股公開平台',
+  title: '變動紀錄',
+  description: '立法委員於申報期間內的股票交易異動紀錄。',
 }
 
 export default function ChangesPage() {

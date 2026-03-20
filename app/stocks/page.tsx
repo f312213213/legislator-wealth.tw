@@ -2,7 +2,8 @@ import { getAllStockHoldings, getAggregatedStocks } from '@/lib/data'
 import { StockTable } from '@/components/stock-table'
 
 export const metadata = {
-  title: '股票及基金 — 立委持股公開平台',
+  title: '股票及基金',
+  description: '所有立法委員申報的股票及基金持有明細，可依標的名稱或立委姓名搜尋及排序。',
 }
 
 export default function StocksPage() {

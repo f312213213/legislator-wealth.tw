@@ -7,9 +7,9 @@ const AVATAR_DIR = path.join(process.cwd(), 'public', 'avatars')
 const OUTPUT_PATH = path.join(process.cwd(), 'data', 'legislators-meta.json')
 
 const PARTY_MAP: Record<string, string> = {
-  '中國國民黨徽章': '國民黨',
-  '民主進步黨徽章': '民進黨',
-  '台灣民眾黨徽章': '民眾黨',
+  '中國國民黨徽章': '中國國民黨',
+  '民主進步黨徽章': '民主進步黨',
+  '台灣民眾黨徽章': '台灣民眾黨',
   '無徽章': '無黨籍',
 }
 
