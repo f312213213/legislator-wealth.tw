@@ -15,6 +15,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Create data directory
+        run: mkdir -p data
+
       - name: Fetch TWSE STOCK_DAY_ALL
         continue-on-error: true
         run: |
