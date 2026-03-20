@@ -137,6 +137,9 @@ export function HoldingsPie({ holdings }: { holdings: HoldingRow[] }) {
                 {isOther && <span className="text-muted-foreground ml-1">展開</span>}
               </span>
               <span className="text-xs tabular-nums shrink-0 ml-auto">{pct > 0 ? `${pct}%` : '<1%'}</span>
+              <span className="hidden text-xs font-bold tabular-nums shrink-0 sm:inline">
+                <CurrencyDisplay amount={d.value} />
+              </span>
             </div>
           )
         })}
