@@ -156,6 +156,19 @@ function parseStocks(stockText: string): LegislatorDeclaration['securities']['st
 
     const line = fixLineSplits(raw)
 
+    // Pattern: Name Owner(split: 蔡 宗翰) Shares ParValue NtdTotal
+    // Try split owner first (single CJK + space + 2-3 CJK before digits)
+    const ms = line.match(/^(.+?)\s+([\u4e00-\u9fff○])\s+([\u4e00-\u9fff○]{2,3})\s+([\d,]+)\s+([\d,.]+)\s+([\d,.]+)\s*$/)
+    if (ms) {
+      items.push({
+        name: ms[1].trim(),
+        owner: ms[2] + ms[3],
+        shares: parseNumber(ms[4]),
+        parValue: parseNumber(ms[5]),
+        ntdTotal: parseNumber(ms[6]),
+      })
+      continue
+    }
     // Pattern: Name Owner Shares ParValue NtdTotal
     const m = line.match(/^(.+?)\s+([\u4e00-\u9fff○]{2,4})\s+([\d,]+)\s+([\d,.]+)\s+([\d,.]+)\s*$/)
     if (m) {
