@@ -1,0 +1,521 @@
+{
+  "type": "declaration",
+  "name": "王鴻薇",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2025-11-01",
+  "declarationType": "定期申報",
+  "spouse": {
+    "relation": "配偶",
+    "name": "陶允正"
+  },
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 19191661,
+    "stocks": {
+      "totalNTD": 10781980,
+      "items": [
+        {
+          "name": "南僑",
+          "owner": "王鴻薇",
+          "shares": 27,
+          "parValue": 10,
+          "ntdTotal": 270
+        },
+        {
+          "name": "台積電",
+          "owner": "王鴻薇",
+          "shares": 2000,
+          "parValue": 10,
+          "ntdTotal": 20000
+        },
+        {
+          "name": "陽明",
+          "owner": "王鴻薇",
+          "shares": 65,
+          "parValue": 10,
+          "ntdTotal": 650
+        },
+        {
+          "name": "台新新光金",
+          "owner": "王鴻薇",
+          "shares": 62,
+          "parValue": 10,
+          "ntdTotal": 620
+        },
+        {
+          "name": "台新新光金",
+          "owner": "王鴻薇",
+          "shares": 43,
+          "parValue": 10,
+          "ntdTotal": 430
+        },
+        {
+          "name": "統一實",
+          "owner": "王鴻薇",
+          "shares": 31,
+          "parValue": 10,
+          "ntdTotal": 310
+        },
+        {
+          "name": "統一",
+          "owner": "陶允正",
+          "shares": 12000,
+          "parValue": 10,
+          "ntdTotal": 120000
+        },
+        {
+          "name": "聯華",
+          "owner": "陶允正",
+          "shares": 85000,
+          "parValue": 10,
+          "ntdTotal": 850000
+        },
+        {
+          "name": "南亞",
+          "owner": "陶允正",
+          "shares": 40000,
+          "parValue": 10,
+          "ntdTotal": 400000
+        },
+        {
+          "name": "亞聚",
+          "owner": "陶允正",
+          "shares": 35000,
+          "parValue": 10,
+          "ntdTotal": 350000
+        },
+        {
+          "name": "中砂",
+          "owner": "陶允正",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "太電",
+          "owner": "陶允正",
+          "shares": 302,
+          "parValue": 10,
+          "ntdTotal": 3020
+        },
+        {
+          "name": "聯電",
+          "owner": "陶允正",
+          "shares": 165000,
+          "parValue": 10,
+          "ntdTotal": 1650000
+        },
+        {
+          "name": "鴻海",
+          "owner": "陶允正",
+          "shares": 10000,
+          "parValue": 10,
+          "ntdTotal": 100000
+        },
+        {
+          "name": "仁寶",
+          "owner": "陶允正",
+          "shares": 20000,
+          "parValue": 10,
+          "ntdTotal": 200000
+        },
+        {
+          "name": "台積電",
+          "owner": "陶允正",
+          "shares": 4700,
+          "parValue": 10,
+          "ntdTotal": 47000
+        },
+        {
+          "name": "金像電",
+          "owner": "陶允正",
+          "shares": 7000,
+          "parValue": 10,
+          "ntdTotal": 70000
+        },
+        {
+          "name": "佳能",
+          "owner": "陶允正",
+          "shares": 22000,
+          "parValue": 10,
+          "ntdTotal": 220000
+        },
+        {
+          "name": "佳能",
+          "owner": "陶允正",
+          "shares": 15000,
+          "parValue": 10,
+          "ntdTotal": 150000
+        },
+        {
+          "name": "技嘉",
+          "owner": "陶允正",
+          "shares": 12000,
+          "parValue": 10,
+          "ntdTotal": 120000
+        },
+        {
+          "name": "台光電",
+          "owner": "陶允正",
+          "shares": 12000,
+          "parValue": 10,
+          "ntdTotal": 120000
+        },
+        {
+          "name": "勝華",
+          "owner": "陶允正",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "友達",
+          "owner": "陶允正",
+          "shares": 16000,
+          "parValue": 10,
+          "ntdTotal": 160000
+        },
+        {
+          "name": "義隆",
+          "owner": "陶允正",
+          "shares": 10000,
+          "parValue": 10,
+          "ntdTotal": 100000
+        },
+        {
+          "name": "潤弘",
+          "owner": "陶允正",
+          "shares": 6000,
+          "parValue": 10,
+          "ntdTotal": 60000
+        },
+        {
+          "name": "長榮",
+          "owner": "陶允正",
+          "shares": 10000,
+          "parValue": 10,
+          "ntdTotal": 100000
+        },
+        {
+          "name": "陽明",
+          "owner": "陶允正",
+          "shares": 32000,
+          "parValue": 10,
+          "ntdTotal": 320000
+        },
+        {
+          "name": "慧洋 - KY",
+          "owner": "陶允正",
+          "shares": 50000,
+          "parValue": 10,
+          "ntdTotal": 500000
+        },
+        {
+          "name": "富邦金",
+          "owner": "陶允正",
+          "shares": 4000,
+          "parValue": 10,
+          "ntdTotal": 40000
+        },
+        {
+          "name": "玉山金",
+          "owner": "陶允正",
+          "shares": 12000,
+          "parValue": 10,
+          "ntdTotal": 120000
+        },
+        {
+          "name": "第一金",
+          "owner": "陶允正",
+          "shares": 72000,
+          "parValue": 10,
+          "ntdTotal": 720000
+        },
+        {
+          "name": "匯僑",
+          "owner": "陶允正",
+          "shares": 4000,
+          "parValue": 10,
+          "ntdTotal": 40000
+        },
+        {
+          "name": "聯詠",
+          "owner": "陶允正",
+          "shares": 4000,
+          "parValue": 10,
+          "ntdTotal": 40000
+        },
+        {
+          "name": "緯創",
+          "owner": "陶允正",
+          "shares": 8,
+          "parValue": 0,
+          "currency": "10",
+          "ntdTotal": 80000
+        },
+        {
+          "name": "威剛",
+          "owner": "陶允正",
+          "shares": 4000,
+          "parValue": 10,
+          "ntdTotal": 40000
+        },
+        {
+          "name": "群創",
+          "owner": "陶允正",
+          "shares": 6160,
+          "parValue": 10,
+          "ntdTotal": 61600
+        },
+        {
+          "name": "華擎",
+          "owner": "陶允正",
+          "shares": 5000,
+          "parValue": 10,
+          "ntdTotal": 50000
+        },
+        {
+          "name": "凡甲",
+          "owner": "陶允正",
+          "shares": 4000,
+          "parValue": 10,
+          "ntdTotal": 40000
+        },
+        {
+          "name": "貿聯 - KY",
+          "owner": "陶允正",
+          "shares": 2000,
+          "parValue": 10,
+          "ntdTotal": 20000
+        },
+        {
+          "name": "貿聯 - KY",
+          "owner": "陶允正",
+          "shares": 19,
+          "parValue": 10,
+          "ntdTotal": 190
+        },
+        {
+          "name": "日月光投控",
+          "owner": "陶允正",
+          "shares": 3000,
+          "parValue": 10,
+          "ntdTotal": 30000
+        },
+        {
+          "name": "新晶投控",
+          "owner": "陶允正",
+          "shares": 55000,
+          "parValue": 10,
+          "ntdTotal": 550000
+        },
+        {
+          "name": "致伸",
+          "owner": "陶允正",
+          "shares": 42000,
+          "parValue": 10,
+          "ntdTotal": 420000
+        },
+        {
+          "name": "泰鼎 - KY",
+          "owner": "陶允正",
+          "shares": 55000,
+          "parValue": 10,
+          "ntdTotal": 550000
+        },
+        {
+          "name": "泰鼎 - KY",
+          "owner": "陶允正",
+          "shares": 17000,
+          "parValue": 10,
+          "ntdTotal": 170000
+        },
+        {
+          "name": "和碩",
+          "owner": "陶允正",
+          "shares": 10000,
+          "parValue": 10,
+          "ntdTotal": 100000
+        },
+        {
+          "name": "太一",
+          "owner": "陶允正",
+          "shares": 20000,
+          "parValue": 10,
+          "ntdTotal": 200000
+        },
+        {
+          "name": "耀文電子",
+          "owner": "陶允正",
+          "shares": 1269,
+          "parValue": 10,
+          "ntdTotal": 12690
+        },
+        {
+          "name": "松翰",
+          "owner": "陶允正",
+          "shares": 8000,
+          "parValue": 10,
+          "ntdTotal": 80000
+        },
+        {
+          "name": "遠雄港",
+          "owner": "陶允正",
+          "shares": 60780,
+          "parValue": 10,
+          "ntdTotal": 607800
+        },
+        {
+          "name": "中租 - KY 甲特",
+          "owner": "陶允正",
+          "shares": 180,
+          "parValue": 10,
+          "ntdTotal": 1800
+        },
+        {
+          "name": "中租 - KY",
+          "owner": "陶允正",
+          "shares": 28560,
+          "parValue": 10,
+          "currency": "2",
+          "ntdTotal": 85600
+        },
+        {
+          "name": "瑞儀",
+          "owner": "陶允正",
+          "shares": 2000,
+          "parValue": 10,
+          "ntdTotal": 20000
+        },
+        {
+          "name": "華孚",
+          "owner": "陶允正",
+          "shares": 41000,
+          "parValue": 10,
+          "ntdTotal": 410000
+        },
+        {
+          "name": "騰輝電子 - KY",
+          "owner": "陶允正",
+          "shares": 6000,
+          "parValue": 10,
+          "ntdTotal": 60000
+        },
+        {
+          "name": "博晟生醫",
+          "owner": "陶允正",
+          "shares": 10000,
+          "parValue": 10,
+          "ntdTotal": 100000
+        },
+        {
+          "name": "志超",
+          "owner": "陶允正",
+          "shares": 25000,
+          "parValue": 10,
+          "ntdTotal": 250000
+        }
+      ]
+    },
+    "funds": {
+      "totalNTD": 8409681,
+      "items": [
+        {
+          "name": "第一銀行城東摩根台灣增長分行",
+          "owner": "王鴻薇",
+          "trustee": "",
+          "units": 6147.5,
+          "nav": 118.78,
+          "ntdTotal": 730200
+        },
+        {
+          "name": "駿利亨德森資產管理基金-駿陶允正",
+          "owner": "中租投顧",
+          "trustee": "",
+          "units": 985.965,
+          "nav": 51.45,
+          "currency": "美元",
+          "ntdTotal": 1560771
+        },
+        {
+          "name": "利亨德森平衡基金A2美元摩根士丹利美國增長基金A(美陶允正元)",
+          "owner": "中租投顧",
+          "trustee": "",
+          "units": 2.861,
+          "nav": 283.25,
+          "currency": "美元",
+          "ntdTotal": 24933
+        },
+        {
+          "name": "富蘭克林坦伯頓全球投資系列-陶允正穩定月收益基金",
+          "owner": "中租投顧",
+          "trustee": "",
+          "units": 3254.837,
+          "nav": 9.74,
+          "currency": "美元",
+          "ntdTotal": 975395
+        },
+        {
+          "name": "美元A(Mdis)股摩根基金-美國科技基金-陶允正",
+          "owner": "中租投顧",
+          "trustee": "",
+          "units": 41.007,
+          "nav": 146.32,
+          "currency": "美元",
+          "ntdTotal": 184609
+        },
+        {
+          "name": "JPM美國科技(美元)-A股(累計)百達-能源轉型陶允正",
+          "owner": "中租投顧",
+          "trustee": "",
+          "units": 9.127,
+          "nav": 184.44,
+          "currency": "美元",
+          "ntdTotal": 51794
+        },
+        {
+          "name": "-R美元元大卓越基金陶允正",
+          "owner": "元大證券",
+          "trustee": "",
+          "units": 3920.8,
+          "nav": 101.34,
+          "ntdTotal": 397334
+        },
+        {
+          "name": "A元大日本龍頭企業基金-新臺陶允正",
+          "owner": "元大證券",
+          "trustee": "",
+          "units": 199700.9,
+          "nav": 13.39,
+          "ntdTotal": 2673995
+        },
+        {
+          "name": "幣A類型元大高股息三民",
+          "owner": "陶允正",
+          "trustee": "",
+          "units": 35000,
+          "nav": 37.49,
+          "ntdTotal": 1312150
+        },
+        {
+          "name": "L元大滬深300正",
+          "owner": "陶允正",
+          "trustee": "",
+          "units": 15000,
+          "nav": 19.94,
+          "ntdTotal": 299100
+        },
+        {
+          "name": "2三民中信綠能及電動",
+          "owner": "陶允正",
+          "trustee": "",
+          "units": 10000,
+          "nav": 19.94,
+          "ntdTotal": 199400
+        }
+      ]
+    }
+  },
+  "notes": "上市櫃股票變動價格不宜以「股票總價額」顯示，應該以「股票總交易額」顯示，以免失真"
+}

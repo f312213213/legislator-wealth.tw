@@ -1,0 +1,32 @@
+{
+  "type": "declaration",
+  "name": "牛煦庭",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2024-11-01",
+  "declarationType": "定期申報",
+  "spouse": {
+    "relation": "配偶",
+    "name": "楊貞儀"
+  },
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 100000,
+    "stocks": {
+      "totalNTD": 100000,
+      "items": [
+        {
+          "name": "崧騰",
+          "owner": "牛煦庭",
+          "shares": 10000,
+          "parValue": 10,
+          "ntdTotal": 100000
+        }
+      ]
+    },
+    "funds": {
+      "totalNTD": 0,
+      "items": []
+    }
+  }
+}

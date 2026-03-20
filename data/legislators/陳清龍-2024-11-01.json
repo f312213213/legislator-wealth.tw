@@ -1,0 +1,102 @@
+{
+  "type": "declaration",
+  "name": "陳清龍",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2024-11-01",
+  "declarationType": "定期申報",
+  "spouse": {
+    "relation": "配偶",
+    "name": "連小華"
+  },
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 441490,
+    "stocks": {
+      "totalNTD": 441490,
+      "items": [
+        {
+          "name": "中興電",
+          "owner": "陳清龍",
+          "shares": 88,
+          "parValue": 10,
+          "ntdTotal": 880
+        },
+        {
+          "name": "永信",
+          "owner": "陳清龍",
+          "shares": 2026,
+          "parValue": 10,
+          "ntdTotal": 20260
+        },
+        {
+          "name": "永信",
+          "owner": "陳清龍",
+          "shares": 464,
+          "parValue": 10,
+          "ntdTotal": 4640
+        },
+        {
+          "name": "中租 - KY",
+          "owner": "陳清龍",
+          "shares": 13333,
+          "parValue": 10,
+          "ntdTotal": 133330
+        },
+        {
+          "name": "永鴻生技",
+          "owner": "陳清龍",
+          "shares": 236,
+          "parValue": 10,
+          "ntdTotal": 2360
+        },
+        {
+          "name": "勝華",
+          "owner": "連小華",
+          "shares": 3000,
+          "parValue": 10,
+          "ntdTotal": 30000
+        },
+        {
+          "name": "陽明",
+          "owner": "連小華",
+          "shares": 3000,
+          "parValue": 10,
+          "ntdTotal": 30000
+        },
+        {
+          "name": "立德",
+          "owner": "連小華",
+          "shares": 4000,
+          "parValue": 10,
+          "ntdTotal": 40000
+        },
+        {
+          "name": "金雨",
+          "owner": "連小華",
+          "shares": 12000,
+          "parValue": 10,
+          "ntdTotal": 120000
+        },
+        {
+          "name": "金雨",
+          "owner": "連小華",
+          "shares": 6000,
+          "parValue": 10,
+          "ntdTotal": 60000
+        },
+        {
+          "name": "環球晶",
+          "owner": "連小華",
+          "shares": 2,
+          "parValue": 10,
+          "ntdTotal": 20
+        }
+      ]
+    },
+    "funds": {
+      "totalNTD": 0,
+      "items": []
+    }
+  }
+}

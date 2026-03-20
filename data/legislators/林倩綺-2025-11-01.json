@@ -1,0 +1,94 @@
+{
+  "type": "declaration",
+  "name": "林倩綺",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2025-11-01",
+  "declarationType": "定期申報",
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 842500,
+    "stocks": {
+      "totalNTD": 177890,
+      "items": [
+        {
+          "name": "聯電",
+          "owner": "林倩綺",
+          "shares": 3000,
+          "parValue": 10,
+          "ntdTotal": 30000
+        },
+        {
+          "name": "宏碁",
+          "owner": "林倩綺",
+          "shares": 3000,
+          "parValue": 10,
+          "ntdTotal": 30000
+        },
+        {
+          "name": "大同",
+          "owner": "林倩綺",
+          "shares": 89,
+          "parValue": 10,
+          "ntdTotal": 890
+        },
+        {
+          "name": "長榮",
+          "owner": "林倩綺",
+          "shares": 2400,
+          "parValue": 10,
+          "ntdTotal": 24000
+        },
+        {
+          "name": "華航",
+          "owner": "林倩綺",
+          "shares": 5000,
+          "parValue": 10,
+          "ntdTotal": 50000
+        },
+        {
+          "name": "萬海",
+          "owner": "林倩綺",
+          "shares": 2300,
+          "parValue": 10,
+          "ntdTotal": 23000
+        },
+        {
+          "name": "星宇航空",
+          "owner": "林倩綺",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "台塑化",
+          "owner": "林倩綺",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        }
+      ]
+    },
+    "funds": {
+      "totalNTD": 664610,
+      "items": [
+        {
+          "name": "富邦證券竹北元大高股息",
+          "owner": "林倩綺",
+          "trustee": "",
+          "units": 16000,
+          "nav": 37.49,
+          "ntdTotal": 599840
+        },
+        {
+          "name": "群益台灣精選高富邦證券竹北息",
+          "owner": "林倩綺",
+          "trustee": "",
+          "units": 3000,
+          "nav": 21.59,
+          "ntdTotal": 64770
+        }
+      ]
+    }
+  }
+}

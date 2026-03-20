@@ -1,0 +1,204 @@
+{
+  "type": "declaration",
+  "name": "許宇甄",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2025-11-01",
+  "declarationType": "定期申報",
+  "spouse": {
+    "relation": "配偶",
+    "name": "林啓滄"
+  },
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 20080236,
+    "stocks": {
+      "totalNTD": 2024760,
+      "items": [
+        {
+          "name": "聯電",
+          "owner": "許宇甄",
+          "shares": 100,
+          "parValue": 10,
+          "ntdTotal": 1000
+        },
+        {
+          "name": "仁寶",
+          "owner": "許宇甄",
+          "shares": 3032,
+          "parValue": 10,
+          "ntdTotal": 30320
+        },
+        {
+          "name": "中華電",
+          "owner": "許宇甄",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "啟阜工程",
+          "owner": "許宇甄",
+          "shares": 24500,
+          "parValue": 10,
+          "ntdTotal": 245000
+        },
+        {
+          "name": "啟阜工程",
+          "owner": "許宇甄",
+          "shares": 3500,
+          "parValue": 10,
+          "ntdTotal": 35000
+        },
+        {
+          "name": "工礦",
+          "owner": "許宇甄",
+          "shares": 517,
+          "parValue": 10,
+          "ntdTotal": 5170
+        },
+        {
+          "name": "艾姆勒",
+          "owner": "林啓滄",
+          "shares": 130017,
+          "parValue": 10,
+          "ntdTotal": 1300170
+        },
+        {
+          "name": "宏碁",
+          "owner": "林啓滄",
+          "shares": 70,
+          "parValue": 10,
+          "ntdTotal": 700
+        },
+        {
+          "name": "鴻運電",
+          "owner": "林啓滄",
+          "shares": 840,
+          "parValue": 10,
+          "ntdTotal": 8400
+        },
+        {
+          "name": "啟阜工程",
+          "owner": "林啓滄",
+          "shares": 3500,
+          "parValue": 10,
+          "ntdTotal": 35000
+        },
+        {
+          "name": "台新新光金",
+          "owner": "林啓滄",
+          "shares": 16000,
+          "parValue": 10,
+          "ntdTotal": 160000
+        },
+        {
+          "name": "奇鋐",
+          "owner": "林啓滄",
+          "shares": 11000,
+          "parValue": 10,
+          "ntdTotal": 110000
+        },
+        {
+          "name": "山太士",
+          "owner": "林啓滄",
+          "shares": 7000,
+          "parValue": 10,
+          "ntdTotal": 70000
+        },
+        {
+          "name": "鴻勁",
+          "owner": "林啓滄",
+          "shares": 1400,
+          "parValue": 10,
+          "ntdTotal": 14000
+        }
+      ]
+    },
+    "funds": {
+      "totalNTD": 18055476,
+      "items": [
+        {
+          "name": "霸菱全球資源基金(再投資)(美元)",
+          "owner": "許宇甄",
+          "trustee": "",
+          "units": 335.327,
+          "nav": 25.95,
+          "currency": "美元",
+          "ntdTotal": 267569
+        },
+        {
+          "name": "法巴消費創新股票基金(累積)(美元)",
+          "owner": "許宇甄",
+          "trustee": "",
+          "units": 22.442,
+          "nav": 404.04,
+          "currency": "美元",
+          "ntdTotal": 278815
+        },
+        {
+          "name": "NB非投等債券基許宇甄元大銀行信託部558.215.82美元99,734.36金月配美元NB非投等債券基許宇甄元大銀行信託部558.215.82美元99,734.36金月配美元NB非投等債券基許宇甄元大銀行信託部558.215.82美元99,734.36金月配美元NB非投等債券基許宇甄元大銀行信託部558.215.82美元99,734.36金月配美元NB非投等債券基許宇甄元大銀行信託部538.44257.31南非幣53,143.83金月配南非幣施羅德新興亞洲",
+          "owner": "許宇甄",
+          "trustee": "",
+          "units": 234.75,
+          "nav": 59.9544,
+          "currency": "美元",
+          "ntdTotal": 431968
+        },
+        {
+          "name": "A1分行貝萊德世界黃金基金分行",
+          "owner": "許宇甄",
+          "trustee": "",
+          "units": 78.74,
+          "nav": 80.39,
+          "currency": "美元",
+          "ntdTotal": 194278
+        },
+        {
+          "name": "貝萊德世界礦業",
+          "owner": "許宇甄",
+          "trustee": "",
+          "units": 521.82,
+          "nav": 82.91,
+          "currency": "美元",
+          "ntdTotal": 1327862
+        },
+        {
+          "name": "美元分行匯豐證券投資信託匯豐龍騰電子許宇甄4,359.90116.87509,541.51股份有限公司匯豐證券投資信託匯豐金磚動力許宇甄38,56515.13583,488.45股份有限公司匯豐證券投資信託匯豐全球關鍵許宇甄45,591.6013.97636,914.65股份有限公司匯豐龍騰電子基許宇甄臺灣銀行文山分行12,458.80116.871,456,059.95金元大台灣價值高兆豐證券來福分公息司",
+          "owner": "林啓滄",
+          "trustee": "",
+          "units": 20000,
+          "nav": 9.78,
+          "ntdTotal": 195600
+        },
+        {
+          "name": "富達全球優質債合庫商業銀行信託券A股C月配日",
+          "owner": "林啓滄",
+          "trustee": "",
+          "units": 10524.1,
+          "nav": 945.9,
+          "currency": "日圓",
+          "ntdTotal": 1965067
+        },
+        {
+          "name": "圓避險富坦全球穩定月合庫商業銀行信託",
+          "owner": "林啓滄",
+          "trustee": "",
+          "units": 32715.019,
+          "nav": 906.44,
+          "currency": "日圓",
+          "ntdTotal": 5853739
+        },
+        {
+          "name": "收益日幣月配現富坦全球穩定月合庫商業銀行信託",
+          "owner": "林啓滄",
+          "trustee": "",
+          "units": 21810.013,
+          "nav": 906.44,
+          "currency": "日圓",
+          "ntdTotal": 3902493
+        }
+      ]
+    }
+  }
+}

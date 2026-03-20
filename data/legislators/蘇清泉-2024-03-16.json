@@ -1,0 +1,202 @@
+{
+  "type": "declaration",
+  "name": "蘇清泉",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2024-03-16",
+  "declarationType": "就",
+  "spouse": {
+    "relation": "配偶",
+    "name": "蘇主榮"
+  },
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 7011771,
+    "stocks": {
+      "totalNTD": 6159990,
+      "items": [
+        {
+          "name": "台塑",
+          "owner": "蘇清泉",
+          "shares": 117000,
+          "parValue": 10,
+          "ntdTotal": 1170000
+        },
+        {
+          "name": "南亞",
+          "owner": "蘇清泉",
+          "shares": 23000,
+          "parValue": 10,
+          "ntdTotal": 230000
+        },
+        {
+          "name": "中鋼",
+          "owner": "蘇清泉",
+          "shares": 280000,
+          "parValue": 10,
+          "ntdTotal": 2800000
+        },
+        {
+          "name": "鴻海",
+          "owner": "蘇清泉",
+          "shares": 20000,
+          "parValue": 10,
+          "ntdTotal": 200000
+        },
+        {
+          "name": "台積電",
+          "owner": "蘇清泉",
+          "shares": 4000,
+          "parValue": 10,
+          "currency": "40,",
+          "ntdTotal": 0
+        },
+        {
+          "name": "玉山金",
+          "owner": "蘇清泉",
+          "shares": 6739,
+          "parValue": 10,
+          "ntdTotal": 67390
+        },
+        {
+          "name": "可寧衛",
+          "owner": "蘇清泉",
+          "shares": 5000,
+          "parValue": 10,
+          "ntdTotal": 50000
+        },
+        {
+          "name": "台泥",
+          "owner": "蘇主榮",
+          "shares": 11959,
+          "parValue": 10,
+          "ntdTotal": 119590
+        },
+        {
+          "name": "台塑",
+          "owner": "蘇主榮",
+          "shares": 18000,
+          "parValue": 10,
+          "ntdTotal": 180000
+        },
+        {
+          "name": "南亞",
+          "owner": "蘇主榮",
+          "shares": 3100,
+          "parValue": 10,
+          "ntdTotal": 31000
+        },
+        {
+          "name": "中鋼",
+          "owner": "蘇主榮",
+          "shares": 25,
+          "parValue": 10,
+          "ntdTotal": 250
+        },
+        {
+          "name": "中鋼",
+          "owner": "蘇主榮",
+          "shares": 1,
+          "parValue": 10,
+          "ntdTotal": 10
+        },
+        {
+          "name": "裕隆",
+          "owner": "蘇主榮",
+          "shares": 353,
+          "parValue": 10,
+          "ntdTotal": 3530
+        },
+        {
+          "name": "裕隆",
+          "owner": "蘇主榮",
+          "shares": 15,
+          "parValue": 10,
+          "ntdTotal": 150
+        },
+        {
+          "name": "台達電",
+          "owner": "蘇主榮",
+          "shares": 23000,
+          "parValue": 10,
+          "ntdTotal": 230000
+        },
+        {
+          "name": "鴻海 蘇",
+          "owner": "主榮",
+          "shares": 3640,
+          "parValue": 10,
+          "ntdTotal": 36400
+        },
+        {
+          "name": "國巨",
+          "owner": "蘇主榮",
+          "shares": 3183,
+          "parValue": 10,
+          "ntdTotal": 31830
+        },
+        {
+          "name": "台積電",
+          "owner": "蘇主榮",
+          "shares": 14000,
+          "parValue": 10,
+          "ntdTotal": 140000
+        },
+        {
+          "name": "大同",
+          "owner": "蘇主榮",
+          "shares": 5000,
+          "parValue": 10,
+          "ntdTotal": 50000
+        },
+        {
+          "name": "聯發科",
+          "owner": "蘇主榮",
+          "shares": 2000,
+          "parValue": 10,
+          "ntdTotal": 20000
+        },
+        {
+          "name": "華新科",
+          "owner": "蘇主榮",
+          "shares": 14000,
+          "parValue": 10,
+          "ntdTotal": 140000
+        },
+        {
+          "name": "長榮",
+          "owner": "蘇主榮",
+          "shares": 1200,
+          "parValue": 10,
+          "ntdTotal": 12000
+        },
+        {
+          "name": "陽明",
+          "owner": "蘇主榮",
+          "shares": 6000,
+          "parValue": 10,
+          "ntdTotal": 60000
+        },
+        {
+          "name": "穩懋",
+          "owner": "蘇主榮",
+          "shares": 5000,
+          "parValue": 10,
+          "ntdTotal": 50000
+        },
+        {
+          "name": "大樹",
+          "owner": "蘇主榮",
+          "shares": 49784,
+          "parValue": 10,
+          "currency": "4",
+          "ntdTotal": 97840
+        }
+      ]
+    },
+    "funds": {
+      "totalNTD": 0,
+      "items": []
+    }
+  }
+}

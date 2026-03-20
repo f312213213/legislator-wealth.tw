@@ -1,0 +1,621 @@
+{
+  "type": "declaration",
+  "name": "黃秀芳",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2025-11-01",
+  "declarationType": "定期申報",
+  "spouse": {
+    "relation": "配偶",
+    "name": "鄧堯銓"
+  },
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 11393243,
+    "stocks": {
+      "totalNTD": 841780,
+      "items": [
+        {
+          "name": "宏碁",
+          "owner": "黃秀芳",
+          "shares": 4545,
+          "parValue": 10,
+          "ntdTotal": 45450
+        },
+        {
+          "name": "臺企銀",
+          "owner": "黃秀芳",
+          "shares": 4025,
+          "parValue": 10,
+          "ntdTotal": 40250
+        },
+        {
+          "name": "建碁",
+          "owner": "黃秀芳",
+          "shares": 12,
+          "parValue": 10,
+          "ntdTotal": 120
+        },
+        {
+          "name": "建碁",
+          "owner": "黃秀芳",
+          "shares": 6,
+          "parValue": 10,
+          "ntdTotal": 60
+        },
+        {
+          "name": "緯創",
+          "owner": "黃秀芳",
+          "shares": 795,
+          "parValue": 10,
+          "ntdTotal": 7950
+        },
+        {
+          "name": "台泥",
+          "owner": "鄧堯銓",
+          "shares": 6000,
+          "parValue": 10,
+          "ntdTotal": 60000
+        },
+        {
+          "name": "黑松",
+          "owner": "鄧堯銓",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "遠東新",
+          "owner": "鄧堯銓",
+          "shares": 10000,
+          "parValue": 10,
+          "ntdTotal": 100000
+        },
+        {
+          "name": "裕隆",
+          "owner": "鄧堯銓",
+          "shares": 842,
+          "parValue": 10,
+          "ntdTotal": 8420
+        },
+        {
+          "name": "宏碁",
+          "owner": "鄧堯銓",
+          "shares": 132,
+          "parValue": 10,
+          "ntdTotal": 1320
+        },
+        {
+          "name": "藍天",
+          "owner": "鄧堯銓",
+          "shares": 619,
+          "parValue": 10,
+          "ntdTotal": 6190
+        },
+        {
+          "name": "三商壽",
+          "owner": "鄧堯銓",
+          "shares": 12372,
+          "parValue": 10,
+          "ntdTotal": 123720
+        },
+        {
+          "name": "富邦金",
+          "owner": "鄧堯銓",
+          "shares": 3854,
+          "parValue": 10,
+          "ntdTotal": 38540
+        },
+        {
+          "name": "國泰金",
+          "owner": "鄧堯銓",
+          "shares": 7133,
+          "parValue": 10,
+          "ntdTotal": 71330
+        },
+        {
+          "name": "玉山金",
+          "owner": "鄧堯銓",
+          "shares": 2354,
+          "parValue": 10,
+          "ntdTotal": 23540
+        },
+        {
+          "name": "兆豐金",
+          "owner": "鄧堯銓",
+          "shares": 3539,
+          "parValue": 10,
+          "ntdTotal": 35390
+        },
+        {
+          "name": "兆豐金",
+          "owner": "鄧堯銓",
+          "shares": 876,
+          "parValue": 10,
+          "ntdTotal": 8760
+        },
+        {
+          "name": "文曄甲特",
+          "owner": "鄧堯銓",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "夆典",
+          "owner": "鄧堯銓",
+          "shares": 1040,
+          "parValue": 10,
+          "ntdTotal": 10400
+        },
+        {
+          "name": "夆典",
+          "owner": "鄧堯銓",
+          "shares": 1020,
+          "parValue": 10,
+          "ntdTotal": 10200
+        },
+        {
+          "name": "華晶科",
+          "owner": "鄧堯銓",
+          "shares": 1078,
+          "parValue": 10,
+          "ntdTotal": 10780
+        },
+        {
+          "name": "緯創",
+          "owner": "鄧堯銓",
+          "shares": 194,
+          "parValue": 10,
+          "ntdTotal": 1940
+        },
+        {
+          "name": "富采",
+          "owner": "鄧堯銓",
+          "shares": 275,
+          "parValue": 10,
+          "ntdTotal": 2750
+        },
+        {
+          "name": "群益證",
+          "owner": "鄧堯銓",
+          "shares": 11000,
+          "parValue": 10,
+          "ntdTotal": 110000
+        },
+        {
+          "name": "志超",
+          "owner": "鄧堯銓",
+          "shares": 8000,
+          "parValue": 10,
+          "ntdTotal": 80000
+        },
+        {
+          "name": "光隆",
+          "owner": "鄧堯銓",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "中鼎",
+          "owner": "鄧堯銓",
+          "shares": 1467,
+          "parValue": 10,
+          "ntdTotal": 14670
+        }
+      ]
+    },
+    "funds": {
+      "totalNTD": 10551463,
+      "items": [
+        {
+          "name": "駿利亨德森資產管理基金-駿利黃秀芳基",
+          "owner": "富通證券",
+          "trustee": "",
+          "units": 563.528,
+          "nav": 41.87,
+          "currency": "美元",
+          "ntdTotal": 724305
+        },
+        {
+          "name": "亨德森環球科技創新基金A2美元柏瑞環球基金-柏瑞印度股票基黃秀芳基金A",
+          "owner": "富通證券",
+          "trustee": "",
+          "units": 122.963,
+          "nav": 93.5723,
+          "currency": "美元",
+          "ntdTotal": 353203
+        },
+        {
+          "name": "摩根基金-拉丁美洲基金-JPM黃秀芳基",
+          "owner": "富通證券",
+          "trustee": "",
+          "units": 657.414,
+          "nav": 36.02,
+          "currency": "美元",
+          "ntdTotal": 726918
+        },
+        {
+          "name": "拉丁美洲(美元)-A股(累計)富達基金－全球債券基金(A股黃秀芳基累計美元)",
+          "owner": "富通證券",
+          "trustee": "",
+          "units": 421.66,
+          "nav": 13.74,
+          "currency": "美元",
+          "ntdTotal": 177849
+        },
+        {
+          "name": "荷寶資本成長基金-荷寶環球消黃秀芳基",
+          "owner": "富通證券",
+          "trustee": "",
+          "units": 62.8758,
+          "nav": 411.06,
+          "currency": "美元",
+          "ntdTotal": 793399
+        },
+        {
+          "name": "費新趨勢股票M美元安本基金-印度股票基金X累積黃秀芳基美元",
+          "owner": "富通證券",
+          "trustee": "",
+          "units": 547.067,
+          "nav": 25.5754,
+          "currency": "美元",
+          "ntdTotal": 429503
+        },
+        {
+          "name": "貝萊德全球智慧數據股票入息基黃秀芳基",
+          "owner": "富通證券",
+          "trustee": "",
+          "units": 423.09,
+          "nav": 9.25,
+          "currency": "美元",
+          "ntdTotal": 120137
+        },
+        {
+          "name": "金A6美元(穩定配息)【好享退-國泰黃秀芳基",
+          "owner": "富通證券",
+          "trustee": "",
+          "units": 21725.4,
+          "nav": 19.7592,
+          "ntdTotal": 429277
+        },
+        {
+          "name": "2039】國泰泰享退系列2039目標日期組合基金P安本新興市場債彰化銀行彰化券基金A月配息分行美元",
+          "owner": "黃秀芳",
+          "trustee": "",
+          "units": 263.482,
+          "nav": 14.1689,
+          "currency": "美元",
+          "ntdTotal": 114547
+        },
+        {
+          "name": "晉達環球入息導彰化銀行彰化向基金C收益2分行",
+          "owner": "黃秀芳",
+          "trustee": "",
+          "units": 182.414,
+          "nav": 15.52,
+          "currency": "美元",
+          "ntdTotal": 86866
+        },
+        {
+          "name": "股份美月配息富達新興市場基彰化銀行彰化",
+          "owner": "黃秀芳",
+          "trustee": "",
+          "units": 7.55,
+          "nav": 37.98,
+          "currency": "美元",
+          "ntdTotal": 8798
+        },
+        {
+          "name": "金分行富達基金-美元彰化銀行彰化非投資等級債券分行",
+          "owner": "黃秀芳",
+          "trustee": "",
+          "units": 920.24,
+          "nav": 10.76,
+          "currency": "美元",
+          "ntdTotal": 303816
+        },
+        {
+          "name": "基金美元月配息霸菱東歐基金-彰化銀行彰化",
+          "owner": "黃秀芳",
+          "trustee": "",
+          "units": 1.062,
+          "nav": 58.45,
+          "currency": "美元",
+          "ntdTotal": 1905
+        },
+        {
+          "name": "美元分行霸菱東歐(側袋)彰化銀行彰化基金-A類美元配黃秀芳1.06258.60美元1,909.50分行息型坦伯頓全球美國彰化銀行彰化",
+          "owner": "黃秀芳",
+          "trustee": "",
+          "units": 2065.079,
+          "nav": 7.25,
+          "currency": "美元",
+          "ntdTotal": 459380
+        },
+        {
+          "name": "政府基金美月配分行坦伯頓全球新興彰化銀行彰化",
+          "owner": "黃秀芳",
+          "trustee": "",
+          "units": 1027.016,
+          "nav": 7.38,
+          "currency": "美元",
+          "ntdTotal": 232558
+        },
+        {
+          "name": "國家固定美季配分行坦伯頓全球新興彰化銀行彰化",
+          "owner": "黃秀芳",
+          "trustee": "",
+          "units": 336.744,
+          "nav": 7.38,
+          "currency": "美元",
+          "ntdTotal": 76252
+        },
+        {
+          "name": "國家固定美季配分行坦伯頓全球新興彰化銀行彰化",
+          "owner": "黃秀芳",
+          "trustee": "",
+          "units": 253.726,
+          "nav": 7.38,
+          "currency": "美元",
+          "ntdTotal": 57454
+        },
+        {
+          "name": "國家固定美季配分行坦伯頓全球全球彰化銀行彰化",
+          "owner": "黃秀芳",
+          "trustee": "",
+          "units": 422.632,
+          "nav": 9.49,
+          "currency": "歐元",
+          "ntdTotal": 141857
+        },
+        {
+          "name": "債券-歐元配息分行聯博全球非投資彰化銀行彰化等級債券基金AT分行",
+          "owner": "黃秀芳",
+          "trustee": "",
+          "units": 2015.491,
+          "nav": 3.14,
+          "currency": "美元",
+          "ntdTotal": 194182
+        },
+        {
+          "name": "聯博全球非投資彰化銀行彰化等級債券基金AT分行",
+          "owner": "黃秀芳",
+          "trustee": "",
+          "units": 817.896,
+          "nav": 3.14,
+          "currency": "美元",
+          "ntdTotal": 78800
+        },
+        {
+          "name": "百達-俄羅斯股票-R歐元[暫停鄧堯銓",
+          "owner": "中租投顧",
+          "trustee": "",
+          "units": 1.4,
+          "nav": 47.27,
+          "currency": "歐元",
+          "ntdTotal": 2358
+        },
+        {
+          "name": "交易]安本基金-印度債券基金A月中鄧堯銓配息美元",
+          "owner": "中租投顧",
+          "trustee": "",
+          "units": 1044.958,
+          "nav": 7.3768,
+          "currency": "美元",
+          "ntdTotal": 237170
+        },
+        {
+          "name": "富達基金－日本鄧堯銓",
+          "owner": "中租投顧",
+          "trustee": "",
+          "units": 67.8,
+          "nav": 9175.5,
+          "currency": "日圓",
+          "ntdTotal": 124917
+        },
+        {
+          "name": "價值基金(A2股日圓)中國信託高評級策略收益債券基鄧堯銓",
+          "owner": "中租投顧",
+          "trustee": "",
+          "units": 10003.2,
+          "nav": 9.5921,
+          "ntdTotal": 95952
+        },
+        {
+          "name": "金-台幣B安聯新興債券收益組合基金-B類鄧堯銓",
+          "owner": "中租投顧",
+          "trustee": "",
+          "units": 12235.1,
+          "nav": 8.2012,
+          "ntdTotal": 100343
+        },
+        {
+          "name": "型(月配息)-新臺幣國泰美國優質債券基金B(新台鄧堯銓幣)",
+          "owner": "中租投顧",
+          "trustee": "",
+          "units": 20580.23,
+          "nav": 9.1167,
+          "ntdTotal": 187624
+        },
+        {
+          "name": "元富證券大裕國泰永續高股息鄧堯銓26921.765,853.44元大台灣50鄧堯銓37264.0623,830.32元大高股息",
+          "owner": "鄧堯銓",
+          "trustee": "",
+          "units": 18800,
+          "nav": 37.49,
+          "ntdTotal": 704812
+        },
+        {
+          "name": "元大美債20年",
+          "owner": "鄧堯銓",
+          "trustee": "",
+          "units": 20000,
+          "nav": 27.4141,
+          "ntdTotal": 548282
+        },
+        {
+          "name": "元大投資級公司鄧堯銓9,00033.2869299,582.10債元大AAA至A公鄧堯銓9,50032.2381306,261.95司債國泰智能電動車鄧堯銓11,16433.58374,887.12國泰全球品牌50鄧堯銓4,45826.97120,232.26元大台灣價值高息",
+          "owner": "鄧堯銓",
+          "trustee": "",
+          "units": 10000,
+          "nav": 9.78,
+          "ntdTotal": 97800
+        },
+        {
+          "name": "土銀富邦R1",
+          "owner": "鄧堯銓",
+          "trustee": "",
+          "units": 4000,
+          "nav": 12.39,
+          "ntdTotal": 49560
+        },
+        {
+          "name": "PIMCO多元收益債券基金-E級類鄧堯銓基",
+          "owner": "富通證券",
+          "trustee": "",
+          "units": 256.373,
+          "nav": 12.43,
+          "currency": "美元",
+          "ntdTotal": 97824
+        },
+        {
+          "name": "別(收息股份)富蘭克林坦伯頓全球投資系列－鄧堯銓基",
+          "owner": "富通證券",
+          "trustee": "",
+          "units": 473.658,
+          "nav": 4.32,
+          "currency": "美元",
+          "ntdTotal": 62813
+        },
+        {
+          "name": "新興國家固定收益基金美元A(Mdis)股聯博-全球非投資等級債券基金鄧堯銓基",
+          "owner": "富通證券",
+          "trustee": "",
+          "units": 277.021,
+          "nav": 7.77,
+          "currency": "美元",
+          "ntdTotal": 66075
+        },
+        {
+          "name": "AA(穩定月配)級別美元貝萊德全球智慧數據股票入息基鄧堯銓基",
+          "owner": "富通證券",
+          "trustee": "",
+          "units": 910.13,
+          "nav": 9.25,
+          "currency": "美元",
+          "ntdTotal": 258433
+        },
+        {
+          "name": "金A6美元(穩定配息)安本基金-印度債券基金X月配鄧堯銓基",
+          "owner": "富通證券",
+          "trustee": "",
+          "units": 680.62,
+          "nav": 7.5936,
+          "currency": "美元",
+          "ntdTotal": 158656
+        },
+        {
+          "name": "息美元景順印度債券基金A-穩定月配息鄧堯銓基",
+          "owner": "富通證券",
+          "trustee": "",
+          "units": 1887.628,
+          "nav": 5.4678,
+          "currency": "美元",
+          "ntdTotal": 316834
+        },
+        {
+          "name": "股美元安本新興市場債彰化銀行南台券基金Ａ月配息",
+          "owner": "鄧堯銓",
+          "trustee": "",
+          "units": 473.455,
+          "nav": 14.1689,
+          "currency": "美元",
+          "ntdTotal": 205832
+        },
+        {
+          "name": "中分行美元富達基金-美元彰化銀行南台非投資等級債券",
+          "owner": "鄧堯銓",
+          "trustee": "",
+          "units": 134.78,
+          "nav": 10.76,
+          "currency": "美元",
+          "ntdTotal": 44497
+        },
+        {
+          "name": "中分行基金美元月配息富達基金-美元彰化銀行南台非投資等級債券",
+          "owner": "鄧堯銓",
+          "trustee": "",
+          "units": 252.75,
+          "nav": 11.42,
+          "currency": "美元",
+          "ntdTotal": 88564
+        },
+        {
+          "name": "中分行基金景順環球非投資等級債券基金A-彰化銀行南台",
+          "owner": "鄧堯銓",
+          "trustee": "",
+          "units": 110.19,
+          "nav": 10.18,
+          "currency": "美元",
+          "ntdTotal": 34418
+        },
+        {
+          "name": "固定月配息股中分行美元景順環球非投資等級債券基金A-彰化銀行南台",
+          "owner": "鄧堯銓",
+          "trustee": "",
+          "units": 83.83,
+          "nav": 10.18,
+          "currency": "美元",
+          "ntdTotal": 26185
+        },
+        {
+          "name": "固定月配息股中分行美元景順環球非投資等級債券基金A-彰化銀行南台",
+          "owner": "鄧堯銓",
+          "trustee": "",
+          "units": 42.93,
+          "nav": 10.18,
+          "currency": "美元",
+          "ntdTotal": 13409
+        },
+        {
+          "name": "固定月配息股中分行美元坦伯頓全球新興彰化銀行南台",
+          "owner": "鄧堯銓",
+          "trustee": "",
+          "units": 562.469,
+          "nav": 7.38,
+          "currency": "美元",
+          "ntdTotal": 127366
+        },
+        {
+          "name": "國家固定美季配中分行坦伯頓全球新興鄧堯銓彰化銀行南台479.3074.32美元63,532國家固收美月配中分行坦伯頓全球新興彰化銀行南台",
+          "owner": "鄧堯銓",
+          "trustee": "",
+          "units": 436.85,
+          "nav": 4.32,
+          "currency": "美元",
+          "ntdTotal": 57905
+        },
+        {
+          "name": "國家固收美月配中分行坦伯頓全球新興彰化銀行南台",
+          "owner": "鄧堯銓",
+          "trustee": "",
+          "units": 207.813,
+          "nav": 4.32,
+          "currency": "美元",
+          "ntdTotal": 27546
+        },
+        {
+          "name": "國家固收美月配中分行聯博全球非投資彰化銀行南台等級債券基金AT中分行",
+          "owner": "鄧堯銓",
+          "trustee": "",
+          "units": 1133.369,
+          "nav": 3.14,
+          "currency": "美元",
+          "ntdTotal": 109194
+        }
+      ]
+    }
+  }
+}

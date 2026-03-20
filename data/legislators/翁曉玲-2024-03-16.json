@@ -1,0 +1,255 @@
+{
+  "type": "declaration",
+  "name": "翁曉玲",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2024-03-16",
+  "declarationType": "就",
+  "spouse": {
+    "relation": "配偶",
+    "name": "陳春生"
+  },
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 4396790,
+    "stocks": {
+      "totalNTD": 1676280,
+      "items": [
+        {
+          "name": "台泥",
+          "owner": "翁曉玲",
+          "shares": 10000,
+          "parValue": 10,
+          "ntdTotal": 100000
+        },
+        {
+          "name": "大成",
+          "owner": "翁曉玲",
+          "shares": 2294,
+          "parValue": 10,
+          "ntdTotal": 22940
+        },
+        {
+          "name": "卜蜂",
+          "owner": "翁曉玲",
+          "shares": 2200,
+          "parValue": 10,
+          "ntdTotal": 22000
+        },
+        {
+          "name": "統一",
+          "owner": "翁曉玲",
+          "shares": 3000,
+          "parValue": 10,
+          "ntdTotal": 30000
+        },
+        {
+          "name": "台塑",
+          "owner": "翁曉玲",
+          "shares": 5000,
+          "parValue": 10,
+          "ntdTotal": 50000
+        },
+        {
+          "name": "臺化",
+          "owner": "翁曉玲",
+          "shares": 2000,
+          "parValue": 10,
+          "ntdTotal": 20000
+        },
+        {
+          "name": "鴻海",
+          "owner": "翁曉玲",
+          "shares": 12000,
+          "parValue": 10,
+          "ntdTotal": 120000
+        },
+        {
+          "name": "台積電",
+          "owner": "翁曉玲",
+          "shares": 1463,
+          "parValue": 10,
+          "ntdTotal": 14630
+        },
+        {
+          "name": "微星",
+          "owner": "翁曉玲",
+          "shares": 1500,
+          "parValue": 10,
+          "ntdTotal": 15000
+        },
+        {
+          "name": "廣達",
+          "owner": "翁曉玲",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "中華電",
+          "owner": "翁曉玲",
+          "shares": 2000,
+          "parValue": 10,
+          "ntdTotal": 20000
+        },
+        {
+          "name": "長榮航",
+          "owner": "翁曉玲",
+          "shares": 3000,
+          "parValue": 10,
+          "ntdTotal": 30000
+        },
+        {
+          "name": "台灣高鐵",
+          "owner": "翁曉玲",
+          "shares": 12000,
+          "parValue": 10,
+          "ntdTotal": 120000
+        },
+        {
+          "name": "玉山金",
+          "owner": "翁曉玲",
+          "shares": 16529,
+          "parValue": 10,
+          "ntdTotal": 165290
+        },
+        {
+          "name": "大立光",
+          "owner": "翁曉玲",
+          "shares": 160,
+          "parValue": 10,
+          "ntdTotal": 1600
+        },
+        {
+          "name": "大聯大",
+          "owner": "翁曉玲",
+          "shares": 8000,
+          "parValue": 10,
+          "ntdTotal": 80000
+        },
+        {
+          "name": "遠傳",
+          "owner": "翁曉玲",
+          "shares": 3000,
+          "parValue": 10,
+          "ntdTotal": 30000
+        },
+        {
+          "name": "瑞儀",
+          "owner": "翁曉玲",
+          "shares": 2000,
+          "parValue": 10,
+          "ntdTotal": 20000
+        },
+        {
+          "name": "關貿",
+          "owner": "翁曉玲",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "精誠",
+          "owner": "翁曉玲",
+          "shares": 6000,
+          "parValue": 10,
+          "ntdTotal": 60000
+        },
+        {
+          "name": "鴻海",
+          "owner": "陳春生",
+          "shares": 20000,
+          "parValue": 10,
+          "ntdTotal": 200000
+        },
+        {
+          "name": "台積電",
+          "owner": "陳春生",
+          "shares": 9753,
+          "parValue": 10,
+          "ntdTotal": 97530
+        },
+        {
+          "name": "中華電",
+          "owner": "陳春生",
+          "shares": 10000,
+          "parValue": 10,
+          "ntdTotal": 100000
+        },
+        {
+          "name": "聯發科",
+          "owner": "陳春生",
+          "shares": 3000,
+          "parValue": 10,
+          "ntdTotal": 30000
+        },
+        {
+          "name": "元大金",
+          "owner": "陳春生",
+          "shares": 8729,
+          "parValue": 10,
+          "ntdTotal": 87290
+        },
+        {
+          "name": "遠傳",
+          "owner": "陳春生",
+          "shares": 15000,
+          "parValue": 10,
+          "ntdTotal": 150000
+        },
+        {
+          "name": "崇越",
+          "owner": "陳春生",
+          "shares": 7000,
+          "parValue": 10,
+          "ntdTotal": 70000
+        }
+      ]
+    },
+    "funds": {
+      "totalNTD": 2720510,
+      "items": [
+        {
+          "name": "凱基證券三峽元大台灣50",
+          "owner": "翁曉玲",
+          "trustee": "",
+          "units": 1000,
+          "nav": 152.96,
+          "ntdTotal": 152960
+        },
+        {
+          "name": "凱基證券三峽元大高股息",
+          "owner": "翁曉玲",
+          "trustee": "",
+          "units": 15000,
+          "nav": 39.2,
+          "ntdTotal": 588000
+        },
+        {
+          "name": "凱基證券三峽中信中國高股息",
+          "owner": "翁曉玲",
+          "trustee": "",
+          "units": 15000,
+          "nav": 10.41,
+          "ntdTotal": 156150
+        },
+        {
+          "name": "凱基優選高股息凱基證券三峽30",
+          "owner": "翁曉玲",
+          "trustee": "",
+          "units": 10000,
+          "nav": 25.54,
+          "ntdTotal": 255400
+        },
+        {
+          "name": "凱基證券三峽元大高股息",
+          "owner": "陳春生",
+          "trustee": "",
+          "units": 40000,
+          "nav": 39.2,
+          "ntdTotal": 1568000
+        }
+      ]
+    }
+  }
+}

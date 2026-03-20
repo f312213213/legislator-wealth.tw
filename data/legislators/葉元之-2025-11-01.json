@@ -1,0 +1,281 @@
+{
+  "type": "declaration",
+  "name": "葉元之",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2025-11-01",
+  "declarationType": "定期申報",
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 11818177,
+    "stocks": {
+      "totalNTD": 1538160,
+      "items": [
+        {
+          "name": "中纖",
+          "owner": "葉元之",
+          "shares": 4512,
+          "parValue": 10,
+          "ntdTotal": 45120
+        },
+        {
+          "name": "盛餘",
+          "owner": "葉元之",
+          "shares": 1010,
+          "parValue": 10,
+          "ntdTotal": 10100
+        },
+        {
+          "name": "彥武",
+          "owner": "葉元之",
+          "shares": 4400,
+          "parValue": 10,
+          "ntdTotal": 44000
+        },
+        {
+          "name": "裕隆",
+          "owner": "葉元之",
+          "shares": 10000,
+          "parValue": 10,
+          "ntdTotal": 100000
+        },
+        {
+          "name": "金寶",
+          "owner": "葉元之",
+          "shares": 1072,
+          "parValue": 10,
+          "ntdTotal": 10720
+        },
+        {
+          "name": "鴻海",
+          "owner": "葉元之",
+          "shares": 2558,
+          "parValue": 10,
+          "ntdTotal": 25580
+        },
+        {
+          "name": "台積電",
+          "owner": "葉元之",
+          "shares": 2080,
+          "parValue": 10,
+          "ntdTotal": 20800
+        },
+        {
+          "name": "碧悠電子",
+          "owner": "葉元之",
+          "shares": 46,
+          "parValue": 10,
+          "ntdTotal": 460
+        },
+        {
+          "name": "勝華",
+          "owner": "葉元之",
+          "shares": 1099,
+          "parValue": 10,
+          "ntdTotal": 10990
+        },
+        {
+          "name": "毅嘉",
+          "owner": "葉元之",
+          "shares": 2040,
+          "parValue": 10,
+          "ntdTotal": 20400
+        },
+        {
+          "name": "中華電",
+          "owner": "葉元之",
+          "shares": 10032,
+          "parValue": 10,
+          "ntdTotal": 100320
+        },
+        {
+          "name": "昶虹",
+          "owner": "葉元之",
+          "shares": 3295,
+          "parValue": 10,
+          "ntdTotal": 32950
+        },
+        {
+          "name": "華映",
+          "owner": "葉元之",
+          "shares": 53,
+          "parValue": 10,
+          "ntdTotal": 530
+        },
+        {
+          "name": "國泰金",
+          "owner": "葉元之",
+          "shares": 20000,
+          "parValue": 10,
+          "ntdTotal": 200000
+        },
+        {
+          "name": "凱基金",
+          "owner": "葉元之",
+          "shares": 1736,
+          "parValue": 10,
+          "ntdTotal": 17360
+        },
+        {
+          "name": "威強電",
+          "owner": "葉元之",
+          "shares": 1809,
+          "parValue": 10,
+          "ntdTotal": 18090
+        },
+        {
+          "name": "威健",
+          "owner": "葉元之",
+          "shares": 10000,
+          "parValue": 10,
+          "ntdTotal": 100000
+        },
+        {
+          "name": "台灣大",
+          "owner": "葉元之",
+          "shares": 10267,
+          "parValue": 10,
+          "ntdTotal": 102670
+        },
+        {
+          "name": "昇銳",
+          "owner": "葉元之",
+          "shares": 2194,
+          "parValue": 10,
+          "ntdTotal": 21940
+        },
+        {
+          "name": "神達",
+          "owner": "葉元之",
+          "shares": 1636,
+          "parValue": 10,
+          "ntdTotal": 16360
+        },
+        {
+          "name": "神達",
+          "owner": "葉元之",
+          "shares": 1572,
+          "parValue": 10,
+          "ntdTotal": 15720
+        },
+        {
+          "name": "康和證",
+          "owner": "葉元之",
+          "shares": 13976,
+          "parValue": 10,
+          "ntdTotal": 139760
+        },
+        {
+          "name": "大宇資",
+          "owner": "葉元之",
+          "shares": 1131,
+          "parValue": 10,
+          "ntdTotal": 11310
+        },
+        {
+          "name": "新普",
+          "owner": "葉元之",
+          "shares": 20000,
+          "parValue": 10,
+          "ntdTotal": 200000
+        },
+        {
+          "name": "精誠",
+          "owner": "葉元之",
+          "shares": 160,
+          "parValue": 10,
+          "ntdTotal": 1600
+        },
+        {
+          "name": "精誠",
+          "owner": "葉元之",
+          "shares": 127,
+          "parValue": 10,
+          "ntdTotal": 1270
+        },
+        {
+          "name": "久元",
+          "owner": "葉元之",
+          "shares": 1120,
+          "parValue": 10,
+          "ntdTotal": 11200
+        },
+        {
+          "name": "英格爾",
+          "owner": "葉元之",
+          "shares": 19,
+          "parValue": 10,
+          "ntdTotal": 190
+        },
+        {
+          "name": "寶成",
+          "owner": "葉元之",
+          "shares": 20000,
+          "parValue": 10,
+          "ntdTotal": 200000
+        },
+        {
+          "name": "潤泰新",
+          "owner": "葉元之",
+          "shares": 299,
+          "parValue": 10,
+          "ntdTotal": 2990
+        },
+        {
+          "name": "潤泰新",
+          "owner": "葉元之",
+          "shares": 108,
+          "parValue": 10,
+          "ntdTotal": 1080
+        },
+        {
+          "name": "佳龍",
+          "owner": "葉元之",
+          "shares": 5465,
+          "parValue": 10,
+          "ntdTotal": 54650
+        }
+      ]
+    },
+    "funds": {
+      "totalNTD": 10280017,
+      "items": [
+        {
+          "name": "群益台灣精選高永豐金證券敦息南",
+          "owner": "葉元之",
+          "trustee": "",
+          "units": 70000,
+          "nav": 21.59,
+          "ntdTotal": 1511300
+        },
+        {
+          "name": "富達新興市場基彰化銀行南港",
+          "owner": "葉元之",
+          "trustee": "",
+          "units": 212.64,
+          "nav": 37.98,
+          "currency": "美元",
+          "ntdTotal": 247798
+        },
+        {
+          "name": "金科學園區分行富達新興市場基彰化銀行南港",
+          "owner": "葉元之",
+          "trustee": "",
+          "units": 210.19,
+          "nav": 37.98,
+          "currency": "美元",
+          "ntdTotal": 244943
+        },
+        {
+          "name": "金科學園區分行富達新興市場基彰化銀行南港",
+          "owner": "葉元之",
+          "trustee": "",
+          "units": 189.86,
+          "nav": 37.98,
+          "currency": "美元",
+          "ntdTotal": 221252
+        }
+      ]
+    }
+  }
+}

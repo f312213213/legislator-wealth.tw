@@ -1,0 +1,385 @@
+{
+  "type": "declaration",
+  "name": "林沛祥",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2025-11-01",
+  "declarationType": "定期申報",
+  "spouse": {
+    "relation": "配偶",
+    "name": "何淑鈴"
+  },
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 5297260,
+    "stocks": {
+      "totalNTD": 46190,
+      "items": [
+        {
+          "name": "茂矽",
+          "owner": "林沛祥",
+          "shares": 2132,
+          "parValue": 10,
+          "ntdTotal": 21320
+        },
+        {
+          "name": "英業達",
+          "owner": "林沛祥",
+          "shares": 228,
+          "parValue": 10,
+          "ntdTotal": 2280
+        },
+        {
+          "name": "鴻海",
+          "owner": "何淑鈴",
+          "shares": 68,
+          "parValue": 10,
+          "ntdTotal": 680
+        },
+        {
+          "name": "仁寶",
+          "owner": "何淑鈴",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "聯發科",
+          "owner": "何淑鈴",
+          "shares": 108,
+          "parValue": 10,
+          "ntdTotal": 1080
+        },
+        {
+          "name": "鈊象",
+          "owner": "何淑鈴",
+          "shares": 5,
+          "parValue": 10,
+          "ntdTotal": 50
+        },
+        {
+          "name": "中天",
+          "owner": "何淑鈴",
+          "shares": 1050,
+          "parValue": 10,
+          "ntdTotal": 10500
+        },
+        {
+          "name": "康霈＊",
+          "owner": "何淑鈴",
+          "shares": 28,
+          "parValue": 10,
+          "ntdTotal": 280
+        }
+      ]
+    },
+    "funds": {
+      "totalNTD": 5251070,
+      "items": [
+        {
+          "name": "貝萊德世界科技基金（累積）（美元）",
+          "owner": "林沛祥",
+          "trustee": "",
+          "units": 76.57,
+          "nav": 120.87,
+          "currency": "美元",
+          "ntdTotal": 284582
+        },
+        {
+          "name": "貝萊德世界科技基金（累積）（美元）",
+          "owner": "林沛祥",
+          "trustee": "",
+          "units": 73.41,
+          "nav": 120.87,
+          "currency": "美元",
+          "ntdTotal": 272837
+        },
+        {
+          "name": "貝萊德世界科技基金（累積）（美元）",
+          "owner": "林沛祥",
+          "trustee": "",
+          "units": 63.76,
+          "nav": 120.87,
+          "currency": "美元",
+          "ntdTotal": 236972
+        },
+        {
+          "name": "貝萊德世界科技基金（累積）（美元）",
+          "owner": "林沛祥",
+          "trustee": "",
+          "units": 57.61,
+          "nav": 120.87,
+          "currency": "美元",
+          "ntdTotal": 214115
+        },
+        {
+          "name": "貝萊德世界科技基金（累積）（美元）",
+          "owner": "林沛祥",
+          "trustee": "",
+          "units": 34.85,
+          "nav": 120.87,
+          "currency": "美元",
+          "ntdTotal": 129524
+        },
+        {
+          "name": "貝萊德世界科技基金（累積）（美元）",
+          "owner": "林沛祥",
+          "trustee": "",
+          "units": 31.84,
+          "nav": 120.87,
+          "currency": "美元",
+          "ntdTotal": 118337
+        },
+        {
+          "name": "貝萊德世界科技基金（累積）（美元）",
+          "owner": "林沛祥",
+          "trustee": "",
+          "units": 22.2,
+          "nav": 120.87,
+          "currency": "美元",
+          "ntdTotal": 82509
+        },
+        {
+          "name": "瑞銀（盧森堡）大中華股票基金（美元）（累積）（美元）",
+          "owner": "林沛祥",
+          "trustee": "",
+          "units": 17.291,
+          "nav": 539.79,
+          "currency": "美元",
+          "ntdTotal": 286996
+        },
+        {
+          "name": "瑞銀（盧森堡）大中華股票基金（美元）（累積）（美元）",
+          "owner": "林沛祥",
+          "trustee": "",
+          "units": 16.922,
+          "nav": 539.79,
+          "currency": "美元",
+          "ntdTotal": 280871
+        },
+        {
+          "name": "瑞銀（盧森堡）大中華股票基金（美元）（累積）（美元）",
+          "owner": "林沛祥",
+          "trustee": "",
+          "units": 15.672,
+          "nav": 539.79,
+          "currency": "美元",
+          "ntdTotal": 260123
+        },
+        {
+          "name": "瑞銀（盧森堡）大中華股票基金（美元）（累積）（美元）",
+          "owner": "林沛祥",
+          "trustee": "",
+          "units": 7.275,
+          "nav": 539.79,
+          "currency": "美元",
+          "ntdTotal": 120750
+        },
+        {
+          "name": "瑞銀（盧森堡）大中華股票基金（美元）（累積）（美元）",
+          "owner": "林沛祥",
+          "trustee": "",
+          "units": 7.275,
+          "nav": 539.79,
+          "currency": "美元",
+          "ntdTotal": 120750
+        },
+        {
+          "name": "新加坡大華黃金及綜合基金（累積）（新加坡幣）",
+          "owner": "林沛祥",
+          "trustee": "",
+          "units": 1922.38,
+          "nav": 3.569,
+          "currency": "新加坡幣",
+          "ntdTotal": 162193
+        },
+        {
+          "name": "新加坡大華全球保健基金（累積）（美元）",
+          "owner": "林沛祥",
+          "trustee": "",
+          "units": 687.21,
+          "nav": 4.8204,
+          "currency": "美元",
+          "ntdTotal": 101859
+        },
+        {
+          "name": "PIMCO美國股票增益基金E(累積)(美元)",
+          "owner": "林沛祥",
+          "trustee": "",
+          "units": 221.051,
+          "nav": 73.02,
+          "currency": "美元",
+          "ntdTotal": 496324
+        },
+        {
+          "name": "PIMCO美國股票增益基金E(累積)(美元)",
+          "owner": "林沛祥",
+          "trustee": "",
+          "units": 90.069,
+          "nav": 73.02,
+          "currency": "美元",
+          "ntdTotal": 202231
+        },
+        {
+          "name": "PIMCO美國股票增益基金E(累積)(美元)",
+          "owner": "林沛祥",
+          "trustee": "",
+          "units": 86.801,
+          "nav": 73.02,
+          "currency": "美元",
+          "ntdTotal": 194893
+        },
+        {
+          "name": "PIMCO美國股票增益基金E(累積)(美元)",
+          "owner": "林沛祥",
+          "trustee": "",
+          "units": 75.874,
+          "nav": 73.02,
+          "currency": "美元",
+          "ntdTotal": 170359
+        },
+        {
+          "name": "PIMCO美國股票增益基金E(累積)(美元)",
+          "owner": "林沛祥",
+          "trustee": "",
+          "units": 57.338,
+          "nav": 73.02,
+          "currency": "美元",
+          "ntdTotal": 128740
+        },
+        {
+          "name": "PIMCO美國股票增益基金E(累積)(美元)",
+          "owner": "林沛祥",
+          "trustee": "",
+          "units": 53.061,
+          "nav": 73.02,
+          "currency": "美元",
+          "ntdTotal": 119137
+        },
+        {
+          "name": "PIMCO美國股票增益基金E(累積)(美元)",
+          "owner": "林沛祥",
+          "trustee": "",
+          "units": 48.951,
+          "nav": 73.02,
+          "currency": "美元",
+          "ntdTotal": 109909
+        },
+        {
+          "name": "摩根士丹利美國增長基金(累積)(美元)",
+          "owner": "林沛祥",
+          "trustee": "",
+          "units": 16.052,
+          "nav": 283.25,
+          "currency": "美元",
+          "ntdTotal": 139807
+        },
+        {
+          "name": "摩根士丹利美國增長基金(累積)(美元)",
+          "owner": "林沛祥",
+          "trustee": "",
+          "units": 15.227,
+          "nav": 283.25,
+          "currency": "美元",
+          "ntdTotal": 132621
+        },
+        {
+          "name": "摩根士丹利美國增長基金（累積）（美元）",
+          "owner": "林沛祥",
+          "trustee": "",
+          "units": 10.886,
+          "nav": 283.25,
+          "currency": "美元",
+          "ntdTotal": 94813
+        },
+        {
+          "name": "匯豐全球關鍵資源基金(累積)(新台幣)",
+          "owner": "林沛祥",
+          "trustee": "",
+          "units": 10643.6,
+          "nav": 13.97,
+          "ntdTotal": 148691
+        },
+        {
+          "name": "元大台灣卓越50ETF連結基金(配現)(新台幣)",
+          "owner": "林沛祥",
+          "trustee": "",
+          "units": 6183.6,
+          "nav": 32.05,
+          "ntdTotal": 198184
+        },
+        {
+          "name": "元大台灣卓越50ETF連結基金(配現)(新台幣)",
+          "owner": "林沛祥",
+          "trustee": "",
+          "units": 4329,
+          "nav": 32.05,
+          "ntdTotal": 138744
+        },
+        {
+          "name": "元大高股息",
+          "owner": "何淑鈴",
+          "trustee": "",
+          "units": 1000,
+          "nav": 37.49,
+          "ntdTotal": 37490
+        },
+        {
+          "name": "摩根基金-美國科技基金(累積)(美元)",
+          "owner": "林○安",
+          "trustee": "",
+          "units": 10.859,
+          "nav": 146.32,
+          "currency": "美元",
+          "ntdTotal": 48856
+        },
+        {
+          "name": "富蘭克林坦伯頓全球投資系列科技基金(累積)(美元)",
+          "owner": "林○安",
+          "trustee": "",
+          "units": 22.568,
+          "nav": 64.05,
+          "currency": "美元",
+          "ntdTotal": 44447
+        },
+        {
+          "name": "聯博-精選美國股票基金(累積)(歐元)",
+          "owner": "林○安",
+          "trustee": "",
+          "units": 18.792,
+          "nav": 72.22,
+          "currency": "歐元",
+          "ntdTotal": 48257
+        },
+        {
+          "name": "安本基金-北美小型公司基金(累積)(美元)",
+          "owner": "林○欣",
+          "trustee": "",
+          "units": 36.582,
+          "nav": 28.307,
+          "currency": "美元",
+          "ntdTotal": 31841
+        },
+        {
+          "name": "摩根基金-美國科技基金(累積)(美元)",
+          "owner": "林○欣",
+          "trustee": "",
+          "units": 10.86,
+          "nav": 146.32,
+          "currency": "美元",
+          "ntdTotal": 48861
+        },
+        {
+          "name": "富蘭克林坦伯頓全球投資系列科技基金(累積)(美元)",
+          "owner": "林○欣",
+          "trustee": "",
+          "units": 22.568,
+          "nav": 64.05,
+          "currency": "美元",
+          "ntdTotal": 44447
+        }
+      ]
+    }
+  },
+  "notes": "無"
+}

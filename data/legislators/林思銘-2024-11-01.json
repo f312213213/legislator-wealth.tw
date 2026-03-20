@@ -1,0 +1,117 @@
+{
+  "type": "declaration",
+  "name": "林思銘",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2024-11-01",
+  "declarationType": "定期申報",
+  "spouse": {
+    "relation": "配偶",
+    "name": "陳靜芳"
+  },
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 41860,
+    "stocks": {
+      "totalNTD": 41860,
+      "items": [
+        {
+          "name": "臺化",
+          "owner": "陳靜芳",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "中纖",
+          "owner": "陳靜芳",
+          "shares": 341,
+          "parValue": 10,
+          "ntdTotal": 3410
+        },
+        {
+          "name": "中纖",
+          "owner": "陳靜芳",
+          "shares": 80,
+          "parValue": 10,
+          "ntdTotal": 800
+        },
+        {
+          "name": "正新",
+          "owner": "陳靜芳",
+          "shares": 285,
+          "parValue": 10,
+          "ntdTotal": 2850
+        },
+        {
+          "name": "裕隆",
+          "owner": "陳靜芳",
+          "shares": 129,
+          "parValue": 10,
+          "ntdTotal": 1290
+        },
+        {
+          "name": "裕隆",
+          "owner": "陳靜芳",
+          "shares": 5,
+          "parValue": 10,
+          "ntdTotal": 50
+        },
+        {
+          "name": "聯電",
+          "owner": "陳靜芳",
+          "shares": 641,
+          "parValue": 10,
+          "ntdTotal": 6410
+        },
+        {
+          "name": "聯電",
+          "owner": "陳靜芳",
+          "shares": 5,
+          "parValue": 61,
+          "currency": "10",
+          "ntdTotal": 5610
+        },
+        {
+          "name": "仲琦",
+          "owner": "陳靜芳",
+          "shares": 802,
+          "parValue": 10,
+          "ntdTotal": 8020
+        },
+        {
+          "name": "新光金",
+          "owner": "陳靜芳",
+          "shares": 200,
+          "parValue": 10,
+          "ntdTotal": 2000
+        },
+        {
+          "name": "新光金",
+          "owner": "陳靜芳",
+          "shares": 15,
+          "parValue": 10,
+          "ntdTotal": 150
+        },
+        {
+          "name": "永豐金",
+          "owner": "陳靜芳",
+          "shares": 96,
+          "parValue": 10,
+          "ntdTotal": 960
+        },
+        {
+          "name": "永豐金",
+          "owner": "陳靜芳",
+          "shares": 31,
+          "parValue": 10,
+          "ntdTotal": 310
+        }
+      ]
+    },
+    "funds": {
+      "totalNTD": 0,
+      "items": []
+    }
+  }
+}

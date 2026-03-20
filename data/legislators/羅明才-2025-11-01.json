@@ -1,0 +1,140 @@
+{
+  "type": "declaration",
+  "name": "羅明才",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2025-11-01",
+  "declarationType": "定期申報",
+  "spouse": {
+    "relation": "配偶",
+    "name": "黃靜秋"
+  },
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 7354045,
+    "stocks": {
+      "totalNTD": 5849650,
+      "items": [
+        {
+          "name": "台泥",
+          "owner": "羅明才",
+          "shares": 100000,
+          "parValue": 10,
+          "ntdTotal": 1000000
+        },
+        {
+          "name": "台塑",
+          "owner": "羅明才",
+          "shares": 20000,
+          "parValue": 10,
+          "ntdTotal": 200000
+        },
+        {
+          "name": "康舒",
+          "owner": "羅明才",
+          "shares": 200000,
+          "parValue": 10,
+          "ntdTotal": 2000000
+        },
+        {
+          "name": "統一",
+          "owner": "黃靜秋",
+          "shares": 2945,
+          "parValue": 10,
+          "ntdTotal": 29450
+        },
+        {
+          "name": "統一",
+          "owner": "黃靜秋",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "台塑",
+          "owner": "黃靜秋",
+          "shares": 50000,
+          "parValue": 10,
+          "ntdTotal": 500000
+        },
+        {
+          "name": "華隆",
+          "owner": "黃靜秋",
+          "shares": 56,
+          "parValue": 10,
+          "ntdTotal": 560
+        },
+        {
+          "name": "富邦金丙特",
+          "owner": "黃靜秋",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "富邦金",
+          "owner": "黃靜秋",
+          "shares": 107824,
+          "parValue": 10,
+          "ntdTotal": 1078240
+        },
+        {
+          "name": "國泰金",
+          "owner": "黃靜秋",
+          "shares": 1176,
+          "parValue": 10,
+          "ntdTotal": 11760
+        },
+        {
+          "name": "兆豐金",
+          "owner": "黃靜秋",
+          "shares": 1058,
+          "parValue": 10,
+          "ntdTotal": 10580
+        },
+        {
+          "name": "台新新光金",
+          "owner": "黃靜秋",
+          "shares": 88712,
+          "parValue": 10,
+          "ntdTotal": 887120
+        },
+        {
+          "name": "台新新光金",
+          "owner": "黃靜秋",
+          "shares": 6622,
+          "parValue": 10,
+          "ntdTotal": 66220
+        },
+        {
+          "name": "台新新光金",
+          "owner": "黃靜秋",
+          "shares": 3454,
+          "parValue": 10,
+          "ntdTotal": 34540
+        },
+        {
+          "name": "長億實業",
+          "owner": "黃靜秋",
+          "shares": 1118,
+          "parValue": 10,
+          "ntdTotal": 11180
+        }
+      ]
+    },
+    "funds": {
+      "totalNTD": 697589,
+      "items": [
+        {
+          "name": "摩根環球非投資合庫商業銀行2.517239.7918,520黃靜秋美元等級債A美累計信託JPM中國基金美合庫商業銀行",
+          "owner": "黃靜秋",
+          "trustee": "",
+          "units": 277.531,
+          "nav": 79.74,
+          "currency": "美元",
+          "ntdTotal": 679069
+        }
+      ]
+    }
+  }
+}

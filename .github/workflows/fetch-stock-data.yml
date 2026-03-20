@@ -1,0 +1,54 @@
+name: Fetch Stock Data
+
+on:
+  schedule:
+    - cron: '0 8 * * *' # 16:00 UTC+8
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  fetch-and-commit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fetch TWSE STOCK_DAY_ALL
+        run: |
+          curl -s -X 'GET' \
+            'https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL' \
+            -H 'accept: application/json' \
+            -H 'If-Modified-Since: Mon, 26 Jul 1997 05:00:00 GMT' \
+            -H 'Cache-Control: no-cache' \
+            -H 'Pragma: no-cache' \
+            -o data/STOCK_DAY_ALL.json
+
+      - name: Fetch TPEx mainboard quotes
+        run: |
+          curl -s -X 'GET' \
+            'https://www.tpex.org.tw/openapi/v1/tpex_mainboard_quotes' \
+            -H 'accept: application/json' \
+            -H 'If-Modified-Since: Mon, 26 Jul 1997 05:00:00 GMT' \
+            -H 'Cache-Control: no-cache' \
+            -H 'Pragma: no-cache' \
+            -o data/tpex_mainboard_quotes.json
+
+      - name: Fetch TPEx ESB latest statistics
+        run: |
+          curl -s -X 'GET' \
+            'https://www.tpex.org.tw/openapi/v1/tpex_esb_latest_statistics' \
+            -H 'accept: application/json' \
+            -H 'If-Modified-Since: Mon, 26 Jul 1997 05:00:00 GMT' \
+            -H 'Cache-Control: no-cache' \
+            -H 'Pragma: no-cache' \
+            -o data/tpex_esb_latest_statistics.json
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/STOCK_DAY_ALL.json data/tpex_mainboard_quotes.json data/tpex_esb_latest_statistics.json
+          git diff --cached --quiet || git commit -m "data: update stock data $(TZ='Asia/Taipei' date +'%Y-%m-%d')"
+          git push

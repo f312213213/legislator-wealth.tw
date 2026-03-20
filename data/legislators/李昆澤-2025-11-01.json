@@ -1,0 +1,56 @@
+{
+  "type": "declaration",
+  "name": "李昆澤",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2025-11-01",
+  "declarationType": "定期申報",
+  "spouse": {
+    "relation": "配偶",
+    "name": "廖翊百"
+  },
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 407800,
+    "stocks": {
+      "totalNTD": 90000,
+      "items": [
+        {
+          "name": "台灣高鐵",
+          "owner": "廖翊百",
+          "shares": 4000,
+          "parValue": 10,
+          "ntdTotal": 40000
+        },
+        {
+          "name": "91 APP* - KY",
+          "owner": "廖翊百",
+          "shares": 5000,
+          "parValue": 10,
+          "ntdTotal": 50000
+        }
+      ]
+    },
+    "funds": {
+      "totalNTD": 317800,
+      "items": [
+        {
+          "name": "華南永昌證券中信電池及儲能高雄",
+          "owner": "廖翊百",
+          "trustee": "",
+          "units": 10000,
+          "nav": 13.46,
+          "ntdTotal": 134600
+        },
+        {
+          "name": "華南永昌證券富邦元宇宙高雄",
+          "owner": "廖翊百",
+          "trustee": "",
+          "units": 10000,
+          "nav": 18.32,
+          "ntdTotal": 183200
+        }
+      ]
+    }
+  }
+}

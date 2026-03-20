@@ -1,0 +1,32 @@
+{
+  "type": "declaration",
+  "name": "魯明哲",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2024-12-31",
+  "declarationType": "定期申報",
+  "spouse": {
+    "relation": "配偶",
+    "name": "汪玉仙"
+  },
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 170410,
+    "stocks": {
+      "totalNTD": 170410,
+      "items": [
+        {
+          "name": "泰豐輪胎",
+          "owner": "汪玉仙",
+          "shares": 17041,
+          "parValue": 10,
+          "ntdTotal": 170410
+        }
+      ]
+    },
+    "funds": {
+      "totalNTD": 0,
+      "items": []
+    }
+  }
+}

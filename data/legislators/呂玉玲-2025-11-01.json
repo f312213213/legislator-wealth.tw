@@ -1,0 +1,67 @@
+{
+  "type": "declaration",
+  "name": "呂玉玲",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2025-11-01",
+  "declarationType": "定期申報",
+  "spouse": {
+    "relation": "配偶",
+    "name": "陳萬得"
+  },
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 384660,
+    "stocks": {
+      "totalNTD": 384660,
+      "items": [
+        {
+          "name": "世紀風電",
+          "owner": "陳萬得",
+          "shares": 8000,
+          "parValue": 10,
+          "ntdTotal": 80000
+        },
+        {
+          "name": "大同",
+          "owner": "陳萬得",
+          "shares": 104,
+          "parValue": 10,
+          "ntdTotal": 1040
+        },
+        {
+          "name": "上詮",
+          "owner": "陳萬得",
+          "shares": 4000,
+          "parValue": 10,
+          "ntdTotal": 40000
+        },
+        {
+          "name": "聯合再生",
+          "owner": "陳萬得",
+          "shares": 362,
+          "parValue": 10,
+          "ntdTotal": 3620
+        },
+        {
+          "name": "華星光",
+          "owner": "陳萬得",
+          "shares": 20000,
+          "parValue": 10,
+          "ntdTotal": 200000
+        },
+        {
+          "name": "洋基工程",
+          "owner": "陳萬得",
+          "shares": 6000,
+          "parValue": 10,
+          "ntdTotal": 60000
+        }
+      ]
+    },
+    "funds": {
+      "totalNTD": 0,
+      "items": []
+    }
+  }
+}

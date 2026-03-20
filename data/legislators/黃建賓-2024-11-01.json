@@ -1,0 +1,129 @@
+{
+  "type": "declaration",
+  "name": "黃建賓",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2024-11-01",
+  "declarationType": "定期申報",
+  "spouse": {
+    "relation": "配偶",
+    "name": "張欣為"
+  },
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 1254296,
+    "stocks": {
+      "totalNTD": 1138360,
+      "items": [
+        {
+          "name": "駿吉 - KY",
+          "owner": "黃建賓",
+          "shares": 10000,
+          "parValue": 10,
+          "ntdTotal": 100000
+        },
+        {
+          "name": "台玻",
+          "owner": "黃建賓",
+          "shares": 15000,
+          "parValue": 10,
+          "ntdTotal": 150000
+        },
+        {
+          "name": "鴻海",
+          "owner": "黃建賓",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "宏 碁",
+          "owner": "黃建賓",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "輔信",
+          "owner": "黃建賓",
+          "shares": 30000,
+          "parValue": 10,
+          "currency": "30",
+          "ntdTotal": 0
+        },
+        {
+          "name": "台新金",
+          "owner": "黃建賓",
+          "shares": 10836,
+          "parValue": 10,
+          "ntdTotal": 108360
+        },
+        {
+          "name": "中信金",
+          "owner": "黃建賓",
+          "shares": 10000,
+          "parValue": 10,
+          "ntdTotal": 100000
+        },
+        {
+          "name": "統一超",
+          "owner": "黃建賓",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "淘帝 - KY",
+          "owner": "黃建賓",
+          "shares": 22000,
+          "parValue": 10,
+          "ntdTotal": 220000
+        },
+        {
+          "name": "德晉",
+          "owner": "黃建賓",
+          "shares": 10000,
+          "parValue": 10,
+          "ntdTotal": 100000
+        },
+        {
+          "name": "浩鼎",
+          "owner": "黃建賓",
+          "shares": 3000,
+          "parValue": 10,
+          "ntdTotal": 30000
+        }
+      ]
+    },
+    "funds": {
+      "totalNTD": 115936,
+      "items": [
+        {
+          "name": "聯博美國傘型聯博美國多重資產黃建賓收益基金-AD配",
+          "owner": "富邦證券",
+          "trustee": "",
+          "units": 133.33,
+          "nav": 14.44,
+          "currency": "美元",
+          "ntdTotal": 61686
+        },
+        {
+          "name": "美(特金)富邦證券台東元大台灣50反1",
+          "owner": "黃建賓",
+          "trustee": "",
+          "units": 5000,
+          "nav": 3.33,
+          "ntdTotal": 16650
+        },
+        {
+          "name": "國泰臺灣加權反富邦證券台東1",
+          "owner": "黃建賓",
+          "trustee": "",
+          "units": 10000,
+          "nav": 3.76,
+          "ntdTotal": 37600
+        }
+      ]
+    }
+  }
+}

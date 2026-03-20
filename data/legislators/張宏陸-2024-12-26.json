@@ -1,0 +1,24 @@
+{
+  "type": "declaration",
+  "name": "張宏陸",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2024-12-26",
+  "declarationType": "定期申報",
+  "spouse": {
+    "relation": "配偶",
+    "name": "王春英"
+  },
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 0,
+    "stocks": {
+      "totalNTD": 0,
+      "items": []
+    },
+    "funds": {
+      "totalNTD": 0,
+      "items": []
+    }
+  }
+}

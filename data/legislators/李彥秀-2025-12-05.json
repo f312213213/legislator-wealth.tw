@@ -1,0 +1,32 @@
+{
+  "type": "declaration",
+  "name": "李彥秀",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2025-12-05",
+  "declarationType": "定期申報",
+  "spouse": {
+    "relation": "配偶",
+    "name": "侯冠群"
+  },
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 29677560,
+    "stocks": {
+      "totalNTD": 2250000,
+      "items": [
+        {
+          "name": "亞太電信股份有限公司",
+          "owner": "李彥秀",
+          "shares": 225000,
+          "parValue": 10,
+          "ntdTotal": 2250000
+        }
+      ]
+    },
+    "funds": {
+      "totalNTD": 0,
+      "items": []
+    }
+  }
+}

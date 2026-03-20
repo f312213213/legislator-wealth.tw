@@ -1,0 +1,145 @@
+{
+  "type": "declaration",
+  "name": "陳永康",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2024-04-26",
+  "declarationType": "就",
+  "spouse": {
+    "relation": "配偶",
+    "name": "王森"
+  },
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 350000,
+    "stocks": {
+      "totalNTD": 350000,
+      "items": [
+        {
+          "name": "台積電",
+          "owner": "王森",
+          "shares": 2000,
+          "parValue": 10,
+          "ntdTotal": 20000
+        },
+        {
+          "name": "聯電",
+          "owner": "王森",
+          "shares": 2000,
+          "parValue": 10,
+          "ntdTotal": 20000
+        },
+        {
+          "name": "中華開發",
+          "owner": "王森",
+          "shares": 3000,
+          "parValue": 10,
+          "ntdTotal": 30000
+        },
+        {
+          "name": "五鼎",
+          "owner": "王森",
+          "shares": 1000,
+          "parValue": 10,
+          "currency": "10,00",
+          "ntdTotal": 0
+        },
+        {
+          "name": "鋐寶",
+          "owner": "王森",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "耀華",
+          "owner": "王森",
+          "shares": 2000,
+          "parValue": 10,
+          "ntdTotal": 20000
+        },
+        {
+          "name": "春源",
+          "owner": "王森",
+          "shares": 3000,
+          "parValue": 10,
+          "ntdTotal": 30000
+        },
+        {
+          "name": "中鴻",
+          "owner": "王森",
+          "shares": 4000,
+          "parValue": 10,
+          "ntdTotal": 40000
+        },
+        {
+          "name": "萬泰科",
+          "owner": "王森",
+          "shares": 2000,
+          "parValue": 10,
+          "ntdTotal": 20000
+        },
+        {
+          "name": "美琪瑪",
+          "owner": "王森",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "普誠",
+          "owner": "王森",
+          "shares": 2000,
+          "parValue": 10,
+          "ntdTotal": 20000
+        },
+        {
+          "name": "鈺創",
+          "owner": "王森",
+          "shares": 2000,
+          "parValue": 10,
+          "ntdTotal": 20000
+        },
+        {
+          "name": "星宇航空",
+          "owner": "王森",
+          "shares": 3000,
+          "parValue": 10,
+          "ntdTotal": 30000
+        },
+        {
+          "name": "益得",
+          "owner": "王森",
+          "shares": 2000,
+          "parValue": 10,
+          "ntdTotal": 20000
+        },
+        {
+          "name": "萬海航運",
+          "owner": "王森",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "合晶",
+          "owner": "王森",
+          "shares": 2000,
+          "parValue": 10,
+          "ntdTotal": 20000
+        },
+        {
+          "name": "永捷",
+          "owner": "王森",
+          "shares": 2000,
+          "parValue": 10,
+          "ntdTotal": 20000
+        }
+      ]
+    },
+    "funds": {
+      "totalNTD": 0,
+      "items": []
+    }
+  }
+}

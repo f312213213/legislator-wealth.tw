@@ -1,0 +1,28 @@
+{
+  "type": "declaration",
+  "name": "陳素月",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2024-11-01",
+  "declarationType": "定期申報",
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 120000,
+    "stocks": {
+      "totalNTD": 120000,
+      "items": [
+        {
+          "name": "群聯",
+          "owner": "陳素月",
+          "shares": 12000,
+          "parValue": 10,
+          "ntdTotal": 120000
+        }
+      ]
+    },
+    "funds": {
+      "totalNTD": 0,
+      "items": []
+    }
+  }
+}

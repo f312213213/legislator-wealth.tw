@@ -1,0 +1,38 @@
+{
+  "type": "change",
+  "name": "沈伯洋",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2025-11-15",
+  "changePeriod": {
+    "from": "2024-04-26",
+    "to": "2025-11-15"
+  },
+  "spouse": {
+    "relation": "配偶",
+    "name": "曾心慧"
+  },
+  "minorChildren": [],
+  "stocks": [
+    {
+      "name": "台積電",
+      "broker": "",
+      "owner": "沈伯洋",
+      "shares": 1000,
+      "changePrice": 10,
+      "changeDate": "2025-04-24",
+      "changeReason": "買進",
+      "total": 10000
+    },
+    {
+      "name": "第一金",
+      "broker": "",
+      "owner": "曾心慧",
+      "shares": 3283,
+      "changePrice": 10,
+      "changeDate": "2025-09-17",
+      "changeReason": "買進",
+      "total": 32830
+    }
+  ]
+}

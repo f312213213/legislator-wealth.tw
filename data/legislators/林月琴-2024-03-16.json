@@ -1,0 +1,814 @@
+{
+  "type": "declaration",
+  "name": "林月琴",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2024-03-16",
+  "declarationType": "就",
+  "spouse": {
+    "relation": "配偶",
+    "name": "蔡宗翰"
+  },
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 17555075,
+    "stocks": {
+      "totalNTD": 9010000,
+      "items": [
+        {
+          "name": "台泥 林",
+          "owner": "月琴",
+          "shares": 5499,
+          "parValue": 10,
+          "ntdTotal": 54990
+        },
+        {
+          "name": "台聚",
+          "owner": "林月琴",
+          "shares": 3000,
+          "parValue": 10,
+          "ntdTotal": 30000
+        },
+        {
+          "name": "華夏",
+          "owner": "林月琴",
+          "shares": 1180,
+          "parValue": 10,
+          "ntdTotal": 11800
+        },
+        {
+          "name": "臺化",
+          "owner": "林月琴",
+          "shares": 2060,
+          "parValue": 10,
+          "ntdTotal": 20600
+        },
+        {
+          "name": "得力",
+          "owner": "林月琴",
+          "shares": 4240,
+          "parValue": 10,
+          "ntdTotal": 42400
+        },
+        {
+          "name": "儒鴻",
+          "owner": "林月琴",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "中鋼",
+          "owner": "林月琴",
+          "shares": 2000,
+          "parValue": 10,
+          "ntdTotal": 20000
+        },
+        {
+          "name": "春雨",
+          "owner": "林月琴",
+          "shares": 4200,
+          "parValue": 10,
+          "ntdTotal": 42000
+        },
+        {
+          "name": "聯電",
+          "owner": "林月琴",
+          "shares": 6000,
+          "parValue": 10,
+          "ntdTotal": 60000
+        },
+        {
+          "name": "台達電",
+          "owner": "林月琴",
+          "shares": 2000,
+          "parValue": 10,
+          "ntdTotal": 20000
+        },
+        {
+          "name": "金寶",
+          "owner": "林月琴",
+          "shares": 5000,
+          "parValue": 10,
+          "ntdTotal": 50000
+        },
+        {
+          "name": "鴻海",
+          "owner": "林月琴",
+          "shares": 3036,
+          "parValue": 10,
+          "ntdTotal": 30360
+        },
+        {
+          "name": "台積電",
+          "owner": "林月琴",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "華邦電",
+          "owner": "林月琴",
+          "shares": 7281,
+          "parValue": 10,
+          "ntdTotal": 72810
+        },
+        {
+          "name": "台光電",
+          "owner": "林月琴",
+          "shares": 2000,
+          "parValue": 10,
+          "ntdTotal": 20000
+        },
+        {
+          "name": "群光",
+          "owner": "林月琴",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "南亞科",
+          "owner": "林月琴",
+          "shares": 4000,
+          "parValue": 10,
+          "ntdTotal": 40000
+        },
+        {
+          "name": "聯發科",
+          "owner": "林月琴",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "飛宏",
+          "owner": "林月琴",
+          "shares": 4000,
+          "parValue": 10,
+          "ntdTotal": 40000
+        },
+        {
+          "name": "瑞軒",
+          "owner": "林月琴",
+          "shares": 4000,
+          "parValue": 10,
+          "ntdTotal": 40000
+        },
+        {
+          "name": "根基",
+          "owner": "林月琴",
+          "shares": 1138,
+          "parValue": 10,
+          "ntdTotal": 11380
+        },
+        {
+          "name": "富邦金",
+          "owner": "林月琴",
+          "shares": 6163,
+          "parValue": 10,
+          "ntdTotal": 61630
+        },
+        {
+          "name": "玉山金",
+          "owner": "林月琴",
+          "shares": 2350,
+          "parValue": 10,
+          "ntdTotal": 23500
+        },
+        {
+          "name": "中信金",
+          "owner": "林月琴",
+          "shares": 2000,
+          "parValue": 10,
+          "ntdTotal": 20000
+        },
+        {
+          "name": "晶豪科",
+          "owner": "林月琴",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "欣興",
+          "owner": "林月琴",
+          "shares": 5000,
+          "parValue": 10,
+          "ntdTotal": 50000
+        },
+        {
+          "name": "緯創",
+          "owner": "林月琴",
+          "shares": 3178,
+          "parValue": 10,
+          "ntdTotal": 31780
+        },
+        {
+          "name": "玉晶光",
+          "owner": "林月琴",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "曜越",
+          "owner": "林月琴",
+          "shares": 3299,
+          "parValue": 10,
+          "ntdTotal": 32990
+        },
+        {
+          "name": "神達",
+          "owner": "林月琴",
+          "shares": 2960,
+          "parValue": 10,
+          "ntdTotal": 29600
+        },
+        {
+          "name": "富采",
+          "owner": "林月琴",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "國精化",
+          "owner": "林月琴",
+          "shares": 1050,
+          "parValue": 10,
+          "ntdTotal": 10500
+        },
+        {
+          "name": "遠傳",
+          "owner": "林月琴",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "科嘉 - K Y",
+          "owner": "林月琴",
+          "shares": 2000,
+          "parValue": 10,
+          "ntdTotal": 20000
+        },
+        {
+          "name": "立凱 - K Y",
+          "owner": "林月琴",
+          "shares": 1264,
+          "parValue": 10,
+          "ntdTotal": 12640
+        },
+        {
+          "name": "福邦證",
+          "owner": "林月琴",
+          "shares": 6000,
+          "parValue": 10,
+          "ntdTotal": 60000
+        },
+        {
+          "name": "頎邦",
+          "owner": "林月琴",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "瑞儀",
+          "owner": "林月琴",
+          "shares": 2000,
+          "parValue": 10,
+          "ntdTotal": 20000
+        },
+        {
+          "name": "台郡",
+          "owner": "林月琴",
+          "shares": 2000,
+          "parValue": 10,
+          "ntdTotal": 20000
+        },
+        {
+          "name": "同欣電",
+          "owner": "林月琴",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "至上",
+          "owner": "林月琴",
+          "shares": 2211,
+          "parValue": 10,
+          "ntdTotal": 22110
+        },
+        {
+          "name": "台泥",
+          "owner": "蔡宗翰",
+          "shares": 10999,
+          "parValue": 10,
+          "ntdTotal": 109990
+        },
+        {
+          "name": "亞泥",
+          "owner": "蔡宗翰",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "聯華",
+          "owner": "蔡宗翰",
+          "shares": 8690,
+          "parValue": 10,
+          "ntdTotal": 86900
+        },
+        {
+          "name": "中鋼",
+          "owner": "蔡宗翰",
+          "shares": 2000,
+          "parValue": 10,
+          "ntdTotal": 20000
+        },
+        {
+          "name": "國際中橡",
+          "owner": "蔡宗翰",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "聯電",
+          "owner": "蔡宗翰",
+          "shares": 2000,
+          "parValue": 10,
+          "ntdTotal": 20000
+        },
+        {
+          "name": "佳錄科技",
+          "owner": "蔡宗翰",
+          "shares": 798,
+          "parValue": 10,
+          "ntdTotal": 7980
+        },
+        {
+          "name": "台積電 蔡",
+          "owner": "宗翰",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "旺宏",
+          "owner": "蔡宗翰",
+          "shares": 2000,
+          "parValue": 10,
+          "ntdTotal": 20000
+        },
+        {
+          "name": "智邦",
+          "owner": "蔡宗翰",
+          "shares": 5009,
+          "parValue": 10,
+          "ntdTotal": 50090
+        },
+        {
+          "name": "聯強",
+          "owner": "蔡宗翰",
+          "shares": 11920,
+          "parValue": 10,
+          "ntdTotal": 119200
+        },
+        {
+          "name": "佳世達",
+          "owner": "蔡宗翰",
+          "shares": 21977,
+          "parValue": 10,
+          "ntdTotal": 219770
+        },
+        {
+          "name": "技嘉",
+          "owner": "蔡宗翰",
+          "shares": 6000,
+          "parValue": 10,
+          "ntdTotal": 60000
+        },
+        {
+          "name": "廣達",
+          "owner": "蔡宗翰",
+          "shares": 3000,
+          "parValue": 10,
+          "ntdTotal": 30000
+        },
+        {
+          "name": "台光電",
+          "owner": "蔡宗翰",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "群光",
+          "owner": "蔡宗翰",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "友達",
+          "owner": "蔡宗翰",
+          "shares": 1600,
+          "parValue": 10,
+          "currency": "16,",
+          "ntdTotal": 0
+        },
+        {
+          "name": "精技",
+          "owner": "蔡宗翰",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "互盛電",
+          "owner": "蔡宗翰",
+          "shares": 3000,
+          "parValue": 10,
+          "ntdTotal": 30000
+        },
+        {
+          "name": "國建",
+          "owner": "蔡宗翰",
+          "shares": 1394,
+          "parValue": 10,
+          "ntdTotal": 13940
+        },
+        {
+          "name": "中工",
+          "owner": "蔡宗翰",
+          "shares": 6113,
+          "parValue": 10,
+          "ntdTotal": 61130
+        },
+        {
+          "name": "長榮",
+          "owner": "蔡宗翰",
+          "shares": 800,
+          "parValue": 10,
+          "ntdTotal": 8000
+        },
+        {
+          "name": "陽明",
+          "owner": "蔡宗翰",
+          "shares": 3296,
+          "parValue": 10,
+          "ntdTotal": 32960
+        },
+        {
+          "name": "台灣高鐵",
+          "owner": "蔡宗翰",
+          "shares": 2000,
+          "parValue": 10,
+          "ntdTotal": 20000
+        },
+        {
+          "name": "台中銀",
+          "owner": "蔡宗翰",
+          "shares": 33675,
+          "parValue": 10,
+          "ntdTotal": 336750
+        },
+        {
+          "name": "華南金",
+          "owner": "蔡宗翰",
+          "shares": 22303,
+          "parValue": 10,
+          "ntdTotal": 223030
+        },
+        {
+          "name": "富邦金",
+          "owner": "蔡宗翰",
+          "shares": 4,
+          "parValue": 50,
+          "currency": "10",
+          "ntdTotal": 40500
+        },
+        {
+          "name": "國泰金",
+          "owner": "蔡宗翰",
+          "shares": 88574,
+          "parValue": 10,
+          "ntdTotal": 885740
+        },
+        {
+          "name": "開發金",
+          "owner": "蔡宗翰",
+          "shares": 290677,
+          "parValue": 10,
+          "ntdTotal": 2906770
+        },
+        {
+          "name": "玉山金",
+          "owner": "蔡宗翰",
+          "shares": 4565,
+          "parValue": 10,
+          "ntdTotal": 45650
+        },
+        {
+          "name": "玉山金",
+          "owner": "蔡宗翰",
+          "shares": 2000,
+          "parValue": 10,
+          "ntdTotal": 20000
+        },
+        {
+          "name": "兆豐金",
+          "owner": "蔡宗翰",
+          "shares": 10547,
+          "parValue": 10,
+          "ntdTotal": 105470
+        },
+        {
+          "name": "台新金",
+          "owner": "蔡宗翰",
+          "shares": 53804,
+          "parValue": 10,
+          "ntdTotal": 538040
+        },
+        {
+          "name": "新光金",
+          "owner": "蔡宗翰",
+          "shares": 9136,
+          "parValue": 10,
+          "ntdTotal": 91360
+        },
+        {
+          "name": "國票金",
+          "owner": "蔡宗翰",
+          "shares": 20313,
+          "parValue": 10,
+          "ntdTotal": 203130
+        },
+        {
+          "name": "永豐金",
+          "owner": "蔡宗翰",
+          "shares": 71103,
+          "parValue": 10,
+          "ntdTotal": 711030
+        },
+        {
+          "name": "中信金",
+          "owner": "蔡宗翰",
+          "shares": 20402,
+          "parValue": 10,
+          "ntdTotal": 204020
+        },
+        {
+          "name": "第一金",
+          "owner": "蔡宗翰",
+          "shares": 7931,
+          "parValue": 10,
+          "ntdTotal": 79310
+        },
+        {
+          "name": "文曄",
+          "owner": "蔡宗翰",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "台灣大",
+          "owner": "蔡宗翰",
+          "shares": 3556,
+          "parValue": 10,
+          "ntdTotal": 35560
+        },
+        {
+          "name": "順達科",
+          "owner": "蔡宗翰",
+          "shares": 3000,
+          "parValue": 10,
+          "ntdTotal": 30000
+        },
+        {
+          "name": "群創",
+          "owner": "蔡宗翰",
+          "shares": 859,
+          "parValue": 10,
+          "ntdTotal": 8590
+        },
+        {
+          "name": "聯合再生",
+          "owner": "蔡宗翰",
+          "shares": 5000,
+          "parValue": 10,
+          "ntdTotal": 50000
+        },
+        {
+          "name": "神達",
+          "owner": "蔡宗翰",
+          "shares": 1479,
+          "parValue": 10,
+          "ntdTotal": 14790
+        },
+        {
+          "name": "致伸",
+          "owner": "蔡宗翰",
+          "shares": 3000,
+          "parValue": 10,
+          "ntdTotal": 30000
+        },
+        {
+          "name": "新唐",
+          "owner": "蔡宗翰",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "立凱 - K Y",
+          "owner": "蔡宗翰",
+          "shares": 420,
+          "parValue": 10,
+          "ntdTotal": 4200
+        },
+        {
+          "name": "福邦證",
+          "owner": "蔡宗翰",
+          "shares": 1200,
+          "parValue": 10,
+          "ntdTotal": 12000
+        },
+        {
+          "name": "茂達",
+          "owner": "蔡宗翰",
+          "shares": 2399,
+          "parValue": 10,
+          "ntdTotal": 23990
+        },
+        {
+          "name": "全國電",
+          "owner": "蔡宗翰",
+          "shares": 2000,
+          "parValue": 10,
+          "ntdTotal": 20000
+        },
+        {
+          "name": "台塑化",
+          "owner": "蔡宗翰",
+          "shares": 8000,
+          "parValue": 10,
+          "ntdTotal": 80000
+        },
+        {
+          "name": "尖點",
+          "owner": "蔡宗翰",
+          "shares": 3000,
+          "parValue": 10,
+          "ntdTotal": 30000
+        },
+        {
+          "name": "長園科",
+          "owner": "蔡宗翰",
+          "shares": 2081,
+          "parValue": 10,
+          "ntdTotal": 20810
+        },
+        {
+          "name": "台汽電",
+          "owner": "蔡宗翰",
+          "shares": 7221,
+          "parValue": 10,
+          "ntdTotal": 72210
+        },
+        {
+          "name": "大台北",
+          "owner": "蔡宗翰",
+          "shares": 4000,
+          "parValue": 10,
+          "ntdTotal": 40000
+        },
+        {
+          "name": "全國",
+          "owner": "蔡宗翰",
+          "shares": 2000,
+          "parValue": 10,
+          "ntdTotal": 20000
+        }
+      ]
+    },
+    "funds": {
+      "totalNTD": 8214204,
+      "items": [
+        {
+          "name": "施羅德環球新興",
+          "owner": "林月琴",
+          "trustee": "",
+          "units": 240.03,
+          "nav": 8.0159,
+          "currency": "歐元",
+          "ntdTotal": 65772
+        },
+        {
+          "name": "市場債士林分行貝萊德世界礦業",
+          "owner": "林月琴",
+          "trustee": "",
+          "units": 67.99,
+          "nav": 54.1,
+          "currency": "歐元",
+          "ntdTotal": 125738
+        },
+        {
+          "name": "歐元士林分行晉達環球環境收",
+          "owner": "林月琴",
+          "trustee": "",
+          "units": 167.567,
+          "nav": 18.52,
+          "currency": "美元",
+          "ntdTotal": 97915
+        },
+        {
+          "name": "益士林分行富達新興市場基林月琴京城商業銀行117.4428.55美元105,861.49金（A股美元）柏瑞拉丁美洲林月琴京城商業銀行7,32610.4776,703.22富邦證券陽明元大台灣50林月琴2,842152.96434,712.32富邦證券陽明元大高股息",
+          "owner": "林月琴",
+          "trustee": "",
+          "units": 5000,
+          "nav": 39.2,
+          "ntdTotal": 196000
+        },
+        {
+          "name": "富邦證券陽明富邦台50林月琴12,17089.311,086,902.70富邦證券陽明元大美債20年林月琴7,00029.0929203,650.30富邦證券陽明富邦美債20年林月琴2,62331.210281,864.35元大台灣高息低富邦證券陽明林月琴6,44954.27349,987.23波元大投資級公司富邦證券陽明林月琴9,00034.9941314,946.90債元大臺灣ESG永富邦證券陽明林月琴3,44238.91133,928.22續富邦證券陽明國泰永續高股息林月琴12,35122.48277,650.48富邦證券陽明中信關鍵半導體",
+          "owner": "林月琴",
+          "trustee": "",
+          "units": 2000,
+          "nav": 17.99,
+          "ntdTotal": 35980
+        },
+        {
+          "name": "復華台灣科技優富邦證券陽明息",
+          "owner": "林月琴",
+          "trustee": "",
+          "units": 5000,
+          "nav": 20.7,
+          "ntdTotal": 103500
+        },
+        {
+          "name": "永豐金證券天元大台灣50蔡宗翰4,280152.96654,668.80母永豐金證券天元大美債20年蔡宗翰1,00029.092929,092.90母元大投資級公司蔡宗翰永豐金證券天1,57134.994154,975.73債母中信高評級公司永豐金證券天蔡宗翰1,55735.427355,160.30債母元大臺灣ESG永永豐金證券天蔡宗翰1,39438.9154,240.54續母聯博全球非投資等級債券AT股美蔡宗翰京城商業銀行6,190.6893.14美元613,740.08元月配息富蘭克林公司債基金（美元月配蔡宗翰京城商業銀行1,404.935.21美元231,104.42現金）富蘭克林新興國家固定收益（美蔡宗翰京城商業銀行849.9274.19美元112,437.58元月配現金）先機新興市場債券基金C類美元蔡宗翰京城商業銀行1,336.9826.2927美元265,630.80月配息高盛新興市場債券基金X股（美蔡宗翰京城商業銀行146.39947.10美元217,708.24元月配）高盛新興市場債券基金X股（美蔡宗翰京城商業銀行117.11947.10美元174,166.29元月配）京城證券嘉義富邦台50",
+          "owner": "蔡宗翰",
+          "trustee": "",
+          "units": 4000,
+          "nav": 89.31,
+          "ntdTotal": 357240
+        },
+        {
+          "name": "元大台灣高息低京城證券嘉義波",
+          "owner": "蔡宗翰",
+          "trustee": "",
+          "units": 15000,
+          "nav": 54.27,
+          "ntdTotal": 814050
+        },
+        {
+          "name": "元大AAA至A公京城證券嘉義蔡宗翰4,00034.4458137,783.20司債京城證券嘉義國泰永續高股息",
+          "owner": "蔡宗翰",
+          "trustee": "",
+          "units": 5000,
+          "nav": 22.48,
+          "ntdTotal": 112400
+        },
+        {
+          "name": "京城證券嘉義中信關鍵半導體",
+          "owner": "蔡宗翰",
+          "trustee": "",
+          "units": 26000,
+          "nav": 17.99,
+          "ntdTotal": 467740
+        },
+        {
+          "name": "京城證券嘉義富邦台灣半導體",
+          "owner": "蔡宗翰",
+          "trustee": "",
+          "units": 2000,
+          "nav": 15.43,
+          "ntdTotal": 30860
+        },
+        {
+          "name": "復華台灣科技優京城證券嘉義息",
+          "owner": "蔡宗翰",
+          "trustee": "",
+          "units": 1000,
+          "nav": 20.7,
+          "ntdTotal": 20700
+        },
+        {
+          "name": "京城證券嘉義土銀富邦R1富達東協基金A臺灣新光銀行",
+          "owner": "蔡宗翰",
+          "trustee": "",
+          "units": 5000,
+          "nav": 14.72,
+          "ntdTotal": 73600
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,4409 @@
+{
+  "type": "change",
+  "name": "王鴻薇",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2025-11-01",
+  "changePeriod": {
+    "from": "2024-11-01",
+    "to": "2025-11-01"
+  },
+  "spouse": {
+    "relation": "配偶",
+    "name": "陶允正"
+  },
+  "minorChildren": [],
+  "stocks": [
+    {
+      "name": "統一",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 78.4,
+      "changeDate": "2025-01-08",
+      "changeReason": "買",
+      "total": 78400
+    },
+    {
+      "name": "統一",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 78.4,
+      "changeDate": "2025-01-08",
+      "changeReason": "買",
+      "total": 78400
+    },
+    {
+      "name": "統一",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 78.5,
+      "changeDate": "2025-05-13",
+      "changeReason": "買",
+      "total": 157000
+    },
+    {
+      "name": "統一",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 79,
+      "changeDate": "2025-08-06",
+      "changeReason": "買",
+      "total": 158000
+    },
+    {
+      "name": "統一",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 78.2,
+      "changeDate": "2025-08-08",
+      "changeReason": "買",
+      "total": 78200
+    },
+    {
+      "name": "統一",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 78.2,
+      "changeDate": "2025-08-08",
+      "changeReason": "買",
+      "total": 78200
+    },
+    {
+      "name": "統一",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 76.3,
+      "changeDate": "2025-08-26",
+      "changeReason": "買",
+      "total": 152600
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 56.8,
+      "changeDate": "2024-11-18",
+      "changeReason": "買",
+      "total": 56800
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 56.8,
+      "changeDate": "2024-11-18",
+      "changeReason": "買",
+      "total": 56800
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 55,
+      "changeDate": "2024-12-17",
+      "changeReason": "買",
+      "total": 55000
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 55,
+      "changeDate": "2024-12-17",
+      "changeReason": "買",
+      "total": 55000
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 51.5,
+      "changeDate": "2024-12-26",
+      "changeReason": "買",
+      "total": 103000
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 48.8,
+      "changeDate": "2025-03-31",
+      "changeReason": "買",
+      "total": 97600
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 48.8,
+      "changeDate": "2025-03-31",
+      "changeReason": "買",
+      "total": 48800
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 44,
+      "changeDate": "2025-04-11",
+      "changeReason": "買",
+      "total": 88000
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 3000,
+      "changePrice": 46.4,
+      "changeDate": "2025-05-21",
+      "changeReason": "買",
+      "total": 139200
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 4000,
+      "changePrice": 45.6,
+      "changeDate": "2025-05-22",
+      "changeReason": "買",
+      "total": 182400
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 45.6,
+      "changeDate": "2025-05-22",
+      "changeReason": "買",
+      "total": 45600
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 5000,
+      "changePrice": 45.1,
+      "changeDate": "2025-05-27",
+      "changeReason": "買",
+      "total": 225500
+    },
+    {
+      "name": "聯華",
+      "broker": "",
+      "owner": "陶允正",
+      "shares": 4000,
+      "changePrice": 46.85,
+      "changeDate": "2025-08-20",
+      "changeReason": "",
+      "total": 187400
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 637,
+      "changePrice": 48.7,
+      "changeDate": "2025-09-24",
+      "changeReason": "買",
+      "total": 31021
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 163,
+      "changePrice": 48.7,
+      "changeDate": "2025-09-24",
+      "changeReason": "買",
+      "total": 7938
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 6,
+      "changePrice": 50.5,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 303
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 6,
+      "changePrice": 50.5,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 303
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 6,
+      "changePrice": 50.5,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 303
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 6,
+      "changePrice": 50.5,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 303
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 6,
+      "changePrice": 50.5,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 303
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 6,
+      "changePrice": 50.5,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 303
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 6,
+      "changePrice": 50.5,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 303
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 6,
+      "changePrice": 50.5,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 303
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 6,
+      "changePrice": 50.5,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 303
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 6,
+      "changePrice": 50.5,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 303
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 6,
+      "changePrice": 50.5,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 303
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 6,
+      "changePrice": 50.5,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 303
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 6,
+      "changePrice": 50.5,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 303
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 6,
+      "changePrice": 50.5,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 303
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 6,
+      "changePrice": 50.5,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 303
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 6,
+      "changePrice": 50.5,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 303
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 6,
+      "changePrice": 50.5,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 303
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 6,
+      "changePrice": 50.5,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 303
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 6,
+      "changePrice": 50.5,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 303
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 6,
+      "changePrice": 50.5,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 303
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 6,
+      "changePrice": 50.5,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 303
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 6,
+      "changePrice": 50.5,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 303
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 6,
+      "changePrice": 50.5,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 303
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 6,
+      "changePrice": 50.5,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 303
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 6,
+      "changePrice": 50.5,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 303
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 6,
+      "changePrice": 50.5,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 303
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 6,
+      "changePrice": 50.5,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 303
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 6,
+      "changePrice": 50.5,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 303
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 6,
+      "changePrice": 50.5,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 303
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 6,
+      "changePrice": 50.5,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 303
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 6,
+      "changePrice": 50.5,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 303
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 6,
+      "changePrice": 50.5,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 303
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 6,
+      "changePrice": 50.5,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 303
+    },
+    {
+      "name": "聯華",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2,
+      "changePrice": 50.5,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 101
+    },
+    {
+      "name": "南亞",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 5000,
+      "changePrice": 43.6,
+      "changeDate": "2025-10-27",
+      "changeReason": "買",
+      "total": 218000
+    },
+    {
+      "name": "南亞",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 5000,
+      "changePrice": 42,
+      "changeDate": "2025-10-28",
+      "changeReason": "買",
+      "total": 210000
+    },
+    {
+      "name": "亞聚",
+      "broker": "",
+      "owner": "陶允正",
+      "shares": 35000,
+      "changePrice": 14.75,
+      "changeDate": "2025-02-27",
+      "changeReason": "",
+      "total": 516250
+    },
+    {
+      "name": "亞聚",
+      "broker": "",
+      "owner": "陶允正",
+      "shares": 35000,
+      "changePrice": 12.1,
+      "changeDate": "2025-07-24",
+      "changeReason": "",
+      "total": 423500
+    },
+    {
+      "name": "中砂",
+      "broker": "",
+      "owner": "陶允正",
+      "shares": 3000,
+      "changePrice": 274.5,
+      "changeDate": "2025-02-27",
+      "changeReason": "",
+      "total": 823500
+    },
+    {
+      "name": "中砂",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 259,
+      "changeDate": "2025-03-03",
+      "changeReason": "買",
+      "total": 259000
+    },
+    {
+      "name": "中砂",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 281,
+      "changeDate": "2025-05-23",
+      "changeReason": "買",
+      "total": 281000
+    },
+    {
+      "name": "中砂",
+      "broker": "",
+      "owner": "陶允正",
+      "shares": 3000,
+      "changePrice": 324,
+      "changeDate": "2025-06-26",
+      "changeReason": "",
+      "total": 972000
+    },
+    {
+      "name": "中砂",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 330,
+      "changeDate": "2025-07-03",
+      "changeReason": "賣",
+      "total": 660000
+    },
+    {
+      "name": "中砂",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 341,
+      "changeDate": "2025-07-08",
+      "changeReason": "賣",
+      "total": 341000
+    },
+    {
+      "name": "中砂",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 350.5,
+      "changeDate": "2025-08-28",
+      "changeReason": "賣",
+      "total": 350500
+    },
+    {
+      "name": "聯電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 5000,
+      "changePrice": 46,
+      "changeDate": "2024-11-01",
+      "changeReason": "買",
+      "total": 230000
+    },
+    {
+      "name": "聯電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 44.4,
+      "changeDate": "2024-11-27",
+      "changeReason": "買",
+      "total": 44400
+    },
+    {
+      "name": "聯電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 44.4,
+      "changeDate": "2024-11-27",
+      "changeReason": "買",
+      "total": 44400
+    },
+    {
+      "name": "聯電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 44.4,
+      "changeDate": "2024-11-27",
+      "changeReason": "買",
+      "total": 44400
+    },
+    {
+      "name": "聯電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 44.4,
+      "changeDate": "2024-11-27",
+      "changeReason": "買",
+      "total": 44400
+    },
+    {
+      "name": "聯電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 5000,
+      "changePrice": 43.1,
+      "changeDate": "2024-11-28",
+      "changeReason": "買",
+      "total": 215500
+    },
+    {
+      "name": "聯電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 3000,
+      "changePrice": 43,
+      "changeDate": "2024-12-19",
+      "changeReason": "買",
+      "total": 129000
+    },
+    {
+      "name": "聯電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 42.3,
+      "changeDate": "2024-12-31",
+      "changeReason": "買",
+      "total": 84600
+    },
+    {
+      "name": "聯電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 5000,
+      "changePrice": 46,
+      "changeDate": "2025-05-27",
+      "changeReason": "買",
+      "total": 230000
+    },
+    {
+      "name": "聯電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 5000,
+      "changePrice": 46,
+      "changeDate": "2025-06-02",
+      "changeReason": "買",
+      "total": 230000
+    },
+    {
+      "name": "聯電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 5000,
+      "changePrice": 45.8,
+      "changeDate": "2025-06-04",
+      "changeReason": "買",
+      "total": 229000
+    },
+    {
+      "name": "聯電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 3000,
+      "changePrice": 46.3,
+      "changeDate": "2025-06-23",
+      "changeReason": "買",
+      "total": 138900
+    },
+    {
+      "name": "聯電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 46.3,
+      "changeDate": "2025-06-23",
+      "changeReason": "買",
+      "total": 92600
+    },
+    {
+      "name": "聯電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 5000,
+      "changePrice": 43.9,
+      "changeDate": "2025-06-25",
+      "changeReason": "買",
+      "total": 219500
+    },
+    {
+      "name": "聯電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 5000,
+      "changePrice": 40.6,
+      "changeDate": "2025-08-25",
+      "changeReason": "買",
+      "total": 203000
+    },
+    {
+      "name": "台積電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 200,
+      "changePrice": 1010,
+      "changeDate": "2024-11-27",
+      "changeReason": "買",
+      "total": 202000
+    },
+    {
+      "name": "台積電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 100,
+      "changePrice": 1050,
+      "changeDate": "2024-12-11",
+      "changeReason": "買",
+      "total": 105000
+    },
+    {
+      "name": "台積電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 100,
+      "changePrice": 1050,
+      "changeDate": "2024-12-20",
+      "changeReason": "買",
+      "total": 105000
+    },
+    {
+      "name": "台積電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 100,
+      "changePrice": 1060,
+      "changeDate": "2025-01-02",
+      "changeReason": "買",
+      "total": 106000
+    },
+    {
+      "name": "台積電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 100,
+      "changePrice": 1065,
+      "changeDate": "2025-01-02",
+      "changeReason": "買",
+      "total": 106500
+    },
+    {
+      "name": "台積電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 100,
+      "changePrice": 1055,
+      "changeDate": "2025-02-26",
+      "changeReason": "買",
+      "total": 105500
+    },
+    {
+      "name": "台積電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 100,
+      "changePrice": 1055,
+      "changeDate": "2025-02-26",
+      "changeReason": "買",
+      "total": 105500
+    },
+    {
+      "name": "台積電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 200,
+      "changePrice": 1015,
+      "changeDate": "2025-03-03",
+      "changeReason": "買",
+      "total": 203000
+    },
+    {
+      "name": "台積電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 200,
+      "changePrice": 1005,
+      "changeDate": "2025-03-07",
+      "changeReason": "買",
+      "total": 201000
+    },
+    {
+      "name": "台積電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 100,
+      "changePrice": 1005,
+      "changeDate": "2025-03-07",
+      "changeReason": "買",
+      "total": 100500
+    },
+    {
+      "name": "台積電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 68,
+      "changePrice": 974,
+      "changeDate": "2025-03-11",
+      "changeReason": "買",
+      "total": 66232
+    },
+    {
+      "name": "台積電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 32,
+      "changePrice": 974,
+      "changeDate": "2025-03-11",
+      "changeReason": "買",
+      "total": 31168
+    },
+    {
+      "name": "台積電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 100,
+      "changePrice": 975,
+      "changeDate": "2025-03-13",
+      "changeReason": "買",
+      "total": 97500
+    },
+    {
+      "name": "台積電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 53,
+      "changePrice": 971,
+      "changeDate": "2025-03-13",
+      "changeReason": "買",
+      "total": 51463
+    },
+    {
+      "name": "台積電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 47,
+      "changePrice": 971,
+      "changeDate": "2025-03-13",
+      "changeReason": "買",
+      "total": 45637
+    },
+    {
+      "name": "台積電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 100,
+      "changePrice": 958,
+      "changeDate": "2025-03-19",
+      "changeReason": "買",
+      "total": 95800
+    },
+    {
+      "name": "台積電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 100,
+      "changePrice": 961,
+      "changeDate": "2025-03-27",
+      "changeReason": "買",
+      "total": 96100
+    },
+    {
+      "name": "台積電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 100,
+      "changePrice": 923,
+      "changeDate": "2025-03-31",
+      "changeReason": "買",
+      "total": 92300
+    },
+    {
+      "name": "台積電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 100,
+      "changePrice": 888,
+      "changeDate": "2025-04-14",
+      "changeReason": "買",
+      "total": 88800
+    },
+    {
+      "name": "台積電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 100,
+      "changePrice": 873,
+      "changeDate": "2025-04-14",
+      "changeReason": "買",
+      "total": 87300
+    },
+    {
+      "name": "台積電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 100,
+      "changePrice": 855,
+      "changeDate": "2025-04-16",
+      "changeReason": "買",
+      "total": 85500
+    },
+    {
+      "name": "台積電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 200,
+      "changePrice": 1140,
+      "changeDate": "2025-08-20",
+      "changeReason": "買",
+      "total": 228000
+    },
+    {
+      "name": "金像電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 218,
+      "changeDate": "2024-12-11",
+      "changeReason": "賣",
+      "total": 218000
+    },
+    {
+      "name": "金像電",
+      "broker": "",
+      "owner": "陶允正",
+      "shares": 3000,
+      "changePrice": 230.5,
+      "changeDate": "2024-12-19",
+      "changeReason": "",
+      "total": 691500
+    },
+    {
+      "name": "金像電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 234,
+      "changeDate": "2024-12-25",
+      "changeReason": "賣",
+      "total": 468000
+    },
+    {
+      "name": "金像電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 242,
+      "changeDate": "2025-01-09",
+      "changeReason": "賣",
+      "total": 242000
+    },
+    {
+      "name": "金像電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 457,
+      "changeDate": "2025-09-01",
+      "changeReason": "買",
+      "total": 457000
+    },
+    {
+      "name": "金像電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 450,
+      "changeDate": "2025-09-15",
+      "changeReason": "買",
+      "total": 450000
+    },
+    {
+      "name": "金像電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 448,
+      "changeDate": "2025-09-17",
+      "changeReason": "買",
+      "total": 448000
+    },
+    {
+      "name": "金像電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 440,
+      "changeDate": "2025-09-25",
+      "changeReason": "買",
+      "total": 440000
+    },
+    {
+      "name": "金像電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 400,
+      "changeDate": "2025-10-17",
+      "changeReason": "買",
+      "total": 400000
+    },
+    {
+      "name": "金像電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 406,
+      "changeDate": "2025-10-22",
+      "changeReason": "買",
+      "total": 406000
+    },
+    {
+      "name": "佳能",
+      "broker": "",
+      "owner": "陶允正",
+      "shares": 22000,
+      "changePrice": 61.6,
+      "changeDate": "2024-12-19",
+      "changeReason": "",
+      "total": 1355200
+    },
+    {
+      "name": "佳能",
+      "broker": "",
+      "owner": "陶允正",
+      "shares": 22000,
+      "changePrice": 61.7,
+      "changeDate": "2025-02-27",
+      "changeReason": "",
+      "total": 1357400
+    },
+    {
+      "name": "佳能",
+      "broker": "",
+      "owner": "陶允正",
+      "shares": 22000,
+      "changePrice": 53.9,
+      "changeDate": "2025-06-26",
+      "changeReason": "",
+      "total": 1185800
+    },
+    {
+      "name": "佳能",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 3000,
+      "changePrice": 73.5,
+      "changeDate": "2025-08-20",
+      "changeReason": "買",
+      "total": 220500
+    },
+    {
+      "name": "佳能",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 3000,
+      "changePrice": 75,
+      "changeDate": "2025-08-20",
+      "changeReason": "買",
+      "total": 225000
+    },
+    {
+      "name": "佳能",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 79.2,
+      "changeDate": "2025-08-29",
+      "changeReason": "買",
+      "total": 158400
+    },
+    {
+      "name": "佳能",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 78.8,
+      "changeDate": "2025-09-01",
+      "changeReason": "買",
+      "total": 157600
+    },
+    {
+      "name": "佳能",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 796,
+      "changePrice": 81.5,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 64874
+    },
+    {
+      "name": "佳能",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 6,
+      "changePrice": 81.5,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 489
+    },
+    {
+      "name": "佳能",
+      "broker": "",
+      "owner": "陶允正",
+      "shares": 1197,
+      "changePrice": 80.9,
+      "changeDate": "2025-10-17",
+      "changeReason": "",
+      "total": 96837.3
+    },
+    {
+      "name": "佳能",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 366,
+      "changePrice": 83.3,
+      "changeDate": "2025-10-23",
+      "changeReason": "買",
+      "total": 30487
+    },
+    {
+      "name": "技嘉",
+      "broker": "",
+      "owner": "陶允正",
+      "shares": 11000,
+      "changePrice": 275,
+      "changeDate": "2025-07-31",
+      "changeReason": "",
+      "total": 3025000
+    },
+    {
+      "name": "台光電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 480,
+      "changeDate": "2024-11-21",
+      "changeReason": "賣",
+      "total": 480000
+    },
+    {
+      "name": "台光電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 455,
+      "changeDate": "2024-11-28",
+      "changeReason": "買",
+      "total": 455000
+    },
+    {
+      "name": "台光電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 551,
+      "changeDate": "2024-12-09",
+      "changeReason": "賣",
+      "total": 551000
+    },
+    {
+      "name": "台光電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 562,
+      "changeDate": "2024-12-11",
+      "changeReason": "賣",
+      "total": 562000
+    },
+    {
+      "name": "台光電",
+      "broker": "",
+      "owner": "陶允正",
+      "shares": 14000,
+      "changePrice": 620,
+      "changeDate": "2025-02-11",
+      "changeReason": "",
+      "total": 8680000
+    },
+    {
+      "name": "台光電",
+      "broker": "",
+      "owner": "陶允正",
+      "shares": 14000,
+      "changePrice": 580,
+      "changeDate": "2025-03-07",
+      "changeReason": "",
+      "total": 8120000
+    },
+    {
+      "name": "台光電",
+      "broker": "",
+      "owner": "陶允正",
+      "shares": 14000,
+      "changePrice": 679,
+      "changeDate": "2025-05-09",
+      "changeReason": "",
+      "total": 9506000
+    },
+    {
+      "name": "台光電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 695,
+      "changeDate": "2025-05-14",
+      "changeReason": "賣",
+      "total": 1390000
+    },
+    {
+      "name": "台光電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 710,
+      "changeDate": "2025-05-21",
+      "changeReason": "賣",
+      "total": 1420000
+    },
+    {
+      "name": "台光電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 300,
+      "changePrice": 990,
+      "changeDate": "2025-07-24",
+      "changeReason": "買",
+      "total": 297000
+    },
+    {
+      "name": "台光電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 100,
+      "changePrice": 1235,
+      "changeDate": "2025-08-19",
+      "changeReason": "買",
+      "total": 123500
+    },
+    {
+      "name": "台光電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 144,
+      "changePrice": 1170,
+      "changeDate": "2025-08-20",
+      "changeReason": "買",
+      "total": 168480
+    },
+    {
+      "name": "台光電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 79,
+      "changePrice": 1160,
+      "changeDate": "2025-08-20",
+      "changeReason": "買",
+      "total": 91640
+    },
+    {
+      "name": "台光電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 20,
+      "changePrice": 1170,
+      "changeDate": "2025-08-20",
+      "changeReason": "買",
+      "total": 23400
+    },
+    {
+      "name": "台光電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 19,
+      "changePrice": 1160,
+      "changeDate": "2025-08-20",
+      "changeReason": "買",
+      "total": 22040
+    },
+    {
+      "name": "台光電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 17,
+      "changePrice": 1170,
+      "changeDate": "2025-08-20",
+      "changeReason": "買",
+      "total": 19890
+    },
+    {
+      "name": "台光電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 8,
+      "changePrice": 1170,
+      "changeDate": "2025-08-20",
+      "changeReason": "買",
+      "total": 9360
+    },
+    {
+      "name": "台光電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 8,
+      "changePrice": 1170,
+      "changeDate": "2025-08-20",
+      "changeReason": "買",
+      "total": 9360
+    },
+    {
+      "name": "台光電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 3,
+      "changePrice": 1170,
+      "changeDate": "2025-08-20",
+      "changeReason": "買",
+      "total": 3510
+    },
+    {
+      "name": "台光電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2,
+      "changePrice": 1160,
+      "changeDate": "2025-08-20",
+      "changeReason": "買",
+      "total": 2320
+    },
+    {
+      "name": "台光電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 100,
+      "changePrice": 1205,
+      "changeDate": "2025-08-22",
+      "changeReason": "買",
+      "total": 120500
+    },
+    {
+      "name": "台光電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 200,
+      "changePrice": 1160,
+      "changeDate": "2025-09-01",
+      "changeReason": "買",
+      "total": 232000
+    },
+    {
+      "name": "台光電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 100,
+      "changePrice": 1195,
+      "changeDate": "2025-09-01",
+      "changeReason": "買",
+      "total": 119500
+    },
+    {
+      "name": "台光電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 100,
+      "changePrice": 1185,
+      "changeDate": "2025-09-01",
+      "changeReason": "買",
+      "total": 118500
+    },
+    {
+      "name": "台光電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 45,
+      "changePrice": 1145,
+      "changeDate": "2025-09-02",
+      "changeReason": "買",
+      "total": 51525
+    },
+    {
+      "name": "台光電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 40,
+      "changePrice": 1145,
+      "changeDate": "2025-09-02",
+      "changeReason": "買",
+      "total": 45800
+    },
+    {
+      "name": "台光電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 10,
+      "changePrice": 1145,
+      "changeDate": "2025-09-02",
+      "changeReason": "買",
+      "total": 11450
+    },
+    {
+      "name": "台光電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 5,
+      "changePrice": 1145,
+      "changeDate": "2025-09-02",
+      "changeReason": "買",
+      "total": 5725
+    },
+    {
+      "name": "台光電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 490,
+      "changePrice": 1085,
+      "changeDate": "2025-09-04",
+      "changeReason": "買",
+      "total": 531650
+    },
+    {
+      "name": "台光電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 10,
+      "changePrice": 1085,
+      "changeDate": "2025-09-04",
+      "changeReason": "買",
+      "total": 10850
+    },
+    {
+      "name": "台光電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 89,
+      "changePrice": 1220,
+      "changeDate": "2025-09-26",
+      "changeReason": "買",
+      "total": 108580
+    },
+    {
+      "name": "台光電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 11,
+      "changePrice": 1220,
+      "changeDate": "2025-09-26",
+      "changeReason": "買",
+      "total": 13420
+    },
+    {
+      "name": "台光電",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 100,
+      "changePrice": 1190,
+      "changeDate": "2025-10-08",
+      "changeReason": "買",
+      "total": 119000
+    },
+    {
+      "name": "精元",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 64.2,
+      "changeDate": "2024-11-22",
+      "changeReason": "賣",
+      "total": 128400
+    },
+    {
+      "name": "精元",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 64.2,
+      "changeDate": "2024-11-22",
+      "changeReason": "賣",
+      "total": 64200
+    },
+    {
+      "name": "精元",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 64.2,
+      "changeDate": "2024-11-22",
+      "changeReason": "賣",
+      "total": 64200
+    },
+    {
+      "name": "精元",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 64.2,
+      "changeDate": "2024-11-22",
+      "changeReason": "賣",
+      "total": 64200
+    },
+    {
+      "name": "超豐",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 5000,
+      "changePrice": 55.5,
+      "changeDate": "2025-04-29",
+      "changeReason": "賣",
+      "total": 277500
+    },
+    {
+      "name": "超豐",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 57.2,
+      "changeDate": "2025-05-16",
+      "changeReason": "賣",
+      "total": 114400
+    },
+    {
+      "name": "超豐",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 57.2,
+      "changeDate": "2025-05-16",
+      "changeReason": "賣",
+      "total": 57200
+    },
+    {
+      "name": "超豐",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 57.2,
+      "changeDate": "2025-05-16",
+      "changeReason": "賣",
+      "total": 57200
+    },
+    {
+      "name": "超豐",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 57.2,
+      "changeDate": "2025-05-16",
+      "changeReason": "賣",
+      "total": 57200
+    },
+    {
+      "name": "超豐",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 3000,
+      "changePrice": 61.3,
+      "changeDate": "2025-07-28",
+      "changeReason": "賣",
+      "total": 183900
+    },
+    {
+      "name": "超豐",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 61.3,
+      "changeDate": "2025-07-28",
+      "changeReason": "賣",
+      "total": 61300
+    },
+    {
+      "name": "超豐",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 5000,
+      "changePrice": 64,
+      "changeDate": "2025-08-08",
+      "changeReason": "賣",
+      "total": 320000
+    },
+    {
+      "name": "義隆",
+      "broker": "",
+      "owner": "陶允正",
+      "shares": 10000,
+      "changePrice": 121.5,
+      "changeDate": "2025-07-10",
+      "changeReason": "",
+      "total": 1215000
+    },
+    {
+      "name": "潤弘",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 162,
+      "changeDate": "2025-08-12",
+      "changeReason": "買",
+      "total": 324000
+    },
+    {
+      "name": "潤弘",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 156,
+      "changeDate": "2025-08-14",
+      "changeReason": "買",
+      "total": 312000
+    },
+    {
+      "name": "潤弘",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 159,
+      "changeDate": "2025-08-14",
+      "changeReason": "買",
+      "total": 318000
+    },
+    {
+      "name": "陽明",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 77.6,
+      "changeDate": "2025-01-08",
+      "changeReason": "買",
+      "total": 155200
+    },
+    {
+      "name": "陽明",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 74.8,
+      "changeDate": "2025-01-09",
+      "changeReason": "買",
+      "total": 149600
+    },
+    {
+      "name": "陽明",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 72.8,
+      "changeDate": "2025-01-09",
+      "changeReason": "買",
+      "total": 72800
+    },
+    {
+      "name": "陽明",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 72.8,
+      "changeDate": "2025-01-09",
+      "changeReason": "買",
+      "total": 72800
+    },
+    {
+      "name": "陽明",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 70,
+      "changeDate": "2025-01-13",
+      "changeReason": "買",
+      "total": 140000
+    },
+    {
+      "name": "陽明",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 70,
+      "changeDate": "2025-01-16",
+      "changeReason": "買",
+      "total": 70000
+    },
+    {
+      "name": "陽明",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 70,
+      "changeDate": "2025-01-16",
+      "changeReason": "買",
+      "total": 70000
+    },
+    {
+      "name": "陽明",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 67.2,
+      "changeDate": "2025-01-20",
+      "changeReason": "買",
+      "total": 134400
+    },
+    {
+      "name": "陽明",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 66.3,
+      "changeDate": "2025-02-03",
+      "changeReason": "買",
+      "total": 132600
+    },
+    {
+      "name": "陽明",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 65.2,
+      "changeDate": "2025-02-04",
+      "changeReason": "買",
+      "total": 65200
+    },
+    {
+      "name": "陽明",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 4000,
+      "changePrice": 73.4,
+      "changeDate": "2025-04-14",
+      "changeReason": "賣",
+      "total": 293600
+    },
+    {
+      "name": "陽明",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 70.2,
+      "changeDate": "2025-04-17",
+      "changeReason": "買",
+      "total": 140400
+    },
+    {
+      "name": "陽明",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 69,
+      "changeDate": "2025-04-22",
+      "changeReason": "買",
+      "total": 138000
+    },
+    {
+      "name": "陽明",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 80.8,
+      "changeDate": "2025-05-27",
+      "changeReason": "買",
+      "total": 161600
+    },
+    {
+      "name": "陽明",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 80,
+      "changeDate": "2025-05-29",
+      "changeReason": "買",
+      "total": 160000
+    },
+    {
+      "name": "陽明",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 78.5,
+      "changeDate": "2025-06-04",
+      "changeReason": "買",
+      "total": 78500
+    },
+    {
+      "name": "陽明",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 78.5,
+      "changeDate": "2025-06-04",
+      "changeReason": "買",
+      "total": 78500
+    },
+    {
+      "name": "陽明",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 74.6,
+      "changeDate": "2025-06-05",
+      "changeReason": "買",
+      "total": 149200
+    },
+    {
+      "name": "陽明",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 72,
+      "changeDate": "2025-06-09",
+      "changeReason": "買",
+      "total": 144000
+    },
+    {
+      "name": "陽明",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 61.6,
+      "changeDate": "2025-07-22",
+      "changeReason": "買",
+      "total": 123200
+    },
+    {
+      "name": "陽明",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 63.1,
+      "changeDate": "2025-07-24",
+      "changeReason": "買",
+      "total": 126200
+    },
+    {
+      "name": "慧洋",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 5000,
+      "changePrice": 64.5,
+      "changeDate": "2025-01-07",
+      "changeReason": "買",
+      "total": 322500
+    },
+    {
+      "name": "慧洋",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 63.2,
+      "changeDate": "2025-01-09",
+      "changeReason": "買",
+      "total": 126400
+    },
+    {
+      "name": "慧洋",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 61.8,
+      "changeDate": "2025-02-07",
+      "changeReason": "買",
+      "total": 61800
+    },
+    {
+      "name": "慧洋",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 3000,
+      "changePrice": 75.5,
+      "changeDate": "2025-02-20",
+      "changeReason": "賣",
+      "total": 226500
+    },
+    {
+      "name": "慧洋",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 75.5,
+      "changeDate": "2025-02-20",
+      "changeReason": "賣",
+      "total": 75500
+    },
+    {
+      "name": "慧洋",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 75.5,
+      "changeDate": "2025-02-20",
+      "changeReason": "賣",
+      "total": 75500
+    },
+    {
+      "name": "慧洋",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 3000,
+      "changePrice": 76.5,
+      "changeDate": "2025-02-21",
+      "changeReason": "賣",
+      "total": 229500
+    },
+    {
+      "name": "慧洋",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 76.5,
+      "changeDate": "2025-02-21",
+      "changeReason": "賣",
+      "total": 76500
+    },
+    {
+      "name": "慧洋",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 76.5,
+      "changeDate": "2025-02-21",
+      "changeReason": "賣",
+      "total": 76500
+    },
+    {
+      "name": "慧洋",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 3000,
+      "changePrice": 81.9,
+      "changeDate": "2025-02-24",
+      "changeReason": "賣",
+      "total": 245700
+    },
+    {
+      "name": "慧洋",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 81.5,
+      "changeDate": "2025-02-24",
+      "changeReason": "賣",
+      "total": 163000
+    },
+    {
+      "name": "慧洋",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 87,
+      "changeDate": "2025-02-27",
+      "changeReason": "賣",
+      "total": 87000
+    },
+    {
+      "name": "慧洋",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 87,
+      "changeDate": "2025-02-27",
+      "changeReason": "賣",
+      "total": 87000
+    },
+    {
+      "name": "慧洋",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 3000,
+      "changePrice": 84.5,
+      "changeDate": "2025-03-04",
+      "changeReason": "賣",
+      "total": 253500
+    },
+    {
+      "name": "慧洋",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 3000,
+      "changePrice": 81.7,
+      "changeDate": "2025-03-07",
+      "changeReason": "買",
+      "total": 245100
+    },
+    {
+      "name": "慧洋",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 81.2,
+      "changeDate": "2025-03-11",
+      "changeReason": "買",
+      "total": 162400
+    },
+    {
+      "name": "慧洋",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 81.2,
+      "changeDate": "2025-03-12",
+      "changeReason": "買",
+      "total": 162400
+    },
+    {
+      "name": "慧洋",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 78.7,
+      "changeDate": "2025-03-12",
+      "changeReason": "買",
+      "total": 78700
+    },
+    {
+      "name": "慧洋",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 78.7,
+      "changeDate": "2025-03-12",
+      "changeReason": "買",
+      "total": 78700
+    },
+    {
+      "name": "慧洋",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 77.3,
+      "changeDate": "2025-03-13",
+      "changeReason": "買",
+      "total": 77300
+    },
+    {
+      "name": "慧洋",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 74,
+      "changeDate": "2025-03-28",
+      "changeReason": "買",
+      "total": 148000
+    },
+    {
+      "name": "慧洋",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 56.7,
+      "changeDate": "2025-04-08",
+      "changeReason": "買",
+      "total": 56700
+    },
+    {
+      "name": "慧洋",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 52.5,
+      "changeDate": "2025-04-09",
+      "changeReason": "買",
+      "total": 52500
+    },
+    {
+      "name": "慧洋",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 5000,
+      "changePrice": 65,
+      "changeDate": "2025-05-02",
+      "changeReason": "賣",
+      "total": 325000
+    },
+    {
+      "name": "慧洋",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 4000,
+      "changePrice": 63.6,
+      "changeDate": "2025-05-02",
+      "changeReason": "賣",
+      "total": 254400
+    },
+    {
+      "name": "慧洋",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 60.3,
+      "changeDate": "2025-05-07",
+      "changeReason": "買",
+      "total": 120600
+    },
+    {
+      "name": "慧洋",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 3000,
+      "changePrice": 67.5,
+      "changeDate": "2025-05-19",
+      "changeReason": "買",
+      "total": 202500
+    },
+    {
+      "name": "慧洋",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 66.5,
+      "changeDate": "2025-05-19",
+      "changeReason": "買",
+      "total": 66500
+    },
+    {
+      "name": "慧洋",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 66.5,
+      "changeDate": "2025-05-19",
+      "changeReason": "買",
+      "total": 66500
+    },
+    {
+      "name": "慧洋",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 66.5,
+      "changeDate": "2025-05-19",
+      "changeReason": "買",
+      "total": 66500
+    },
+    {
+      "name": "慧洋",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 63.8,
+      "changeDate": "2025-05-23",
+      "changeReason": "買",
+      "total": 127600
+    },
+    {
+      "name": "慧洋",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 64.5,
+      "changeDate": "2025-05-26",
+      "changeReason": "買",
+      "total": 129000
+    },
+    {
+      "name": "慧洋",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 63,
+      "changeDate": "2025-05-28",
+      "changeReason": "買",
+      "total": 126000
+    },
+    {
+      "name": "慧洋",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 63,
+      "changeDate": "2025-05-28",
+      "changeReason": "買",
+      "total": 63000
+    },
+    {
+      "name": "慧洋",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 62.6,
+      "changeDate": "2025-06-05",
+      "changeReason": "買",
+      "total": 62600
+    },
+    {
+      "name": "慧洋",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 59,
+      "changeDate": "2025-06-19",
+      "changeReason": "買",
+      "total": 118000
+    },
+    {
+      "name": "慧洋",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 60,
+      "changeDate": "2025-07-29",
+      "changeReason": "買",
+      "total": 120000
+    },
+    {
+      "name": "慧洋",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 60,
+      "changeDate": "2025-07-29",
+      "changeReason": "買",
+      "total": 60000
+    },
+    {
+      "name": "富邦金",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 78.3,
+      "changeDate": "2025-05-07",
+      "changeReason": "買",
+      "total": 78300
+    },
+    {
+      "name": "富邦金",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 78.3,
+      "changeDate": "2025-05-07",
+      "changeReason": "買",
+      "total": 78300
+    },
+    {
+      "name": "富邦金",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 76.8,
+      "changeDate": "2025-05-09",
+      "changeReason": "買",
+      "total": 153600
+    },
+    {
+      "name": "玉山金",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 800,
+      "changePrice": 27.5,
+      "changeDate": "2025-04-24",
+      "changeReason": "買",
+      "total": 22000
+    },
+    {
+      "name": "玉山金",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 600,
+      "changePrice": 33.9,
+      "changeDate": "2025-08-20",
+      "changeReason": "買",
+      "total": 20340
+    },
+    {
+      "name": "玉山金",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 266,
+      "changePrice": 33.7,
+      "changeDate": "2025-08-22",
+      "changeReason": "買",
+      "total": 8964
+    },
+    {
+      "name": "玉山金",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 24,
+      "changePrice": 33.7,
+      "changeDate": "2025-08-22",
+      "changeReason": "買",
+      "total": 808
+    },
+    {
+      "name": "玉山金",
+      "broker": "",
+      "owner": "陶允正",
+      "shares": 110,
+      "changePrice": 33.4,
+      "changeDate": "2025-08-27",
+      "changeReason": "",
+      "total": 3674
+    },
+    {
+      "name": "第一金",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 5000,
+      "changePrice": 25,
+      "changeDate": "2025-04-24",
+      "changeReason": "買",
+      "total": 125000
+    },
+    {
+      "name": "第一金",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 10000,
+      "changePrice": 28.3,
+      "changeDate": "2025-08-07",
+      "changeReason": "買",
+      "total": 283000
+    },
+    {
+      "name": "第一金",
+      "broker": "",
+      "owner": "陶允正",
+      "shares": 1500,
+      "changePrice": 29.4,
+      "changeDate": "2025-09-17",
+      "changeReason": "",
+      "total": 44100
+    },
+    {
+      "name": "第一金",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 500,
+      "changePrice": 29.4,
+      "changeDate": "2025-10-03",
+      "changeReason": "買",
+      "total": 14700
+    },
+    {
+      "name": "聯詠",
+      "broker": "",
+      "owner": "陶允正",
+      "shares": 4000,
+      "changePrice": 544,
+      "changeDate": "2025-02-07",
+      "changeReason": "",
+      "total": 2176000
+    },
+    {
+      "name": "聯詠",
+      "broker": "",
+      "owner": "陶允正",
+      "shares": 4000,
+      "changePrice": 496,
+      "changeDate": "2025-07-10",
+      "changeReason": "",
+      "total": 1984000
+    },
+    {
+      "name": "緯創",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 140.5,
+      "changeDate": "2025-09-30",
+      "changeReason": "賣",
+      "total": 281000
+    },
+    {
+      "name": "威剛",
+      "broker": "元大民生三",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 85,
+      "changeDate": "2024-12-10",
+      "changeReason": "買",
+      "total": 170000
+    },
+    {
+      "name": "威剛",
+      "broker": "元大民生三",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 83.6,
+      "changeDate": "2024-12-11",
+      "changeReason": "買",
+      "total": 167200
+    },
+    {
+      "name": "威剛",
+      "broker": "元大民生三",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 81.6,
+      "changeDate": "2024-12-12",
+      "changeReason": "買",
+      "total": 163200
+    },
+    {
+      "name": "威剛",
+      "broker": "元大民生三",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 80,
+      "changeDate": "2024-12-13",
+      "changeReason": "買",
+      "total": 160000
+    },
+    {
+      "name": "威剛",
+      "broker": "元大民生三",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 78.8,
+      "changeDate": "2024-12-16",
+      "changeReason": "買",
+      "total": 157600
+    },
+    {
+      "name": "威剛",
+      "broker": "元大民生三",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 73.6,
+      "changeDate": "2025-04-08",
+      "changeReason": "買",
+      "total": 73600
+    },
+    {
+      "name": "威剛",
+      "broker": "元大民生三",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 79,
+      "changeDate": "2025-04-16",
+      "changeReason": "買",
+      "total": 79000
+    },
+    {
+      "name": "威剛",
+      "broker": "元大民生三",
+      "owner": "陶允正",
+      "shares": 344,
+      "changePrice": 90.3,
+      "changeDate": "2025-07-14",
+      "changeReason": "買",
+      "total": 31063
+    },
+    {
+      "name": "威剛",
+      "broker": "元大民生三",
+      "owner": "陶允正",
+      "shares": 305,
+      "changePrice": 90.3,
+      "changeDate": "2025-07-14",
+      "changeReason": "買",
+      "total": 27542
+    },
+    {
+      "name": "威剛",
+      "broker": "元大民生三",
+      "owner": "陶允正",
+      "shares": 97,
+      "changePrice": 90.3,
+      "changeDate": "2025-07-14",
+      "changeReason": "買",
+      "total": 8759
+    },
+    {
+      "name": "威剛",
+      "broker": "元大民生三",
+      "owner": "陶允正",
+      "shares": 20,
+      "changePrice": 90.3,
+      "changeDate": "2025-07-14",
+      "changeReason": "買",
+      "total": 1806
+    },
+    {
+      "name": "威剛",
+      "broker": "元大民生三",
+      "owner": "陶允正",
+      "shares": 20,
+      "changePrice": 90.3,
+      "changeDate": "2025-07-14",
+      "changeReason": "買",
+      "total": 1806
+    },
+    {
+      "name": "威剛",
+      "broker": "元大民生三",
+      "owner": "陶允正",
+      "shares": 20,
+      "changePrice": 90.3,
+      "changeDate": "2025-07-14",
+      "changeReason": "買",
+      "total": 1806
+    },
+    {
+      "name": "威剛",
+      "broker": "元大民生三",
+      "owner": "陶允正",
+      "shares": 20,
+      "changePrice": 90.3,
+      "changeDate": "2025-07-14",
+      "changeReason": "買",
+      "total": 1806
+    },
+    {
+      "name": "威剛",
+      "broker": "元大民生三",
+      "owner": "陶允正",
+      "shares": 15,
+      "changePrice": 90.3,
+      "changeDate": "2025-07-14",
+      "changeReason": "買",
+      "total": 1355
+    },
+    {
+      "name": "威剛",
+      "broker": "元大民生三",
+      "owner": "陶允正",
+      "shares": 14,
+      "changePrice": 90.3,
+      "changeDate": "2025-07-14",
+      "changeReason": "買",
+      "total": 1264
+    },
+    {
+      "name": "威剛",
+      "broker": "元大民生三",
+      "owner": "陶允正",
+      "shares": 5000,
+      "changePrice": 100.5,
+      "changeDate": "2025-08-14",
+      "changeReason": "賣",
+      "total": 502500
+    },
+    {
+      "name": "威剛",
+      "broker": "元大民生三",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 142,
+      "changeDate": "2025-09-18",
+      "changeReason": "賣",
+      "total": 284000
+    },
+    {
+      "name": "威剛",
+      "broker": "元大民生三",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 152,
+      "changeDate": "2025-09-22",
+      "changeReason": "賣",
+      "total": 304000
+    },
+    {
+      "name": "威剛",
+      "broker": "元大民生三",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 157,
+      "changeDate": "2025-09-30",
+      "changeReason": "賣",
+      "total": 157000
+    },
+    {
+      "name": "威剛",
+      "broker": "元大民生三",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 157,
+      "changeDate": "2025-09-30",
+      "changeReason": "賣",
+      "total": 157000
+    },
+    {
+      "name": "威剛",
+      "broker": "元大民生三",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 185,
+      "changeDate": "2025-10-09",
+      "changeReason": "賣",
+      "total": 370000
+    },
+    {
+      "name": "威剛",
+      "broker": "元大民生三",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 205,
+      "changeDate": "2025-10-27",
+      "changeReason": "賣",
+      "total": 410000
+    },
+    {
+      "name": "華擎",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 302,
+      "changeDate": "2025-09-12",
+      "changeReason": "買",
+      "total": 302000
+    },
+    {
+      "name": "華擎",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 290,
+      "changeDate": "2025-09-15",
+      "changeReason": "買",
+      "total": 290000
+    },
+    {
+      "name": "華擎",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 278,
+      "changeDate": "2025-09-17",
+      "changeReason": "買",
+      "total": 278000
+    },
+    {
+      "name": "華擎",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 263.5,
+      "changeDate": "2025-09-24",
+      "changeReason": "買",
+      "total": 263500
+    },
+    {
+      "name": "貿聯",
+      "broker": "-KY",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 631,
+      "changeDate": "2024-12-19",
+      "changeReason": "",
+      "total": 1262000
+    },
+    {
+      "name": "貿聯",
+      "broker": "-KY",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 568,
+      "changeDate": "2025-03-07",
+      "changeReason": "",
+      "total": 1136000
+    },
+    {
+      "name": "貿聯",
+      "broker": "-KY",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 871,
+      "changeDate": "2025-07-18",
+      "changeReason": "",
+      "total": 1742000
+    },
+    {
+      "name": "貿聯",
+      "broker": "-KY",
+      "owner": "陶允正",
+      "shares": 19,
+      "changePrice": 942,
+      "changeDate": "2025-08-22",
+      "changeReason": "",
+      "total": 17898
+    },
+    {
+      "name": "日月光投控",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 168,
+      "changeDate": "2025-01-16",
+      "changeReason": "賣",
+      "total": 336000
+    },
+    {
+      "name": "日月光投控",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 172,
+      "changeDate": "2025-01-20",
+      "changeReason": "賣",
+      "total": 344000
+    },
+    {
+      "name": "日月光投控",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 163,
+      "changeDate": "2025-02-03",
+      "changeReason": "買",
+      "total": 163000
+    },
+    {
+      "name": "日月光投控",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 160,
+      "changeDate": "2025-02-03",
+      "changeReason": "買",
+      "total": 160000
+    },
+    {
+      "name": "日月光投控",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 165,
+      "changeDate": "2025-03-03",
+      "changeReason": "買",
+      "total": 165000
+    },
+    {
+      "name": "新晶投控",
+      "broker": "元大民生三",
+      "owner": "陶允正",
+      "shares": 10000,
+      "changePrice": 27.6,
+      "changeDate": "2025-09-17",
+      "changeReason": "買",
+      "total": 276000
+    },
+    {
+      "name": "新晶投控",
+      "broker": "元大民生三",
+      "owner": "陶允正",
+      "shares": 10000,
+      "changePrice": 27.4,
+      "changeDate": "2025-09-17",
+      "changeReason": "買",
+      "total": 274000
+    },
+    {
+      "name": "新晶投控",
+      "broker": "元大民生三",
+      "owner": "陶允正",
+      "shares": 5000,
+      "changePrice": 26,
+      "changeDate": "2025-09-22",
+      "changeReason": "買",
+      "total": 130000
+    },
+    {
+      "name": "新晶投控",
+      "broker": "元大民生三",
+      "owner": "陶允正",
+      "shares": 5000,
+      "changePrice": 22.95,
+      "changeDate": "2025-09-23",
+      "changeReason": "買",
+      "total": 114750
+    },
+    {
+      "name": "新晶投控",
+      "broker": "元大民生三",
+      "owner": "陶允正",
+      "shares": 5000,
+      "changePrice": 24,
+      "changeDate": "2025-09-23",
+      "changeReason": "買",
+      "total": 120000
+    },
+    {
+      "name": "新晶投控",
+      "broker": "元大民生三",
+      "owner": "陶允正",
+      "shares": 5000,
+      "changePrice": 23,
+      "changeDate": "2025-09-24",
+      "changeReason": "買",
+      "total": 115000
+    },
+    {
+      "name": "新晶投控",
+      "broker": "元大民生三",
+      "owner": "陶允正",
+      "shares": 5000,
+      "changePrice": 23,
+      "changeDate": "2025-09-26",
+      "changeReason": "買",
+      "total": 115000
+    },
+    {
+      "name": "新晶投控",
+      "broker": "元大民生三",
+      "owner": "陶允正",
+      "shares": 5000,
+      "changePrice": 22.2,
+      "changeDate": "2025-10-02",
+      "changeReason": "買",
+      "total": 111000
+    },
+    {
+      "name": "新晶投控",
+      "broker": "元大民生三",
+      "owner": "陶允正",
+      "shares": 5000,
+      "changePrice": 21.5,
+      "changeDate": "2025-10-13",
+      "changeReason": "買",
+      "total": 107500
+    },
+    {
+      "name": "致伸",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 79.1,
+      "changeDate": "2024-11-04",
+      "changeReason": "買",
+      "total": 158200
+    },
+    {
+      "name": "致伸",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 77.8,
+      "changeDate": "2024-11-05",
+      "changeReason": "買",
+      "total": 155600
+    },
+    {
+      "name": "致伸",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 79.4,
+      "changeDate": "2024-12-03",
+      "changeReason": "買",
+      "total": 79400
+    },
+    {
+      "name": "致伸",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 79.4,
+      "changeDate": "2024-12-03",
+      "changeReason": "買",
+      "total": 79400
+    },
+    {
+      "name": "致伸",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 82.7,
+      "changeDate": "2025-03-17",
+      "changeReason": "買",
+      "total": 165400
+    },
+    {
+      "name": "致伸",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 77,
+      "changeDate": "2025-05-29",
+      "changeReason": "買",
+      "total": 77000
+    },
+    {
+      "name": "致伸",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 77,
+      "changeDate": "2025-05-29",
+      "changeReason": "買",
+      "total": 77000
+    },
+    {
+      "name": "致伸",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 72.5,
+      "changeDate": "2025-06-30",
+      "changeReason": "買",
+      "total": 145000
+    },
+    {
+      "name": "致伸",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 71.7,
+      "changeDate": "2025-07-08",
+      "changeReason": "買",
+      "total": 71700
+    },
+    {
+      "name": "致伸",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 71.7,
+      "changeDate": "2025-07-08",
+      "changeReason": "買",
+      "total": 71700
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY",
+      "owner": "陶允正",
+      "shares": 2132,
+      "changePrice": 39.85,
+      "changeDate": "2024-11-12",
+      "changeReason": "",
+      "total": 84960.2
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY",
+      "owner": "陶允正",
+      "shares": 1421,
+      "changePrice": 39.65,
+      "changeDate": "2024-11-13",
+      "changeReason": "",
+      "total": 56342.65
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 37,
+      "changeDate": "2024-11-22",
+      "changeReason": "買",
+      "total": 37000
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 381,
+      "changePrice": 37.75,
+      "changeDate": "2024-11-22",
+      "changeReason": "買",
+      "total": 14382
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 66,
+      "changePrice": 37.75,
+      "changeDate": "2024-11-22",
+      "changeReason": "買",
+      "total": 2491
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY",
+      "owner": "陶允正",
+      "shares": 45000,
+      "changePrice": 34.85,
+      "changeDate": "2024-12-19",
+      "changeReason": "",
+      "total": 1568250
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 4000,
+      "changePrice": 21.4,
+      "changeDate": "2025-04-11",
+      "changeReason": "買",
+      "total": 85600
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 21.4,
+      "changeDate": "2025-04-11",
+      "changeReason": "買",
+      "total": 21400
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY",
+      "owner": "陶允正",
+      "shares": 10000,
+      "changePrice": 23.25,
+      "changeDate": "2025-05-13",
+      "changeReason": "",
+      "total": 232500
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY",
+      "owner": "陶允正",
+      "shares": 10000,
+      "changePrice": 23.25,
+      "changeDate": "2025-05-13",
+      "changeReason": "",
+      "total": 232500
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 26.95,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 323
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 26.95,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 323
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 26.95,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 323
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 26.95,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 323
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 26.95,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 323
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 26.95,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 323
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 26.95,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 323
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 26.95,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 323
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 26.95,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 323
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 26.95,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 323
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 26.95,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 323
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 26.95,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 323
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 26.95,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 323
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 26.95,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 323
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 26.95,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 323
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 26.95,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 323
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 26.95,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 323
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 26.95,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 323
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 26.95,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 323
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 12,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 324
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 11,
+      "changePrice": 26.95,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 296
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 11,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 297
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 10,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 270
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 10,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 270
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 7,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 189
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 3,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 81
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 3,
+      "changePrice": 26.95,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 80
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 27
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1,
+      "changePrice": 27,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 27
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 80,
+      "changePrice": 25.3,
+      "changeDate": "2025-09-12",
+      "changeReason": "買",
+      "total": 2024
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY",
+      "owner": "陶允正",
+      "shares": 920,
+      "changePrice": 26.1,
+      "changeDate": "2025-09-22",
+      "changeReason": "",
+      "total": 24012
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY",
+      "owner": "陶允正",
+      "shares": 8286,
+      "changePrice": 24.85,
+      "changeDate": "2025-09-23",
+      "changeReason": "",
+      "total": 205907.1
+    },
+    {
+      "name": "泰鼎",
+      "broker": "-KY",
+      "owner": "陶允正",
+      "shares": 1841,
+      "changePrice": 24.85,
+      "changeDate": "2025-09-23",
+      "changeReason": "",
+      "total": 45748.85
+    },
+    {
+      "name": "和碩",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 4000,
+      "changePrice": 75.5,
+      "changeDate": "2025-04-10",
+      "changeReason": "賣",
+      "total": 302000
+    },
+    {
+      "name": "遠雄港",
+      "broker": "",
+      "owner": "陶允正",
+      "shares": 54000,
+      "changePrice": 43.9,
+      "changeDate": "2025-02-27",
+      "changeReason": "",
+      "total": 2370600
+    },
+    {
+      "name": "遠雄港",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 40.2,
+      "changeDate": "2025-03-27",
+      "changeReason": "買",
+      "total": 80400
+    },
+    {
+      "name": "遠雄港",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 40.3,
+      "changeDate": "2025-03-27",
+      "changeReason": "買",
+      "total": 40300
+    },
+    {
+      "name": "遠雄港",
+      "broker": "",
+      "owner": "陶允正",
+      "shares": 54000,
+      "changePrice": 46.1,
+      "changeDate": "2025-07-24",
+      "changeReason": "",
+      "total": 2489400
+    },
+    {
+      "name": "遠雄港",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 582,
+      "changePrice": 48.55,
+      "changeDate": "2025-08-20",
+      "changeReason": "買",
+      "total": 28256
+    },
+    {
+      "name": "遠雄港",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 18,
+      "changePrice": 50.3,
+      "changeDate": "2025-08-21",
+      "changeReason": "買",
+      "total": 905
+    },
+    {
+      "name": "遠雄港",
+      "broker": "",
+      "owner": "陶允正",
+      "shares": 1180,
+      "changePrice": 51.2,
+      "changeDate": "2025-08-29",
+      "changeReason": "",
+      "total": 60416
+    },
+    {
+      "name": "中租",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 145,
+      "changeDate": "2024-11-01",
+      "changeReason": "買",
+      "total": 145000
+    },
+    {
+      "name": "中租",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 130.5,
+      "changeDate": "2024-11-12",
+      "changeReason": "買",
+      "total": 130500
+    },
+    {
+      "name": "中租",
+      "broker": "-KY",
+      "owner": "陶允正",
+      "shares": 560,
+      "changePrice": 115.5,
+      "changeDate": "2025-08-28",
+      "changeReason": "",
+      "total": 64680
+    },
+    {
+      "name": "浪凡",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 5000,
+      "changePrice": 58.5,
+      "changeDate": "2025-05-08",
+      "changeReason": "賣",
+      "total": 292500
+    },
+    {
+      "name": "浪凡",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 61,
+      "changeDate": "2025-05-09",
+      "changeReason": "賣",
+      "total": 122000
+    },
+    {
+      "name": "浪凡",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 61.5,
+      "changeDate": "2025-05-09",
+      "changeReason": "賣",
+      "total": 123000
+    },
+    {
+      "name": "浪凡",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 61.6,
+      "changeDate": "2025-05-23",
+      "changeReason": "賣",
+      "total": 61600
+    },
+    {
+      "name": "華孚",
+      "broker": "",
+      "owner": "陶允正",
+      "shares": 1,
+      "changePrice": 71.3,
+      "changeDate": "2024-12-11",
+      "changeReason": "",
+      "total": 713
+    },
+    {
+      "name": "華孚",
+      "broker": "",
+      "owner": "陶允正",
+      "shares": 861,
+      "changePrice": 71.8,
+      "changeDate": "2024-12-12",
+      "changeReason": "",
+      "total": 61819.8
+    },
+    {
+      "name": "華孚",
+      "broker": "",
+      "owner": "陶允正",
+      "shares": 71,
+      "changePrice": 71.8,
+      "changeDate": "2024-12-12",
+      "changeReason": "",
+      "total": 5097.8
+    },
+    {
+      "name": "華孚",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 523,
+      "changePrice": 67.1,
+      "changeDate": "2024-12-19",
+      "changeReason": "買",
+      "total": 35093
+    },
+    {
+      "name": "華孚",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 61,
+      "changePrice": 67.1,
+      "changeDate": "2024-12-19",
+      "changeReason": "買",
+      "total": 4093
+    },
+    {
+      "name": "華孚",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 48,
+      "changePrice": 67.1,
+      "changeDate": "2024-12-19",
+      "changeReason": "買",
+      "total": 3220
+    },
+    {
+      "name": "華孚",
+      "broker": "",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 52.3,
+      "changeDate": "2025-05-22",
+      "changeReason": "",
+      "total": 104600
+    },
+    {
+      "name": "台表科",
+      "broker": "元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 116,
+      "changeDate": "2025-03-11",
+      "changeReason": "賣",
+      "total": 232000
+    },
+    {
+      "name": "順藥",
+      "broker": "元大民生三",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 209,
+      "changeDate": "2025-10-30",
+      "changeReason": "買",
+      "total": 209000
+    },
+    {
+      "name": "騰輝電子",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 75,
+      "changeDate": "2025-02-03",
+      "changeReason": "買",
+      "total": 150000
+    },
+    {
+      "name": "騰輝電子",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 70.6,
+      "changeDate": "2025-05-19",
+      "changeReason": "買",
+      "total": 70600
+    },
+    {
+      "name": "騰輝電子",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 70.6,
+      "changeDate": "2025-05-19",
+      "changeReason": "買",
+      "total": 70600
+    },
+    {
+      "name": "騰輝電子",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 69.8,
+      "changeDate": "2025-05-20",
+      "changeReason": "買",
+      "total": 69800
+    },
+    {
+      "name": "騰輝電子",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 69.8,
+      "changeDate": "2025-05-20",
+      "changeReason": "買",
+      "total": 69800
+    },
+    {
+      "name": "騰輝電子",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 71.8,
+      "changeDate": "2025-06-02",
+      "changeReason": "買",
+      "total": 71800
+    },
+    {
+      "name": "騰輝電子",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 71.8,
+      "changeDate": "2025-06-02",
+      "changeReason": "買",
+      "total": 71800
+    },
+    {
+      "name": "騰輝電子",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 83.2,
+      "changeDate": "2025-08-04",
+      "changeReason": "買",
+      "total": 166400
+    },
+    {
+      "name": "騰輝電子",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 80.5,
+      "changeDate": "2025-08-07",
+      "changeReason": "買",
+      "total": 80500
+    },
+    {
+      "name": "騰輝電子",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 80.5,
+      "changeDate": "2025-08-07",
+      "changeReason": "買",
+      "total": 80500
+    },
+    {
+      "name": "騰輝電子",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 5000,
+      "changePrice": 93.5,
+      "changeDate": "2025-08-18",
+      "changeReason": "賣",
+      "total": 467500
+    },
+    {
+      "name": "騰輝電子",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 95,
+      "changeDate": "2025-08-18",
+      "changeReason": "賣",
+      "total": 190000
+    },
+    {
+      "name": "騰輝電子",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 97.1,
+      "changeDate": "2025-08-18",
+      "changeReason": "賣",
+      "total": 194200
+    },
+    {
+      "name": "騰輝電子",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 105,
+      "changeDate": "2025-08-19",
+      "changeReason": "賣",
+      "total": 210000
+    },
+    {
+      "name": "騰輝電子",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 106.5,
+      "changeDate": "2025-08-19",
+      "changeReason": "賣",
+      "total": 106500
+    },
+    {
+      "name": "騰輝電子",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 108.5,
+      "changeDate": "2025-08-29",
+      "changeReason": "賣",
+      "total": 217000
+    },
+    {
+      "name": "騰輝電子",
+      "broker": "-KY元大-民生三民",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 117,
+      "changeDate": "2025-09-05",
+      "changeReason": "賣",
+      "total": 234000
+    },
+    {
+      "name": "博晟生醫",
+      "broker": "元大民生三",
+      "owner": "陶允正",
+      "shares": 2000,
+      "changePrice": 42.7,
+      "changeDate": "2025-09-17",
+      "changeReason": "買",
+      "total": 85400
+    },
+    {
+      "name": "博晟生醫",
+      "broker": "元大民生三",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 42.7,
+      "changeDate": "2025-09-17",
+      "changeReason": "買",
+      "total": 42700
+    },
+    {
+      "name": "博晟生醫",
+      "broker": "元大民生三",
+      "owner": "陶允正",
+      "shares": 1000,
+      "changePrice": 42.7,
+      "changeDate": "2025-09-17",
+      "changeReason": "買",
+      "total": 42700
+    },
+    {
+      "name": "博晟生醫",
+      "broker": "元大民生三",
+      "owner": "陶允正",
+      "shares": 100,
+      "changePrice": 42.7,
+      "changeDate": "2025-09-17",
+      "changeReason": "買",
+      "total": 42700
+    },
+    {
+      "name": "博晟生醫",
+      "broker": "元大民生三",
+      "owner": "陶允正",
+      "shares": 5000,
+      "changePrice": 41,
+      "changeDate": "2025-09-18",
+      "changeReason": "買",
+      "total": 205000
+    }
+  ],
+  "notes": "上市櫃股票變動價格不宜以「股票總價額」顯示，應該以「股票總交易額」顯示，以免失真"
+}

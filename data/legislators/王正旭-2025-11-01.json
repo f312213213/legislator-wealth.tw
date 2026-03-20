@@ -1,0 +1,149 @@
+{
+  "type": "declaration",
+  "name": "王正旭",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2025-11-01",
+  "declarationType": "定期申報",
+  "spouse": {
+    "relation": "配偶",
+    "name": "王貞乃"
+  },
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 50289887,
+    "stocks": {
+      "totalNTD": 0,
+      "items": []
+    },
+    "funds": {
+      "totalNTD": 47225751,
+      "items": [
+        {
+          "name": "聯博-全球多元收益基金ED(月配現)(美元)(後收)",
+          "owner": "王正旭",
+          "trustee": "",
+          "units": 2524.797,
+          "nav": 11.27,
+          "currency": "美元",
+          "ntdTotal": 874946
+        },
+        {
+          "name": "富達全球優質債券基金BC(月配現)(美元)(後收)",
+          "owner": "王貞乃",
+          "trustee": "",
+          "units": 15392.78,
+          "nav": 9.91,
+          "currency": "美元",
+          "ntdTotal": 4690527
+        },
+        {
+          "name": "安聯收益成長基金(穩定月收)(月配現)(美元)",
+          "owner": "王貞乃",
+          "trustee": "",
+          "units": 1460.594,
+          "nav": 8.5949,
+          "currency": "美元",
+          "ntdTotal": 386012
+        },
+        {
+          "name": "安聯收益成長基金B(穩定月收)(月配現)(美元)(後收)",
+          "owner": "王貞乃",
+          "trustee": "",
+          "units": 4440.152,
+          "nav": 9.2074,
+          "currency": "美元",
+          "ntdTotal": 1257088
+        },
+        {
+          "name": "聯博-全球多元收益基金AD(月配現)(美元)",
+          "owner": "王貞乃",
+          "trustee": "",
+          "units": 17158.579,
+          "nav": 9.21,
+          "currency": "美元",
+          "ntdTotal": 4859280
+        },
+        {
+          "name": "PIMCO多元收益債券基金BM(穩定月收息)(月配現)(美元)(後收)",
+          "owner": "王貞乃",
+          "trustee": "",
+          "units": 14720.445,
+          "nav": 9.45,
+          "currency": "美元",
+          "ntdTotal": 4277438
+        },
+        {
+          "name": "柏瑞多重資產特別收益基金N(月配現)(新台幣)(後收)",
+          "owner": "王貞乃",
+          "trustee": "",
+          "units": 544939.42,
+          "nav": 7.0805,
+          "ntdTotal": 3858443
+        },
+        {
+          "name": "群益潛力收益多重資產基金N(月配現)(新台幣)(後收)",
+          "owner": "王貞乃",
+          "trustee": "",
+          "units": 326968.3,
+          "nav": 8.9133,
+          "ntdTotal": 2914366
+        },
+        {
+          "name": "聯博美國收益月配美敦北分行",
+          "owner": "王貞乃",
+          "trustee": "",
+          "units": 14264.223,
+          "nav": 10.52,
+          "currency": "美元",
+          "ntdTotal": 4605630
+        },
+        {
+          "name": "高盛投資級債Y",
+          "owner": "王貞乃",
+          "trustee": "",
+          "units": 531.039,
+          "nav": 184.4,
+          "currency": "美元",
+          "ntdTotal": 3005471
+        },
+        {
+          "name": "美月配敦北分行野村愛爾蘭美非",
+          "owner": "王貞乃",
+          "trustee": "",
+          "units": 2209.8652,
+          "nav": 65.5311,
+          "currency": "美元",
+          "ntdTotal": 4444659
+        },
+        {
+          "name": "投債美敦北分行野村愛爾蘭美非",
+          "owner": "王貞乃",
+          "trustee": "",
+          "units": 2209.8652,
+          "nav": 65.5311,
+          "currency": "美元",
+          "ntdTotal": 4444659
+        },
+        {
+          "name": "投債美敦北分行富達全球優質B",
+          "owner": "王貞乃",
+          "trustee": "",
+          "units": 14249.8,
+          "nav": 9.91,
+          "currency": "美元",
+          "ntdTotal": 4334187
+        },
+        {
+          "name": "股C美敦北分行貝萊德環球置配",
+          "owner": "王貞乃",
+          "trustee": "",
+          "units": 10013.3,
+          "nav": 10.65,
+          "currency": "美元",
+          "ntdTotal": 3273045
+        }
+      ]
+    }
+  }
+}

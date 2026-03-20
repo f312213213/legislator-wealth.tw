@@ -1,0 +1,117 @@
+{
+  "type": "declaration",
+  "name": "李柏毅",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2024-11-01",
+  "declarationType": "定期申報",
+  "spouse": {
+    "relation": "配偶",
+    "name": "葉瑋玲"
+  },
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 1734738,
+    "stocks": {
+      "totalNTD": 1734738,
+      "items": [
+        {
+          "name": "和大",
+          "owner": "李柏毅",
+          "shares": 181,
+          "parValue": 10,
+          "ntdTotal": 1810
+        },
+        {
+          "name": "錩新",
+          "owner": "李柏毅",
+          "shares": 787,
+          "parValue": 10,
+          "ntdTotal": 7870
+        },
+        {
+          "name": "中天",
+          "owner": "李柏毅",
+          "shares": 2087,
+          "parValue": 10,
+          "ntdTotal": 20870
+        },
+        {
+          "name": "龍巖",
+          "owner": "李柏毅",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "伍豐",
+          "owner": "李柏毅",
+          "shares": 2702,
+          "parValue": 10,
+          "ntdTotal": 27020
+        },
+        {
+          "name": "華友聯",
+          "owner": "葉瑋玲",
+          "shares": 6000,
+          "parValue": 10,
+          "ntdTotal": 60000
+        },
+        {
+          "name": "台積電",
+          "owner": "葉瑋玲",
+          "shares": 3000,
+          "parValue": 10,
+          "ntdTotal": 30000
+        },
+        {
+          "name": "華航",
+          "owner": "葉瑋玲",
+          "shares": 1705,
+          "parValue": 10,
+          "ntdTotal": 17050
+        },
+        {
+          "name": "永崴投控",
+          "owner": "葉瑋玲",
+          "shares": 20000,
+          "parValue": 10,
+          "ntdTotal": 200000
+        },
+        {
+          "name": "SY HOLDINGS",
+          "owner": "葉瑋玲",
+          "shares": 32000,
+          "parValue": 6,
+          "currency": "港幣",
+          "ntdTotal": 910118
+        },
+        {
+          "name": "森崴能源",
+          "owner": "葉瑋玲",
+          "shares": 5000,
+          "parValue": 10,
+          "ntdTotal": 50000
+        },
+        {
+          "name": "北基",
+          "owner": "葉瑋玲",
+          "shares": 30000,
+          "parValue": 10,
+          "ntdTotal": 300000
+        },
+        {
+          "name": "國統",
+          "owner": "葉瑋玲",
+          "shares": 10000,
+          "parValue": 10,
+          "ntdTotal": 100000
+        }
+      ]
+    },
+    "funds": {
+      "totalNTD": 0,
+      "items": []
+    }
+  }
+}
