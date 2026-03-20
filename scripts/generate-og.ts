@@ -89,21 +89,28 @@ function generateLegislatorSvg(name: string, party: string, amount: number, avat
     const avatarData = fs.readFileSync(fullAvatarPath)
     const b64 = avatarData.toString('base64')
     const ext = avatarPath.endsWith('.png') ? 'png' : 'jpeg'
-    avatarEmbed = `<image x="80" y="140" width="200" height="200" href="data:image/${ext};base64,${b64}" preserveAspectRatio="xMidYMid slice" clip-path="url(#avatarClip)"/>`
+    avatarEmbed = `<image x="60" y="100" width="240" height="240" href="data:image/${ext};base64,${b64}" preserveAspectRatio="xMidYMid slice" clip-path="url(#avatarClip)"/>`
   }
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <clipPath id="avatarClip"><rect x="80" y="140" width="200" height="200"/></clipPath>
+    <clipPath id="avatarClip"><rect x="60" y="100" width="240" height="240"/></clipPath>
   </defs>
   <rect width="1200" height="630" fill="#fafafa"/>
-  <rect x="0" y="0" width="6" height="630" fill="${barColor}"/>
-  ${avatarEmbed || `<rect x="80" y="140" width="200" height="200" fill="#e5e5e5"/><text x="180" y="260" font-family="serif" font-size="64" font-weight="900" fill="#999" text-anchor="middle">${escapeXml(name.charAt(0))}</text>`}
-  <text x="320" y="230" font-family="serif" font-size="72" font-weight="900" fill="#1a1a1a">${escapeXml(name)}</text>
-  <text x="320" y="280" font-family="sans-serif" font-size="28" fill="#666666">${escapeXml(party)}</text>
-  <text x="320" y="340" font-family="sans-serif" font-size="20" fill="#999999">${escapeXml(stockLabel)}</text>
-  <text x="320" y="390" font-family="serif" font-size="48" font-weight="900" fill="#1a1a1a">${escapeXml(amountText)}</text>
-  <text x="80" y="560" font-family="sans-serif" font-size="20" fill="#bbbbbb">legislator-wealth.tw</text>
+  <!-- Bold top band -->
+  <rect x="0" y="0" width="1200" height="12" fill="${barColor}"/>
+  <!-- Avatar -->
+  ${avatarEmbed || `<rect x="60" y="100" width="240" height="240" fill="#e5e5e5"/><text x="180" y="245" font-family="serif" font-size="80" font-weight="900" fill="#999" text-anchor="middle">${escapeXml(name.charAt(0))}</text>`}
+  <!-- Party color dot -->
+  <circle cx="350" cy="165" r="10" fill="${barColor}"/>
+  <text x="370" y="175" font-family="sans-serif" font-size="28" fill="#666666">${escapeXml(party)}</text>
+  <!-- Name -->
+  <text x="340" y="260" font-family="serif" font-size="80" font-weight="900" fill="#1a1a1a">${escapeXml(name)}</text>
+  <!-- Amount -->
+  <text x="340" y="380" font-family="sans-serif" font-size="22" fill="#999999">${escapeXml(stockLabel)}</text>
+  <text x="340" y="440" font-family="serif" font-size="56" font-weight="900" fill="#1a1a1a">${escapeXml(amountText)}</text>
+  <!-- Site -->
+  <text x="60" y="580" font-family="sans-serif" font-size="22" fill="#bbbbbb">legislator-wealth.tw</text>
 </svg>`
 }
 

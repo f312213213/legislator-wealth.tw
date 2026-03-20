@@ -26,9 +26,13 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
   return {
     title: data.name,
     description,
+    alternates: {
+      canonical: `/legislator/${slug}/`,
+    },
     openGraph: {
       title: data.name,
       description,
+      url: `/legislator/${slug}/`,
       images: [{
         url: `/og/${slug}.png`,
         width: 1200,
