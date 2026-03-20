@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
       title: data.name,
       description,
       images: [{
-        url: `/og/${slug}.svg`,
+        url: `/og/${slug}.png`,
         width: 1200,
         height: 630,
         alt: data.name,
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
       card: 'summary_large_image',
       title: data.name,
       description,
-      images: [`/og/${slug}.svg`],
+      images: [`/og/${slug}.png`],
     },
   }
 }

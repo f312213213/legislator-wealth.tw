@@ -1,5 +1,6 @@
 import fs from 'fs'
 import path from 'path'
+import sharp from 'sharp'
 import type { LegislatorIndex } from '../lib/types'
 
 const DATA_DIR = path.join(process.cwd(), 'data')
@@ -55,6 +56,10 @@ function escapeXml(s: string): string {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 }
 
+async function svgToPng(svg: string, outPath: string) {
+  await sharp(Buffer.from(svg)).png().toFile(outPath)
+}
+
 function generateSiteSvg(): string {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <rect width="1200" height="630" fill="#fafafa"/>
@@ -70,7 +75,6 @@ function generateLegislatorSvg(name: string, party: string, amount: number, avat
   const amountText = amount > 0 ? `NT$ ${formatNTD(amount)}` : '未持有股票'
   const stockLabel = amount > 0 ? '股票及基金市值' : ''
 
-  // Party color for accent bar
   const partyColors: Record<string, string> = {
     '中國國民黨': '#000099',
     '民主進步黨': '#1B9431',
@@ -79,7 +83,6 @@ function generateLegislatorSvg(name: string, party: string, amount: number, avat
   }
   const barColor = partyColors[party] || '#cccccc'
 
-  // Check if avatar exists as a file we can embed
   const fullAvatarPath = path.join(PUBLIC_DIR, avatarPath.replace(/^\//, ''))
   let avatarEmbed = ''
   if (avatarPath && fs.existsSync(fullAvatarPath)) {
@@ -95,31 +98,18 @@ function generateLegislatorSvg(name: string, party: string, amount: number, avat
   </defs>
   <rect width="1200" height="630" fill="#fafafa"/>
   <rect x="0" y="0" width="6" height="630" fill="${barColor}"/>
-
-  <!-- Avatar -->
   ${avatarEmbed || `<rect x="80" y="140" width="200" height="200" fill="#e5e5e5"/><text x="180" y="260" font-family="serif" font-size="64" font-weight="900" fill="#999" text-anchor="middle">${escapeXml(name.charAt(0))}</text>`}
-
-  <!-- Name -->
   <text x="320" y="230" font-family="serif" font-size="72" font-weight="900" fill="#1a1a1a">${escapeXml(name)}</text>
-
-  <!-- Party -->
   <text x="320" y="280" font-family="sans-serif" font-size="28" fill="#666666">${escapeXml(party)}</text>
-
-  <!-- Amount label -->
   <text x="320" y="340" font-family="sans-serif" font-size="20" fill="#999999">${escapeXml(stockLabel)}</text>
-
-  <!-- Amount -->
   <text x="320" y="390" font-family="serif" font-size="48" font-weight="900" fill="#1a1a1a">${escapeXml(amountText)}</text>
-
-  <!-- Site -->
   <text x="80" y="560" font-family="sans-serif" font-size="20" fill="#bbbbbb">legislator-wealth.tw</text>
 </svg>`
 }
 
-function main() {
+async function main() {
   fs.mkdirSync(OG_DIR, { recursive: true })
 
-  // Load data
   const index: LegislatorIndex = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'index.json'), 'utf-8'))
   const priceMap = loadPriceMap()
 
@@ -128,30 +118,34 @@ function main() {
     metaRaw = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'legislators-meta.json'), 'utf-8'))
   } catch {}
 
-  // Generate site OG
-  fs.writeFileSync(path.join(PUBLIC_DIR, 'og.svg'), generateSiteSvg(), 'utf-8')
-  console.log('Generated og.svg')
+  // Site OG
+  await svgToPng(generateSiteSvg(), path.join(PUBLIC_DIR, 'og.png'))
+  console.log('Generated og.png')
 
-  // Generate per-legislator OG
+  // Per-legislator OG
   let count = 0
   for (const leg of index.legislators) {
     if (leg.declarations.length === 0) continue
-
     const declPath = path.join(DATA_DIR, 'legislators', leg.declarations[0])
     if (!fs.existsSync(declPath)) continue
 
     const decl = JSON.parse(fs.readFileSync(declPath, 'utf-8'))
     const amount = calcMarketTotal(decl, priceMap)
     const meta = metaRaw[leg.name]
-    const party = meta?.party || ''
-    const avatar = meta?.avatar || ''
 
-    const svg = generateLegislatorSvg(leg.name, party, amount, avatar)
-    fs.writeFileSync(path.join(OG_DIR, `${leg.slug}.svg`), svg, 'utf-8')
+    const svg = generateLegislatorSvg(leg.name, meta?.party || '', amount, meta?.avatar || '')
+    await svgToPng(svg, path.join(OG_DIR, `${leg.slug}.png`))
     count++
   }
 
-  console.log(`Generated ${count} legislator OG images`)
+  // Clean up old SVGs
+  for (const f of fs.readdirSync(OG_DIR).filter(f => f.endsWith('.svg'))) {
+    fs.unlinkSync(path.join(OG_DIR, f))
+  }
+  const siteSvg = path.join(PUBLIC_DIR, 'og.svg')
+  if (fs.existsSync(siteSvg)) fs.unlinkSync(siteSvg)
+
+  console.log(`Generated ${count} legislator OG images (PNG)`)
 }
 
 main()
