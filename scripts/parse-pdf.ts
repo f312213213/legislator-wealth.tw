@@ -724,6 +724,15 @@ async function main() {
     console.error(`Input directory not found: ${inputDir}`)
     process.exit(1)
   }
+  // Clean output directory and index before parsing
+  if (fs.existsSync(outputDir)) {
+    for (const f of fs.readdirSync(outputDir).filter(f => f.endsWith('.json'))) {
+      fs.unlinkSync(path.join(outputDir, f))
+    }
+  }
+  const indexPath = path.join(path.dirname(outputDir), 'index.json')
+  if (fs.existsSync(indexPath)) fs.unlinkSync(indexPath)
+
   fs.mkdirSync(outputDir, { recursive: true })
   const files = fs.readdirSync(inputDir).filter(f => f.endsWith('.pdf'))
   if (files.length === 0) {

@@ -3,6 +3,7 @@ import { PropertySummary } from '@/components/property-summary'
 import { CategoryTabs, type HoldingRow } from '@/components/category-tabs'
 import { notFound } from 'next/navigation'
 import { formatDate } from '@/lib/format'
+import Image from 'next/image'
 import type { LegislatorDeclaration } from '@/lib/types'
 
 export async function generateStaticParams() {
@@ -49,6 +50,13 @@ function buildHoldings(data: LegislatorDeclaration): HoldingRow[] {
   return rows
 }
 
+const PARTY_COLOR: Record<string, string> = {
+  '國民黨': 'bg-[#000099]',
+  '民進黨': 'bg-[#1B9431]',
+  '民眾黨': 'bg-[#28C8C8]',
+  '無黨籍': 'bg-[#999999]',
+}
+
 export default async function LegislatorPage({ params }: { params: Promise<{ name: string }> }) {
   const { name } = await params
   const decodedName = decodeURIComponent(name)
@@ -61,18 +69,34 @@ export default async function LegislatorPage({ params }: { params: Promise<{ nam
   }
 
   const holdings = buildHoldings(data)
+  const partyDot = meta?.party ? (PARTY_COLOR[meta.party] || 'bg-muted-foreground') : ''
 
   return (
-    <div className="space-y-6">
-      <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
-        <h1 className="text-2xl font-bold">{data.name}</h1>
-        {meta?.party && (
-          <span className="text-sm text-muted-foreground">{meta.party}</span>
-        )}
-        <span className="text-sm text-muted-foreground tabular-nums">{formatDate(data.declarationDate)}</span>
-        {data.spouse && (
-          <span className="text-sm text-muted-foreground">配偶：{data.spouse.name}</span>
-        )}
+    <div className="space-y-8">
+      {/* Profile header */}
+      <div className="flex items-start gap-4 pt-2">
+        <div className="flex h-16 w-16 shrink-0 items-center justify-center bg-muted text-2xl font-bold text-muted-foreground overflow-hidden sm:h-20 sm:w-20">
+          {meta?.avatar ? (
+            <Image src={meta.avatar} alt={data.name} width={80} height={80} className="h-full w-full object-cover" />
+          ) : (
+            data.name.charAt(0)
+          )}
+        </div>
+        <div className="min-w-0 flex-1 space-y-1">
+          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">{data.name}</h1>
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted-foreground">
+            {meta?.party && (
+              <span className="flex items-center gap-1.5">
+                <span className={`inline-block h-2 w-2 ${partyDot}`} />
+                {meta.party}
+              </span>
+            )}
+            <span className="tabular-nums">{formatDate(data.declarationDate)}</span>
+            {data.spouse && (
+              <span>配偶：{data.spouse.name}</span>
+            )}
+          </div>
+        </div>
       </div>
 
       <PropertySummary data={data} />

@@ -704,18 +704,6 @@
       ]
     },
     {
-      "name": "陳秀",
-      "latestDeclarationDate": "2024-11-01",
-      "organization": "立法院",
-      "title": "立法委員",
-      "declarations": [
-        "陳秀-2024-11-01-A0266-00173.json"
-      ],
-      "changes": [
-        "陳秀-change-2024-11-01-A0266-00178.json"
-      ]
-    },
-    {
       "name": "陳秀寳",
       "latestDeclarationDate": "2024-11-01",
       "organization": "立法院",
@@ -1275,5 +1263,5 @@
       "changes": []
     }
   ],
-  "lastUpdated": "2026-03-20T09:42:07.678Z"
+  "lastUpdated": "2026-03-20T09:43:29.563Z"
 }
