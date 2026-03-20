@@ -3,7 +3,7 @@ import { CurrencyDisplay } from '@/components/currency-display'
 import { SearchableList } from '@/components/searchable-list'
 import { PartyBarChart, type StockBarData } from '@/components/party-bar-chart'
 import Link from 'next/link'
-import Image from 'next/image'
+/* eslint-disable @next/next/no-img-element */
 import type { LegislatorDeclaration } from '@/lib/types'
 
 function calcMarketTotal(decl: LegislatorDeclaration): number {
@@ -110,7 +110,7 @@ export default function HomePage() {
             <div className="flex items-end gap-5 sm:gap-8">
               <div className={`flex h-24 w-24 shrink-0 items-center justify-center bg-muted overflow-hidden border-l-4 ${heroBorder} sm:h-32 sm:w-32`}>
                 {heroMeta?.avatar ? (
-                  <Image src={heroMeta.avatar} alt={hero.name} width={128} height={128} className="h-full w-full object-cover" />
+                  <img src={heroMeta.avatar} alt={hero.name} width={128} height={128} className="h-full w-full object-cover"/>
                 ) : (
                   <span className="text-4xl font-black text-muted-foreground">{hero.name.charAt(0)}</span>
                 )}
@@ -119,7 +119,7 @@ export default function HomePage() {
                 <h2 className="font-heading text-4xl font-black tracking-tight group-hover:underline decoration-2 underline-offset-4 sm:text-5xl">{hero.name}</h2>
                 <p className="text-sm text-muted-foreground">{heroMeta?.party}</p>
                 <p className="text-2xl font-black tabular-nums tracking-tight sm:text-3xl">
-                  <CurrencyDisplay amount={heroAmount} />
+                  <CurrencyDisplay amount={heroAmount}/>
                 </p>
               </div>
             </div>
@@ -144,14 +144,14 @@ export default function HomePage() {
                 className="row-hover relative flex items-center gap-3 px-3 py-2.5 sm:gap-4 sm:px-4"
               >
                 {/* Background bar — proportional to #1 */}
-                <div className={`absolute inset-y-0 left-0 ${barClass}`} style={{ width: `${pct}%` }} />
+                <div className={`absolute inset-y-0 left-0 ${barClass}`} style={{ width: `${pct}%` }}/>
                 {/* Content */}
                 <span className="relative text-lg font-black text-muted-foreground/20 tabular-nums w-6 shrink-0 text-right">
                   {i + 2}
                 </span>
                 <div className={`relative flex h-10 w-10 shrink-0 items-center justify-center bg-muted overflow-hidden border-l-2 ${border}`}>
                   {meta?.avatar ? (
-                    <Image src={meta.avatar} alt={decl.name} width={40} height={40} className="h-full w-full object-cover" />
+                    <img src={meta.avatar} alt={decl.name} width={40} height={40} className="h-full w-full object-cover"/>
                   ) : (
                     <span className="text-sm font-bold text-muted-foreground">{decl.name.charAt(0)}</span>
                   )}
@@ -161,7 +161,7 @@ export default function HomePage() {
                   <span className="text-sm text-muted-foreground ml-2">{meta?.party}</span>
                 </div>
                 <span className="relative font-bold tabular-nums tracking-tight">
-                  <CurrencyDisplay amount={amount} />
+                  <CurrencyDisplay amount={amount}/>
                 </span>
               </Link>
             )
@@ -177,13 +177,13 @@ export default function HomePage() {
             全部明細
           </Link>
         </div>
-        <PartyBarChart stocks={topStocksData} />
+        <PartyBarChart stocks={topStocksData}/>
       </section>
 
       {/* All legislators */}
       <section className="space-y-3">
         <h2 className="text-lg font-bold">全部立委</h2>
-        <SearchableList legislators={listData} />
+        <SearchableList legislators={listData}/>
       </section>
 
       {/* Footer */}

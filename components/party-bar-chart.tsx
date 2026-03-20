@@ -23,12 +23,11 @@ export function PartyBarChart({ stocks }: { stocks: StockBarData[] }) {
     <div className="relative space-y-1">
       {/* Tooltip — fixed position, animated */}
       <div
-        className="fixed z-50 pointer-events-none transition-all duration-150 ease-out"
+        className="fixed z-50 pointer-events-none transition-opacity duration-100"
         style={{
           left: tooltip ? tooltip.x : 0,
           top: tooltip ? tooltip.y - 44 : 0,
           opacity: tooltip ? 1 : 0,
-          transform: tooltip ? 'translateY(0)' : 'translateY(4px)',
         }}
       >
         {tooltip && (

@@ -4,7 +4,7 @@ import { CategoryTabs, type HoldingRow } from '@/components/category-tabs'
 import { HoldingsPie } from '@/components/holdings-pie'
 import { notFound } from 'next/navigation'
 import { formatDate, formatNTD } from '@/lib/format'
-import Image from 'next/image'
+/* eslint-disable @next/next/no-img-element */
 import type { Metadata } from 'next'
 import type { LegislatorDeclaration } from '@/lib/types'
 
@@ -118,7 +118,7 @@ export default async function LegislatorPage({ params }: { params: Promise<{ nam
       <div className="flex items-start gap-4 pt-2">
         <div className="flex h-16 w-16 shrink-0 items-center justify-center bg-muted text-2xl font-bold text-muted-foreground overflow-hidden sm:h-20 sm:w-20">
           {meta?.avatar ? (
-            <Image src={meta.avatar} alt={data.name} width={80} height={80} className="h-full w-full object-cover" />
+            <img src={meta.avatar} alt={data.name} className="h-full w-full object-cover" />
           ) : (
             data.name.charAt(0)
           )}
@@ -132,7 +132,7 @@ export default async function LegislatorPage({ params }: { params: Promise<{ nam
                 {meta.party}
               </span>
             )}
-            <span className="tabular-nums">{formatDate(data.declarationDate)}</span>
+            <span className="tabular-nums">申報日 {formatDate(data.declarationDate)}</span>
             {data.spouse && (
               <span>配偶：{data.spouse.name}</span>
             )}

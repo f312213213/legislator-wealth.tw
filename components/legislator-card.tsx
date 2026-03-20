@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Image from 'next/image'
+/* eslint-disable @next/next/no-img-element */
 import { CurrencyDisplay } from './currency-display'
 import type { LegislatorDeclaration } from '@/lib/types'
 import type { LegislatorMeta } from '@/lib/data'
@@ -21,7 +21,7 @@ export function LegislatorCard({ data, marketTotal, meta, slug }: { data: Legisl
       <div className={`flex items-center gap-3 px-4 py-3 border-l-3 ${borderColor}`}>
         <div className="flex h-12 w-12 shrink-0 items-center justify-center bg-muted text-base font-medium text-muted-foreground overflow-hidden">
           {meta?.avatar ? (
-            <Image src={meta.avatar} alt={data.name} width={48} height={48} className="h-full w-full object-cover" />
+            <img src={meta.avatar} alt={data.name} className="h-full w-full object-cover" loading="lazy" />
           ) : (
             initial
           )}

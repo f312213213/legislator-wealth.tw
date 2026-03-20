@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
+/* eslint-disable @next/next/no-img-element */
 import { CurrencyDisplay } from './currency-display'
 import { SearchInput } from './search-input'
 
@@ -39,7 +39,7 @@ export function SearchableList({ legislators }: { legislators: LegislatorItem[] 
           >
             <div className={`flex h-8 w-8 shrink-0 items-center justify-center bg-muted text-xs font-medium text-muted-foreground overflow-hidden border-l-2 ${l.borderColor}`}>
               {l.avatar ? (
-                <Image src={l.avatar} alt={l.name} width={32} height={32} className="h-full w-full object-cover" />
+                <img src={l.avatar} alt={l.name} className="h-full w-full object-cover" />
               ) : (
                 l.name.charAt(0)
               )}
