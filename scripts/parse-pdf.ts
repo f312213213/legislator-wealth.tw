@@ -35,8 +35,12 @@ for (let i = 0; i < args.length; i++) {
   if (args[i] === '--output' && args[i + 1]) outputDir = args[i + 1]
 }
 
-function parseNumber(str: string): number {
+function parseInteger(str: string): number {
   return parseInt(str.replace(/[,，\s]/g, ''), 10) || 0
+}
+
+function parseDecimal(str: string): number {
+  return parseFloat(str.replace(/[,，\s]/g, '')) || 0
 }
 
 function isBlank(text: string): boolean {
@@ -76,8 +80,13 @@ function fixSplitDecimal(line: string): string {
 }
 
 // Fix split NAV: "7,000 3 6.01 252,070" → "7,000 36.01 252,070"
+// Also handles 2-digit prefix: "11 7.44 28.55" → "117.44 28.55"
 function fixSplitNav(line: string): string {
-  return line.replace(/\s(\d)\s+(\d+\.\d+)\s/g, ' $1$2 ')
+  // Single digit prefix
+  line = line.replace(/\s(\d)\s+(\d+\.\d+)\s/g, ' $1$2 ')
+  // Two digit prefix (e.g., "11 7.44" where 117.44 was split)
+  line = line.replace(/\s(\d{2})\s+(\d\.\d+)\s/g, ' $1$2 ')
+  return line
 }
 
 // Fix "40 .15" → "40.15" (split at decimal point)
@@ -90,8 +99,20 @@ function fixSplitTrailingDecimal(line: string): string {
   return line.replace(/([\d,]+\.\d)\s+(\d)(?=\s)/g, '$1$2')
 }
 
+// Fix "1, 000" → "1,000" (space after comma in number)
+function fixSpaceAfterComma(line: string): string {
+  return line.replace(/(\d),\s+(\d{3})/g, '$1,$2')
+}
+
+// Fix "92 ,200" → "92,200" (space before comma in number)
+function fixSpaceBeforeComma(line: string): string {
+  return line.replace(/(\d)\s+,(\d{3})/g, '$1,$2')
+}
+
 function fixLineSplits(line: string): string {
-  let l = fixSplitCommaNumber(line)
+  let l = fixSpaceAfterComma(line)
+  l = fixSpaceBeforeComma(l)
+  l = fixSplitCommaNumber(l)
   l = fixSplitDot(l)
   l = fixSplitDecimal(l)
   l = fixSplitNav(l)
@@ -145,7 +166,7 @@ function parseStocks(stockText: string): LegislatorDeclaration['securities']['st
   if (!stockText || isBlank(stockText)) return empty
 
   const stockTotalMatch = stockText.match(/股票[（(]總價額[：:]\s*新臺幣\s*([\d,]+)\s*元[）)]/)
-  const stockTotalNTD = stockTotalMatch ? parseNumber(stockTotalMatch[1]) : 0
+  const stockTotalNTD = stockTotalMatch ? parseInteger(stockTotalMatch[1]) : 0
   const items: typeof empty.items = []
 
   const lines = stockText.split('\n')
@@ -163,9 +184,9 @@ function parseStocks(stockText: string): LegislatorDeclaration['securities']['st
       items.push({
         name: ms[1].trim(),
         owner: ms[2] + ms[3],
-        shares: parseNumber(ms[4]),
-        parValue: parseNumber(ms[5]),
-        ntdTotal: parseNumber(ms[6]),
+        shares: parseInteger(ms[4]),
+        parValue: parseDecimal(ms[5]),
+        ntdTotal: parseDecimal(ms[6]),
       })
       continue
     }
@@ -175,9 +196,9 @@ function parseStocks(stockText: string): LegislatorDeclaration['securities']['st
       items.push({
         name: m[1].trim(),
         owner: m[2],
-        shares: parseNumber(m[3]),
-        parValue: parseNumber(m[4]),
-        ntdTotal: parseNumber(m[5]),
+        shares: parseInteger(m[3]),
+        parValue: parseDecimal(m[4]),
+        ntdTotal: parseDecimal(m[5]),
       })
       continue
     }
@@ -187,10 +208,10 @@ function parseStocks(stockText: string): LegislatorDeclaration['securities']['st
       items.push({
         name: mc[1].trim(),
         owner: mc[2],
-        shares: parseNumber(mc[3]),
-        parValue: parseNumber(mc[4]),
+        shares: parseInteger(mc[3]),
+        parValue: parseDecimal(mc[4]),
         currency: mc[5],
-        ntdTotal: parseNumber(mc[6]),
+        ntdTotal: parseDecimal(mc[6]),
       })
     }
   }
@@ -200,9 +221,9 @@ function parseStocks(stockText: string): LegislatorDeclaration['securities']['st
 
 // ──────────────── Fund Parsing (complete rewrite) ────────────────
 
-const TRUSTEE_FULL_RE = /中\s*信\s*銀\s*行|台\s*北\s*富\s*邦|國\s*泰\s*證\s*券|元\s*大\s*證\s*券|富\s*邦\s*銀\s*行/
-const TRUSTEE_ONLY_RE = /^(中信銀行信託部?|信託部?|部|分公司|台北富邦銀行敦北分行|國泰證券忠孝分公司|元大證券基隆分公司|元大證券基隆|富邦銀行)$/
-const CURRENCY_RE = /美元|日圓|歐元|英鎊|新加坡幣|新臺幣|新台幣/
+const TRUSTEE_FULL_RE = /中\s*信\s*銀\s*行|台\s*北\s*富\s*邦|國\s*泰\s*證\s*券|國\s*泰\s*世\s*華|元\s*大\s*證\s*券|富\s*邦\s*銀\s*行|富\s*邦\s*證\s*券|永\s*豐\s*證\s*券|永\s*豐\s*金\s*證|保\s*德\s*信\s*證\s*券\s*投\s*資|群\s*益\s*證\s*券\s*投\s*資|摩\s*根\s*證\s*券\s*投\s*資|臺\s*灣\s*銀\s*行|華\s*南\s*永\s*昌|凱\s*基\s*證\s*券|京\s*城\s*商\s*業|京\s*城\s*證\s*券|臺\s*灣\s*新\s*光|上\s*海\s*銀\s*行/
+const TRUSTEE_ONLY_RE = /^(中信銀行信託部?|信託部?|部|分公司|母分公司|限公司|有限公司|台北富邦銀行敦北分行|國泰證券忠孝分公司|元大證券基隆分公司|元大證券基隆|富邦銀行)$/
+const CURRENCY_RE = /美元|日圓|歐元|英鎊|新加坡幣|新臺幣|新台幣|港幣|澳幣|南非幣|紐西蘭幣|人民幣/
 
 function isFundHeader(line: string): boolean {
   return /^3\.\s*基金|^基金受益|^票\s*面|^名\s*稱|^（單位|^總\s*額$|^新臺幣總額/.test(line.trim())
@@ -261,12 +282,12 @@ function tryMatchFundData(line: string): {
 } | null {
   const fixed = fixLineSplits(line)
 
-  // Match numeric tail: (units) (nav) [currency] (total)
-  const tailRe = /([\d,]+\.?\d*)\s+([\d,]+\.?\d*)\s+(?:(美元|日圓|歐元|英鎊|新加坡幣|新臺幣|新台幣)\s+)?([\d,]+)\s*$/
+  // Match numeric tail: (units) (nav) [currency] (total — may have decimals)
+  const tailRe = /([\d,]+\.?\d*)\s+([\d,]+\.?\d*)\s+(?:(美元|日圓|歐元|英鎊|新加坡幣|新臺幣|新台幣|港幣|澳幣|南非幣|紐西蘭幣|人民幣)\s+)?([\d,]+\.?\d*)\s*$/
   const tm = fixed.match(tailRe)
   if (!tm) return null
 
-  const ntdTotal = parseNumber(tm[4])
+  const ntdTotal = parseDecimal(tm[4])
   if (ntdTotal < 50) return null
 
   // Extract text before the numeric tail
@@ -274,11 +295,30 @@ function tryMatchFundData(line: string): {
 
   // Remove trustee text between owner and numbers
   beforeTail = beforeTail
-    .replace(/中\s*信\s*銀\s*行\s*信\s*託\s*部?/g, '')
-    .replace(/元\s*大\s*證\s*券\s*基\s*隆/g, '')
+    .replace(/中\s*信\s*銀\s*行[\s\u4e00-\u9fff]*/g, '')
+    .replace(/元\s*大\s*證\s*券[\s\u4e00-\u9fff]*/g, '')
     .replace(/台\s*北\s*富\s*邦\s*銀\s*行[\s\u4e00-\u9fff]*/g, '')
-    .replace(/國\s*泰\s*證\s*券\s*忠?\s*孝?[\s\u4e00-\u9fff]*/g, '')
+    .replace(/國\s*泰\s*證\s*券[\s\u4e00-\u9fff]*/g, '')
+    .replace(/國\s*泰\s*世\s*華\s*銀\s*行/g, '')
     .replace(/富\s*邦\s*銀\s*行/g, '')
+    .replace(/富\s*邦\s*證\s*券[\s\u4e00-\u9fff]*/g, '')
+    .replace(/京\s*城\s*商\s*業\s*銀\s*行/g, '')
+    .replace(/京\s*城\s*證\s*券[\s\u4e00-\u9fff]*/g, '')
+    .replace(/永\s*豐[\s\u4e00-\u9fff]*證\s*券[\s\u4e00-\u9fff]*/g, '')
+    .replace(/保\s*德\s*信\s*證\s*券[\s\u4e00-\u9fff]*信\s*託[\s\u4e00-\u9fff]*/g, '')
+    .replace(/群\s*益\s*證\s*券[\s\u4e00-\u9fff]*信\s*託[\s\u4e00-\u9fff]*/g, '')
+    .replace(/摩\s*根\s*證\s*券[\s\u4e00-\u9fff]*信\s*託[\s\u4e00-\u9fff]*/g, '')
+    .replace(/臺\s*灣\s*銀\s*行[\s\u4e00-\u9fff]*/g, '')
+    .replace(/華\s*南\s*永\s*昌[\s\u4e00-\u9fff]*/g, '')
+    .replace(/凱\s*基\s*證\s*券[\s\u4e00-\u9fff]*/g, '')
+    .replace(/臺\s*灣\s*新\s*光\s*銀\s*行[\s\u4e00-\u9fff]*/g, '')
+    .replace(/上\s*海\s*銀\s*行[\s\u4e00-\u9fff]*/g, '')
+    .replace(/Fidelity/gi, '')
+    .replace(/eTrade/gi, '')
+    // General: strip remaining institutional suffixes and fragments
+    .replace(/[\u4e00-\u9fff]*投\s*資\s*信\s*託\s*股\s*份\s*有\s*限\s*公\s*司/g, '')
+    .replace(/信\s*託\s*股\s*份\s*有\s*限/g, '')
+    .replace(/資\s*信\s*託\s*股\s*份/g, '')
     .trim()
 
   // Find owner: last CJK word (2-4 chars, including ○ for redacted names)
@@ -292,8 +332,8 @@ function tryMatchFundData(line: string): {
   return {
     prefix,
     owner,
-    units: parseFloat(tm[1].replace(/,/g, '')),
-    nav: parseFloat(tm[2].replace(/,/g, '')),
+    units: parseDecimal(tm[1]),
+    nav: parseDecimal(tm[2]),
     currency: tm[3] as string | undefined,
     ntdTotal,
   }
@@ -304,7 +344,7 @@ function parseFunds(fundText: string): LegislatorDeclaration['securities']['fund
   if (!fundText || isBlank(fundText)) return empty
 
   const fundTotalMatch = fundText.match(/總價額[：:]\s*新臺幣\s*([\d,]+)\s*元/)
-  const fundTotalNTD = fundTotalMatch ? parseNumber(fundTotalMatch[1]) : 0
+  const fundTotalNTD = fundTotalMatch ? parseInteger(fundTotalMatch[1]) : 0
 
   const lines = fundText.split('\n')
   const entries: { name: string; owner: string; trustee: string; units: number; nav: number; currency?: string; ntdTotal: number }[] = []
@@ -353,10 +393,25 @@ function parseFunds(fundText: string): LegislatorDeclaration['securities']['fund
     let namePrefix = dm.prefix.replace(/\s/g, '')
     // Remove any remaining trustee fragments
     namePrefix = namePrefix
-      .replace(/中信銀行信託部?/g, '')
-      .replace(/元大證券基隆/g, '')
+      .replace(/中信銀行[\u4e00-\u9fff]*/g, '')
+      .replace(/元大證券[\u4e00-\u9fff]*/g, '')
       .replace(/台北富邦銀行[\u4e00-\u9fff]*/g, '')
-      .replace(/國泰證券忠孝[\u4e00-\u9fff]*/g, '')
+      .replace(/國泰證券[\u4e00-\u9fff]*/g, '')
+      .replace(/國泰世華銀行/g, '')
+      .replace(/富邦證券[\u4e00-\u9fff]*/g, '')
+      .replace(/京城商業銀行/g, '')
+      .replace(/京城證券[\u4e00-\u9fff]*/g, '')
+      .replace(/永豐[\u4e00-\u9fff]*證券[\u4e00-\u9fff]*/g, '')
+      .replace(/保德信證券[\u4e00-\u9fff]*/g, '')
+      .replace(/群益證券[\u4e00-\u9fff]*/g, '')
+      .replace(/摩根證券[\u4e00-\u9fff]*信託[\u4e00-\u9fff]*/g, '')
+      .replace(/臺灣銀行[\u4e00-\u9fff]*/g, '')
+      .replace(/華南永昌[\u4e00-\u9fff]*/g, '')
+      .replace(/凱基證券[\u4e00-\u9fff]*/g, '')
+      .replace(/臺灣新光銀行[\u4e00-\u9fff]*/g, '')
+      .replace(/[\u4e00-\u9fff]*投資信託股份有限公司/g, '')
+      .replace(/信託股份有限/g, '')
+      .replace(/資信託股份/g, '')
       .replace(/-$/, '')
       .trim()
 
@@ -463,7 +518,7 @@ function parseSecurities(text: string): LegislatorDeclaration['securities'] {
   if (!text.match(/1\.\s*股票/) && isBlank(text)) return empty
 
   const totalMatch = text.match(/有價證券[（(]總價額[：:]\s*新臺幣\s*([\d,]+)\s*元[）)]/)
-  const totalNTD = totalMatch ? parseNumber(totalMatch[1]) : 0
+  const totalNTD = totalMatch ? parseInteger(totalMatch[1]) : 0
 
   // Split into sub-sections
   const stockIdx = text.search(/1\.\s*股票/)
@@ -566,59 +621,161 @@ function parseChangeHeader(text: string): Partial<ChangeDeclaration> {
   return result
 }
 
-function extractDateFromContext(lines: string[], idx: number): string {
-  for (let j = Math.max(0, idx - 1); j <= Math.min(lines.length - 1, idx + 1); j++) {
-    const combined = lines.slice(Math.max(0, j - 1), j + 2).join(' ')
-    const m = combined.match(/(\d{2,4})\s*年\s*(\d{1,2})\s*月\s*(\d{1,2})\s*日/)
-    if (m) {
-      let year = parseInt(m[1]); if (year < 1911) year += 1911
-      return `${year}-${m[2].padStart(2, '0')}-${m[3].padStart(2, '0')}`
+// ──── Change stock parsing: handles two formats ────
+// Format A ("numbers-first"): used by 李坤城, 呂玉玲
+//   [broker reason line]
+//   shares price total          ← anchor: numbers-only line
+//   stockName [broker] owner date [reason]
+//   [(存)/(提) continuation]
+// Format B ("inline"): used by 何欣純, 吳琪銘
+//   year 年 month 月            ← date preamble
+//   stockName broker owner shares price reason total  ← data line
+//   day 日                      ← date suffix
+
+const CHANGE_SKIP_RE = /名\s*稱|證\s*券\s*交|變\s*動\s*時|變\s*動\s*原|總\s*額|國內上市|監察院公報/
+
+function splitStockAndBroker(prefix: string): { stockName: string; broker: string } {
+  // Look for broker patterns
+  const brokerIdx = prefix.search(/(?:證券|國票|富邦|元大|凱基|永豐|群益|華南|中信|臺銀|台銀|第一|兆豐)/)
+  if (brokerIdx > 0) {
+    return {
+      stockName: prefix.slice(0, brokerIdx).replace(/[\s-]+$/, '').replace(/\s/g, ''),
+      broker: prefix.slice(brokerIdx).replace(/\s/g, ''),
     }
   }
-  return ''
+  // No broker pattern — check for / or - separator (e.g., "國票 - 南科")
+  const sepIdx = prefix.search(/\s+[-/]\s+/)
+  if (sepIdx > 0) {
+    // First token before separator is stock+broker start
+    const firstSpace = prefix.indexOf(' ')
+    if (firstSpace > 0 && firstSpace < sepIdx) {
+      return {
+        stockName: prefix.slice(0, firstSpace).replace(/\s/g, ''),
+        broker: prefix.slice(firstSpace).replace(/\s/g, ''),
+      }
+    }
+  }
+  return { stockName: prefix.replace(/\s/g, ''), broker: '' }
 }
 
-// Change declaration stock parsing — completely rewritten for complex PDFs.
-// Each entry has a "numbers line" (shares price total) as anchor.
-// Simple entries: numbers line + info line (name broker owner date reason)
-// Complex entries: broker+reason line, numbers line, info line (name owner date), continuation line
-function parseChangeStocks(text: string): ChangeDeclaration['stocks'] {
-  if (isBlank(text)) return undefined
-  const rawLines = text.split('\n')
+// Format B: inline parser
+function parseChangeStocksInline(rawLines: string[]): NonNullable<ChangeDeclaration['stocks']> {
   const items: NonNullable<ChangeDeclaration['stocks']> = []
+  let currentYear = 0
+  let currentMonth = 0
 
-  // Numbers line regex: shares price total (all numeric, after split fixes)
+  const dateLineRe = /^[^\u4e00-\u9fff]*(\d[\d\s]*)\s*年\s*(\d{1,2})\s*月\s*$/
+  const dayLineRe = /^\s*(\d{1,2})\s*日\s*$/
+
+  for (let i = 0; i < rawLines.length; i++) {
+    const raw = rawLines[i]
+    if (CHANGE_SKIP_RE.test(raw)) continue
+    if (/^\s*$/.test(raw)) continue
+
+    // Day suffix line
+    if (dayLineRe.test(raw)) continue
+
+    // Date preamble line: "113 年 01 月" (possibly with split digits)
+    const dm = raw.match(/(\d[\d\s]*)\s*年\s*(\d{1,2})\s*月/)
+    if (dm) {
+      // Make sure it's a pure date line (not a data line containing year text)
+      const hasDataTail = /(現?[買賣])\s+[\d,]+/.test(raw)
+      if (!hasDataTail) {
+        let y = parseInt(dm[1].replace(/\s/g, ''))
+        if (y < 1911) y += 1911
+        currentYear = y
+        currentMonth = parseInt(dm[2])
+        continue
+      }
+    }
+
+    // Try inline data match
+    const fixed = fixLineSplits(raw)
+
+    // Match from end: reason total
+    const tailMatch = fixed.match(/(現?[買賣])\s+([\d,]+\.?\d*)\s*$/)
+    if (!tailMatch) continue
+
+    const reason = tailMatch[1]
+    const total = parseDecimal(tailMatch[2])
+
+    // Before reason: ... shares price
+    const beforeReason = fixed.slice(0, tailMatch.index!).trim()
+    const numMatch = beforeReason.match(/([\d,]+)\s+([\d,.]+)\s*$/)
+    if (!numMatch) continue
+
+    const shares = parseInteger(numMatch[1])
+    if (shares === 0) continue
+    const changePrice = parseDecimal(numMatch[2])
+
+    // Before numbers: ... owner
+    const beforeNums = beforeReason.slice(0, numMatch.index!).trim()
+    const ownerMatch = beforeNums.match(/([\u4e00-\u9fff○]{2,4})\s*$/)
+    if (!ownerMatch) continue
+
+    const owner = ownerMatch[1]
+    const prefix = beforeNums.slice(0, ownerMatch.index!).trim()
+    const { stockName, broker } = splitStockAndBroker(prefix)
+    if (!stockName) continue
+
+    // Build date: look ahead for day line
+    let day = 0
+    let nextIdx = i + 1
+    while (nextIdx < rawLines.length && /^\s*$/.test(rawLines[nextIdx])) nextIdx++
+    if (nextIdx < rawLines.length) {
+      const dayMatch = rawLines[nextIdx].match(dayLineRe)
+      if (dayMatch) day = parseInt(dayMatch[1])
+    }
+
+    const dateStr = currentYear > 0 && currentMonth > 0
+      ? `${currentYear}-${String(currentMonth).padStart(2, '0')}-${String(day || 1).padStart(2, '0')}`
+      : ''
+
+    items.push({
+      name: stockName,
+      broker: broker.replace(/\s/g, ''),
+      owner,
+      shares,
+      changePrice,
+      changeDate: dateStr,
+      changeReason: reason,
+      total,
+    })
+  }
+  return items
+}
+
+// Format A: numbers-first parser (original approach)
+function parseChangeStocksNumbersFirst(rawLines: string[]): NonNullable<ChangeDeclaration['stocks']> {
+  const items: NonNullable<ChangeDeclaration['stocks']> = []
   const numbersRe = /^([\d,]+)\s+([\d,.]+)\s+([\d,.]+)\s*$/
 
   for (let i = 0; i < rawLines.length; i++) {
     const raw = rawLines[i]
-    // Skip headers and page markers
-    if (raw.match(/名\s*稱|證\s*券\s*交|變\s*動\s*時|變\s*動\s*原|總\s*額|國內上市|監察院公報/)) continue
-    if (raw.match(/^\s*$/)) continue
+    if (CHANGE_SKIP_RE.test(raw)) continue
+    if (/^\s*$/.test(raw)) continue
 
     const fixed = fixLineSplits(raw)
     const nm = fixed.match(numbersRe)
     if (!nm) continue
 
-    const shares = parseNumber(nm[1])
+    const shares = parseInteger(nm[1])
     if (shares === 0) continue
-    const changePrice = parseFloat(nm[2].replace(/,/g, ''))
-    const total = parseFloat(nm[3].replace(/,/g, ''))
+    const changePrice = parseDecimal(nm[2])
+    const total = parseDecimal(nm[3])
 
     // Info line: the next non-empty line after numbers
     let infoIdx = i + 1
-    while (infoIdx < rawLines.length && rawLines[infoIdx].match(/^\s*$/)) infoIdx++
+    while (infoIdx < rawLines.length && /^\s*$/.test(rawLines[infoIdx])) infoIdx++
     if (infoIdx >= rawLines.length) continue
     const infoLine = rawLines[infoIdx]
 
-    // Parse info line: stockName [broker] owner date [reason]
     let stockName = ''
     let broker = ''
     let owner = ''
     let dateStr = ''
     let reason = ''
 
-    // Find date in info line
     const dateMatch = infoLine.match(/(\d{2,4})\s*年\s*(\d{1,2})\s*月\s*(\d{1,2})\s*日/)
     if (!dateMatch) continue
 
@@ -626,11 +783,9 @@ function parseChangeStocks(text: string): ChangeDeclaration['stocks'] {
     if (year < 1911) year += 1911
     dateStr = `${year}-${dateMatch[2].padStart(2, '0')}-${dateMatch[3].padStart(2, '0')}`
 
-    // Owner: CJK word (2-4 chars including ○) right before the date
     const ownerMatch = infoLine.match(/([\u4e00-\u9fff○]{2,4})\s+\d{2,4}\s*年/)
     if (ownerMatch) owner = ownerMatch[1]
 
-    // Everything before owner is stockName + [broker]
     const ownerIdx = infoLine.indexOf(ownerMatch![0])
     const beforeOwner = infoLine.slice(0, ownerIdx).trim()
     const tokens = beforeOwner.split(/\s+/).filter(Boolean)
@@ -641,41 +796,34 @@ function parseChangeStocks(text: string): ChangeDeclaration['stocks'] {
       }
     }
 
-    // Reason: after the date on the info line
     const dateEnd = infoLine.indexOf(dateMatch[0]) + dateMatch[0].length
     const afterDate = infoLine.slice(dateEnd).trim()
     if (afterDate) reason = afterDate.replace(/\s/g, '')
 
-    // For complex entries (存券匯撥/減資轉入 etc.), broker+reason is on the line BEFORE numbers
+    // For complex entries (存券匯撥/減資轉入 etc.), broker+reason on line BEFORE numbers
     if (!reason) {
-      // Look at the line before the numbers line
       let prevIdx = i - 1
-      while (prevIdx >= 0 && rawLines[prevIdx].match(/^\s*$/)) prevIdx--
+      while (prevIdx >= 0 && /^\s*$/.test(rawLines[prevIdx])) prevIdx--
       if (prevIdx >= 0) {
         const prevLine = rawLines[prevIdx]
         const prevStripped = prevLine.replace(/\s/g, '')
-        // Check for known complex reason patterns
         const reasonInPrev = prevStripped.match(/(存券匯撥|減資轉入|減資轉出|買進|賣出|配股|轉讓|贈與)/)
         if (reasonInPrev) {
-          // Extract broker from the part before the reason
           const reasonStart = prevLine.search(/存\s*券\s*匯\s*撥|減\s*資\s*轉\s*入|減\s*資\s*轉\s*出|買\s*進|賣\s*出|配\s*股|轉\s*讓|贈\s*與/)
           if (reasonStart > 0) {
             broker = prevLine.slice(0, reasonStart).trim().replace(/\s/g, '')
           }
           reason = reasonInPrev[1]
 
-          // Check continuation line (after info line) for (存)/(提) suffix and broker continuation
           let contIdx = infoIdx + 1
-          while (contIdx < rawLines.length && rawLines[contIdx].match(/^\s*$/)) contIdx++
+          while (contIdx < rawLines.length && /^\s*$/.test(rawLines[contIdx])) contIdx++
           if (contIdx < rawLines.length) {
             const contLine = rawLines[contIdx]
             const contStripped = contLine.replace(/\s/g, '')
-            // Extract (存) or (提) suffix
             const suffixMatch = contStripped.match(/\(([存提])\)/)
             if (suffixMatch) reason += `(${suffixMatch[1]})`
-            // Extract broker continuation (e.g., "司" to complete "分公司")
             const brokerCont = contStripped.replace(/\([存提]\)/, '').trim()
-            if (brokerCont && brokerCont.match(/^[\u4e00-\u9fff]+$/) && brokerCont.length <= 3) {
+            if (brokerCont && /^[\u4e00-\u9fff]+$/.test(brokerCont) && brokerCont.length <= 3) {
               broker += brokerCont
             }
           }
@@ -696,6 +844,21 @@ function parseChangeStocks(text: string): ChangeDeclaration['stocks'] {
       })
     }
   }
+  return items
+}
+
+function parseChangeStocks(text: string): ChangeDeclaration['stocks'] {
+  if (isBlank(text)) return undefined
+  const rawLines = text.split('\n')
+
+  // Try numbers-first format (李坤城/呂玉玲 style)
+  const numbersFirstResult = parseChangeStocksNumbersFirst(rawLines)
+
+  // Try inline format (何欣純/吳琪銘 style)
+  const inlineResult = parseChangeStocksInline(rawLines)
+
+  // Use whichever produced more results
+  const items = numbersFirstResult.length >= inlineResult.length ? numbersFirstResult : inlineResult
 
   return items.length > 0 ? items : undefined
 }
@@ -721,14 +884,42 @@ async function parseChangeDeclarationDoc(text: string): Promise<ChangeDeclaratio
 
 // ──────────────── Main ────────────────
 
-async function parsePDF(filePath: string): Promise<LegislatorDocument> {
-  const text = await extractText(filePath)
+async function parsePDF(filePath: string): Promise<LegislatorDocument[]> {
+  let text = await extractText(filePath)
+
+  // Strip ★ correction markers (e.g. "1★國泰人壽" → "國泰人壽")
+  text = text.replace(/\d+★/g, '')
+
+  // Split multi-declaration PDFs (multiple annual declarations in one PDF)
+  const declHeaderRe = /公\s*職\s*人\s*員\s*(變\s*動\s*)?財\s*產\s*申\s*報\s*表/g
+  const headerPositions: number[] = []
+  let hm: RegExpExecArray | null
+  while ((hm = declHeaderRe.exec(text)) !== null) {
+    headerPositions.push(hm.index)
+  }
+
+  // If multiple declarations found, split and parse each independently
+  if (headerPositions.length > 1) {
+    const docs: LegislatorDocument[] = []
+    for (let i = 0; i < headerPositions.length; i++) {
+      const start = headerPositions[i]
+      const end = i + 1 < headerPositions.length ? headerPositions[i + 1] : text.length
+      const chunk = text.slice(start, end)
+      if (isChangeDeclaration(chunk)) {
+        docs.push(await parseChangeDeclarationDoc(chunk))
+      } else {
+        docs.push(await parseAssetDeclaration(chunk))
+      }
+    }
+    return docs
+  }
+
   if (isChangeDeclaration(text)) {
     console.log('  [type: change declaration]')
-    return parseChangeDeclarationDoc(text)
+    return [await parseChangeDeclarationDoc(text)]
   } else {
     console.log('  [type: asset declaration]')
-    return parseAssetDeclaration(text)
+    return [await parseAssetDeclaration(text)]
   }
 }
 
@@ -756,17 +947,21 @@ async function main() {
   for (const file of files) {
     console.log(`Parsing: ${file}`)
     try {
-      const doc = await parsePDF(path.join(inputDir, file))
-      const datePart = doc.declarationDate || file.replace('.pdf', '')
+      const docs = await parsePDF(path.join(inputDir, file))
       const src = file.replace('.pdf', '')
-      let outFile: string
-      if (doc.type === 'change') {
-        outFile = `${doc.name}-change-${datePart}-${src}.json`
-      } else {
-        outFile = `${doc.name}-${datePart}-${src}.json`
+      for (let di = 0; di < docs.length; di++) {
+        const doc = docs[di]
+        const datePart = doc.declarationDate || file.replace('.pdf', '')
+        const suffix = docs.length > 1 ? `-${di + 1}` : ''
+        let outFile: string
+        if (doc.type === 'change') {
+          outFile = `${doc.name}-change-${datePart}-${src}${suffix}.json`
+        } else {
+          outFile = `${doc.name}-${datePart}-${src}${suffix}.json`
+        }
+        fs.writeFileSync(path.join(outputDir, outFile), JSON.stringify(doc, null, 2), 'utf-8')
+        console.log(`  → ${outFile}`)
       }
-      fs.writeFileSync(path.join(outputDir, outFile), JSON.stringify(doc, null, 2), 'utf-8')
-      console.log(`  → ${outFile}`)
     } catch (err) {
       console.error(`  Error parsing ${file}:`, err)
     }
