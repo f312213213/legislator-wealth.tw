@@ -93,7 +93,7 @@ function buildHoldings(data: LegislatorDeclaration): HoldingRow[] {
 }
 
 const PARTY_COLOR: Record<string, string> = {
-  '中國國民黨': 'bg-[#000099]',
+  '中國國民黨': 'bg-[#1a5ccc]',
   '民主進步黨': 'bg-[#1B9431]',
   '台灣民眾黨': 'bg-[#28C8C8]',
   '無黨籍': 'bg-[#999999]',

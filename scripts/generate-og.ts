@@ -76,7 +76,7 @@ function generateLegislatorSvg(name: string, party: string, amount: number, avat
   const stockLabel = amount > 0 ? '股票及基金市值' : ''
 
   const partyColors: Record<string, string> = {
-    '中國國民黨': '#000099',
+    '中國國民黨': '#1a5ccc',
     '民主進步黨': '#1B9431',
     '台灣民眾黨': '#28C8C8',
     '無黨籍': '#999999',

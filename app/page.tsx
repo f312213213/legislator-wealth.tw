@@ -20,7 +20,7 @@ function calcMarketTotal(decl: LegislatorDeclaration): number {
 }
 
 const PARTY_BORDER: Record<string, string> = {
-  '中國國民黨': 'border-l-[#000099]',
+  '中國國民黨': 'border-l-[#1a5ccc]',
   '民主進步黨': 'border-l-[#1B9431]',
   '台灣民眾黨': 'border-l-[#28C8C8]',
   '無黨籍': 'border-l-[#999999]',

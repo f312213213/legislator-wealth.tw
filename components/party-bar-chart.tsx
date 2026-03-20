@@ -3,7 +3,7 @@
 import { useState } from 'react'
 
 const PARTY_HEX: Record<string, string> = {
-  '中國國民黨': '#000099',
+  '中國國民黨': '#1a5ccc',
   '民主進步黨': '#1B9431',
   '台灣民眾黨': '#28C8C8',
   '無黨籍': '#000000',
