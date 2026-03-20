@@ -17,7 +17,7 @@ jobs:
 
       - name: Fetch TWSE STOCK_DAY_ALL
         run: |
-          curl -s -X 'GET' \
+          curl -sf -X 'GET' \
             'https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL' \
             -H 'accept: application/json' \
             -H 'If-Modified-Since: Mon, 26 Jul 1997 05:00:00 GMT' \
@@ -27,7 +27,7 @@ jobs:
 
       - name: Fetch TPEx mainboard quotes
         run: |
-          curl -s -X 'GET' \
+          curl -sf -X 'GET' \
             'https://www.tpex.org.tw/openapi/v1/tpex_mainboard_quotes' \
             -H 'accept: application/json' \
             -H 'If-Modified-Since: Mon, 26 Jul 1997 05:00:00 GMT' \
@@ -37,7 +37,7 @@ jobs:
 
       - name: Fetch TPEx ESB latest statistics
         run: |
-          curl -s -X 'GET' \
+          curl -sf -X 'GET' \
             'https://www.tpex.org.tw/openapi/v1/tpex_esb_latest_statistics' \
             -H 'accept: application/json' \
             -H 'If-Modified-Since: Mon, 26 Jul 1997 05:00:00 GMT' \
