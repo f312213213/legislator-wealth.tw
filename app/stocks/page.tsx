@@ -83,7 +83,7 @@ export default function StocksPage() {
       <header className="pt-4">
         <h1 className="font-heading text-3xl font-black tracking-tight sm:text-4xl">股票及基金</h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          {withHoldings.length} 位立委共持有 {new Set(holdings.map(h => h.name)).size} 檔標的，{holdings.length} 筆紀錄。
+          {declarations.length} 位立委中有 {withHoldings.length} 位持有股票或基金，共 {new Set(holdings.map(h => h.name)).size} 檔標的、{holdings.length} 筆紀錄。
         </p>
       </header>
 
