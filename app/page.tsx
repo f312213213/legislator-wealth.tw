@@ -39,10 +39,12 @@ export default function HomePage() {
   )
 
   const topStocks = aggregatedStocks.slice(0, 10)
-  const top5 = ranked.slice(0, 5)
+  const hero = ranked[0]
+  const heroMeta = hero ? getLegislatorMeta(hero.name) : null
+  const heroAmount = hero ? marketTotals.get(hero.name) || 0 : 0
+  const top2to5 = ranked.slice(1, 5)
   const rest = ranked.slice(5)
 
-  // Serialize for client component
   const listData = rest.map((d, i) => {
     const meta = getLegislatorMeta(d.name)
     return {
@@ -57,21 +59,56 @@ export default function HomePage() {
   })
 
   return (
-    <div className="space-y-16">
-      {/* Hero — editorial, not dashboard */}
-      <header className="pt-8 sm:pt-12 space-y-6">
-        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">立委持股公開平台</h1>
-        <div className="mt-2 space-y-1 text-sm text-muted-foreground">
+    <div className="space-y-20">
+      {/* Title */}
+      <header className="pt-8 sm:pt-16">
+        <h1 className="font-heading text-5xl font-black tracking-tight sm:text-6xl">立委持股</h1>
+        <div className="mt-3 space-y-1 text-sm text-muted-foreground">
           <p>{declarations.length} 位第十一屆立法委員的股票及基金申報資料。資料來源為監察院公報，市值依據台灣證交所收盤價估算。</p>
           <p>部分立委尚無公開申報紀錄，故未列出。資料由程式自動解析申報 PDF，若有錯誤歡迎至 <a href="https://github.com/f312213213/legislator-wealth.tw/issues" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground">GitHub</a> 回報。</p>
         </div>
       </header>
 
-      {/* Top 5 — Featured, big, editorial */}
+      {/* Hero — #1 legislator, big and editorial */}
+      {hero && (
+        <section>
+          <Link
+            href={`/legislator/${getSlugByName(hero.name)}`}
+            className="group block border-b pb-8 transition-colors"
+          >
+            <p className="text-sm text-muted-foreground mb-4">持股市值最高</p>
+            <div className="flex items-end gap-6">
+              <div className="flex h-24 w-24 shrink-0 items-center justify-center bg-muted overflow-hidden sm:h-32 sm:w-32">
+                {heroMeta?.avatar ? (
+                  <Image src={heroMeta.avatar} alt={hero.name} width={128} height={128} className="h-full w-full object-cover" />
+                ) : (
+                  <span className="text-4xl font-black text-muted-foreground">{hero.name.charAt(0)}</span>
+                )}
+              </div>
+              <div className="min-w-0 flex-1">
+                <h2 className="font-heading text-4xl font-black tracking-tight sm:text-5xl group-hover:underline decoration-2 underline-offset-4">{hero.name}</h2>
+                <p className="text-sm text-muted-foreground mt-1">{heroMeta?.party}</p>
+              </div>
+              <div className="text-right hidden sm:block">
+                <span className="text-4xl font-black tabular-nums tracking-tight sm:text-5xl">
+                  <CurrencyDisplay amount={heroAmount} />
+                </span>
+              </div>
+            </div>
+            <div className="sm:hidden mt-3">
+              <span className="text-3xl font-black tabular-nums tracking-tight">
+                <CurrencyDisplay amount={heroAmount} />
+              </span>
+            </div>
+          </Link>
+        </section>
+      )}
+
+      {/* #2-5 */}
       <section className="space-y-4">
-        <h2 className="text-lg font-bold">持股市值前五名</h2>
+        <h2 className="text-lg font-bold">第 2 – 5 名</h2>
         <div className="space-y-px">
-          {top5.map((decl, i) => {
+          {top2to5.map((decl, i) => {
             const meta = getLegislatorMeta(decl.name)
             const amount = marketTotals.get(decl.name) || 0
             const border = meta?.party ? (PARTY_BORDER[meta.party] || '') : ''
@@ -79,28 +116,26 @@ export default function HomePage() {
               <Link
                 key={decl.name}
                 href={`/legislator/${getSlugByName(decl.name)}`}
-                className="group flex items-center gap-4 bg-card px-4 py-4 transition-colors hover:bg-muted/50 sm:gap-6 sm:px-6 sm:py-5"
+                className="flex items-center gap-4 bg-card px-4 py-2.5 transition-colors hover:bg-muted/50 sm:gap-6 sm:px-6"
               >
-                <span className="text-3xl font-bold text-muted-foreground/30 tabular-nums w-8 shrink-0 sm:text-4xl sm:w-10">
-                  {i + 1}
+                <span className="text-2xl font-black text-muted-foreground/25 tabular-nums w-8 shrink-0">
+                  {i + 2}
                 </span>
-                <div className={`flex h-14 w-14 shrink-0 items-center justify-center bg-muted overflow-hidden border-l-3 ${border} sm:h-16 sm:w-16`}>
+                <div className={`flex h-12 w-12 shrink-0 items-center justify-center bg-muted overflow-hidden border-l-3 ${border} sm:h-14 sm:w-14`}>
                   {meta?.avatar ? (
-                    <Image src={meta.avatar} alt={decl.name} width={64} height={64} className="h-full w-full object-cover" />
+                    <Image src={meta.avatar} alt={decl.name} width={56} height={56} className="h-full w-full object-cover" />
                   ) : (
-                    <span className="text-xl font-bold text-muted-foreground">{decl.name.charAt(0)}</span>
+                    <span className="text-lg font-bold text-muted-foreground">{decl.name.charAt(0)}</span>
                   )}
                 </div>
                 <div className="min-w-0 flex-1">
-                  <h3 className="text-lg font-bold leading-tight sm:text-xl">{decl.name}</h3>
-                  {meta?.party && (
-                    <p className="text-sm text-muted-foreground">{meta.party}</p>
-                  )}
-                </div>
-                <div className="text-right">
-                  <span className="text-xl font-bold tabular-nums tracking-tight sm:text-2xl">
-                    <CurrencyDisplay amount={amount} />
-                  </span>
+                  <h3 className="font-bold leading-tight">{decl.name}</h3>
+                  <p className="text-xs text-muted-foreground">
+                    {meta?.party && <span>{meta.party} · </span>}
+                    <span className="font-bold text-foreground tabular-nums">
+                      <CurrencyDisplay amount={amount} />
+                    </span>
+                  </p>
                 </div>
               </Link>
             )
@@ -108,7 +143,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Popular stocks — simple inline bars, not rainbow chart */}
+      {/* Popular stocks */}
       <section className="space-y-4">
         <div className="flex items-baseline justify-between">
           <h2 className="text-lg font-bold">最多立委持有的股票</h2>
@@ -116,31 +151,39 @@ export default function HomePage() {
             全部明細
           </Link>
         </div>
-        <div className="space-y-2">
-          {topStocks.map((s, i) => {
+        <div className="space-y-1.5">
+          {topStocks.map(s => {
             const maxCount = topStocks[0]?.holderCount || 1
             const pct = (s.holderCount / maxCount) * 100
             return (
               <div key={s.name} className="flex items-center gap-3">
                 <span className="w-16 shrink-0 text-sm font-medium truncate">{s.name}</span>
-                <div className="flex-1 h-5 bg-muted overflow-hidden">
+                <div className="flex-1 h-6 bg-muted overflow-hidden">
                   <div
-                    className="h-full bg-foreground/15"
+                    className="h-full bg-foreground/20"
                     style={{ width: `${pct}%` }}
                   />
                 </div>
-                <span className="w-12 text-right text-sm tabular-nums text-muted-foreground">{s.holderCount} 人</span>
+                <span className="w-14 text-right text-sm font-medium tabular-nums">{s.holderCount} 人</span>
               </div>
             )
           })}
         </div>
       </section>
 
-      {/* All legislators — searchable list */}
+      {/* All legislators */}
       <section className="space-y-4">
         <h2 className="text-lg font-bold">全部立委</h2>
         <SearchableList legislators={listData} />
       </section>
+
+      {/* Footer */}
+      <footer className="border-t pt-8 pb-12 text-xs text-muted-foreground space-y-1">
+        <p>立委持股公開平台 — 資料來源為監察院公報，本站非官方網站。</p>
+        <p>
+          <a href="https://github.com/f312213213/legislator-wealth.tw" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground">GitHub</a>
+        </p>
+      </footer>
     </div>
   )
 }

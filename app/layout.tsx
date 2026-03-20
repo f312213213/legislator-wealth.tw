@@ -1,4 +1,4 @@
-import { Noto_Sans_TC } from "next/font/google"
+import { Noto_Sans_TC, Noto_Serif_TC } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -7,8 +7,14 @@ import { cn } from "@/lib/utils"
 
 const notoSansTC = Noto_Sans_TC({
   subsets: ['latin'],
-  weight: ['400', '500', '700'],
+  weight: ['400', '500', '700', '900'],
   variable: '--font-sans',
+})
+
+const notoSerifTC = Noto_Serif_TC({
+  subsets: ['latin'],
+  weight: ['700', '900'],
+  variable: '--font-serif',
 })
 
 export const metadata = {
@@ -25,7 +31,7 @@ export default function RootLayout({
     <html
       lang="zh-TW"
       suppressHydrationWarning
-      className={cn("antialiased font-sans", notoSansTC.variable)}
+      className={cn("antialiased font-sans", notoSansTC.variable, notoSerifTC.variable)}
     >
       <body>
         <ThemeProvider>

@@ -14,7 +14,7 @@ export default function StocksPage() {
   return (
     <div className="space-y-12">
       <header className="pt-4">
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">股票及基金</h1>
+        <h1 className="font-heading text-3xl font-black tracking-tight sm:text-4xl">股票及基金</h1>
         <p className="mt-2 text-sm text-muted-foreground">
           {holdings.length} 筆持有紀錄，所有立法委員申報的股票及基金持有明細。
         </p>
