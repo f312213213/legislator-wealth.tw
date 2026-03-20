@@ -1,0 +1,39 @@
+{
+  "type": "declaration",
+  "name": "羅智強",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2025-11-01",
+  "declarationType": "定期申報",
+  "spouse": {
+    "relation": "配偶",
+    "name": "黃雪玲"
+  },
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 580817,
+    "stocks": {
+      "totalNTD": 10130,
+      "items": [
+        {
+          "name": "全家",
+          "owner": "黃雪玲",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "全家餐飲",
+          "owner": "黃雪玲",
+          "shares": 13,
+          "parValue": 10,
+          "ntdTotal": 130
+        }
+      ]
+    },
+    "funds": {
+      "totalNTD": 570687,
+      "items": []
+    }
+  }
+}

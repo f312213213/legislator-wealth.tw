@@ -1,9 +1,9 @@
 import { Badge } from '@/components/ui/badge'
 
 const GREEN = { variant: 'default' as const, className: 'bg-green-600 hover:bg-green-600 text-white' }
-const RED = { variant: 'destructive' as const }
+const RED = { variant: 'destructive' as const, className: '' }
 const BLUE = { variant: 'secondary' as const, className: 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200' }
-const GRAY = { variant: 'outline' as const }
+const GRAY = { variant: 'outline' as const, className: '' }
 
 function getReasonStyle(reason: string) {
   // Green: buy / transfer in

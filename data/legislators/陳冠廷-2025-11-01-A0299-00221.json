@@ -1,0 +1,121 @@
+{
+  "type": "declaration",
+  "name": "陳冠廷",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2025-11-01",
+  "declarationType": "定期申報",
+  "spouse": {
+    "relation": "配偶",
+    "name": "猿田千里"
+  },
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 2219281,
+    "stocks": {
+      "totalNTD": 1192245,
+      "items": [
+        {
+          "name": "和大",
+          "owner": "陳冠廷",
+          "shares": 4000,
+          "parValue": 10,
+          "ntdTotal": 40000
+        },
+        {
+          "name": "康普",
+          "owner": "陳冠廷",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "同欣電",
+          "owner": "陳冠廷",
+          "shares": 2210,
+          "parValue": 10,
+          "ntdTotal": 22100
+        },
+        {
+          "name": "巨虹",
+          "owner": "陳冠廷",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "Carnival Corp",
+          "owner": "陳冠廷",
+          "shares": 239,
+          "parValue": 28,
+          "currency": "美元",
+          "ntdTotal": 211803
+        },
+        {
+          "name": "D - Wave Quantum",
+          "owner": "陳冠廷",
+          "shares": 140,
+          "parValue": 37,
+          "currency": "美元",
+          "ntdTotal": 159486
+        },
+        {
+          "name": "Nvidia",
+          "owner": "陳冠廷",
+          "shares": 83,
+          "parValue": 202,
+          "currency": "美元",
+          "ntdTotal": 516620
+        },
+        {
+          "name": "Rivian Automotive - A",
+          "owner": "陳冠廷",
+          "shares": 35,
+          "parValue": 13,
+          "currency": "美元",
+          "ntdTotal": 14599
+        }
+      ]
+    },
+    "funds": {
+      "totalNTD": 1027036,
+      "items": [
+        {
+          "name": "Q3020ArkGenomic陳冠廷台新RevolutionETF",
+          "owner": "綜合證券",
+          "trustee": "",
+          "units": 70,
+          "nav": 31.13,
+          "currency": "美元",
+          "ntdTotal": 66983
+        },
+        {
+          "name": "Q8078ARKSpaceExploration&陳冠廷台新",
+          "owner": "綜合證券",
+          "trustee": "",
+          "units": 275,
+          "nav": 31.36,
+          "currency": "美元",
+          "ntdTotal": 265093
+        },
+        {
+          "name": "Innovati台新證券新營元大台灣50",
+          "owner": "陳冠廷",
+          "trustee": "",
+          "units": 1000,
+          "nav": 64.06,
+          "ntdTotal": 64060
+        },
+        {
+          "name": "台新證券新營第一金太空衛星",
+          "owner": "陳冠廷",
+          "trustee": "",
+          "units": 15000,
+          "nav": 42.06,
+          "ntdTotal": 630900
+        }
+      ]
+    }
+  },
+  "notes": "所有資料申報均以截止至 2025/11/1 為準。"
+}

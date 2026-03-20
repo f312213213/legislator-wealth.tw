@@ -1,0 +1,508 @@
+{
+  "type": "change",
+  "name": "張雅琳",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2025-11-01",
+  "changePeriod": {
+    "from": "2024-03-16",
+    "to": "2025-11-01"
+  },
+  "spouse": {
+    "relation": "配偶",
+    "name": "周晉弘"
+  },
+  "minorChildren": [],
+  "stocks": [
+    {
+      "name": "中鋼",
+      "broker": "玉山",
+      "owner": "張雅琳",
+      "shares": 2000,
+      "changePrice": 19.5,
+      "changeDate": "2025-09-26",
+      "changeReason": "賣",
+      "total": 39000
+    },
+    {
+      "name": "中鋼",
+      "broker": "玉山",
+      "owner": "張雅琳",
+      "shares": 3000,
+      "changePrice": 19.2,
+      "changeDate": "2025-10-02",
+      "changeReason": "買",
+      "total": 57600
+    },
+    {
+      "name": "台積電",
+      "broker": "玉山",
+      "owner": "張雅琳",
+      "shares": 50,
+      "changePrice": 785,
+      "changeDate": "2024-04-02",
+      "changeReason": "賣",
+      "total": 39250
+    },
+    {
+      "name": "台積電",
+      "broker": "玉山",
+      "owner": "張雅琳",
+      "shares": 23,
+      "changePrice": 910,
+      "changeDate": "2024-09-05",
+      "changeReason": "賣",
+      "total": 20930
+    },
+    {
+      "name": "台積電",
+      "broker": "玉山",
+      "owner": "張雅琳",
+      "shares": 80,
+      "changePrice": 824,
+      "changeDate": "2025-04-22",
+      "changeReason": "買",
+      "total": 65920
+    },
+    {
+      "name": "瑞昱",
+      "broker": "玉山",
+      "owner": "張雅琳",
+      "shares": 150,
+      "changePrice": 565,
+      "changeDate": "2024-04-02",
+      "changeReason": "賣",
+      "total": 84750
+    },
+    {
+      "name": "玉山金",
+      "broker": "玉山證券",
+      "owner": "張雅琳",
+      "shares": 20,
+      "changePrice": 27.95,
+      "changeDate": "2024-08-29",
+      "changeReason": "",
+      "total": 559
+    },
+    {
+      "name": "玉山金",
+      "broker": "玉山證券",
+      "owner": "張雅琳",
+      "shares": 10,
+      "changePrice": 33.4,
+      "changeDate": "2025-08-27",
+      "changeReason": "",
+      "total": 334
+    },
+    {
+      "name": "玉晶光",
+      "broker": "玉山",
+      "owner": "張雅琳",
+      "shares": 484,
+      "changePrice": 463,
+      "changeDate": "2024-05-09",
+      "changeReason": "賣",
+      "total": 224092
+    },
+    {
+      "name": "玉晶光",
+      "broker": "玉山",
+      "owner": "張雅琳",
+      "shares": 200,
+      "changePrice": 463,
+      "changeDate": "2024-05-09",
+      "changeReason": "賣",
+      "total": 92600
+    },
+    {
+      "name": "玉晶光",
+      "broker": "玉山",
+      "owner": "張雅琳",
+      "shares": 113,
+      "changePrice": 463,
+      "changeDate": "2024-05-09",
+      "changeReason": "賣",
+      "total": 52319
+    },
+    {
+      "name": "玉晶光",
+      "broker": "玉山",
+      "owner": "張雅琳",
+      "shares": 50,
+      "changePrice": 463,
+      "changeDate": "2024-05-09",
+      "changeReason": "賣",
+      "total": 23150
+    },
+    {
+      "name": "玉晶光",
+      "broker": "玉山",
+      "owner": "張雅琳",
+      "shares": 36,
+      "changePrice": 463,
+      "changeDate": "2024-05-09",
+      "changeReason": "賣",
+      "total": 16668
+    },
+    {
+      "name": "玉晶光",
+      "broker": "玉山",
+      "owner": "張雅琳",
+      "shares": 2,
+      "changePrice": 463,
+      "changeDate": "2024-05-09",
+      "changeReason": "賣",
+      "total": 926
+    },
+    {
+      "name": "玉晶光",
+      "broker": "玉山",
+      "owner": "張雅琳",
+      "shares": 1000,
+      "changePrice": 431,
+      "changeDate": "2025-09-25",
+      "changeReason": "買",
+      "total": 431000
+    },
+    {
+      "name": "玉晶光",
+      "broker": "玉山",
+      "owner": "張雅琳",
+      "shares": 115,
+      "changePrice": 422,
+      "changeDate": "2025-09-26",
+      "changeReason": "賣",
+      "total": 48530
+    },
+    {
+      "name": "玉晶光",
+      "broker": "玉山",
+      "owner": "張雅琳",
+      "shares": 20,
+      "changePrice": 422,
+      "changeDate": "2025-09-26",
+      "changeReason": "賣",
+      "total": 8440
+    },
+    {
+      "name": "玉晶光",
+      "broker": "玉山",
+      "owner": "張雅琳",
+      "shares": 7,
+      "changePrice": 422,
+      "changeDate": "2025-09-26",
+      "changeReason": "賣",
+      "total": 2954
+    },
+    {
+      "name": "玉晶光",
+      "broker": "玉山",
+      "owner": "張雅琳",
+      "shares": 5,
+      "changePrice": 422,
+      "changeDate": "2025-09-26",
+      "changeReason": "賣",
+      "total": 2110
+    },
+    {
+      "name": "玉晶光",
+      "broker": "玉山",
+      "owner": "張雅琳",
+      "shares": 3,
+      "changePrice": 422,
+      "changeDate": "2025-09-26",
+      "changeReason": "賣",
+      "total": 1266
+    },
+    {
+      "name": "玉晶光",
+      "broker": "玉山",
+      "owner": "張雅琳",
+      "shares": 150,
+      "changePrice": 427.5,
+      "changeDate": "2025-10-01",
+      "changeReason": "買",
+      "total": 64125
+    },
+    {
+      "name": "玉晶光",
+      "broker": "玉山",
+      "owner": "張雅琳",
+      "shares": 100,
+      "changePrice": 415.5,
+      "changeDate": "2025-10-15",
+      "changeReason": "買",
+      "total": 41550
+    },
+    {
+      "name": "榮剛",
+      "broker": "玉山證券",
+      "owner": "張雅琳",
+      "shares": 2000,
+      "changePrice": 36.1,
+      "changeDate": "2025-09-19",
+      "changeReason": "買",
+      "total": 72200
+    },
+    {
+      "name": "榮剛",
+      "broker": "玉山證券",
+      "owner": "張雅琳",
+      "shares": 2000,
+      "changePrice": 36.05,
+      "changeDate": "2025-09-19",
+      "changeReason": "買",
+      "total": 72100
+    },
+    {
+      "name": "聯發科",
+      "broker": "玉山-景美",
+      "owner": "周晉弘",
+      "shares": 250,
+      "changePrice": 1355,
+      "changeDate": "2025-08-07",
+      "changeReason": "買",
+      "total": 338750
+    },
+    {
+      "name": "聯發科",
+      "broker": "玉山-景美",
+      "owner": "周晉弘",
+      "shares": 100,
+      "changePrice": 1385,
+      "changeDate": "2025-09-23",
+      "changeReason": "買",
+      "total": 138500
+    },
+    {
+      "name": "聯發科",
+      "broker": "玉山-景美",
+      "owner": "周晉弘",
+      "shares": 100,
+      "changePrice": 1380,
+      "changeDate": "2025-09-23",
+      "changeReason": "買",
+      "total": 138000
+    },
+    {
+      "name": "聯發科",
+      "broker": "玉山-景美",
+      "owner": "周晉弘",
+      "shares": 100,
+      "changePrice": 1350,
+      "changeDate": "2025-09-24",
+      "changeReason": "買",
+      "total": 135000
+    },
+    {
+      "name": "聯發科",
+      "broker": "玉山-景美",
+      "owner": "周晉弘",
+      "shares": 100,
+      "changePrice": 1315,
+      "changeDate": "2025-09-26",
+      "changeReason": "買",
+      "total": 131500
+    },
+    {
+      "name": "聯發科",
+      "broker": "玉山-景美",
+      "owner": "周晉弘",
+      "shares": 129,
+      "changePrice": 1295,
+      "changeDate": "2025-10-01",
+      "changeReason": "買",
+      "total": 167055
+    },
+    {
+      "name": "聯發科",
+      "broker": "玉山-景美",
+      "owner": "周晉弘",
+      "shares": 21,
+      "changePrice": 1295,
+      "changeDate": "2025-10-01",
+      "changeReason": "買",
+      "total": 27195
+    },
+    {
+      "name": "聯發科",
+      "broker": "玉山-景美",
+      "owner": "周晉弘",
+      "shares": 200,
+      "changePrice": 1310,
+      "changeDate": "2025-10-13",
+      "changeReason": "買",
+      "total": 262000
+    },
+    {
+      "name": "玉晶光",
+      "broker": "玉山-景美",
+      "owner": "周晉弘",
+      "shares": 60,
+      "changePrice": 424.5,
+      "changeDate": "2025-09-16",
+      "changeReason": "買",
+      "total": 25470
+    },
+    {
+      "name": "玉晶光",
+      "broker": "玉山-景美",
+      "owner": "周晉弘",
+      "shares": 50,
+      "changePrice": 424.5,
+      "changeDate": "2025-09-16",
+      "changeReason": "買",
+      "total": 21225
+    },
+    {
+      "name": "玉晶光",
+      "broker": "玉山-景美",
+      "owner": "周晉弘",
+      "shares": 50,
+      "changePrice": 424.5,
+      "changeDate": "2025-09-16",
+      "changeReason": "買",
+      "total": 21225
+    },
+    {
+      "name": "玉晶光",
+      "broker": "玉山-景美",
+      "owner": "周晉弘",
+      "shares": 35,
+      "changePrice": 424.5,
+      "changeDate": "2025-09-16",
+      "changeReason": "買",
+      "total": 14857
+    },
+    {
+      "name": "玉晶光",
+      "broker": "玉山-景美",
+      "owner": "周晉弘",
+      "shares": 30,
+      "changePrice": 424.5,
+      "changeDate": "2025-09-16",
+      "changeReason": "買",
+      "total": 12735
+    },
+    {
+      "name": "玉晶光",
+      "broker": "玉山-景美",
+      "owner": "周晉弘",
+      "shares": 20,
+      "changePrice": 424.5,
+      "changeDate": "2025-09-16",
+      "changeReason": "買",
+      "total": 8490
+    },
+    {
+      "name": "玉晶光",
+      "broker": "玉山-景美",
+      "owner": "周晉弘",
+      "shares": 5,
+      "changePrice": 424.5,
+      "changeDate": "2025-09-16",
+      "changeReason": "買",
+      "total": 2122
+    },
+    {
+      "name": "玉晶光",
+      "broker": "玉山-景美",
+      "owner": "周晉弘",
+      "shares": 100,
+      "changePrice": 434.5,
+      "changeDate": "2025-09-19",
+      "changeReason": "買",
+      "total": 43450
+    },
+    {
+      "name": "玉晶光",
+      "broker": "玉山-景美",
+      "owner": "周晉弘",
+      "shares": 200,
+      "changePrice": 420,
+      "changeDate": "2025-09-26",
+      "changeReason": "買",
+      "total": 84000
+    },
+    {
+      "name": "玉晶光",
+      "broker": "玉山-景美",
+      "owner": "周晉弘",
+      "shares": 450,
+      "changePrice": 411.5,
+      "changeDate": "2025-10-13",
+      "changeReason": "買",
+      "total": 185175
+    },
+    {
+      "name": "榮剛",
+      "broker": "玉山景美",
+      "owner": "周晉弘",
+      "shares": 1000,
+      "changePrice": 35.95,
+      "changeDate": "2025-09-19",
+      "changeReason": "買",
+      "total": 35950
+    },
+    {
+      "name": "榮剛",
+      "broker": "玉山景美",
+      "owner": "周晉弘",
+      "shares": 1000,
+      "changePrice": 35.9,
+      "changeDate": "2025-09-23",
+      "changeReason": "買",
+      "total": 35900
+    },
+    {
+      "name": "榮剛",
+      "broker": "玉山景美",
+      "owner": "周晉弘",
+      "shares": 1000,
+      "changePrice": 35.6,
+      "changeDate": "2025-09-26",
+      "changeReason": "買",
+      "total": 35600
+    },
+    {
+      "name": "榮剛",
+      "broker": "玉山景美",
+      "owner": "周晉弘",
+      "shares": 1000,
+      "changePrice": 34.75,
+      "changeDate": "2025-10-13",
+      "changeReason": "買",
+      "total": 34750
+    },
+    {
+      "name": "頎邦",
+      "broker": "玉山景美",
+      "owner": "周晉弘",
+      "shares": 1000,
+      "changePrice": 53.5,
+      "changeDate": "2025-09-03",
+      "changeReason": "買",
+      "total": 53500
+    },
+    {
+      "name": "頎邦",
+      "broker": "玉山景美",
+      "owner": "周晉弘",
+      "shares": 1000,
+      "changePrice": 54.7,
+      "changeDate": "2025-09-09",
+      "changeReason": "買",
+      "total": 54700
+    },
+    {
+      "name": "頎邦",
+      "broker": "玉山景美",
+      "owner": "周晉弘",
+      "shares": 1000,
+      "changePrice": 53.5,
+      "changeDate": "2025-09-16",
+      "changeReason": "買",
+      "total": 53500
+    }
+  ]
+}

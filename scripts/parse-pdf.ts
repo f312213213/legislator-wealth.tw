@@ -99,12 +99,22 @@ function fixLineSplits(line: string): string {
   return l
 }
 
+// Name corrections for characters lost in PDF text extraction
+const NAME_CORRECTIONS: Record<string, string> = {
+  '陳秀': '陳秀寳',
+}
+
+function correctName(name: string): string {
+  return NAME_CORRECTIONS[name] || name
+}
+
 // ──────────────── Asset Declaration Parsing ────────────────
 
 function parseHeader(text: string): Partial<LegislatorDeclaration> {
   const result: Partial<LegislatorDeclaration> = {}
-  const nameMatch = text.match(/申報人(?:姓名)?[：:\s]+(\S+)/)
-  if (nameMatch) result.name = nameMatch[1]
+  // Name may be split across PDF cells: "顏 寬恒" for 顏寬恒
+  const nameMatch = text.match(/申報人(?:姓名)?[：:\s]+([\u4e00-\u9fff][\u4e00-\u9fff\s]{0,6}?)(?=\s+服|\s*$)/)
+  if (nameMatch) result.name = correctName(nameMatch[1].replace(/\s/g, ''))
   const orgLine = text.match(/1\.\s*(立法院|[^\s]+院)/)
   if (orgLine) result.organization = orgLine[1]
   const titleLine = text.match(/1\.\s*立法院\s+1\.\s*(立法委員|[^\s]+)/)
@@ -112,9 +122,10 @@ function parseHeader(text: string): Partial<LegislatorDeclaration> {
   if (!result.title) {
     if (text.match(/立法委員/)) result.title = '立法委員'
   }
-  const dateMatch = text.match(/申\s*報\s*日\s*(\d{2,4})\s*年\s*(\d{1,2})\s*月\s*(\d{1,2})\s*日/)
+  // Year may be split across PDF cells: "1 11 年" for ROC year 111
+  const dateMatch = text.match(/申\s*報\s*日\s*(\d[\d\s]{0,4})\s*年\s*(\d{1,2})\s*月\s*(\d{1,2})\s*日/)
   if (dateMatch) {
-    let year = parseInt(dateMatch[1])
+    let year = parseInt(dateMatch[1].replace(/\s/g, ''))
     if (year < 1911) year += 1911
     result.declarationDate = `${year}-${dateMatch[2].padStart(2, '0')}-${dateMatch[3].padStart(2, '0')}`
   }
@@ -512,23 +523,24 @@ async function parseAssetDeclaration(text: string): Promise<LegislatorDeclaratio
 
 function parseChangeHeader(text: string): Partial<ChangeDeclaration> {
   const result: Partial<ChangeDeclaration> = {}
-  const nameMatch = text.match(/申報人(?:姓名)?[：:\s]+(\S+)/)
-  if (nameMatch) result.name = nameMatch[1]
+  const nameMatch = text.match(/申報人(?:姓名)?[：:\s]+([\u4e00-\u9fff][\u4e00-\u9fff\s]{0,6}?)(?=\s+服|\s*$)/)
+  if (nameMatch) result.name = correctName(nameMatch[1].replace(/\s/g, ''))
   const orgLine = text.match(/1\.\s*(立法院|[^\s]+院)/)
   if (orgLine) result.organization = orgLine[1]
   if (text.match(/立法委員/)) result.title = '立法委員'
-  const dateMatch = text.match(/申\s*報\s*日\s*(\d{2,4})\s*年\s*(\d{1,2})\s*月\s*(\d{1,2})\s*日/)
+  // Year may be split across PDF cells: "1 05 年" for ROC year 105
+  const dateMatch = text.match(/申\s*報\s*日\s*(\d[\d\s]{0,4})\s*年\s*(\d{1,2})\s*月\s*(\d{1,2})\s*日/)
   if (dateMatch) {
-    let year = parseInt(dateMatch[1])
+    let year = parseInt(dateMatch[1].replace(/\s/g, ''))
     if (year < 1911) year += 1911
     result.declarationDate = `${year}-${dateMatch[2].padStart(2, '0')}-${dateMatch[3].padStart(2, '0')}`
   }
-  const fromMatch = text.match(/前次申報日期\s*民?國?\s*(\d{2,4})\s*年\s*(\d{1,2})\s*月\s*(\d{1,2})\s*日/)
+  const fromMatch = text.match(/前次申報日期\s*民?國?\s*(\d[\d\s]{0,4})\s*年\s*(\d{1,2})\s*月\s*(\d{1,2})\s*日/)
   const toMatch = text.match(/(\d{1,2})\s*月\s*(\d{1,2})\s*日\s*止/)
-  const toYearMatch = text.match(/本次.*?(\d{2,4})\s*年/)
+  const toYearMatch = text.match(/本次.*?(\d[\d\s]{0,4})\s*年/)
   if (fromMatch && toMatch && toYearMatch) {
-    let fromYear = parseInt(fromMatch[1]); if (fromYear < 1911) fromYear += 1911
-    let toYear = parseInt(toYearMatch[1]); if (toYear < 1911) toYear += 1911
+    let fromYear = parseInt(fromMatch[1].replace(/\s/g, '')); if (fromYear < 1911) fromYear += 1911
+    let toYear = parseInt(toYearMatch[1].replace(/\s/g, '')); if (toYear < 1911) toYear += 1911
     result.changePeriod = {
       from: `${fromYear}-${fromMatch[2].padStart(2, '0')}-${fromMatch[3].padStart(2, '0')}`,
       to: `${toYear}-${toMatch[1].padStart(2, '0')}-${toMatch[2].padStart(2, '0')}`,
@@ -723,11 +735,13 @@ async function main() {
     console.log(`Parsing: ${file}`)
     try {
       const doc = await parsePDF(path.join(inputDir, file))
+      const datePart = doc.declarationDate || file.replace('.pdf', '')
+      const src = file.replace('.pdf', '')
       let outFile: string
       if (doc.type === 'change') {
-        outFile = `${doc.name}-change-${doc.declarationDate}.json`
+        outFile = `${doc.name}-change-${datePart}-${src}.json`
       } else {
-        outFile = `${doc.name}-${doc.declarationDate}.json`
+        outFile = `${doc.name}-${datePart}-${src}.json`
       }
       fs.writeFileSync(path.join(outputDir, outFile), JSON.stringify(doc, null, 2), 'utf-8')
       console.log(`  → ${outFile}`)

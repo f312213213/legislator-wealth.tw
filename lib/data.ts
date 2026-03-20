@@ -87,9 +87,9 @@ export function getDeclaration(filename: string): LegislatorDeclaration {
 
 export function getAllDeclarations(): LegislatorDeclaration[] {
   const index = getIndex()
-  return index.legislators.flatMap(leg =>
-    leg.declarations.map(decl => getDeclaration(decl))
-  )
+  return index.legislators
+    .filter(leg => leg.declarations.length > 0)
+    .map(leg => getDeclaration(leg.declarations[0]))
 }
 
 export function getDeclarationByName(name: string): LegislatorDeclaration | null {
@@ -208,6 +208,29 @@ export function getAggregatedStocks(): AggregatedStock[] {
   }
 
   return Array.from(stockMap.values()).sort((a, b) => b.holderCount - a.holderCount)
+}
+
+export interface LegislatorMeta {
+  party: string
+  avatar: string
+}
+
+let _metaCache: Record<string, LegislatorMeta> | null = null
+
+function getLegislatorMetaMap(): Record<string, LegislatorMeta> {
+  if (_metaCache) return _metaCache
+  try {
+    const raw = fs.readFileSync(path.join(DATA_DIR, 'legislators-meta.json'), 'utf-8')
+    _metaCache = JSON.parse(raw)
+  } catch {
+    _metaCache = {}
+  }
+  return _metaCache!
+}
+
+export function getLegislatorMeta(name: string): LegislatorMeta | null {
+  const map = getLegislatorMetaMap()
+  return map[name] ?? null
 }
 
 export function getStockPriceMap(): Record<string, { code: string; price: number }> {

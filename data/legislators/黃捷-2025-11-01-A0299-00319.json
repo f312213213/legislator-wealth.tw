@@ -1,0 +1,51 @@
+{
+  "type": "declaration",
+  "name": "黃捷",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2025-11-01",
+  "declarationType": "定期申報",
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 5034621,
+    "stocks": {
+      "totalNTD": 67180,
+      "items": [
+        {
+          "name": "福懋",
+          "owner": "黃捷",
+          "shares": 2000,
+          "parValue": 10,
+          "ntdTotal": 20000
+        },
+        {
+          "name": "中鋼",
+          "owner": "黃捷",
+          "shares": 2000,
+          "parValue": 10,
+          "ntdTotal": 20000
+        },
+        {
+          "name": "中華電",
+          "owner": "黃捷",
+          "shares": 2445,
+          "parValue": 10,
+          "ntdTotal": 24450
+        }
+      ]
+    },
+    "funds": {
+      "totalNTD": 4967441,
+      "items": [
+        {
+          "name": "元大台灣50黃捷35,51664.062,275,154.96元大S&P500黃捷35,05565.852,308,371.75元大台灣高息低波國泰永續高股息黃捷5,63521.76122,617.60",
+          "owner": "黃捷",
+          "trustee": "",
+          "units": 2748,
+          "nav": 51.5,
+          "ntdTotal": 141522
+        }
+      ]
+    }
+  }
+}

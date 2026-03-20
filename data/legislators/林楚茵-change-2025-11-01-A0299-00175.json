@@ -1,0 +1,48 @@
+{
+  "type": "change",
+  "name": "林楚茵",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2025-11-01",
+  "changePeriod": {
+    "from": "2024-11-01",
+    "to": "2025-11-01"
+  },
+  "spouse": {
+    "relation": "配偶",
+    "name": "梁文傑"
+  },
+  "minorChildren": [],
+  "stocks": [
+    {
+      "name": "遠傳",
+      "broker": "集保專戶",
+      "owner": "林楚茵",
+      "shares": 765,
+      "changePrice": 90.7,
+      "changeDate": "2024-11-28",
+      "changeReason": "",
+      "total": 69385.5
+    },
+    {
+      "name": "遠傳",
+      "broker": "",
+      "owner": "林楚茵",
+      "shares": 765,
+      "changePrice": 90.7,
+      "changeDate": "2024-11-28",
+      "changeReason": "",
+      "total": 69385.5
+    },
+    {
+      "name": "富旺",
+      "broker": "",
+      "owner": "林楚茵",
+      "shares": 2,
+      "changePrice": 20.2,
+      "changeDate": "2025-09-12",
+      "changeReason": "",
+      "total": 40.4
+    }
+  ]
+}

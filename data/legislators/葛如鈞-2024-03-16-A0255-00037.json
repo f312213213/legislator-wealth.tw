@@ -1,0 +1,40 @@
+{
+  "type": "declaration",
+  "name": "葛如鈞",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2024-03-16",
+  "declarationType": "就",
+  "spouse": {
+    "relation": "配偶",
+    "name": "李婷婷"
+  },
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 216771,
+    "stocks": {
+      "totalNTD": 216771,
+      "items": [
+        {
+          "name": "美好證券",
+          "owner": "李婷婷",
+          "shares": 5267,
+          "parValue": 10,
+          "ntdTotal": 52670
+        },
+        {
+          "name": "蘋果電腦 ( 複委託 )",
+          "owner": "李婷婷",
+          "shares": 30,
+          "parValue": 173,
+          "currency": "美元",
+          "ntdTotal": 164101
+        }
+      ]
+    },
+    "funds": {
+      "totalNTD": 0,
+      "items": []
+    }
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "type": "declaration",
+  "name": "謝衣鳯",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2025-11-01",
+  "declarationType": "定期申報",
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 6524740,
+    "stocks": {
+      "totalNTD": 3566590,
+      "items": [
+        {
+          "name": "台泥",
+          "owner": "謝衣鳯",
+          "shares": 1,
+          "parValue": 10,
+          "ntdTotal": 10
+        },
+        {
+          "name": "正隆",
+          "owner": "謝衣鳯",
+          "shares": 5,
+          "parValue": 10,
+          "ntdTotal": 50
+        },
+        {
+          "name": "永豐餘",
+          "owner": "謝衣鳯",
+          "shares": 1,
+          "parValue": 10,
+          "ntdTotal": 10
+        },
+        {
+          "name": "山隆",
+          "owner": "謝衣鳯",
+          "shares": 1,
+          "parValue": 10,
+          "ntdTotal": 10
+        },
+        {
+          "name": "元大金",
+          "owner": "謝衣鳯",
+          "shares": 26460,
+          "parValue": 10,
+          "ntdTotal": 264600
+        },
+        {
+          "name": "遠傳",
+          "owner": "謝衣鳯",
+          "shares": 9186,
+          "parValue": 10,
+          "ntdTotal": 91860
+        },
+        {
+          "name": "台郡",
+          "owner": "謝衣鳯",
+          "shares": 12000,
+          "parValue": 10,
+          "ntdTotal": 120000
+        },
+        {
+          "name": "偉盟",
+          "owner": "謝衣鳯",
+          "shares": 309000,
+          "parValue": 10,
+          "ntdTotal": 3090000
+        },
+        {
+          "name": "欣錩",
+          "owner": "謝衣鳯",
+          "shares": 5,
+          "parValue": 10,
+          "ntdTotal": 50
+        }
+      ]
+    },
+    "funds": {
+      "totalNTD": 2958150,
+      "items": [
+        {
+          "name": "富邦綜合證券元大台灣50",
+          "owner": "謝衣鳯",
+          "trustee": "",
+          "units": 44000,
+          "nav": 64.06,
+          "ntdTotal": 2818640
+        },
+        {
+          "name": "南員林富邦綜合證券元大高股息",
+          "owner": "謝衣鳯",
+          "trustee": "",
+          "units": 3000,
+          "nav": 37.49,
+          "ntdTotal": 112470
+        },
+        {
+          "name": "南員林富邦特選高股息富邦綜合證券",
+          "owner": "謝衣鳯",
+          "trustee": "",
+          "units": 2000,
+          "nav": 13.52,
+          "ntdTotal": 27040
+        }
+      ]
+    }
+  }
+}

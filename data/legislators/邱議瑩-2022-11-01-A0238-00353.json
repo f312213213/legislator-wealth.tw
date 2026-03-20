@@ -1,0 +1,25 @@
+{
+  "type": "declaration",
+  "name": "邱議瑩",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2022-11-01",
+  "declarationType": "定期申報",
+  "spouse": {
+    "relation": "配偶",
+    "name": "李永得"
+  },
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 0,
+    "stocks": {
+      "totalNTD": 0,
+      "items": []
+    },
+    "funds": {
+      "totalNTD": 0,
+      "items": []
+    }
+  },
+  "notes": "1 ★更正項目資料係"
+}

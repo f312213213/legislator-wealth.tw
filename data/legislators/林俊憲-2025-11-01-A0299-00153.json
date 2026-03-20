@@ -1,0 +1,127 @@
+{
+  "type": "declaration",
+  "name": "林俊憲",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2025-11-01",
+  "declarationType": "定期申報",
+  "spouse": {
+    "relation": "配偶",
+    "name": "高婕寧"
+  },
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 6621401,
+    "stocks": {
+      "totalNTD": 5747001,
+      "items": [
+        {
+          "name": "泰山",
+          "owner": "林俊憲",
+          "shares": 2206,
+          "parValue": 10,
+          "ntdTotal": 22060
+        },
+        {
+          "name": "可成",
+          "owner": "林俊憲",
+          "shares": 121,
+          "parValue": 10,
+          "ntdTotal": 1210
+        },
+        {
+          "name": "兆赫",
+          "owner": "林俊憲",
+          "shares": 89,
+          "parValue": 10,
+          "ntdTotal": 890
+        },
+        {
+          "name": "凱基金",
+          "owner": "林俊憲",
+          "shares": 331,
+          "parValue": 10,
+          "currency": "3,",
+          "ntdTotal": 310
+        },
+        {
+          "name": "中纖",
+          "owner": "高婕寧",
+          "shares": 10000,
+          "parValue": 10,
+          "ntdTotal": 100000
+        },
+        {
+          "name": "冠軍",
+          "owner": "高婕寧",
+          "shares": 9000,
+          "parValue": 10,
+          "ntdTotal": 90000
+        },
+        {
+          "name": "聯電",
+          "owner": "高婕寧",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "凱美",
+          "owner": "高婕寧",
+          "shares": 24000,
+          "parValue": 10,
+          "ntdTotal": 240000
+        },
+        {
+          "name": "中華電",
+          "owner": "高婕寧",
+          "shares": 15000,
+          "parValue": 10,
+          "ntdTotal": 150000
+        },
+        {
+          "name": "佳凌",
+          "owner": "高婕寧",
+          "shares": 2000,
+          "parValue": 10,
+          "ntdTotal": 20000
+        },
+        {
+          "name": "環拓科技",
+          "owner": "高婕寧",
+          "shares": 165000,
+          "parValue": 10,
+          "ntdTotal": 1650000
+        },
+        {
+          "name": "SEA LTD - ADR",
+          "owner": "高婕寧",
+          "shares": 200,
+          "parValue": 156,
+          "currency": "美元",
+          "ntdTotal": 959531
+        },
+        {
+          "name": "大大寬頻",
+          "owner": "高婕寧",
+          "shares": 250000,
+          "parValue": 10,
+          "ntdTotal": 2500000
+        }
+      ]
+    },
+    "funds": {
+      "totalNTD": 874400,
+      "items": [
+        {
+          "name": "元大S&P500",
+          "owner": "高婕寧",
+          "trustee": "",
+          "units": 10000,
+          "nav": 65.85,
+          "ntdTotal": 658500
+        }
+      ]
+    }
+  }
+}

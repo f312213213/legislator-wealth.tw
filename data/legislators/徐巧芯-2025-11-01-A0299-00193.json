@@ -1,0 +1,32 @@
+{
+  "type": "declaration",
+  "name": "徐巧芯",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2025-11-01",
+  "declarationType": "定期申報",
+  "spouse": {
+    "relation": "配偶",
+    "name": "劉彥澧"
+  },
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 1892406,
+    "stocks": {
+      "totalNTD": 2540,
+      "items": [
+        {
+          "name": "力麗",
+          "owner": "徐巧芯",
+          "shares": 254,
+          "parValue": 10,
+          "ntdTotal": 2540
+        }
+      ]
+    },
+    "funds": {
+      "totalNTD": 1889866,
+      "items": []
+    }
+  }
+}

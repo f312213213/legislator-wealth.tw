@@ -1,4 +1,4 @@
-import { getAllDeclarations, getAggregatedStocks, lookupStockPrice } from '@/lib/data'
+import { getAllDeclarations, getAggregatedStocks, lookupStockPrice, getLegislatorMeta } from '@/lib/data'
 import { LegislatorCard } from '@/components/legislator-card'
 import { StockPopularityChart, LegislatorStockValueChart } from '@/components/stock-chart'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -99,7 +99,7 @@ export default function HomePage() {
         </div>
         <div className="grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
           {ranked.map((decl, i) => (
-            <LegislatorCard key={decl.name} data={decl} marketTotal={marketTotals.get(decl.name)} rank={i + 1} />
+            <LegislatorCard key={`${decl.name}-${i}`} data={decl} marketTotal={marketTotals.get(decl.name)} meta={getLegislatorMeta(decl.name)} />
           ))}
         </div>
       </section>

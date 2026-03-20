@@ -1,0 +1,1369 @@
+{
+  "type": "change",
+  "name": "李坤城",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2025-11-01",
+  "changePeriod": {
+    "from": "2024-03-16",
+    "to": "2025-11-01"
+  },
+  "spouse": {
+    "relation": "配偶",
+    "name": "王蓓潔"
+  },
+  "minorChildren": [],
+  "stocks": [
+    {
+      "name": "南亞",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 50.6,
+      "changeDate": "2024-06-07",
+      "changeReason": "買",
+      "total": 50600
+    },
+    {
+      "name": "南亞",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 50.1,
+      "changeDate": "2024-06-18",
+      "changeReason": "買",
+      "total": 50100
+    },
+    {
+      "name": "南亞",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 50.2,
+      "changeDate": "2024-07-22",
+      "changeReason": "賣",
+      "total": 50200
+    },
+    {
+      "name": "南亞",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 50.2,
+      "changeDate": "2024-07-22",
+      "changeReason": "賣",
+      "total": 50200
+    },
+    {
+      "name": "中興電",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 166,
+      "changeDate": "2024-06-05",
+      "changeReason": "買",
+      "total": 166000
+    },
+    {
+      "name": "中興電",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 184,
+      "changeDate": "2024-06-24",
+      "changeReason": "買",
+      "total": 184000
+    },
+    {
+      "name": "中興電",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 231.5,
+      "changeDate": "2024-07-11",
+      "changeReason": "賣",
+      "total": 231500
+    },
+    {
+      "name": "中興電",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 195,
+      "changeDate": "2024-07-29",
+      "changeReason": "買",
+      "total": 195000
+    },
+    {
+      "name": "中興電",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 165,
+      "changeDate": "2024-08-07",
+      "changeReason": "買",
+      "total": 165000
+    },
+    {
+      "name": "中興電",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 168,
+      "changeDate": "2024-08-13",
+      "changeReason": "買",
+      "total": 168000
+    },
+    {
+      "name": "鴻海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 214.5,
+      "changeDate": "2024-07-16",
+      "changeReason": "買",
+      "total": 214500
+    },
+    {
+      "name": "鴻海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 206.5,
+      "changeDate": "2024-07-18",
+      "changeReason": "買",
+      "total": 206500
+    },
+    {
+      "name": "鴻海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 194,
+      "changeDate": "2024-07-22",
+      "changeReason": "買",
+      "total": 194000
+    },
+    {
+      "name": "鴻海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 168,
+      "changeDate": "2024-08-05",
+      "changeReason": "買",
+      "total": 168000
+    },
+    {
+      "name": "鴻海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 197,
+      "changeDate": "2024-10-08",
+      "changeReason": "賣",
+      "total": 197000
+    },
+    {
+      "name": "鴻海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 154,
+      "changeDate": "2025-05-19",
+      "changeReason": "買",
+      "total": 154000
+    },
+    {
+      "name": "鴻海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 500,
+      "changePrice": 163.5,
+      "changeDate": "2025-06-30",
+      "changeReason": "買",
+      "total": 81750
+    },
+    {
+      "name": "鴻海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 500,
+      "changePrice": 176.5,
+      "changeDate": "2025-07-31",
+      "changeReason": "賣",
+      "total": 88250
+    },
+    {
+      "name": "鴻海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 194.5,
+      "changeDate": "2025-08-07",
+      "changeReason": "賣",
+      "total": 194500
+    },
+    {
+      "name": "鴻海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 206.5,
+      "changeDate": "2025-09-09",
+      "changeReason": "賣",
+      "total": 206500
+    },
+    {
+      "name": "鴻海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 210.5,
+      "changeDate": "2025-09-10",
+      "changeReason": "賣",
+      "total": 210500
+    },
+    {
+      "name": "鴻海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 215,
+      "changeDate": "2025-09-11",
+      "changeReason": "賣",
+      "total": 215000
+    },
+    {
+      "name": "鴻海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 500,
+      "changePrice": 214,
+      "changeDate": "2025-10-13",
+      "changeReason": "買",
+      "total": 107000
+    },
+    {
+      "name": "鴻海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 210,
+      "changePrice": 207,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 43470
+    },
+    {
+      "name": "鴻海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 200,
+      "changePrice": 207,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 41400
+    },
+    {
+      "name": "鴻海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 60,
+      "changePrice": 207,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 12420
+    },
+    {
+      "name": "鴻海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 20,
+      "changePrice": 207,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 4140
+    },
+    {
+      "name": "鴻海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 10,
+      "changePrice": 207,
+      "changeDate": "2025-10-14",
+      "changeReason": "買",
+      "total": 2070
+    },
+    {
+      "name": "鴻海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 248,
+      "changePrice": 238.5,
+      "changeDate": "2025-10-20",
+      "changeReason": "賣",
+      "total": 59148
+    },
+    {
+      "name": "鴻海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 200,
+      "changePrice": 238.5,
+      "changeDate": "2025-10-20",
+      "changeReason": "賣",
+      "total": 47700
+    },
+    {
+      "name": "鴻海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 32,
+      "changePrice": 238.5,
+      "changeDate": "2025-10-20",
+      "changeReason": "賣",
+      "total": 7632
+    },
+    {
+      "name": "鴻海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 20,
+      "changePrice": 238.5,
+      "changeDate": "2025-10-20",
+      "changeReason": "賣",
+      "total": 4770
+    },
+    {
+      "name": "鴻海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 141,
+      "changePrice": 247.5,
+      "changeDate": "2025-10-28",
+      "changeReason": "賣",
+      "total": 34897
+    },
+    {
+      "name": "鴻海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 100,
+      "changePrice": 247.5,
+      "changeDate": "2025-10-28",
+      "changeReason": "賣",
+      "total": 24750
+    },
+    {
+      "name": "鴻海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 100,
+      "changePrice": 247.5,
+      "changeDate": "2025-10-28",
+      "changeReason": "賣",
+      "total": 24750
+    },
+    {
+      "name": "鴻海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 88,
+      "changePrice": 247.5,
+      "changeDate": "2025-10-28",
+      "changeReason": "賣",
+      "total": 21780
+    },
+    {
+      "name": "鴻海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 12,
+      "changePrice": 247.5,
+      "changeDate": "2025-10-28",
+      "changeReason": "賣",
+      "total": 2970
+    },
+    {
+      "name": "鴻海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 10,
+      "changePrice": 247.5,
+      "changeDate": "2025-10-28",
+      "changeReason": "賣",
+      "total": 2475
+    },
+    {
+      "name": "鴻海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 8,
+      "changePrice": 247.5,
+      "changeDate": "2025-10-28",
+      "changeReason": "賣",
+      "total": 1980
+    },
+    {
+      "name": "鴻海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 6,
+      "changePrice": 247.5,
+      "changeDate": "2025-10-28",
+      "changeReason": "賣",
+      "total": 1485
+    },
+    {
+      "name": "鴻海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 6,
+      "changePrice": 247.5,
+      "changeDate": "2025-10-28",
+      "changeReason": "賣",
+      "total": 1485
+    },
+    {
+      "name": "鴻海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 4,
+      "changePrice": 247.5,
+      "changeDate": "2025-10-28",
+      "changeReason": "賣",
+      "total": 990
+    },
+    {
+      "name": "鴻海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 4,
+      "changePrice": 247.5,
+      "changeDate": "2025-10-28",
+      "changeReason": "賣",
+      "total": 990
+    },
+    {
+      "name": "鴻海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 4,
+      "changePrice": 247.5,
+      "changeDate": "2025-10-28",
+      "changeReason": "賣",
+      "total": 990
+    },
+    {
+      "name": "鴻海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 4,
+      "changePrice": 247.5,
+      "changeDate": "2025-10-28",
+      "changeReason": "賣",
+      "total": 990
+    },
+    {
+      "name": "鴻海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 4,
+      "changePrice": 247.5,
+      "changeDate": "2025-10-28",
+      "changeReason": "賣",
+      "total": 990
+    },
+    {
+      "name": "鴻海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 4,
+      "changePrice": 247.5,
+      "changeDate": "2025-10-28",
+      "changeReason": "賣",
+      "total": 990
+    },
+    {
+      "name": "台積電",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 100,
+      "changePrice": 1065,
+      "changeDate": "2025-02-14",
+      "changeReason": "買",
+      "total": 106500
+    },
+    {
+      "name": "台積電",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 100,
+      "changePrice": 1050,
+      "changeDate": "2025-02-27",
+      "changeReason": "買",
+      "total": 105000
+    },
+    {
+      "name": "台積電",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 100,
+      "changePrice": 1015,
+      "changeDate": "2025-03-03",
+      "changeReason": "買",
+      "total": 101500
+    },
+    {
+      "name": "台積電",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 100,
+      "changePrice": 1000,
+      "changeDate": "2025-03-04",
+      "changeReason": "買",
+      "total": 100000
+    },
+    {
+      "name": "台積電",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 100,
+      "changePrice": 976,
+      "changeDate": "2025-03-11",
+      "changeReason": "買",
+      "total": 97600
+    },
+    {
+      "name": "台積電",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 100,
+      "changePrice": 965,
+      "changeDate": "2025-03-14",
+      "changeReason": "買",
+      "total": 96500
+    },
+    {
+      "name": "台積電",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 100,
+      "changePrice": 964,
+      "changeDate": "2025-03-27",
+      "changeReason": "買",
+      "total": 96400
+    },
+    {
+      "name": "台積電",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 79,
+      "changePrice": 923,
+      "changeDate": "2025-03-31",
+      "changeReason": "買",
+      "total": 72917
+    },
+    {
+      "name": "台積電",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 21,
+      "changePrice": 923,
+      "changeDate": "2025-03-31",
+      "changeReason": "買",
+      "total": 19383
+    },
+    {
+      "name": "台積電",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 50,
+      "changePrice": 982,
+      "changeDate": "2025-05-22",
+      "changeReason": "買",
+      "total": 49100
+    },
+    {
+      "name": "台積電",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 50,
+      "changePrice": 965,
+      "changeDate": "2025-05-27",
+      "changeReason": "買",
+      "total": 48250
+    },
+    {
+      "name": "台積電",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 50,
+      "changePrice": 951,
+      "changeDate": "2025-06-02",
+      "changeReason": "買",
+      "total": 47550
+    },
+    {
+      "name": "台積電",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 250,
+      "changePrice": 1040,
+      "changeDate": "2025-06-10",
+      "changeReason": "賣",
+      "total": 260000
+    },
+    {
+      "name": "台積電",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 200,
+      "changePrice": 1060,
+      "changeDate": "2025-06-11",
+      "changeReason": "賣",
+      "total": 212000
+    },
+    {
+      "name": "台積電",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 100,
+      "changePrice": 1060,
+      "changeDate": "2025-06-25",
+      "changeReason": "賣",
+      "total": 106000
+    },
+    {
+      "name": "台積電",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 100,
+      "changePrice": 1065,
+      "changeDate": "2025-06-25",
+      "changeReason": "賣",
+      "total": 106500
+    },
+    {
+      "name": "台積電",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 75,
+      "changePrice": 1070,
+      "changeDate": "2025-06-26",
+      "changeReason": "賣",
+      "total": 80250
+    },
+    {
+      "name": "台積電",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 25,
+      "changePrice": 1070,
+      "changeDate": "2025-06-26",
+      "changeReason": "賣",
+      "total": 26750
+    },
+    {
+      "name": "台積電",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 100,
+      "changePrice": 1075,
+      "changeDate": "2025-06-30",
+      "changeReason": "賣",
+      "total": 107500
+    },
+    {
+      "name": "台積電",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 100,
+      "changePrice": 1085,
+      "changeDate": "2025-07-01",
+      "changeReason": "賣",
+      "total": 108500
+    },
+    {
+      "name": "英業達",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 60.9,
+      "changeDate": "2024-03-22",
+      "changeReason": "賣",
+      "total": 60900
+    },
+    {
+      "name": "英業達",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 52.5,
+      "changeDate": "2024-05-02",
+      "changeReason": "買",
+      "total": 52500
+    },
+    {
+      "name": "英業達",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 2000,
+      "changePrice": 59,
+      "changeDate": "2024-07-12",
+      "changeReason": "賣",
+      "total": 118000
+    },
+    {
+      "name": "英業達",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 44.1,
+      "changeDate": "2024-10-14",
+      "changeReason": "買",
+      "total": 44100
+    },
+    {
+      "name": "英業達",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 49.3,
+      "changeDate": "2025-01-17",
+      "changeReason": "買",
+      "total": 49300
+    },
+    {
+      "name": "英業達",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 41.45,
+      "changeDate": "2025-05-23",
+      "changeReason": "買",
+      "total": 41450
+    },
+    {
+      "name": "英業達",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 43.55,
+      "changeDate": "2025-08-04",
+      "changeReason": "買",
+      "total": 43550
+    },
+    {
+      "name": "英業達",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 43.1,
+      "changeDate": "2025-09-16",
+      "changeReason": "買",
+      "total": 43100
+    },
+    {
+      "name": "廣達",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 500,
+      "changePrice": 261,
+      "changeDate": "2025-09-08",
+      "changeReason": "買",
+      "total": 130500
+    },
+    {
+      "name": "廣達",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 500,
+      "changePrice": 286,
+      "changeDate": "2025-09-23",
+      "changeReason": "賣",
+      "total": 143000
+    },
+    {
+      "name": "圓剛",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 37.6,
+      "changeDate": "2025-06-13",
+      "changeReason": "買",
+      "total": 37600
+    },
+    {
+      "name": "陽明",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 64.7,
+      "changeDate": "2024-07-09",
+      "changeReason": "買",
+      "total": 64700
+    },
+    {
+      "name": "陽明",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 73.4,
+      "changeDate": "2025-04-15",
+      "changeReason": "買",
+      "total": 73400
+    },
+    {
+      "name": "陽明",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 81.2,
+      "changeDate": "2025-05-15",
+      "changeReason": "賣",
+      "total": 81200
+    },
+    {
+      "name": "陽明",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 2000,
+      "changePrice": 82.9,
+      "changeDate": "2025-05-16",
+      "changeReason": "賣",
+      "total": 165800
+    },
+    {
+      "name": "陽明",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 2000,
+      "changePrice": 84,
+      "changeDate": "2025-05-16",
+      "changeReason": "賣",
+      "total": 168000
+    },
+    {
+      "name": "陽明",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 2000,
+      "changePrice": 81.9,
+      "changeDate": "2025-05-16",
+      "changeReason": "賣",
+      "total": 163800
+    },
+    {
+      "name": "陽明",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 2000,
+      "changePrice": 85,
+      "changeDate": "2025-05-22",
+      "changeReason": "賣",
+      "total": 170000
+    },
+    {
+      "name": "陽明",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 87.5,
+      "changeDate": "2025-05-22",
+      "changeReason": "賣",
+      "total": 87500
+    },
+    {
+      "name": "陽明",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 87.5,
+      "changeDate": "2025-05-22",
+      "changeReason": "賣",
+      "total": 87500
+    },
+    {
+      "name": "陽明",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 62.9,
+      "changeDate": "2025-07-10",
+      "changeReason": "買",
+      "total": 62900
+    },
+    {
+      "name": "陽明",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 55.3,
+      "changeDate": "2025-09-24",
+      "changeReason": "買",
+      "total": 55300
+    },
+    {
+      "name": "萬海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 75.9,
+      "changeDate": "2024-07-12",
+      "changeReason": "買",
+      "total": 75900
+    },
+    {
+      "name": "萬海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 2000,
+      "changePrice": 111,
+      "changeDate": "2025-05-16",
+      "changeReason": "賣",
+      "total": 222000
+    },
+    {
+      "name": "萬海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 2000,
+      "changePrice": 110,
+      "changeDate": "2025-05-16",
+      "changeReason": "賣",
+      "total": 220000
+    },
+    {
+      "name": "萬海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 2000,
+      "changePrice": 111,
+      "changeDate": "2025-05-16",
+      "changeReason": "賣",
+      "total": 222000
+    },
+    {
+      "name": "萬海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 114,
+      "changeDate": "2025-05-21",
+      "changeReason": "賣",
+      "total": 114000
+    },
+    {
+      "name": "萬海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 115,
+      "changeDate": "2025-05-21",
+      "changeReason": "賣",
+      "total": 115000
+    },
+    {
+      "name": "萬海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 2000,
+      "changePrice": 126.5,
+      "changeDate": "2025-05-22",
+      "changeReason": "賣",
+      "total": 253000
+    },
+    {
+      "name": "萬海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 2000,
+      "changePrice": 123,
+      "changeDate": "2025-05-22",
+      "changeReason": "賣",
+      "total": 246000
+    },
+    {
+      "name": "萬海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 2000,
+      "changePrice": 125,
+      "changeDate": "2025-05-22",
+      "changeReason": "賣",
+      "total": 250000
+    },
+    {
+      "name": "萬海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 75,
+      "changePrice": 126.5,
+      "changeDate": "2025-05-22",
+      "changeReason": "賣",
+      "total": 9487
+    },
+    {
+      "name": "萬海",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 131.5,
+      "changeDate": "2025-05-23",
+      "changeReason": "賣",
+      "total": 131500
+    },
+    {
+      "name": "國泰金",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 100,
+      "changePrice": 48.8,
+      "changeDate": "2024-04-15",
+      "changeReason": "買",
+      "total": 48800
+    },
+    {
+      "name": "國泰金",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 47.9,
+      "changeDate": "2024-04-16",
+      "changeReason": "買",
+      "total": 47900
+    },
+    {
+      "name": "國泰金",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 63,
+      "changeDate": "2024-07-19",
+      "changeReason": "買",
+      "total": 63000
+    },
+    {
+      "name": "國泰金",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 60.8,
+      "changeDate": "2024-07-22",
+      "changeReason": "買",
+      "total": 60800
+    },
+    {
+      "name": "國泰金",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 57.6,
+      "changeDate": "2024-08-05",
+      "changeReason": "買",
+      "total": 57600
+    },
+    {
+      "name": "國泰金",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 55.8,
+      "changeDate": "2024-08-05",
+      "changeReason": "買",
+      "total": 55800
+    },
+    {
+      "name": "國泰金",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 2000,
+      "changePrice": 61.1,
+      "changeDate": "2024-08-13",
+      "changeReason": "賣",
+      "total": 122200
+    },
+    {
+      "name": "國泰金",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 61.1,
+      "changeDate": "2024-08-13",
+      "changeReason": "賣",
+      "total": 61100
+    },
+    {
+      "name": "國泰金",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 61.7,
+      "changeDate": "2024-09-04",
+      "changeReason": "買",
+      "total": 61700
+    },
+    {
+      "name": "國泰金",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 68.2,
+      "changeDate": "2024-10-16",
+      "changeReason": "買",
+      "total": 68200
+    },
+    {
+      "name": "國泰金",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 68.3,
+      "changeDate": "2024-10-29",
+      "changeReason": "買",
+      "total": 68300
+    },
+    {
+      "name": "國泰金",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 68.2,
+      "changeDate": "2024-11-12",
+      "changeReason": "買",
+      "total": 68200
+    },
+    {
+      "name": "國泰金",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 67,
+      "changeDate": "2024-11-13",
+      "changeReason": "買",
+      "total": 67000
+    },
+    {
+      "name": "國泰金",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 65.1,
+      "changeDate": "2024-11-29",
+      "changeReason": "買",
+      "total": 65100
+    },
+    {
+      "name": "國泰金",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 67.7,
+      "changeDate": "2025-01-03",
+      "changeReason": "買",
+      "total": 67700
+    },
+    {
+      "name": "國泰金",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 64.9,
+      "changeDate": "2025-01-13",
+      "changeReason": "買",
+      "total": 64900
+    },
+    {
+      "name": "國泰金",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 2000,
+      "changePrice": 69,
+      "changeDate": "2025-02-26",
+      "changeReason": "賣",
+      "total": 138000
+    },
+    {
+      "name": "國泰金",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 65.4,
+      "changeDate": "2025-03-11",
+      "changeReason": "買",
+      "total": 65400
+    },
+    {
+      "name": "國泰金",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 53.3,
+      "changeDate": "2025-04-11",
+      "changeReason": "買",
+      "total": 53300
+    },
+    {
+      "name": "國泰金",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 53.4,
+      "changeDate": "2025-04-24",
+      "changeReason": "買",
+      "total": 53400
+    },
+    {
+      "name": "國泰金",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 2000,
+      "changePrice": 62.4,
+      "changeDate": "2025-05-16",
+      "changeReason": "賣",
+      "total": 124800
+    },
+    {
+      "name": "國泰金",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 2000,
+      "changePrice": 61.4,
+      "changeDate": "2025-05-16",
+      "changeReason": "賣",
+      "total": 122800
+    },
+    {
+      "name": "國泰金",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 2000,
+      "changePrice": 61.7,
+      "changeDate": "2025-05-16",
+      "changeReason": "賣",
+      "total": 123400
+    },
+    {
+      "name": "國泰金",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 61,
+      "changeDate": "2025-05-16",
+      "changeReason": "賣",
+      "total": 61000
+    },
+    {
+      "name": "國泰金",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 61,
+      "changeDate": "2025-05-16",
+      "changeReason": "賣",
+      "total": 61000
+    },
+    {
+      "name": "國泰金",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 62,
+      "changeDate": "2025-05-21",
+      "changeReason": "賣",
+      "total": 62000
+    },
+    {
+      "name": "國泰金",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 63.4,
+      "changeDate": "2025-05-21",
+      "changeReason": "賣",
+      "total": 63400
+    },
+    {
+      "name": "國泰金",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 63.7,
+      "changeDate": "2025-05-21",
+      "changeReason": "賣",
+      "total": 63700
+    },
+    {
+      "name": "國泰金",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 65.9,
+      "changeDate": "2025-05-22",
+      "changeReason": "賣",
+      "total": 65900
+    },
+    {
+      "name": "凱基金",
+      "broker": "富邦證券板橋分公司",
+      "owner": "李坤城",
+      "shares": 36,
+      "changePrice": 14.8,
+      "changeDate": "2025-09-26",
+      "changeReason": "存券匯撥(存)",
+      "total": 532.8
+    },
+    {
+      "name": "凱基金",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 30,
+      "changePrice": 15.1,
+      "changeDate": "2025-10-02",
+      "changeReason": "賣",
+      "total": 453
+    },
+    {
+      "name": "凱基金",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 6,
+      "changePrice": 15.1,
+      "changeDate": "2025-10-02",
+      "changeReason": "賣",
+      "total": 90
+    },
+    {
+      "name": "緯創",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 116,
+      "changeDate": "2024-05-27",
+      "changeReason": "買",
+      "total": 116000
+    },
+    {
+      "name": "緯創",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 1000,
+      "changePrice": 106.5,
+      "changeDate": "2024-06-12",
+      "changeReason": "買",
+      "total": 106500
+    },
+    {
+      "name": "緯創",
+      "broker": "富邦-板橋",
+      "owner": "李坤城",
+      "shares": 2000,
+      "changePrice": 110.5,
+      "changeDate": "2024-07-08",
+      "changeReason": "賣",
+      "total": 221000
+    }
+  ],
+  "notes": "1 ★更正項目資料係"
+}

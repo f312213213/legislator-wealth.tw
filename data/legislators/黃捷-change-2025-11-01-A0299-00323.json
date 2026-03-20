@@ -1,0 +1,234 @@
+{
+  "type": "change",
+  "name": "黃捷",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2025-11-01",
+  "changePeriod": {
+    "from": "2024-11-01",
+    "to": "2025-11-01"
+  },
+  "minorChildren": [],
+  "stocks": [
+    {
+      "name": "中華電",
+      "broker": "元大-鳳中",
+      "owner": "黃捷",
+      "shares": 81,
+      "changePrice": 122.97,
+      "changeDate": "2024-11-12",
+      "changeReason": "買",
+      "total": 9960
+    },
+    {
+      "name": "中華電",
+      "broker": "元大-鳳中",
+      "owner": "黃捷",
+      "shares": 79,
+      "changePrice": 123.99,
+      "changeDate": "2024-12-12",
+      "changeReason": "買",
+      "total": 9795
+    },
+    {
+      "name": "中華電",
+      "broker": "元大-鳳中",
+      "owner": "黃捷",
+      "shares": 81,
+      "changePrice": 122.99,
+      "changeDate": "2025-01-13",
+      "changeReason": "買",
+      "total": 9962
+    },
+    {
+      "name": "中華電",
+      "broker": "元大-鳳中",
+      "owner": "黃捷",
+      "shares": 158,
+      "changePrice": 126.26,
+      "changeDate": "2025-02-12",
+      "changeReason": "買",
+      "total": 19949
+    },
+    {
+      "name": "中華電",
+      "broker": "元大-鳳中",
+      "owner": "黃捷",
+      "shares": 156,
+      "changePrice": 128.03,
+      "changeDate": "2025-03-12",
+      "changeReason": "買",
+      "total": 19972
+    },
+    {
+      "name": "中華電",
+      "broker": "元大-鳳中",
+      "owner": "黃捷",
+      "shares": 152,
+      "changePrice": 128.12,
+      "changeDate": "2025-04-14",
+      "changeReason": "買",
+      "total": 19474
+    },
+    {
+      "name": "中華電",
+      "broker": "元大-鳳中",
+      "owner": "黃捷",
+      "shares": 149,
+      "changePrice": 130.99,
+      "changeDate": "2025-05-12",
+      "changeReason": "買",
+      "total": 19517
+    },
+    {
+      "name": "中華電",
+      "broker": "元大-鳳中",
+      "owner": "黃捷",
+      "shares": 147,
+      "changePrice": 133.52,
+      "changeDate": "2025-06-12",
+      "changeReason": "買",
+      "total": 19627
+    },
+    {
+      "name": "中華電",
+      "broker": "元大-鳳中",
+      "owner": "黃捷",
+      "shares": 152,
+      "changePrice": 130.73,
+      "changeDate": "2025-07-14",
+      "changeReason": "買",
+      "total": 19870
+    },
+    {
+      "name": "中華電",
+      "broker": "元大-鳳中",
+      "owner": "黃捷",
+      "shares": 148,
+      "changePrice": 134.99,
+      "changeDate": "2025-08-12",
+      "changeReason": "買",
+      "total": 19978
+    },
+    {
+      "name": "中華電",
+      "broker": "元大-鳳中",
+      "owner": "黃捷",
+      "shares": 147,
+      "changePrice": 135.37,
+      "changeDate": "2025-09-12",
+      "changeReason": "買",
+      "total": 19899
+    },
+    {
+      "name": "中華電",
+      "broker": "元大-鳳中",
+      "owner": "黃捷",
+      "shares": 147,
+      "changePrice": 132.51,
+      "changeDate": "2025-10-13",
+      "changeReason": "買",
+      "total": 19478
+    },
+    {
+      "name": "國泰金",
+      "broker": "元大-鳳中",
+      "owner": "黃捷",
+      "shares": 1000,
+      "changePrice": 69.3,
+      "changeDate": "2024-11-04",
+      "changeReason": "賣",
+      "total": 69300
+    },
+    {
+      "name": "玉山金",
+      "broker": "元大-鳳中",
+      "owner": "黃捷",
+      "shares": 1000,
+      "changePrice": 27.4,
+      "changeDate": "2024-11-04",
+      "changeReason": "賣",
+      "total": 27400
+    },
+    {
+      "name": "玉山金",
+      "broker": "元大-鳳中",
+      "owner": "黃捷",
+      "shares": 20,
+      "changePrice": 27,
+      "changeDate": "2024-11-15",
+      "changeReason": "賣",
+      "total": 540
+    },
+    {
+      "name": "第一金",
+      "broker": "元大-鳳中",
+      "owner": "黃捷",
+      "shares": 1000,
+      "changePrice": 27.7,
+      "changeDate": "2025-01-06",
+      "changeReason": "賣",
+      "total": 27700
+    },
+    {
+      "name": "第一金",
+      "broker": "元大-鳳中",
+      "owner": "黃捷",
+      "shares": 15,
+      "changePrice": 26.95,
+      "changeDate": "2025-06-05",
+      "changeReason": "賣",
+      "total": 404
+    },
+    {
+      "name": "第一金",
+      "broker": "元大-鳳中",
+      "owner": "黃捷",
+      "shares": 6,
+      "changePrice": 26.95,
+      "changeDate": "2025-06-05",
+      "changeReason": "賣",
+      "total": 161
+    },
+    {
+      "name": "第一金",
+      "broker": "元大-鳳中",
+      "owner": "黃捷",
+      "shares": 5,
+      "changePrice": 26.95,
+      "changeDate": "2025-06-05",
+      "changeReason": "賣",
+      "total": 134
+    },
+    {
+      "name": "第一金",
+      "broker": "元大-鳳中",
+      "owner": "黃捷",
+      "shares": 3,
+      "changePrice": 26.95,
+      "changeDate": "2025-06-05",
+      "changeReason": "賣",
+      "total": 80
+    },
+    {
+      "name": "第一金",
+      "broker": "元大-鳳中",
+      "owner": "黃捷",
+      "shares": 1,
+      "changePrice": 26.95,
+      "changeDate": "2025-06-05",
+      "changeReason": "賣",
+      "total": 26
+    },
+    {
+      "name": "台灣大",
+      "broker": "元大-鳳中",
+      "owner": "黃捷",
+      "shares": 1000,
+      "changePrice": 114,
+      "changeDate": "2024-11-04",
+      "changeReason": "賣",
+      "total": 114000
+    }
+  ]
+}

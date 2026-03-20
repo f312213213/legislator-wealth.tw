@@ -1,4 +1,4 @@
-import { getIndex, getDeclarationByName, getChangesByName, lookupStockPrice } from '@/lib/data'
+import { getIndex, getDeclarationByName, getChangesByName, lookupStockPrice, getLegislatorMeta } from '@/lib/data'
 import { PropertySummary } from '@/components/property-summary'
 import { CategoryTabs, type HoldingRow } from '@/components/category-tabs'
 import { notFound } from 'next/navigation'
@@ -54,6 +54,7 @@ export default async function LegislatorPage({ params }: { params: Promise<{ nam
   const decodedName = decodeURIComponent(name)
   const data = getDeclarationByName(decodedName)
   const changes = getChangesByName(decodedName)
+  const meta = getLegislatorMeta(decodedName)
 
   if (!data) {
     notFound()
@@ -65,6 +66,9 @@ export default async function LegislatorPage({ params }: { params: Promise<{ nam
     <div className="space-y-6">
       <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
         <h1 className="text-2xl font-bold">{data.name}</h1>
+        {meta?.party && (
+          <span className="text-sm text-muted-foreground">{meta.party}</span>
+        )}
         <span className="text-sm text-muted-foreground tabular-nums">{formatDate(data.declarationDate)}</span>
         {data.spouse && (
           <span className="text-sm text-muted-foreground">配偶：{data.spouse.name}</span>

@@ -1,0 +1,25 @@
+{
+  "type": "declaration",
+  "name": "張智倫",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2024-03-16",
+  "declarationType": "就",
+  "spouse": {
+    "relation": "配偶",
+    "name": "彭涵"
+  },
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 0,
+    "stocks": {
+      "totalNTD": 0,
+      "items": []
+    },
+    "funds": {
+      "totalNTD": 0,
+      "items": []
+    }
+  },
+  "notes": "1 ★更正項目資料係"
+}

@@ -1,0 +1,28 @@
+{
+  "type": "change",
+  "name": "張嘉郡",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2025-11-01",
+  "changePeriod": {
+    "from": "2024-03-16",
+    "to": "2025-11-01"
+  },
+  "spouse": {
+    "relation": "配偶",
+    "name": "周柏吟"
+  },
+  "minorChildren": [],
+  "stocks": [
+    {
+      "name": "富邦金",
+      "broker": "",
+      "owner": "周柏吟",
+      "shares": 2,
+      "changePrice": 91.9,
+      "changeDate": "2024-10-15",
+      "changeReason": "",
+      "total": 183.8
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "type": "change",
+  "name": "葉元之",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2025-11-01",
+  "changePeriod": {
+    "from": "2024-11-01",
+    "to": "2025-11-01"
+  },
+  "minorChildren": [],
+  "stocks": [
+    {
+      "name": "昇銳",
+      "broker": "",
+      "owner": "葉元之",
+      "shares": 194,
+      "changePrice": 32.2,
+      "changeDate": "2025-09-26",
+      "changeReason": "",
+      "total": 6246.8
+    },
+    {
+      "name": "神達",
+      "broker": "",
+      "owner": "葉元之",
+      "shares": 291,
+      "changePrice": 89.7,
+      "changeDate": "2025-09-24",
+      "changeReason": "",
+      "total": 26102.7
+    },
+    {
+      "name": "康和證",
+      "broker": "",
+      "owner": "葉元之",
+      "shares": 1270,
+      "changePrice": 12.8,
+      "changeDate": "2025-09-19",
+      "changeReason": "",
+      "total": 16256
+    },
+    {
+      "name": "新普",
+      "broker": "永豐金敦南",
+      "owner": "葉元之",
+      "shares": 2000,
+      "changePrice": 383,
+      "changeDate": "2024-12-02",
+      "changeReason": "買",
+      "total": 766000
+    },
+    {
+      "name": "新普",
+      "broker": "永豐金敦南",
+      "owner": "葉元之",
+      "shares": 1000,
+      "changePrice": 383,
+      "changeDate": "2024-12-02",
+      "changeReason": "買",
+      "total": 383000
+    },
+    {
+      "name": "新普",
+      "broker": "永豐金敦南",
+      "owner": "葉元之",
+      "shares": 1000,
+      "changePrice": 383,
+      "changeDate": "2024-12-02",
+      "changeReason": "買",
+      "total": 383000
+    },
+    {
+      "name": "新普",
+      "broker": "永豐金敦南",
+      "owner": "葉元之",
+      "shares": 1000,
+      "changePrice": 383,
+      "changeDate": "2024-12-02",
+      "changeReason": "買",
+      "total": 383000
+    }
+  ]
+}

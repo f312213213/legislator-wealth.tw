@@ -1,0 +1,67 @@
+{
+  "type": "declaration",
+  "name": "陳超明",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2024-11-01",
+  "declarationType": "定期申報",
+  "spouse": {
+    "relation": "配偶",
+    "name": "吳麗利"
+  },
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 109070,
+    "stocks": {
+      "totalNTD": 109070,
+      "items": [
+        {
+          "name": "華邦電",
+          "owner": "陳超明",
+          "shares": 21,
+          "parValue": 10,
+          "ntdTotal": 210
+        },
+        {
+          "name": "錸德",
+          "owner": "陳超明",
+          "shares": 124,
+          "parValue": 10,
+          "ntdTotal": 1240
+        },
+        {
+          "name": "所羅門",
+          "owner": "陳超明",
+          "shares": 2842,
+          "parValue": 10,
+          "ntdTotal": 28420
+        },
+        {
+          "name": "來思達",
+          "owner": "陳超明",
+          "shares": 557,
+          "parValue": 10,
+          "ntdTotal": 5570
+        },
+        {
+          "name": "南茂",
+          "owner": "陳超明",
+          "shares": 4,
+          "parValue": 10,
+          "ntdTotal": 40
+        },
+        {
+          "name": "統一證",
+          "owner": "吳麗利",
+          "shares": 7359,
+          "parValue": 10,
+          "ntdTotal": 73590
+        }
+      ]
+    },
+    "funds": {
+      "totalNTD": 0,
+      "items": []
+    }
+  }
+}

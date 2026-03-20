@@ -1,0 +1,16 @@
+{
+  "type": "change",
+  "name": "魯明哲",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2024-12-31",
+  "changePeriod": {
+    "from": "2023-12-29",
+    "to": "2024-12-31"
+  },
+  "spouse": {
+    "relation": "配偶",
+    "name": "汪玉仙"
+  },
+  "minorChildren": []
+}

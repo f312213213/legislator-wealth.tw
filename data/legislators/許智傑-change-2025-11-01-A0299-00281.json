@@ -1,0 +1,218 @@
+{
+  "type": "change",
+  "name": "許智傑",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2025-11-01",
+  "changePeriod": {
+    "from": "2024-11-01",
+    "to": "2025-11-01"
+  },
+  "spouse": {
+    "relation": "配偶",
+    "name": "周桂香"
+  },
+  "minorChildren": [],
+  "stocks": [
+    {
+      "name": "中石化",
+      "broker": "臺銀-金山",
+      "owner": "許智傑",
+      "shares": 5000,
+      "changePrice": 7.99,
+      "changeDate": "2025-02-20",
+      "changeReason": "賣",
+      "total": 39950
+    },
+    {
+      "name": "中石化",
+      "broker": "臺銀-金山",
+      "owner": "許智傑",
+      "shares": 861,
+      "changePrice": 8.03,
+      "changeDate": "2025-02-20",
+      "changeReason": "賣",
+      "total": 6913
+    },
+    {
+      "name": "中石化",
+      "broker": "臺銀-金山",
+      "owner": "許智傑",
+      "shares": 96,
+      "changePrice": 8.03,
+      "changeDate": "2025-02-20",
+      "changeReason": "賣",
+      "total": 770
+    },
+    {
+      "name": "力銘",
+      "broker": "臺銀-金山",
+      "owner": "許智傑",
+      "shares": 132,
+      "changePrice": 7.6,
+      "changeDate": "2025-02-20",
+      "changeReason": "賣",
+      "total": 1003
+    },
+    {
+      "name": "力銘",
+      "broker": "臺銀-金山",
+      "owner": "許智傑",
+      "shares": 61,
+      "changePrice": 7.6,
+      "changeDate": "2025-02-20",
+      "changeReason": "賣",
+      "total": 463
+    },
+    {
+      "name": "力銘",
+      "broker": "臺銀-金山",
+      "owner": "許智傑",
+      "shares": 5,
+      "changePrice": 7.6,
+      "changeDate": "2025-02-20",
+      "changeReason": "賣",
+      "total": 38
+    },
+    {
+      "name": "力銘",
+      "broker": "臺銀-金山",
+      "owner": "許智傑",
+      "shares": 1,
+      "changePrice": 7.6,
+      "changeDate": "2025-02-20",
+      "changeReason": "賣",
+      "total": 7
+    },
+    {
+      "name": "力銘",
+      "broker": "臺銀-金山",
+      "owner": "許智傑",
+      "shares": 1,
+      "changePrice": 7.6,
+      "changeDate": "2025-02-20",
+      "changeReason": "賣",
+      "total": 7
+    },
+    {
+      "name": "力銘",
+      "broker": "臺銀-金山",
+      "owner": "許智傑",
+      "shares": 1,
+      "changePrice": 7.6,
+      "changeDate": "2025-02-20",
+      "changeReason": "賣",
+      "total": 7
+    },
+    {
+      "name": "力銘",
+      "broker": "臺銀-金山",
+      "owner": "許智傑",
+      "shares": 1,
+      "changePrice": 7.6,
+      "changeDate": "2025-02-20",
+      "changeReason": "賣",
+      "total": 7
+    },
+    {
+      "name": "松瑞藥",
+      "broker": "臺銀金山",
+      "owner": "許智傑",
+      "shares": 265,
+      "changePrice": 20.65,
+      "changeDate": "2025-02-20",
+      "changeReason": "賣",
+      "total": 5472
+    },
+    {
+      "name": "高端疫苗",
+      "broker": "臺銀金山",
+      "owner": "許智傑",
+      "shares": 2000,
+      "changePrice": 46.7,
+      "changeDate": "2025-02-20",
+      "changeReason": "賣",
+      "total": 93400
+    },
+    {
+      "name": "高端疫苗",
+      "broker": "臺銀金山",
+      "owner": "許智傑",
+      "shares": 1000,
+      "changePrice": 46.7,
+      "changeDate": "2025-02-20",
+      "changeReason": "賣",
+      "total": 46700
+    },
+    {
+      "name": "高端疫苗",
+      "broker": "臺銀金山",
+      "owner": "許智傑",
+      "shares": 42,
+      "changePrice": 46.85,
+      "changeDate": "2025-02-20",
+      "changeReason": "賣",
+      "total": 1968
+    },
+    {
+      "name": "台康生技",
+      "broker": "臺銀金山",
+      "owner": "許智傑",
+      "shares": 1000,
+      "changePrice": 82.3,
+      "changeDate": "2025-02-20",
+      "changeReason": "賣",
+      "total": 82300
+    },
+    {
+      "name": "台康生技",
+      "broker": "臺銀金山",
+      "owner": "許智傑",
+      "shares": 1000,
+      "changePrice": 82.4,
+      "changeDate": "2025-02-20",
+      "changeReason": "賣",
+      "total": 82400
+    },
+    {
+      "name": "台康生技",
+      "broker": "臺銀金山",
+      "owner": "許智傑",
+      "shares": 1000,
+      "changePrice": 82.4,
+      "changeDate": "2025-02-20",
+      "changeReason": "賣",
+      "total": 82400
+    },
+    {
+      "name": "台康生技",
+      "broker": "臺銀金山",
+      "owner": "許智傑",
+      "shares": 1000,
+      "changePrice": 82.3,
+      "changeDate": "2025-02-20",
+      "changeReason": "賣",
+      "total": 82300
+    },
+    {
+      "name": "台康生技",
+      "broker": "臺銀金山",
+      "owner": "許智傑",
+      "shares": 500,
+      "changePrice": 82,
+      "changeDate": "2025-02-20",
+      "changeReason": "賣",
+      "total": 41000
+    },
+    {
+      "name": "台康生技",
+      "broker": "臺銀金山",
+      "owner": "許智傑",
+      "shares": 8,
+      "changePrice": 82,
+      "changeDate": "2025-02-20",
+      "changeReason": "賣",
+      "total": 656
+    }
+  ]
+}

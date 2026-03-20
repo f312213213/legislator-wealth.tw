@@ -1,0 +1,25 @@
+{
+  "type": "declaration",
+  "name": "何欣純",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2024-11-01",
+  "declarationType": "定期申報",
+  "spouse": {
+    "relation": "配偶",
+    "name": "謝俊雄"
+  },
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 0,
+    "stocks": {
+      "totalNTD": 0,
+      "items": []
+    },
+    "funds": {
+      "totalNTD": 0,
+      "items": []
+    }
+  },
+  "notes": "【謝俊雄】於【國票證券】融券【旺宏】 【 2.00 】張，授信別： 【融資融券專戶】"
+}

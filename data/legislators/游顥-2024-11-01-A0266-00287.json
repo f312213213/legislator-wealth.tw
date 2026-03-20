@@ -1,0 +1,53 @@
+{
+  "type": "declaration",
+  "name": "游顥",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2024-11-01",
+  "declarationType": "定期申報",
+  "spouse": {
+    "relation": "配偶",
+    "name": "黃姿倩"
+  },
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 305750,
+    "stocks": {
+      "totalNTD": 305750,
+      "items": [
+        {
+          "name": "中石化",
+          "owner": "游顥",
+          "shares": 369,
+          "parValue": 10,
+          "ntdTotal": 3690
+        },
+        {
+          "name": "彰銀",
+          "owner": "游顥",
+          "shares": 142,
+          "parValue": 10,
+          "ntdTotal": 1420
+        },
+        {
+          "name": "麗嬰房",
+          "owner": "游顥",
+          "shares": 64,
+          "parValue": 10,
+          "ntdTotal": 640
+        },
+        {
+          "name": "亞基科",
+          "owner": "游顥",
+          "shares": 30000,
+          "parValue": 10,
+          "ntdTotal": 300000
+        }
+      ]
+    },
+    "funds": {
+      "totalNTD": 0,
+      "items": []
+    }
+  }
+}

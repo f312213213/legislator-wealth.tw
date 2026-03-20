@@ -2,7 +2,7 @@ name: Fetch Stock Data
 
 on:
   schedule:
-    - cron: '0 8 * * *' # 16:00 UTC+8
+    - cron: '0 10 * * *' # 18:00 UTC+8
   workflow_dispatch: # Allow manual trigger
 
 jobs:

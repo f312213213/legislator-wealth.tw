@@ -1,0 +1,24 @@
+{
+  "type": "declaration",
+  "name": "徐富癸",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2024-03-16",
+  "declarationType": "就",
+  "spouse": {
+    "relation": "配偶",
+    "name": "張靜玲"
+  },
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 165774,
+    "stocks": {
+      "totalNTD": 0,
+      "items": []
+    },
+    "funds": {
+      "totalNTD": 165774,
+      "items": []
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "type": "declaration",
+  "name": "沈伯洋",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2025-11-15",
+  "declarationType": "定期申報",
+  "spouse": {
+    "relation": "配偶",
+    "name": "曾心慧"
+  },
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 4109607,
+    "stocks": {
+      "totalNTD": 42830,
+      "items": [
+        {
+          "name": "台積電",
+          "owner": "沈伯洋",
+          "shares": 1000,
+          "parValue": 10,
+          "ntdTotal": 10000
+        },
+        {
+          "name": "第一金",
+          "owner": "曾心慧",
+          "shares": 3283,
+          "parValue": 10,
+          "ntdTotal": 32830
+        }
+      ]
+    },
+    "funds": {
+      "totalNTD": 1328310,
+      "items": [
+        {
+          "name": "元大台灣50",
+          "owner": "曾心慧",
+          "trustee": "",
+          "units": 16000,
+          "nav": 61.39,
+          "ntdTotal": 982240
+        },
+        {
+          "name": "元大高股息",
+          "owner": "曾心慧",
+          "trustee": "",
+          "units": 7000,
+          "nav": 36.01,
+          "ntdTotal": 252070
+        },
+        {
+          "name": "元大台灣價值高息",
+          "owner": "曾心慧",
+          "trustee": "",
+          "units": 10000,
+          "nav": 9.4,
+          "ntdTotal": 94000
+        }
+      ]
+    }
+  }
+}

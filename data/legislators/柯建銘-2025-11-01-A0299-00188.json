@@ -1,0 +1,46 @@
+{
+  "type": "declaration",
+  "name": "柯建銘",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2025-11-01",
+  "declarationType": "定期申報",
+  "spouse": {
+    "relation": "配偶",
+    "name": "林道春"
+  },
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 512210,
+    "stocks": {
+      "totalNTD": 512210,
+      "items": [
+        {
+          "name": "茂矽",
+          "owner": "柯建銘",
+          "shares": 7,
+          "parValue": 10,
+          "ntdTotal": 70
+        },
+        {
+          "name": "宏遠電訊",
+          "owner": "柯建銘",
+          "shares": 1106,
+          "parValue": 10,
+          "ntdTotal": 11060
+        },
+        {
+          "name": "碩聯創投",
+          "owner": "柯建銘",
+          "shares": 50000,
+          "parValue": 10,
+          "ntdTotal": 500000
+        }
+      ]
+    },
+    "funds": {
+      "totalNTD": 0,
+      "items": []
+    }
+  }
+}

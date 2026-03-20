@@ -1,0 +1,16 @@
+{
+  "type": "change",
+  "name": "鄭天財",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2024-11-01",
+  "changePeriod": {
+    "from": "2023-11-01",
+    "to": "2024-11-01"
+  },
+  "spouse": {
+    "relation": "配偶",
+    "name": "王慧玲"
+  },
+  "minorChildren": []
+}

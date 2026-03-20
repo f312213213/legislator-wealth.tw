@@ -1,0 +1,442 @@
+{
+  "type": "declaration",
+  "name": "陳菁徽",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2024-03-16",
+  "declarationType": "就",
+  "spouse": {
+    "relation": "配偶",
+    "name": "蔡政哲"
+  },
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 52216211,
+    "stocks": {
+      "totalNTD": 49289355,
+      "items": [
+        {
+          "name": "台泥",
+          "owner": "陳菁徽",
+          "shares": 291,
+          "parValue": 10,
+          "ntdTotal": 2910
+        },
+        {
+          "name": "台積電",
+          "owner": "陳菁徽",
+          "shares": 462,
+          "parValue": 10,
+          "ntdTotal": 4620
+        },
+        {
+          "name": "矽統",
+          "owner": "陳菁徽",
+          "shares": 8,
+          "parValue": 21,
+          "currency": "10",
+          "ntdTotal": 8210
+        },
+        {
+          "name": "國泰金",
+          "owner": "陳菁徽",
+          "shares": 242,
+          "parValue": 10,
+          "ntdTotal": 2420
+        },
+        {
+          "name": "開發金",
+          "owner": "陳菁徽",
+          "shares": 55000,
+          "parValue": 10,
+          "ntdTotal": 550000
+        },
+        {
+          "name": "元大金",
+          "owner": "陳菁徽",
+          "shares": 513,
+          "parValue": 10,
+          "ntdTotal": 5130
+        },
+        {
+          "name": "兆豐金",
+          "owner": "陳菁徽",
+          "shares": 8000,
+          "parValue": 10,
+          "ntdTotal": 80000
+        },
+        {
+          "name": "永豐金",
+          "owner": "陳菁徽",
+          "shares": 5297,
+          "parValue": 10,
+          "ntdTotal": 52970
+        },
+        {
+          "name": "蘋果電腦",
+          "owner": "陳菁徽",
+          "shares": 500,
+          "parValue": 172,
+          "currency": "美元",
+          "ntdTotal": 2718592
+        },
+        {
+          "name": "蘋果電腦",
+          "owner": "陳菁徽",
+          "shares": 100,
+          "parValue": 172,
+          "currency": "美元",
+          "ntdTotal": 543718
+        },
+        {
+          "name": "蘋果電腦",
+          "owner": "陳菁徽",
+          "shares": 100,
+          "parValue": 172,
+          "currency": "美元",
+          "ntdTotal": 543718
+        },
+        {
+          "name": "蘋果電腦",
+          "owner": "陳菁徽",
+          "shares": 100,
+          "parValue": 172,
+          "currency": "美元",
+          "ntdTotal": 543718
+        },
+        {
+          "name": "蘋果電腦",
+          "owner": "陳菁徽",
+          "shares": 100,
+          "parValue": 172,
+          "currency": "美元",
+          "ntdTotal": 543718
+        },
+        {
+          "name": "蘋果電腦",
+          "owner": "陳菁徽",
+          "shares": 100,
+          "parValue": 172,
+          "currency": "美元",
+          "ntdTotal": 543718
+        },
+        {
+          "name": "超微",
+          "owner": "陳菁徽",
+          "shares": 200,
+          "parValue": 191,
+          "currency": "美元",
+          "ntdTotal": 1203601
+        },
+        {
+          "name": "超微",
+          "owner": "陳菁徽",
+          "shares": 200,
+          "parValue": 191,
+          "currency": "美元",
+          "ntdTotal": 1203601
+        },
+        {
+          "name": "超微",
+          "owner": "陳菁徽",
+          "shares": 100,
+          "parValue": 191,
+          "currency": "美元",
+          "ntdTotal": 601800
+        },
+        {
+          "name": "波音公司",
+          "owner": "陳菁徽",
+          "shares": 200,
+          "parValue": 182,
+          "currency": "美元",
+          "ntdTotal": 1149865
+        },
+        {
+          "name": "波音 公司",
+          "owner": "陳菁徽",
+          "shares": 100,
+          "parValue": 182,
+          "currency": "美元",
+          "ntdTotal": 574932
+        },
+        {
+          "name": "波音公司",
+          "owner": "陳菁徽",
+          "shares": 65,
+          "parValue": 182,
+          "currency": "美元",
+          "ntdTotal": 373706
+        },
+        {
+          "name": "波音公司",
+          "owner": "陳菁徽",
+          "shares": 50,
+          "parValue": 182,
+          "currency": "美元",
+          "ntdTotal": 287466
+        },
+        {
+          "name": "波音公司",
+          "owner": "陳菁徽",
+          "shares": 35,
+          "parValue": 182,
+          "currency": "美元",
+          "ntdTotal": 201226
+        },
+        {
+          "name": "阿里巴巴集團",
+          "owner": "陳菁徽",
+          "shares": 100,
+          "parValue": 73,
+          "currency": "美元",
+          "ntdTotal": 231258
+        },
+        {
+          "name": "阿里巴巴集團",
+          "owner": "陳菁徽",
+          "shares": 100,
+          "parValue": 73,
+          "currency": "美元",
+          "ntdTotal": 231258
+        },
+        {
+          "name": "阿里巴巴集團",
+          "owner": "陳菁徽",
+          "shares": 100,
+          "parValue": 73,
+          "currency": "美元",
+          "ntdTotal": 231258
+        },
+        {
+          "name": "阿里巴巴集團",
+          "owner": "陳菁徽",
+          "shares": 100,
+          "parValue": 73,
+          "currency": "美元",
+          "ntdTotal": 231258
+        },
+        {
+          "name": "阿里巴巴集團",
+          "owner": "陳菁徽",
+          "shares": 98,
+          "parValue": 73,
+          "currency": "美元",
+          "ntdTotal": 226633
+        },
+        {
+          "name": "阿里巴巴集團",
+          "owner": "陳菁徽",
+          "shares": 30,
+          "parValue": 73,
+          "currency": "美元",
+          "ntdTotal": 69377
+        },
+        {
+          "name": "BAIDU INC - CHINA ADR",
+          "owner": "陳菁徽",
+          "shares": 120,
+          "parValue": 103,
+          "currency": "美元",
+          "ntdTotal": 392565
+        },
+        {
+          "name": "BAIDU INC - CHINA ADR",
+          "owner": "陳菁徽",
+          "shares": 100,
+          "parValue": 103,
+          "currency": "美元",
+          "ntdTotal": 327138
+        },
+        {
+          "name": "BAIDU INC - CHINA ADR",
+          "owner": "陳菁徽",
+          "shares": 100,
+          "parValue": 103,
+          "currency": "美元",
+          "ntdTotal": 327138
+        },
+        {
+          "name": "微 狄亞視訊",
+          "owner": "陳菁徽",
+          "shares": 700,
+          "parValue": 878,
+          "currency": "美元",
+          "ntdTotal": 19366718
+        },
+        {
+          "name": "微狄亞視訊",
+          "owner": "陳菁徽",
+          "shares": 100,
+          "parValue": 878,
+          "currency": "美元",
+          "ntdTotal": 2766674
+        },
+        {
+          "name": "TESLA INC",
+          "owner": "陳菁徽",
+          "shares": 510,
+          "parValue": 163,
+          "currency": "美元",
+          "ntdTotal": 2627585
+        },
+        {
+          "name": "台積電 ADR",
+          "owner": "陳菁徽",
+          "shares": 200,
+          "parValue": 136,
+          "currency": "美元",
+          "ntdTotal": 862919
+        },
+        {
+          "name": "台積電 ADR",
+          "owner": "陳菁徽",
+          "shares": 100,
+          "parValue": 136,
+          "currency": "美元",
+          "ntdTotal": 431459
+        },
+        {
+          "name": "台積電 ADR",
+          "owner": "陳菁徽",
+          "shares": 100,
+          "parValue": 136,
+          "currency": "美元",
+          "ntdTotal": 431459
+        },
+        {
+          "name": "台積電 ADR",
+          "owner": "陳菁徽",
+          "shares": 100,
+          "parValue": 136,
+          "currency": "美元",
+          "ntdTotal": 431459
+        },
+        {
+          "name": "NIO INC",
+          "owner": "陳菁徽",
+          "shares": 300,
+          "parValue": 5,
+          "currency": "美元",
+          "ntdTotal": 52727
+        },
+        {
+          "name": "NIO INC",
+          "owner": "陳菁徽",
+          "shares": 300,
+          "parValue": 5,
+          "currency": "美元",
+          "ntdTotal": 52727
+        },
+        {
+          "name": "SHOPIFY INC",
+          "owner": "陳菁徽",
+          "shares": 200,
+          "parValue": 77,
+          "currency": "美元",
+          "ntdTotal": 486014
+        },
+        {
+          "name": "AMERICAN WELL CORP",
+          "owner": "陳菁徽",
+          "shares": 126,
+          "parValue": 0,
+          "currency": "美元",
+          "ntdTotal": 3533
+        },
+        {
+          "name": "AMERICAN WELL COR P",
+          "owner": "陳菁徽",
+          "shares": 80,
+          "parValue": 0,
+          "currency": "美元",
+          "ntdTotal": 2243
+        },
+        {
+          "name": "AMERICAN WELL CORP",
+          "owner": "陳菁徽",
+          "shares": 65,
+          "parValue": 0,
+          "currency": "美元",
+          "ntdTotal": 1822
+        },
+        {
+          "name": "AMERICAN WELL CORP",
+          "owner": "陳菁徽",
+          "shares": 15,
+          "parValue": 0,
+          "currency": "美元",
+          "ntdTotal": 420
+        },
+        {
+          "name": "AMERICAN WELL CORP",
+          "owner": "陳菁徽",
+          "shares": 14,
+          "parValue": 0,
+          "currency": "美元",
+          "ntdTotal": 392
+        },
+        {
+          "name": "彩晶",
+          "owner": "陳菁徽",
+          "shares": 25000,
+          "parValue": 10,
+          "ntdTotal": 250000
+        },
+        {
+          "name": "台郡",
+          "owner": "陳菁徽",
+          "shares": 10000,
+          "parValue": 10,
+          "ntdTotal": 100000
+        },
+        {
+          "name": "台睿",
+          "owner": "陳菁徽",
+          "shares": 100000,
+          "parValue": 10,
+          "ntdTotal": 1000000
+        },
+        {
+          "name": "欣高",
+          "owner": "陳菁徽",
+          "shares": 374785,
+          "parValue": 10,
+          "ntdTotal": 3747850
+        },
+        {
+          "name": "欣高",
+          "owner": "陳菁徽",
+          "shares": 11024,
+          "parValue": 10,
+          "ntdTotal": 110240
+        },
+        {
+          "name": "華隆",
+          "owner": "蔡政哲",
+          "shares": 497,
+          "parValue": 10,
+          "ntdTotal": 4970
+        },
+        {
+          "name": "旅天下",
+          "owner": "蔡政哲",
+          "shares": 50000,
+          "parValue": 10,
+          "ntdTotal": 500000
+        },
+        {
+          "name": "陽信商銀",
+          "owner": "蔡○言",
+          "shares": 168066,
+          "parValue": 10,
+          "ntdTotal": 1680660
+        }
+      ]
+    },
+    "funds": {
+      "totalNTD": 0,
+      "items": []
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "change",
+  "name": "賴惠員",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2024-11-30",
+  "changePeriod": {
+    "from": "2023-12-13",
+    "to": "2024-11-30"
+  },
+  "spouse": {
+    "relation": "配偶",
+    "name": "張志仁"
+  },
+  "minorChildren": []
+}

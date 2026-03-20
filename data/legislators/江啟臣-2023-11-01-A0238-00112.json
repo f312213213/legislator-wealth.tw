@@ -1,0 +1,43 @@
+{
+  "type": "declaration",
+  "name": "江啟臣",
+  "organization": "立法院",
+  "title": "立法委員",
+  "declarationDate": "2023-11-01",
+  "declarationType": "定期申報",
+  "spouse": {
+    "relation": "配偶",
+    "name": "劉姿伶"
+  },
+  "minorChildren": [],
+  "securities": {
+    "totalNTD": 466713,
+    "stocks": {
+      "totalNTD": 0,
+      "items": []
+    },
+    "funds": {
+      "totalNTD": 466713,
+      "items": [
+        {
+          "name": "摩根基金-亞太入息基金（月配現）（美元）",
+          "owner": "江啟臣",
+          "trustee": "",
+          "units": 82.816,
+          "nav": 92.36,
+          "currency": "美元",
+          "ntdTotal": 248175
+        },
+        {
+          "name": "施羅德（環）環球股息基金AX（月配現）（美元）",
+          "owner": "江啟臣",
+          "trustee": "",
+          "units": 1818.18,
+          "nav": 3.7045,
+          "currency": "美元",
+          "ntdTotal": 218538
+        }
+      ]
+    }
+  }
+}
