@@ -157,7 +157,7 @@ function StocksTab({ holdings }: { holdings: HoldingRow[] }) {
           <TableBody>
             {sorted.map((s, i) => (
               <TableRow key={i}>
-                <TableCell className="font-medium">{s.name}</TableCell>
+                <TableCell className="font-medium max-w-[200px] truncate">{s.name}</TableCell>
                 <TableCell>
                   <Badge variant={sourceVariant(s.source)} className="text-xs">{sourceLabel(s.source)}</Badge>
                 </TableCell>
@@ -269,7 +269,7 @@ function ChangesTab({ changes }: { changes: ChangeDeclaration[] }) {
           <TableBody>
             {sorted.map((r, i) => (
               <TableRow key={i}>
-                <TableCell className="font-medium">{r.name}</TableCell>
+                <TableCell className="font-medium max-w-[200px] truncate">{r.name}</TableCell>
                 <TableCell><ChangeBadge reason={r.changeReason} /></TableCell>
                 <TableCell className="text-muted-foreground">{r.owner}</TableCell>
                 <TableCell className="text-right tabular-nums">{formatNTD(r.shares)}</TableCell>

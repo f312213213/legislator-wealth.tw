@@ -44,8 +44,10 @@ export function StockTable({ rows }: { rows: StockHolding[] }) {
     if (ownerFilter !== '全部持有人') {
       result = result.filter(r => r.owner === ownerFilter)
     }
-    if (sourceFilter !== '全部類型') {
-      result = result.filter(r => r.source === sourceFilter)
+    if (sourceFilter === '個股') {
+      result = result.filter(r => r.source === 'stock')
+    } else if (sourceFilter === '基金/ETF') {
+      result = result.filter(r => r.source === 'fund')
     }
     result = [...result].sort((a, b) => {
       const aVal = sortKey === 'marketValue' ? (a.marketValue ?? 0) : a[sortKey]
@@ -86,8 +88,8 @@ export function StockTable({ rows }: { rows: StockHolding[] }) {
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="全部類型">全部類型</SelectItem>
-            <SelectItem value="stock">個股</SelectItem>
-            <SelectItem value="fund">基金/ETF</SelectItem>
+            <SelectItem value="個股">個股</SelectItem>
+            <SelectItem value="基金/ETF">基金/ETF</SelectItem>
           </SelectContent>
         </Select>
         <Select value={ownerFilter} onValueChange={v => setOwnerFilter(v ?? '全部持有人')}>
@@ -153,7 +155,7 @@ export function StockTable({ rows }: { rows: StockHolding[] }) {
                 const sourceInfo = SOURCE_LABELS[row.source]
                 return (
                   <TableRow key={`${row.name}-${row.legislator}-${row.owner}-${i}`}>
-                    <TableCell className="font-medium">{row.name}</TableCell>
+                    <TableCell className="font-medium max-w-[200px] truncate" title={row.name}>{row.name}</TableCell>
                     <TableCell>
                       <Badge variant={sourceInfo.variant} className="text-xs">
                         {sourceInfo.label}

@@ -29,7 +29,7 @@ export function LegislatorCard({ data, marketTotal, meta, slug }: { data: Legisl
         <div className="min-w-0 flex-1">
           <h3 className="text-sm font-bold leading-tight">{data.name}</h3>
           {meta?.party && (
-            <p className="text-[10px] text-muted-foreground">{meta.party}</p>
+            <p className="text-xs text-muted-foreground">{meta.party}</p>
           )}
         </div>
         <div className="text-right">

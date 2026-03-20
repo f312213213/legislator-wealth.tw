@@ -81,6 +81,12 @@
     --sidebar-accent-foreground: oklch(0.17 0.01 265);
     --sidebar-border: oklch(0.905 0.005 265);
     --sidebar-ring: oklch(0.37 0.08 265);
+
+    /* Party colors */
+    --party-kmt: #000099;
+    --party-dpp: #1B9431;
+    --party-tpp: #28C8C8;
+    --party-ind: #999999;
 }
 
 .dark {
@@ -115,6 +121,11 @@
     --sidebar-accent-foreground: oklch(0.93 0.005 265);
     --sidebar-border: oklch(1 0 0 / 11%);
     --sidebar-ring: oklch(0.65 0.12 250);
+
+    --party-kmt: #4444cc;
+    --party-dpp: #2eb84a;
+    --party-tpp: #3ddada;
+    --party-ind: #aaaaaa;
 }
 
 @layer base {
@@ -136,3 +147,31 @@
 .dark [data-slot="table-body"] tr:nth-child(even) {
   background-color: oklch(1 1 0 / 3%);
 }
+
+/* Animate: fade-in-up for sections */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up {
+  animation: fade-up 0.4s ease-out both;
+}
+.fade-up-1 { animation-delay: 0ms; }
+.fade-up-2 { animation-delay: 80ms; }
+.fade-up-3 { animation-delay: 160ms; }
+.fade-up-4 { animation-delay: 240ms; }
+.fade-up-5 { animation-delay: 320ms; }
+
+/* Delight: smooth hover slide for list rows */
+.row-hover {
+  transition: transform 0.15s ease-out, background-color 0.15s ease-out;
+}
+.row-hover:hover {
+  transform: translateX(4px);
+}
+
+/* Colorize: party-colored bar fills */
+.bar-kmt { background-color: var(--party-kmt); opacity: 0.25; }
+.bar-dpp { background-color: var(--party-dpp); opacity: 0.25; }
+.bar-tpp { background-color: var(--party-tpp); opacity: 0.25; }
+.bar-ind { background-color: var(--party-ind); opacity: 0.15; }

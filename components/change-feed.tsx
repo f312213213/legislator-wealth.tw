@@ -95,7 +95,7 @@ export function ChangeFeed({ changes }: { changes: FlatChange[] }) {
                       {change.legislator}
                     </Link>
                   </TableCell>
-                  <TableCell className="font-medium">{change.name}</TableCell>
+                  <TableCell className="font-medium max-w-[200px] truncate">{change.name}</TableCell>
                   <TableCell><ChangeBadge reason={change.changeReason} /></TableCell>
                   <TableCell className="text-muted-foreground">{change.owner}</TableCell>
                   <TableCell className="text-muted-foreground tabular-nums">
