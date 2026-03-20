@@ -64,6 +64,20 @@ function main() {
     }
   }
 
+  // Sort declarations newest-first so declarations[0] is the latest.
+  // When dates are the same, prefer the file with more securities data.
+  function declSortKey(file: string): string {
+    const doc: LegislatorDocument = JSON.parse(fs.readFileSync(path.join(LEGISLATORS_DIR, file), 'utf-8'))
+    const date = doc.declarationDate || '0000-00-00'
+    const total = doc.type === 'declaration' ? doc.securities.totalNTD : 0
+    // Pad total to 15 digits so string comparison works (higher total = later in sort = first after reverse)
+    return `${date}-${String(total).padStart(15, '0')}`
+  }
+  for (const leg of legislatorMap.values()) {
+    leg.declarations.sort((a, b) => declSortKey(b).localeCompare(declSortKey(a)))
+    leg.changes.sort((a, b) => b.localeCompare(a))
+  }
+
   // Deduplicate slugs by appending a number
   const slugCounts = new Map<string, number>()
   for (const leg of legislatorMap.values()) {

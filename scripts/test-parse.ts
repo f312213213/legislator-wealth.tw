@@ -583,9 +583,12 @@ const tests: TestCase[] = [
       const e: (string | null)[] = []
       if (!Array.isArray(docs)) return ['expected multi-declaration array']
       e.push(eq('declaration count', 9, docs.length))
-      // Allow some header parsing failures for older formats
+      // All 9 should be named 林淑芬
       const named = docs.filter((d: any) => d.name === '林淑芬')
-      e.push(gte('named 林淑芬', 7, named.length))
+      e.push(eq('all named 林淑芬', 9, named.length))
+      // Every declaration should have a valid date (YYYY-MM-DD)
+      const withDates = docs.filter((d: any) => d.declarationDate && d.declarationDate.length === 10)
+      e.push(eq('all have dates', 9, withDates.length))
       return e.filter(Boolean) as string[]
     },
   },

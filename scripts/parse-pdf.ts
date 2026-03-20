@@ -134,7 +134,8 @@ function correctName(name: string): string {
 function parseHeader(text: string): Partial<LegislatorDeclaration> {
   const result: Partial<LegislatorDeclaration> = {}
   // Name may be split across PDF cells: "顏 寬恒" for 顏寬恒
-  const nameMatch = text.match(/申報人(?:姓名)?[：:\s]+([\u4e00-\u9fff][\u4e00-\u9fff\s]{0,6}?)(?=\s+服|\s*$)/)
+  // "申報 人" can also be split in older PDFs
+  const nameMatch = text.match(/申\s*報\s*人(?:\s*姓\s*名)?[：:\s]+([\u4e00-\u9fff][\u4e00-\u9fff\s]{0,6}?)(?=\s+[服職]|\s*\n|\s*$)/)
   if (nameMatch) result.name = correctName(nameMatch[1].replace(/\s/g, ''))
   const orgLine = text.match(/1\.\s*(立法院|[^\s]+院)/)
   if (orgLine) result.organization = orgLine[1]
@@ -143,12 +144,14 @@ function parseHeader(text: string): Partial<LegislatorDeclaration> {
   if (!result.title) {
     if (text.match(/立法委員/)) result.title = '立法委員'
   }
-  // Year may be split across PDF cells: "1 11 年" for ROC year 111
-  const dateMatch = text.match(/申\s*報\s*日\s*(\d[\d\s]{0,4})\s*年\s*(\d{1,2})\s*月\s*(\d{1,2})\s*日/)
+  // Year/month/day may be split across PDF cells: "1 02 年 1 2 月 3 0 日"
+  const dateMatch = text.match(/申\s*報\s*日\s*(\d[\d\s]{0,4})\s*年\s*(\d[\d\s]{0,2})\s*月\s*(\d[\d\s]{0,2})\s*日/)
   if (dateMatch) {
     let year = parseInt(dateMatch[1].replace(/\s/g, ''))
     if (year < 1911) year += 1911
-    result.declarationDate = `${year}-${dateMatch[2].padStart(2, '0')}-${dateMatch[3].padStart(2, '0')}`
+    const month = dateMatch[2].replace(/\s/g, '')
+    const day = dateMatch[3].replace(/\s/g, '')
+    result.declarationDate = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`
   }
   const typeMatch = text.match(/申\s*報\s*類\s*別\s+(\S+)/)
   if (typeMatch) result.declarationType = typeMatch[1]
@@ -591,27 +594,29 @@ async function parseAssetDeclaration(text: string): Promise<LegislatorDeclaratio
 
 function parseChangeHeader(text: string): Partial<ChangeDeclaration> {
   const result: Partial<ChangeDeclaration> = {}
-  const nameMatch = text.match(/申報人(?:姓名)?[：:\s]+([\u4e00-\u9fff][\u4e00-\u9fff\s]{0,6}?)(?=\s+服|\s*$)/)
+  const nameMatch = text.match(/申\s*報\s*人(?:\s*姓\s*名)?[：:\s]+([\u4e00-\u9fff][\u4e00-\u9fff\s]{0,6}?)(?=\s+[服職]|\s*\n|\s*$)/)
   if (nameMatch) result.name = correctName(nameMatch[1].replace(/\s/g, ''))
   const orgLine = text.match(/1\.\s*(立法院|[^\s]+院)/)
   if (orgLine) result.organization = orgLine[1]
   if (text.match(/立法委員/)) result.title = '立法委員'
-  // Year may be split across PDF cells: "1 05 年" for ROC year 105
-  const dateMatch = text.match(/申\s*報\s*日\s*(\d[\d\s]{0,4})\s*年\s*(\d{1,2})\s*月\s*(\d{1,2})\s*日/)
+  // Year/month/day may be split across PDF cells
+  const dateMatch = text.match(/申\s*報\s*日\s*(\d[\d\s]{0,4})\s*年\s*(\d[\d\s]{0,2})\s*月\s*(\d[\d\s]{0,2})\s*日/)
   if (dateMatch) {
     let year = parseInt(dateMatch[1].replace(/\s/g, ''))
     if (year < 1911) year += 1911
-    result.declarationDate = `${year}-${dateMatch[2].padStart(2, '0')}-${dateMatch[3].padStart(2, '0')}`
+    const month = dateMatch[2].replace(/\s/g, '')
+    const day = dateMatch[3].replace(/\s/g, '')
+    result.declarationDate = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`
   }
-  const fromMatch = text.match(/前次申報日期\s*民?國?\s*(\d[\d\s]{0,4})\s*年\s*(\d{1,2})\s*月\s*(\d{1,2})\s*日/)
-  const toMatch = text.match(/(\d{1,2})\s*月\s*(\d{1,2})\s*日\s*止/)
+  const fromMatch = text.match(/前次申報日期\s*民?國?\s*(\d[\d\s]{0,4})\s*年\s*(\d[\d\s]{0,2})\s*月\s*(\d[\d\s]{0,2})\s*日/)
+  const toMatch = text.match(/(\d[\d\s]{0,2})\s*月\s*(\d[\d\s]{0,2})\s*日\s*止/)
   const toYearMatch = text.match(/本次.*?(\d[\d\s]{0,4})\s*年/)
   if (fromMatch && toMatch && toYearMatch) {
     let fromYear = parseInt(fromMatch[1].replace(/\s/g, '')); if (fromYear < 1911) fromYear += 1911
     let toYear = parseInt(toYearMatch[1].replace(/\s/g, '')); if (toYear < 1911) toYear += 1911
     result.changePeriod = {
-      from: `${fromYear}-${fromMatch[2].padStart(2, '0')}-${fromMatch[3].padStart(2, '0')}`,
-      to: `${toYear}-${toMatch[1].padStart(2, '0')}-${toMatch[2].padStart(2, '0')}`,
+      from: `${fromYear}-${fromMatch[2].replace(/\s/g, '').padStart(2, '0')}-${fromMatch[3].replace(/\s/g, '').padStart(2, '0')}`,
+      to: `${toYear}-${toMatch[1].replace(/\s/g, '').padStart(2, '0')}-${toMatch[2].replace(/\s/g, '').padStart(2, '0')}`,
     }
   }
   const spouseMatch = text.match(/配偶\s+(\S+)/)
