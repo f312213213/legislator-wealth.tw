@@ -1,97 +1,104 @@
-# 立委持股公開平台
+# Taiwan Legislator Stock Holdings
 
-台灣第十一屆立法委員的股票及基金申報資料公開透明平台。
+A transparency platform showing stock and fund holdings declared by Taiwan's 11th Legislative Yuan members.
 
-資料來源為[監察院公報](https://www.cy.gov.tw/)，市值依據台灣證交所收盤價估算。
+Data sourced from [Control Yuan Gazette](https://www.cy.gov.tw/). Market values estimated using TWSE/TPEx closing prices.
 
-**網站：[legislator-wealth.tw](https://legislator-wealth.tw)**
+**Live site: [legislator-wealth.tw](https://legislator-wealth.tw)**
 
-## 資料範圍
+## Data Scope
 
-- 股票（八.1 股票）
-- 基金受益憑證（八.3 基金受益憑證）
-- 變動財產申報表中的股票交易紀錄
+- Stocks (Section 八.1)
+- Fund certificates (Section 八.3)
+- Stock transaction records from change declarations
 
-其他財產類別（不動產、存款、債務等）不在本站範圍內。
+Other asset categories (real estate, deposits, debts, etc.) are not included.
 
-## 技術架構
+## Tech Stack
 
-- **Next.js 16** — App Router, 靜態匯出 (`output: 'export'`)
+- **Next.js 16** — App Router, static export (`output: 'export'`)
 - **shadcn/ui** — Base UI preset, `--radius: 0`
 - **Tailwind CSS 4**
-- **pdfjs-dist** — PDF 文字擷取
-- **Cloudflare Pages** — 靜態部署
+- **pdfjs-dist** — PDF text extraction
+- **Cloudflare Pages** — static deployment
 
-## 資料處理流程
+## Data Pipeline
 
 ```
-監察院公報 PDF → parse-pdf.ts → JSON → build-index.ts → Next.js SSG → 靜態 HTML
+Control Yuan PDF → parse-pdf.ts → JSON → build-index.ts → Next.js SSG → static HTML
 ```
 
-1. `scripts/parse-pdf.ts` — 解析監察院公報 PDF，擷取股票及基金持有資料
-2. `scripts/build-index.ts` — 建立立委索引，產生拼音路由 slug
-3. `scripts/fetch-legislators.ts` — 從立法院官網擷取立委照片及黨籍資料
-4. `scripts/generate-og.ts` — 產生每位立委的 Open Graph 社群預覽圖片
+| Script | Purpose |
+|---|---|
+| `scripts/fetch-stock-prices.ts` | Fetch latest prices from TWSE/TPEx/ESB |
+| `scripts/fetch-legislators.ts` | Scrape legislator photos and party from ly.gov.tw |
+| `scripts/parse-pdf.ts` | Parse gazette PDFs into structured JSON |
+| `scripts/build-index.ts` | Build legislator index with pinyin URL slugs |
+| `scripts/generate-og.ts` | Generate per-legislator Open Graph preview images |
 
-## 開發
+## Getting Started
 
 ```bash
+# 1. Install dependencies
 pnpm install
+
+# 2. Place Control Yuan gazette PDFs in raw-pdfs/
+
+# 3. Fetch all data (stock prices + legislator meta + parse PDFs + build index)
+pnpm run grab-data
+
+# 4. Generate OG social preview images
+pnpm run generate-og
+
+# 5. Build static site
+pnpm run build
+
+# 6. Preview locally
+npx serve out
+```
+
+## Development
+
+```bash
+# Make sure you've run grab-data first (needs data/ and public/avatars/)
 pnpm dev
 ```
 
-## 資料更新
+## Updating Data
 
-將監察院公報 PDF 放入 `raw-pdfs/` 目錄，然後執行：
-
-```bash
-pnpm run grab-data
-```
-
-這會依序執行：
-1. 從立法院官網擷取立委照片及黨籍
-2. 解析所有 PDF 並產生 JSON
-3. 建立索引
-
-## 股價資料
-
-將以下檔案放入 `data/` 目錄以啟用市值估算：
-
-- `STOCK_DAY_ALL.json` — 台灣證交所上市股票收盤價
-- `tpex_mainboard_quotes.json` — 櫃買中心上櫃股票報價
-- `tpex_esb_latest_statistics.json` — 興櫃股票最新統計
-
-查找順序：TWSE → TPEx → ESB，支援模糊比對（去除 `＊`、`*`、`-KY` 等後綴）。
-
-## 建置與部署
+After adding new PDFs to `raw-pdfs/`:
 
 ```bash
-pnpm run build
+pnpm run grab-data    # Fetch prices + legislator meta + parse PDFs + build index
+pnpm run build        # Rebuild (automatically generates OG images)
 ```
 
-產出靜態檔案至 `out/` 目錄，部署至 Cloudflare Pages。
+Stock prices are also updated daily at 22:00 UTC+8 via [GitHub Action](.github/workflows/fetch-stock-data.yml).
 
-## 可用指令
+## Scripts
 
-| 指令 | 說明 |
+| Command | Description |
 |---|---|
-| `pnpm dev` | 啟動開發伺服器 |
-| `pnpm build` | 建置靜態網站 |
-| `pnpm run parse` | 解析 PDF 並建立索引 |
-| `pnpm run fetch-legislators` | 擷取立委照片及黨籍 |
-| `pnpm run grab-data` | 一次執行所有資料更新 |
+| `pnpm dev` | Start dev server |
+| `pnpm build` | Build static site (includes index + OG images) |
+| `pnpm run grab-data` | Run all data fetching and processing |
+| `pnpm run parse` | Parse PDFs and build index only |
+| `pnpm run fetch-stock-prices` | Fetch latest stock prices only |
+| `pnpm run fetch-legislators` | Fetch legislator photos and party only |
+| `pnpm run generate-og` | Generate OG images only |
+| `pnpm run build-index` | Build index only |
 
-## 已知限制
+## Known Limitations
 
-- 部分立委尚無公開申報紀錄，故未列出
-- PDF 文字擷取依賴 pdfjs-dist，部分特殊字元可能遺失（如 `陳秀寳` 的 `寳`）
-- 基金名稱因 PDF 跨行排版可能不完整
-- 約 10% 的股票因下市或為海外股票，無法取得即時市價
+- Some legislators have no public declarations yet and are not listed
+- PDF text extraction may lose rare characters (e.g. `寳` in `陳秀寳`)
+- Fund names may be truncated due to multi-line PDF layout
+- ~10% of stocks have no live price (delisted or foreign)
 
-## 回報問題
+## Contributing
 
-資料由程式自動解析申報 PDF，若有錯誤歡迎[開 Issue](https://github.com/f312213213/legislator-wealth.tw/issues) 回報。
+Data is parsed automatically from gazette PDFs. If you find errors, please [open an issue](https://github.com/f312213213/legislator-wealth.tw/issues).
 
-## 授權
+## License
 
-MIT
+MIT (source code only — see [LICENSE](LICENSE))

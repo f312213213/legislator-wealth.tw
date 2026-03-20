@@ -14,6 +14,7 @@
     "build-index": "tsx scripts/build-index.ts",
     "fetch-legislators": "tsx scripts/fetch-legislators.ts",
     "fetch-stock-prices": "tsx scripts/fetch-stock-prices.ts",
+    "generate-og": "tsx scripts/generate-og.ts",
     "grab-data": "tsx scripts/fetch-stock-prices.ts && tsx scripts/fetch-legislators.ts && tsx scripts/parse-pdf.ts && tsx scripts/build-index.ts"
   },
   "dependencies": {
