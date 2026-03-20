@@ -128,17 +128,10 @@
     }
 }
 
-/* Monospace for financial figures */
-.font-mono-num {
-  font-feature-settings: "tnum";
-  font-variant-numeric: tabular-nums;
-  letter-spacing: -0.02em;
-}
-
-/* Zebra striping for tables */
+/* Zebra striping for data tables */
 [data-slot="table-body"] tr:nth-child(even) {
-  background-color: oklch(0 0 0 / 2%);
+  background-color: oklch(0 0 0 / 3%);
 }
 .dark [data-slot="table-body"] tr:nth-child(even) {
-  background-color: oklch(1 1 0 / 2%);
+  background-color: oklch(1 1 0 / 3%);
 }

@@ -1,20 +1,12 @@
 'use client'
 
-import { BarChart, Bar, XAxis, YAxis, Cell } from 'recharts'
+import { BarChart, Bar, XAxis, YAxis } from 'recharts'
 import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
   type ChartConfig,
 } from '@/components/ui/chart'
-
-const COLORS = [
-  'var(--chart-1)',
-  'var(--chart-2)',
-  'var(--chart-3)',
-  'var(--chart-4)',
-  'var(--chart-5)',
-]
 
 interface StockChartData {
   name: string
@@ -24,7 +16,7 @@ interface StockChartData {
 const popularityConfig = {
   count: {
     label: '持有立委數',
-    color: 'var(--chart-1)',
+    color: 'oklch(0.45 0 0)',
   },
 } satisfies ChartConfig
 
@@ -35,11 +27,7 @@ export function StockPopularityChart({ data }: { data: StockChartData[] }) {
         <XAxis type="number" />
         <YAxis type="category" dataKey="name" width={80} tick={{ fontSize: 13 }} />
         <ChartTooltip content={<ChartTooltipContent />} />
-        <Bar dataKey="count" radius={[0, 4, 4, 0]}>
-          {data.map((_, i) => (
-            <Cell key={i} fill={COLORS[i % COLORS.length]} />
-          ))}
-        </Bar>
+        <Bar dataKey="count" fill="var(--color-count)" radius={0} />
       </BarChart>
     </ChartContainer>
   )
@@ -53,7 +41,7 @@ interface LegislatorValueData {
 const valueConfig = {
   totalNTD: {
     label: '股票及基金市值',
-    color: 'var(--chart-1)',
+    color: 'oklch(0.45 0 0)',
   },
 } satisfies ChartConfig
 
@@ -75,7 +63,7 @@ export function LegislatorStockValueChart({ data }: { data: LegislatorValueData[
             />
           }
         />
-        <Bar dataKey="totalNTD" fill="var(--color-totalNTD)" radius={[0, 4, 4, 0]} />
+        <Bar dataKey="totalNTD" fill="var(--color-totalNTD)" radius={0} />
       </BarChart>
     </ChartContainer>
   )
