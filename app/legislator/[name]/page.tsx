@@ -9,7 +9,7 @@ import type { LegislatorDeclaration } from '@/lib/types'
 export async function generateStaticParams() {
   const index = getIndex()
   return index.legislators.map(l => ({
-    name: encodeURIComponent(l.name),
+    name: l.name,
   }))
 }
 
