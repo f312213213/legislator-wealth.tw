@@ -1,6 +1,7 @@
 import { getIndex, getDeclarationBySlug, getChangesBySlug, lookupStockPrice, getLegislatorMeta } from '@/lib/data'
 import { PropertySummary } from '@/components/property-summary'
 import { CategoryTabs, type HoldingRow } from '@/components/category-tabs'
+import { HoldingsPie } from '@/components/holdings-pie'
 import { notFound } from 'next/navigation'
 import { formatDate, formatNTD } from '@/lib/format'
 import Image from 'next/image'
@@ -140,6 +141,12 @@ export default async function LegislatorPage({ params }: { params: Promise<{ nam
       </div>
 
       <PropertySummary data={data} />
+      {holdings.length > 0 && (
+        <section className="space-y-3">
+          <h2 className="text-lg font-bold">持股配置</h2>
+          <HoldingsPie holdings={holdings} />
+        </section>
+      )}
       <CategoryTabs holdings={holdings} changes={changes} />
     </div>
   )

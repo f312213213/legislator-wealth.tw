@@ -1,6 +1,7 @@
 import { getAllDeclarations, getAggregatedStocks, lookupStockPrice, getLegislatorMeta, getSlugByName } from '@/lib/data'
 import { CurrencyDisplay } from '@/components/currency-display'
 import { SearchableList } from '@/components/searchable-list'
+import { PartyBarChart, type StockBarData } from '@/components/party-bar-chart'
 import Link from 'next/link'
 import Image from 'next/image'
 import type { LegislatorDeclaration } from '@/lib/types'
@@ -32,6 +33,7 @@ const PARTY_BAR: Record<string, string> = {
   '無黨籍': 'bar-ind',
 }
 
+
 export default function HomePage() {
   const declarations = getAllDeclarations()
   const aggregatedStocks = getAggregatedStocks()
@@ -45,7 +47,24 @@ export default function HomePage() {
     (marketTotals.get(b.name) || 0) - (marketTotals.get(a.name) || 0)
   )
 
-  const topStocks = aggregatedStocks.slice(0, 10)
+  // Compute party breakdown for top stocks
+  const topStocks = aggregatedStocks.slice(0, 10).map(s => {
+    const partyCounts: Record<string, number> = {}
+    const uniqueLegislators = new Set<string>()
+    for (const h of s.holders) {
+      if (uniqueLegislators.has(h.legislator)) continue
+      uniqueLegislators.add(h.legislator)
+      const meta = getLegislatorMeta(h.legislator)
+      const party = meta?.party || '其他'
+      partyCounts[party] = (partyCounts[party] || 0) + 1
+    }
+    return { ...s, partyCounts }
+  })
+  const topStocksData: StockBarData[] = topStocks.map(s => ({
+    name: s.name,
+    holderCount: s.holderCount,
+    partyCounts: s.partyCounts,
+  }))
   const hero = ranked[0]
   const heroMeta = hero ? getLegislatorMeta(hero.name) : null
   const heroAmount = hero ? marketTotals.get(hero.name) || 0 : 0
@@ -72,7 +91,7 @@ export default function HomePage() {
   return (
     <div className="space-y-16">
       {/* Title */}
-      <header className="pt-8 sm:pt-16 fade-up fade-up-1">
+      <header className="pt-8 sm:pt-16">
         <h1 className="font-heading text-5xl font-black tracking-tight sm:text-6xl">立委持股</h1>
         <div className="mt-3 space-y-1 text-sm text-muted-foreground">
           <p>{declarations.length} 位第十一屆立法委員的股票及基金申報資料。資料來源為監察院公報，市值依據台灣證交所收盤價估算。</p>
@@ -82,7 +101,7 @@ export default function HomePage() {
 
       {/* Hero #1 */}
       {hero && (
-        <section className="fade-up fade-up-2">
+        <section>
           <Link
             href={`/legislator/${getSlugByName(hero.name)}`}
             className="group block border-b pb-8"
@@ -109,7 +128,7 @@ export default function HomePage() {
       )}
 
       {/* #2-10 with proportional bars */}
-      <section className="space-y-3 fade-up fade-up-3">
+      <section className="space-y-3">
         <h2 className="text-lg font-bold">第 2 – 10 名</h2>
         <div className="divide-y">
           {top2to10.map((decl, i) => {
@@ -151,32 +170,18 @@ export default function HomePage() {
       </section>
 
       {/* Popular stocks */}
-      <section className="space-y-3 fade-up fade-up-4">
+      <section className="space-y-3">
         <div className="flex items-baseline justify-between">
           <h2 className="text-lg font-bold">最多立委持有的股票</h2>
           <Link href="/stocks" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
             全部明細
           </Link>
         </div>
-        <div className="space-y-1">
-          {topStocks.map(s => {
-            const maxCount = topStocks[0]?.holderCount || 1
-            const pct = (s.holderCount / maxCount) * 100
-            return (
-              <div key={s.name} className="flex items-center gap-3">
-                <span className="w-16 shrink-0 text-sm font-medium truncate">{s.name}</span>
-                <div className="flex-1 h-6 bg-muted overflow-hidden">
-                  <div className="h-full bg-foreground/20 transition-all duration-500" style={{ width: `${pct}%` }} />
-                </div>
-                <span className="w-14 text-right text-sm font-medium tabular-nums">{s.holderCount} 人</span>
-              </div>
-            )
-          })}
-        </div>
+        <PartyBarChart stocks={topStocksData} />
       </section>
 
       {/* All legislators */}
-      <section className="space-y-3 fade-up fade-up-5">
+      <section className="space-y-3">
         <h2 className="text-lg font-bold">全部立委</h2>
         <SearchableList legislators={listData} />
       </section>

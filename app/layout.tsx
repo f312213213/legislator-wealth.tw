@@ -69,7 +69,7 @@ export default function RootLayout({
       <body>
         <ThemeProvider>
           <SiteHeader />
-          <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6">
+          <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6 fade-up">
             {children}
           </main>
         </ThemeProvider>

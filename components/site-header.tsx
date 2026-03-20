@@ -11,7 +11,7 @@ export function SiteHeader() {
         </Link>
         <nav className="flex items-center gap-1">
           <LinkButton href="/" variant="ghost" size="sm">首頁</LinkButton>
-          <LinkButton href="/stocks" variant="ghost" size="sm">股票總覽</LinkButton>
+          <LinkButton href="/stocks" variant="ghost" size="sm">持股總覽</LinkButton>
           <ThemeToggle />
         </nav>
       </div>

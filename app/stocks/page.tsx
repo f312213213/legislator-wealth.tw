@@ -1,5 +1,6 @@
-import { getAllStockHoldings, getAggregatedStocks } from '@/lib/data'
+import { getAllStockHoldings, getAggregatedStocks, getLegislatorMeta } from '@/lib/data'
 import { StockTable } from '@/components/stock-table'
+import { PartyBarChart, type StockBarData } from '@/components/party-bar-chart'
 
 export const metadata = {
   title: '股票及基金',
@@ -10,7 +11,18 @@ export default function StocksPage() {
   const holdings = getAllStockHoldings()
   const aggregatedStocks = getAggregatedStocks()
 
-  const topStocks = aggregatedStocks.slice(0, 10)
+  const topStocksData: StockBarData[] = aggregatedStocks.slice(0, 10).map(s => {
+    const partyCounts: Record<string, number> = {}
+    const uniqueLegislators = new Set<string>()
+    for (const h of s.holders) {
+      if (uniqueLegislators.has(h.legislator)) continue
+      uniqueLegislators.add(h.legislator)
+      const meta = getLegislatorMeta(h.legislator)
+      const party = meta?.party || '其他'
+      partyCounts[party] = (partyCounts[party] || 0) + 1
+    }
+    return { name: s.name, holderCount: s.holderCount, partyCounts }
+  })
 
   return (
     <div className="space-y-12">
@@ -21,24 +33,9 @@ export default function StocksPage() {
         </p>
       </header>
 
-      {/* Inline bar list instead of Recharts widget */}
       <section className="space-y-4">
-        <h2 className="text-lg font-bold">最多立委持有</h2>
-        <div className="space-y-2">
-          {topStocks.map(s => {
-            const maxCount = topStocks[0]?.holderCount || 1
-            const pct = (s.holderCount / maxCount) * 100
-            return (
-              <div key={s.name} className="flex items-center gap-3">
-                <span className="w-16 shrink-0 text-sm font-medium truncate">{s.name}</span>
-                <div className="flex-1 h-5 bg-muted overflow-hidden">
-                  <div className="h-full bg-foreground/15" style={{ width: `${pct}%` }} />
-                </div>
-                <span className="w-12 text-right text-sm tabular-nums text-muted-foreground">{s.holderCount} 人</span>
-              </div>
-            )
-          })}
-        </div>
+        <h2 className="text-lg font-bold">最多立委持有的股票</h2>
+        <PartyBarChart stocks={topStocksData} />
       </section>
 
       <StockTable rows={holdings} />
