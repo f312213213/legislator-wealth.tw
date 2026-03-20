@@ -62,7 +62,7 @@ export function HoldingsPie({ holdings }: { holdings: HoldingRow[] }) {
   }
 
   return (
-    <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-8">
+    <div className="flex max-w-full flex-col items-center gap-4 sm:flex-row sm:gap-8">
       {/* Pie */}
       <div className="relative h-48 w-48 shrink-0 sm:h-56 sm:w-56">
         <ResponsiveContainer width="100%" height="100%">
@@ -110,7 +110,7 @@ export function HoldingsPie({ holdings }: { holdings: HoldingRow[] }) {
       </div>
 
       {/* Legend */}
-      <div className="flex-1 min-w-0 space-y-1">
+      <div className="w-full min-w-0 max-w-full space-y-1 overflow-hidden">
         {offset > 0 && (
           <button
             onClick={handleBack}
@@ -125,21 +125,18 @@ export function HoldingsPie({ holdings }: { holdings: HoldingRow[] }) {
           return (
             <div
               key={`${d.name}-${i}`}
-              className={`flex items-center gap-2 py-0.5 transition-opacity duration-100 ${isOther ? 'cursor-pointer' : ''}`}
+              className={`flex items-baseline gap-2 py-0.5 transition-opacity duration-100 ${isOther ? 'cursor-pointer' : ''}`}
               style={{ opacity: activeIndex !== null && activeIndex !== i ? 0.3 : 1 }}
               onMouseEnter={() => setActiveIndex(i)}
               onMouseLeave={() => setActiveIndex(null)}
               onClick={() => isOther && handleDrillDown()}
             >
-              <span className="h-2.5 w-2.5 shrink-0" style={{ backgroundColor: COLORS[i % COLORS.length] }} />
-              <span className="text-sm truncate flex-1 min-w-0">
+              <span className="h-2.5 w-2.5 shrink-0 self-center" style={{ backgroundColor: COLORS[i % COLORS.length] }} />
+              <span className="text-xs min-w-0 flex-1 overflow-hidden text-ellipsis whitespace-nowrap">
                 {d.name}
-                {isOther && <span className="text-xs text-muted-foreground ml-1">點擊展開</span>}
+                {isOther && <span className="text-muted-foreground ml-1">展開</span>}
               </span>
-              <span className="text-xs text-muted-foreground tabular-nums shrink-0">{pct > 0 ? `${pct}%` : '<1%'}</span>
-              <span className="text-sm font-bold tabular-nums shrink-0">
-                <CurrencyDisplay amount={d.value} />
-              </span>
+              <span className="text-xs tabular-nums shrink-0 ml-auto">{pct > 0 ? `${pct}%` : '<1%'}</span>
             </div>
           )
         })}

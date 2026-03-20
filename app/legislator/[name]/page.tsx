@@ -142,7 +142,7 @@ export default async function LegislatorPage({ params }: { params: Promise<{ nam
 
       <PropertySummary data={data} />
       {holdings.length > 0 && (
-        <section className="space-y-3">
+        <section className="space-y-3 overflow-hidden">
           <h2 className="text-lg font-bold">持股配置</h2>
           <HoldingsPie holdings={holdings} />
         </section>
