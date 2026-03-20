@@ -11,13 +11,13 @@ const PARTY_BORDER: Record<string, string> = {
   '無黨籍': 'border-l-[#999999]',
 }
 
-export function LegislatorCard({ data, marketTotal, meta }: { data: LegislatorDeclaration; marketTotal?: number; meta?: LegislatorMeta | null }) {
+export function LegislatorCard({ data, marketTotal, meta, slug }: { data: LegislatorDeclaration; marketTotal?: number; meta?: LegislatorMeta | null; slug?: string }) {
   const amount = marketTotal ?? (data.securities.stocks.totalNTD + data.securities.funds.totalNTD)
   const initial = data.name.charAt(0)
   const borderColor = meta?.party ? (PARTY_BORDER[meta.party] || '') : ''
 
   return (
-    <Link href={`/legislator/${encodeURIComponent(data.name)}`} className="block bg-card transition-colors hover:bg-muted/50">
+    <Link href={`/legislator/${slug || encodeURIComponent(data.name)}`} className="block bg-card transition-colors hover:bg-muted/50">
       <div className={`flex items-center gap-3 px-4 py-3 border-l-3 ${borderColor}`}>
         <div className="flex h-12 w-12 shrink-0 items-center justify-center bg-muted text-base font-medium text-muted-foreground overflow-hidden">
           {meta?.avatar ? (

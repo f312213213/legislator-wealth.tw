@@ -70,6 +70,7 @@ export type LegislatorDocument = LegislatorDeclaration | ChangeDeclaration
 export interface LegislatorIndex {
   legislators: {
     name: string
+    slug: string
     latestDeclarationDate: string
     organization: string
     title: string

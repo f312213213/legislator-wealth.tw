@@ -99,11 +99,31 @@ export function getDeclarationByName(name: string): LegislatorDeclaration | null
   return getDeclaration(legislator.declarations[0])
 }
 
+export function getDeclarationBySlug(slug: string): LegislatorDeclaration | null {
+  const index = getIndex()
+  const legislator = index.legislators.find(l => l.slug === slug)
+  if (!legislator || legislator.declarations.length === 0) return null
+  return getDeclaration(legislator.declarations[0])
+}
+
+export function getChangesBySlug(slug: string): ChangeDeclaration[] {
+  const index = getIndex()
+  const legislator = index.legislators.find(l => l.slug === slug)
+  if (!legislator || !legislator.changes || legislator.changes.length === 0) return []
+  return legislator.changes.map(f => getDocument(f) as ChangeDeclaration)
+}
+
 export function getChangesByName(name: string): ChangeDeclaration[] {
   const index = getIndex()
   const legislator = index.legislators.find(l => l.name === name)
   if (!legislator || !legislator.changes || legislator.changes.length === 0) return []
   return legislator.changes.map(f => getDocument(f) as ChangeDeclaration)
+}
+
+export function getSlugByName(name: string): string {
+  const index = getIndex()
+  const legislator = index.legislators.find(l => l.name === name)
+  return legislator?.slug || encodeURIComponent(name)
 }
 
 export function getAllChanges(): ChangeDeclaration[] {

@@ -1,9 +1,17 @@
 import fs from 'fs'
 import path from 'path'
+import { pinyin } from 'pinyin-pro'
 import type { LegislatorDocument, LegislatorIndex } from '../lib/types'
 
 const DATA_DIR = path.join(process.cwd(), 'data')
 const LEGISLATORS_DIR = path.join(DATA_DIR, 'legislators')
+
+function toSlug(name: string): string {
+  // Convert Chinese name to pinyin, lowercase, hyphenated
+  const py = pinyin(name, { toneType: 'none', separator: '-' }).toLowerCase()
+  // Clean up: only keep alphanumeric and hyphens
+  return py.replace(/[^a-z0-9-]/g, '').replace(/-+/g, '-')
+}
 
 function main() {
   if (!fs.existsSync(LEGISLATORS_DIR)) {
@@ -19,6 +27,7 @@ function main() {
 
   const legislatorMap = new Map<string, {
     name: string
+    slug: string
     latestDeclarationDate: string
     organization: string
     title: string
@@ -45,6 +54,7 @@ function main() {
     } else {
       legislatorMap.set(doc.name, {
         name: doc.name,
+        slug: toSlug(doc.name),
         latestDeclarationDate: doc.declarationDate,
         organization: doc.organization,
         title: doc.title,
@@ -52,6 +62,14 @@ function main() {
         changes: doc.type === 'change' ? [file] : [],
       })
     }
+  }
+
+  // Deduplicate slugs by appending a number
+  const slugCounts = new Map<string, number>()
+  for (const leg of legislatorMap.values()) {
+    const count = slugCounts.get(leg.slug) || 0
+    if (count > 0) leg.slug = `${leg.slug}-${count + 1}`
+    slugCounts.set(leg.slug, count + 1)
   }
 
   const index: LegislatorIndex = {

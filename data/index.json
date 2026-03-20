@@ -2,6 +2,7 @@
   "legislators": [
     {
       "name": "丁學忠",
+      "slug": "ding-xue-zhong",
       "latestDeclarationDate": "2024-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -12,6 +13,7 @@
     },
     {
       "name": "牛煦庭",
+      "slug": "niu-xu-ting",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -24,6 +26,7 @@
     },
     {
       "name": "王世堅",
+      "slug": "wang-shi-jian",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -36,6 +39,7 @@
     },
     {
       "name": "王正旭",
+      "slug": "wang-zheng-xu",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -48,6 +52,7 @@
     },
     {
       "name": "王定宇",
+      "slug": "wang-ding-yu",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -60,6 +65,7 @@
     },
     {
       "name": "王育敏",
+      "slug": "wang-yu-min",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -72,6 +78,7 @@
     },
     {
       "name": "王美惠",
+      "slug": "wang-mei-hui",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -84,6 +91,7 @@
     },
     {
       "name": "王義川",
+      "slug": "wang-yi-chuan",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -96,6 +104,7 @@
     },
     {
       "name": "王鴻薇",
+      "slug": "wang-hong-wei",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -108,6 +117,7 @@
     },
     {
       "name": "伍麗華",
+      "slug": "wu-li-hua",
       "latestDeclarationDate": "2024-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -120,6 +130,7 @@
     },
     {
       "name": "江啟臣",
+      "slug": "jiang-qi-chen",
       "latestDeclarationDate": "2023-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -132,6 +143,7 @@
     },
     {
       "name": "何欣純",
+      "slug": "he-xin-chun",
       "latestDeclarationDate": "2024-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -144,6 +156,7 @@
     },
     {
       "name": "吳沛憶",
+      "slug": "wu-pei-yi",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -156,6 +169,7 @@
     },
     {
       "name": "吳宗憲",
+      "slug": "wu-zong-xian",
       "latestDeclarationDate": "2024-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -166,6 +180,7 @@
     },
     {
       "name": "吳秉叡",
+      "slug": "wu-bing-rui",
       "latestDeclarationDate": "2025-12-16",
       "organization": "立法院",
       "title": "立法委員",
@@ -179,6 +194,7 @@
     },
     {
       "name": "吳思瑤",
+      "slug": "wu-si-yao",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -191,6 +207,7 @@
     },
     {
       "name": "吳琪銘",
+      "slug": "wu-qi-ming",
       "latestDeclarationDate": "2024-12-13",
       "organization": "立法院",
       "title": "立法委員",
@@ -203,6 +220,7 @@
     },
     {
       "name": "呂玉玲",
+      "slug": "l-yu-ling",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -215,6 +233,7 @@
     },
     {
       "name": "李坤城",
+      "slug": "li-kun-cheng",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -227,6 +246,7 @@
     },
     {
       "name": "李昆澤",
+      "slug": "li-kun-ze",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -239,6 +259,7 @@
     },
     {
       "name": "李彥秀",
+      "slug": "li-yan-xiu",
       "latestDeclarationDate": "2025-12-05",
       "organization": "立法院",
       "title": "立法委員",
@@ -251,6 +272,7 @@
     },
     {
       "name": "李柏毅",
+      "slug": "li-bai-yi",
       "latestDeclarationDate": "2024-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -263,6 +285,7 @@
     },
     {
       "name": "沈伯洋",
+      "slug": "shen-bo-yang",
       "latestDeclarationDate": "2025-11-15",
       "organization": "立法院",
       "title": "立法委員",
@@ -275,6 +298,7 @@
     },
     {
       "name": "沈發惠",
+      "slug": "shen-fa-hui",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -287,6 +311,7 @@
     },
     {
       "name": "林月琴",
+      "slug": "lin-yue-qin",
       "latestDeclarationDate": "2024-03-16",
       "organization": "立法院",
       "title": "立法委員",
@@ -297,6 +322,7 @@
     },
     {
       "name": "林沛祥",
+      "slug": "lin-pei-xiang",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -309,6 +335,7 @@
     },
     {
       "name": "林宜瑾",
+      "slug": "lin-yi-jin",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -321,6 +348,7 @@
     },
     {
       "name": "林岱樺",
+      "slug": "lin-dai-hua",
       "latestDeclarationDate": "2024-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -333,6 +361,7 @@
     },
     {
       "name": "林俊憲",
+      "slug": "lin-jun-xian",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -346,6 +375,7 @@
     },
     {
       "name": "林思銘",
+      "slug": "lin-si-ming",
       "latestDeclarationDate": "2024-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -358,6 +388,7 @@
     },
     {
       "name": "林倩綺",
+      "slug": "lin-qian-qi",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -370,6 +401,7 @@
     },
     {
       "name": "林淑芬",
+      "slug": "lin-shu-fen",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -383,6 +415,7 @@
     },
     {
       "name": "林楚茵",
+      "slug": "lin-chu-yin",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -395,6 +428,7 @@
     },
     {
       "name": "林德福",
+      "slug": "lin-de-fu",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -407,6 +441,7 @@
     },
     {
       "name": "邱志偉",
+      "slug": "qiu-zhi-wei",
       "latestDeclarationDate": "2024-12-05",
       "organization": "立法院",
       "title": "立法委員",
@@ -419,6 +454,7 @@
     },
     {
       "name": "邱若華",
+      "slug": "qiu-ruo-hua",
       "latestDeclarationDate": "2024-04-24",
       "organization": "立法院",
       "title": "立法委員",
@@ -429,6 +465,7 @@
     },
     {
       "name": "邱鎮軍",
+      "slug": "qiu-zhen-jun",
       "latestDeclarationDate": "2024-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -439,6 +476,7 @@
     },
     {
       "name": "邱議瑩",
+      "slug": "qiu-yi-ying",
       "latestDeclarationDate": "2024-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -452,6 +490,7 @@
     },
     {
       "name": "柯志恩",
+      "slug": "ke-zhi-en",
       "latestDeclarationDate": "",
       "organization": "立法院",
       "title": "立法委員",
@@ -462,6 +501,7 @@
     },
     {
       "name": "柯建銘",
+      "slug": "ke-jian-ming",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -474,6 +514,7 @@
     },
     {
       "name": "洪孟楷",
+      "slug": "hong-meng-kai",
       "latestDeclarationDate": "2024-12-29",
       "organization": "立法院",
       "title": "立法委員",
@@ -486,6 +527,7 @@
     },
     {
       "name": "范雲",
+      "slug": "fan-yun",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -498,6 +540,7 @@
     },
     {
       "name": "徐巧芯",
+      "slug": "xu-qiao-xin",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -510,6 +553,7 @@
     },
     {
       "name": "徐欣瑩",
+      "slug": "xu-xin-ying",
       "latestDeclarationDate": "2024-04-30",
       "organization": "立法院",
       "title": "立法委員",
@@ -520,6 +564,7 @@
     },
     {
       "name": "徐富癸",
+      "slug": "xu-fu-gui",
       "latestDeclarationDate": "2024-03-16",
       "organization": "立法院",
       "title": "立法委員",
@@ -530,6 +575,7 @@
     },
     {
       "name": "涂權吉",
+      "slug": "tu-quan-ji",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -542,6 +588,7 @@
     },
     {
       "name": "翁曉玲",
+      "slug": "weng-xiao-ling",
       "latestDeclarationDate": "2024-03-16",
       "organization": "立法院",
       "title": "立法委員",
@@ -552,6 +599,7 @@
     },
     {
       "name": "馬文君",
+      "slug": "ma-wen-jun",
       "latestDeclarationDate": "2024-12-05",
       "organization": "立法院",
       "title": "立法委員",
@@ -565,6 +613,7 @@
     },
     {
       "name": "高金素梅",
+      "slug": "gao-jin-su-mei",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -577,6 +626,7 @@
     },
     {
       "name": "張宏陸",
+      "slug": "zhang-hong-lu",
       "latestDeclarationDate": "2024-12-26",
       "organization": "立法院",
       "title": "立法委員",
@@ -589,6 +639,7 @@
     },
     {
       "name": "張智倫",
+      "slug": "zhang-zhi-lun",
       "latestDeclarationDate": "2024-03-16",
       "organization": "立法院",
       "title": "立法委員",
@@ -600,6 +651,7 @@
     },
     {
       "name": "張雅琳",
+      "slug": "zhang-ya-lin",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -612,6 +664,7 @@
     },
     {
       "name": "張嘉郡",
+      "slug": "zhang-jia-jun",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -624,6 +677,7 @@
     },
     {
       "name": "莊瑞雄",
+      "slug": "zhuang-rui-xiong",
       "latestDeclarationDate": "2024-11-13",
       "organization": "立法院",
       "title": "立法委員",
@@ -636,6 +690,7 @@
     },
     {
       "name": "許宇甄",
+      "slug": "xu-yu-zhen",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -648,6 +703,7 @@
     },
     {
       "name": "許智傑",
+      "slug": "xu-zhi-jie",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -660,6 +716,7 @@
     },
     {
       "name": "郭昱晴",
+      "slug": "guo-yu-qing",
       "latestDeclarationDate": "2024-03-16",
       "organization": "立法院",
       "title": "立法委員",
@@ -670,6 +727,7 @@
     },
     {
       "name": "郭國文",
+      "slug": "guo-guo-wen",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -683,6 +741,7 @@
     },
     {
       "name": "陳永康",
+      "slug": "chen-yong-kang",
       "latestDeclarationDate": "2024-04-26",
       "organization": "立法院",
       "title": "立法委員",
@@ -693,6 +752,7 @@
     },
     {
       "name": "陳玉珍",
+      "slug": "chen-yu-zhen",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -705,6 +765,7 @@
     },
     {
       "name": "陳秀寳",
+      "slug": "chen-xiu-bao",
       "latestDeclarationDate": "2024-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -717,6 +778,7 @@
     },
     {
       "name": "陳亭妃",
+      "slug": "chen-ting-fei",
       "latestDeclarationDate": "2025-12-29",
       "organization": "立法院",
       "title": "立法委員",
@@ -729,6 +791,7 @@
     },
     {
       "name": "陳俊宇",
+      "slug": "chen-jun-yu",
       "latestDeclarationDate": "2024-12-12",
       "organization": "立法院",
       "title": "立法委員",
@@ -741,6 +804,7 @@
     },
     {
       "name": "陳冠廷",
+      "slug": "chen-guan-ting",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -753,6 +817,7 @@
     },
     {
       "name": "陳昭姿",
+      "slug": "chen-zhao-zi",
       "latestDeclarationDate": "2024-02-08",
       "organization": "立法院",
       "title": "立法委員",
@@ -763,6 +828,7 @@
     },
     {
       "name": "陳素月",
+      "slug": "chen-su-yue",
       "latestDeclarationDate": "2024-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -775,6 +841,7 @@
     },
     {
       "name": "陳培瑜",
+      "slug": "chen-pei-yu",
       "latestDeclarationDate": "2024-12-24",
       "organization": "立法院",
       "title": "立法委員",
@@ -787,6 +854,7 @@
     },
     {
       "name": "陳清龍",
+      "slug": "chen-qing-long",
       "latestDeclarationDate": "2024-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -799,6 +867,7 @@
     },
     {
       "name": "陳雪生",
+      "slug": "chen-xue-sheng",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -811,6 +880,7 @@
     },
     {
       "name": "陳菁徽",
+      "slug": "chen-jing-hui",
       "latestDeclarationDate": "2024-03-16",
       "organization": "立法院",
       "title": "立法委員",
@@ -821,6 +891,7 @@
     },
     {
       "name": "陳超明",
+      "slug": "chen-chao-ming",
       "latestDeclarationDate": "2024-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -833,6 +904,7 @@
     },
     {
       "name": "陳瑩",
+      "slug": "chen-ying",
       "latestDeclarationDate": "2024-12-30",
       "organization": "立法院",
       "title": "立法委員",
@@ -845,6 +917,7 @@
     },
     {
       "name": "傅崐萁",
+      "slug": "fu-kun-qi",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -857,6 +930,7 @@
     },
     {
       "name": "游顥",
+      "slug": "you-hao",
       "latestDeclarationDate": "2024-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -869,6 +943,7 @@
     },
     {
       "name": "黃仁",
+      "slug": "huang-ren",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -881,6 +956,7 @@
     },
     {
       "name": "黃秀芳",
+      "slug": "huang-xiu-fang",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -893,6 +969,7 @@
     },
     {
       "name": "黃建賓",
+      "slug": "huang-jian-bin",
       "latestDeclarationDate": "2024-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -903,6 +980,7 @@
     },
     {
       "name": "黃健豪",
+      "slug": "huang-jian-hao",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -915,6 +993,7 @@
     },
     {
       "name": "黃捷",
+      "slug": "huang-jie",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -927,6 +1006,7 @@
     },
     {
       "name": "楊曜",
+      "slug": "yang-yao",
       "latestDeclarationDate": "2024-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -939,6 +1019,7 @@
     },
     {
       "name": "楊瓊瓔",
+      "slug": "yang-qiong-ying",
       "latestDeclarationDate": "2024-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -951,6 +1032,7 @@
     },
     {
       "name": "萬美玲",
+      "slug": "wan-mei-ling",
       "latestDeclarationDate": "2024-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -963,6 +1045,7 @@
     },
     {
       "name": "葉元之",
+      "slug": "ye-yuan-zhi",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -975,6 +1058,7 @@
     },
     {
       "name": "葛如鈞",
+      "slug": "ge-ru-jun",
       "latestDeclarationDate": "2024-03-16",
       "organization": "立法院",
       "title": "立法委員",
@@ -985,6 +1069,7 @@
     },
     {
       "name": "廖先翔",
+      "slug": "liao-xian-xiang",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -997,6 +1082,7 @@
     },
     {
       "name": "廖偉翔",
+      "slug": "liao-wei-xiang",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -1009,6 +1095,7 @@
     },
     {
       "name": "劉建國",
+      "slug": "liu-jian-guo",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -1021,6 +1108,7 @@
     },
     {
       "name": "劉書彬",
+      "slug": "liu-shu-bin",
       "latestDeclarationDate": "2025-03-14",
       "organization": "立法院",
       "title": "立法委員",
@@ -1031,6 +1119,7 @@
     },
     {
       "name": "蔡其昌",
+      "slug": "cai-qi-chang",
       "latestDeclarationDate": "2024-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -1041,6 +1130,7 @@
     },
     {
       "name": "蔡易餘",
+      "slug": "cai-yi-yu",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -1053,6 +1143,7 @@
     },
     {
       "name": "鄭天財",
+      "slug": "zheng-tian-cai",
       "latestDeclarationDate": "2024-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -1065,6 +1156,7 @@
     },
     {
       "name": "鄭正鈐",
+      "slug": "zheng-zheng-qian",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -1077,6 +1169,7 @@
     },
     {
       "name": "魯明哲",
+      "slug": "lu-ming-zhe",
       "latestDeclarationDate": "2024-12-31",
       "organization": "立法院",
       "title": "立法委員",
@@ -1089,6 +1182,7 @@
     },
     {
       "name": "盧縣一",
+      "slug": "lu-xian-yi",
       "latestDeclarationDate": "2024-03-16",
       "organization": "立法院",
       "title": "立法委員",
@@ -1099,6 +1193,7 @@
     },
     {
       "name": "賴士葆",
+      "slug": "lai-shi-bao",
       "latestDeclarationDate": "2024-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -1111,6 +1206,7 @@
     },
     {
       "name": "賴惠員",
+      "slug": "lai-hui-yuan",
       "latestDeclarationDate": "2024-11-30",
       "organization": "立法院",
       "title": "立法委員",
@@ -1123,6 +1219,7 @@
     },
     {
       "name": "賴瑞隆",
+      "slug": "lai-rui-long",
       "latestDeclarationDate": "2025-12-25",
       "organization": "立法院",
       "title": "立法委員",
@@ -1135,6 +1232,7 @@
     },
     {
       "name": "謝衣鳯",
+      "slug": "xie-yi-feng",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -1147,6 +1245,7 @@
     },
     {
       "name": "謝龍介",
+      "slug": "xie-long-jie",
       "latestDeclarationDate": "2024-03-16",
       "organization": "立法院",
       "title": "立法委員",
@@ -1157,6 +1256,7 @@
     },
     {
       "name": "鍾佳濱",
+      "slug": "zhong-jia-bin",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -1170,6 +1270,7 @@
     },
     {
       "name": "韓國瑜",
+      "slug": "han-guo-yu",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "院長",
@@ -1181,6 +1282,7 @@
     },
     {
       "name": "顏寬恒",
+      "slug": "yan-kuan-heng",
       "latestDeclarationDate": "2024-03-16",
       "organization": "立法院",
       "title": "立法委員",
@@ -1192,6 +1294,7 @@
     },
     {
       "name": "羅廷瑋",
+      "slug": "luo-ting-wei",
       "latestDeclarationDate": "2024-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -1204,6 +1307,7 @@
     },
     {
       "name": "羅明才",
+      "slug": "luo-ming-cai",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -1217,6 +1321,7 @@
     },
     {
       "name": "羅美玲",
+      "slug": "luo-mei-ling",
       "latestDeclarationDate": "2024-12-05",
       "organization": "立法院",
       "title": "立法委員",
@@ -1229,6 +1334,7 @@
     },
     {
       "name": "羅智強",
+      "slug": "luo-zhi-qiang",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -1241,6 +1347,7 @@
     },
     {
       "name": "蘇巧慧",
+      "slug": "su-qiao-hui",
       "latestDeclarationDate": "2025-11-01",
       "organization": "立法院",
       "title": "立法委員",
@@ -1254,6 +1361,7 @@
     },
     {
       "name": "蘇清泉",
+      "slug": "su-qing-quan",
       "latestDeclarationDate": "2024-03-16",
       "organization": "立法院",
       "title": "立法委員",
@@ -1263,5 +1371,5 @@
       "changes": []
     }
   ],
-  "lastUpdated": "2026-03-20T10:31:37.933Z"
+  "lastUpdated": "2026-03-20T10:37:44.468Z"
 }

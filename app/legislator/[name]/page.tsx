@@ -1,4 +1,4 @@
-import { getIndex, getDeclarationByName, getChangesByName, lookupStockPrice, getLegislatorMeta } from '@/lib/data'
+import { getIndex, getDeclarationBySlug, getChangesBySlug, lookupStockPrice, getLegislatorMeta } from '@/lib/data'
 import { PropertySummary } from '@/components/property-summary'
 import { CategoryTabs, type HoldingRow } from '@/components/category-tabs'
 import { notFound } from 'next/navigation'
@@ -9,15 +9,15 @@ import type { LegislatorDeclaration } from '@/lib/types'
 export async function generateStaticParams() {
   const index = getIndex()
   return index.legislators.map(l => ({
-    name: l.name,
+    name: l.slug,
   }))
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ name: string }> }) {
   const { name } = await params
-  const decodedName = decodeURIComponent(name)
+  const data = getDeclarationBySlug(name)
   return {
-    title: `${decodedName} — 立委持股公開平台`,
+    title: `${data?.name || name} — 立委持股公開平台`,
   }
 }
 
@@ -58,11 +58,10 @@ const PARTY_COLOR: Record<string, string> = {
 }
 
 export default async function LegislatorPage({ params }: { params: Promise<{ name: string }> }) {
-  const { name } = await params
-  const decodedName = decodeURIComponent(name)
-  const data = getDeclarationByName(decodedName)
-  const changes = getChangesByName(decodedName)
-  const meta = getLegislatorMeta(decodedName)
+  const { name: slug } = await params
+  const data = getDeclarationBySlug(slug)
+  const changes = getChangesBySlug(slug)
+  const meta = data ? getLegislatorMeta(data.name) : null
 
   if (!data) {
     notFound()

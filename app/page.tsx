@@ -1,4 +1,4 @@
-import { getAllDeclarations, getAggregatedStocks, lookupStockPrice, getLegislatorMeta } from '@/lib/data'
+import { getAllDeclarations, getAggregatedStocks, lookupStockPrice, getLegislatorMeta, getSlugByName } from '@/lib/data'
 import { CurrencyDisplay } from '@/components/currency-display'
 import { SearchableList } from '@/components/searchable-list'
 import Link from 'next/link'
@@ -47,6 +47,7 @@ export default function HomePage() {
     const meta = getLegislatorMeta(d.name)
     return {
       name: d.name,
+      slug: getSlugByName(d.name),
       party: meta?.party || '',
       avatar: meta?.avatar || '',
       amount: marketTotals.get(d.name) || 0,
@@ -77,7 +78,7 @@ export default function HomePage() {
             return (
               <Link
                 key={decl.name}
-                href={`/legislator/${encodeURIComponent(decl.name)}`}
+                href={`/legislator/${getSlugByName(decl.name)}`}
                 className="group flex items-center gap-4 bg-card px-4 py-4 transition-colors hover:bg-muted/50 sm:gap-6 sm:px-6 sm:py-5"
               >
                 <span className="text-3xl font-bold text-muted-foreground/30 tabular-nums w-8 shrink-0 sm:text-4xl sm:w-10">

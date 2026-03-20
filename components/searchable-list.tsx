@@ -8,6 +8,7 @@ import { SearchInput } from './search-input'
 
 interface LegislatorItem {
   name: string
+  slug: string
   party: string
   avatar: string
   amount: number
@@ -33,7 +34,7 @@ export function SearchableList({ legislators }: { legislators: LegislatorItem[] 
         {filtered.map(l => (
           <Link
             key={`${l.name}-${l.rank}`}
-            href={`/legislator/${encodeURIComponent(l.name)}`}
+            href={`/legislator/${l.slug}`}
             className="flex items-center gap-3 bg-card px-3 py-2 transition-colors hover:bg-muted/50"
           >
             <div className={`flex h-8 w-8 shrink-0 items-center justify-center bg-muted text-xs font-medium text-muted-foreground overflow-hidden border-l-2 ${l.borderColor}`}>
