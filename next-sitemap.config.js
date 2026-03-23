@@ -1,5 +1,5 @@
 /** @type {import('next-sitemap').IConfig} */
-module.exports = {
+export default {
   siteUrl: 'https://legislator-wealth.tw',
   generateRobotsTxt: true,
   outDir: './out',
