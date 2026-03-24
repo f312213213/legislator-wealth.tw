@@ -19,14 +19,14 @@ const notoSerifTC = Noto_Serif_TC({
 })
 
 const SITE_URL = 'https://legislator-wealth.tw'
-const SITE_NAME = '立委持股公開平台'
+const SITE_NAME = '立委持股公開平台 — 台灣立法委員股票申報資料查詢'
 const SITE_DESCRIPTION = '台灣第十一屆立法委員股票及基金申報資料，資料來源為監察院公報，市值依據台灣證交所收盤價估算。'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: SITE_NAME,
-    template: `%s — ${SITE_NAME}`,
+    template: '%s — 立委持股公開平台',
   },
   description: SITE_DESCRIPTION,
   openGraph: {

@@ -1,9 +1,11 @@
-import { getIndex, getDeclarationBySlug, getChangesBySlug, lookupStockPrice, getLegislatorMeta } from '@/lib/data'
+import { getIndex, getDeclarationBySlug, getChangesBySlug, lookupStockPrice, getLegislatorMeta, getAllDeclarations, getSlugByName, PARTY_NAME_TO_SLUG } from '@/lib/data'
 import { PropertySummary } from '@/components/property-summary'
 import { CategoryTabs, type HoldingRow } from '@/components/category-tabs'
 import { HoldingsPie } from '@/components/holdings-pie'
+import { JsonLd } from '@/components/json-ld'
 import { notFound } from 'next/navigation'
 import { formatDate, formatNTD } from '@/lib/format'
+import Link from 'next/link'
 /* eslint-disable @next/next/no-img-element */
 import type { Metadata } from 'next'
 import type { LegislatorDeclaration } from '@/lib/types'
@@ -22,16 +24,18 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
 
   const meta = getLegislatorMeta(data.name)
   const amount = calcMarketTotal(data)
-  const description = `${data.name}${meta?.party ? `（${meta.party}）` : ''}的股票及基金持有市值為 NT$ ${formatNTD(amount)}。`
+  const stockCount = data.securities.stocks.items.length + data.securities.funds.items.length
+  const topHolding = getTopHolding(data)
+  const description = `${data.name}為${meta?.party ? `${meta.party}籍` : ''}第十一屆立法委員，共持有 ${stockCount} 檔有價證券，總市值約 NT$ ${formatNTD(amount)}${topHolding ? `，最大持股為${topHolding.name}` : ''}。`
 
   return {
-    title: data.name,
+    title: `${data.name} 立委持股 — 股票申報資料與市值分析`,
     description,
     alternates: {
       canonical: `/legislator/${slug}/`,
     },
     openGraph: {
-      title: data.name,
+      title: `${data.name} 立委持股 — 股票申報資料與市值分析`,
       description,
       url: `/legislator/${slug}/`,
       images: [{
@@ -61,6 +65,25 @@ function calcMarketTotal(data: LegislatorDeclaration): number {
     total += p ? Math.round(f.units * p.price) : f.ntdTotal
   }
   return total
+}
+
+function getTopHolding(data: LegislatorDeclaration): { name: string; code?: string; value: number } | null {
+  let top: { name: string; code?: string; value: number } | null = null
+  for (const s of data.securities.stocks.items) {
+    const p = lookupStockPrice(s.name)
+    const value = p ? Math.round(s.shares * p.price) : s.ntdTotal
+    if (!top || value > top.value) {
+      top = { name: s.name, code: p?.code, value }
+    }
+  }
+  for (const f of data.securities.funds.items) {
+    const p = lookupStockPrice(f.name)
+    const value = p ? Math.round(f.units * p.price) : f.ntdTotal
+    if (!top || value > top.value) {
+      top = { name: f.name, code: p?.code, value }
+    }
+  }
+  return top
 }
 
 function buildHoldings(data: LegislatorDeclaration): HoldingRow[] {
@@ -111,9 +134,30 @@ export default async function LegislatorPage({ params }: { params: Promise<{ nam
 
   const holdings = buildHoldings(data)
   const partyDot = meta?.party ? (PARTY_COLOR[meta.party] || 'bg-muted-foreground') : ''
+  const marketTotal = calcMarketTotal(data)
+  const stockCount = data.securities.stocks.items.length + data.securities.funds.items.length
+  const topHolding = getTopHolding(data)
+
+  // Same-party legislators for cross-links
+  const allDeclarations = getAllDeclarations()
+  const samePartyLegislators = meta?.party
+    ? allDeclarations
+        .filter(d => d.name !== data.name && getLegislatorMeta(d.name)?.party === meta.party)
+        .slice(0, 8)
+    : []
+
+  const partySlug = meta?.party ? PARTY_NAME_TO_SLUG[meta.party] : null
 
   return (
     <div className="space-y-8">
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: data.name,
+        ...(meta?.party ? { memberOf: { '@type': 'Organization', name: meta.party } } : {}),
+        description: `第十一屆立法委員，持股總市值 NT$ ${formatNTD(marketTotal)}${topHolding ? `，最大持股為${topHolding.name}${topHolding.code ? `（${topHolding.code}）` : ''}` : ''}`,
+      }} />
+
       {/* Profile header */}
       <div className="flex items-start gap-4 pt-2">
         <div className="flex h-16 w-16 shrink-0 items-center justify-center bg-muted text-2xl font-bold text-muted-foreground overflow-hidden sm:h-20 sm:w-20">
@@ -127,10 +171,10 @@ export default async function LegislatorPage({ params }: { params: Promise<{ nam
           <h1 className="font-heading text-3xl font-black tracking-tight sm:text-4xl">{data.name}</h1>
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted-foreground">
             {meta?.party && (
-              <span className="flex items-center gap-1.5">
+              <Link href={`/party/${partySlug}`} className="flex items-center gap-1.5 hover:text-foreground transition-colors">
                 <span className={`inline-block h-2 w-2 ${partyDot}`} />
                 {meta.party}
-              </span>
+              </Link>
             )}
             <span className="tabular-nums">申報日 {formatDate(data.declarationDate)}</span>
             {data.spouse && (
@@ -140,6 +184,11 @@ export default async function LegislatorPage({ params }: { params: Promise<{ nam
         </div>
       </div>
 
+      {/* Natural language description for SEO */}
+      <p className="text-sm text-muted-foreground leading-relaxed">
+        {data.name}為{meta?.party ? `${meta.party}籍` : ''}第十一屆立法委員，依 {formatDate(data.declarationDate)} 監察院財產申報資料，共持有 {stockCount} 檔有價證券，總市值約 NT$ {formatNTD(marketTotal)}{topHolding ? `，最大持股為${topHolding.name}${topHolding.code ? `（${topHolding.code}）` : ''}` : ''}。
+      </p>
+
       <PropertySummary data={data} />
       {holdings.length > 0 && (
         <section className="space-y-3 overflow-hidden">
@@ -148,6 +197,31 @@ export default async function LegislatorPage({ params }: { params: Promise<{ nam
         </section>
       )}
       <CategoryTabs holdings={holdings} changes={changes} />
+
+      {/* Cross-links: same party legislators */}
+      {samePartyLegislators.length > 0 && (
+        <section className="space-y-3">
+          <div className="flex items-baseline justify-between">
+            <h2 className="text-lg font-bold">同黨立委</h2>
+            {partySlug && (
+              <Link href={`/party/${partySlug}`} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                查看全部
+              </Link>
+            )}
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {samePartyLegislators.map(d => (
+              <Link
+                key={d.name}
+                href={`/legislator/${getSlugByName(d.name)}`}
+                className="inline-flex items-center gap-1 rounded-md border px-2.5 py-1 text-sm hover:bg-muted transition-colors"
+              >
+                {d.name}
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
     </div>
   )
 }

@@ -1,7 +1,8 @@
-import { getAllDeclarations, getAggregatedStocks, lookupStockPrice, getLegislatorMeta, getSlugByName } from '@/lib/data'
+import { getAllDeclarations, getAggregatedStocks, lookupStockPrice, getLegislatorMeta, getSlugByName, PARTY_NAME_TO_SLUG } from '@/lib/data'
 import { CurrencyDisplay } from '@/components/currency-display'
 import { SearchableList } from '@/components/searchable-list'
 import { PartyBarChart, type StockBarData } from '@/components/party-bar-chart'
+import { JsonLd } from '@/components/json-ld'
 import Link from 'next/link'
 /* eslint-disable @next/next/no-img-element */
 import type { LegislatorDeclaration } from '@/lib/types'
@@ -88,8 +89,28 @@ export default function HomePage() {
   // Top holder amount for percentage bars in top 10
   const maxAmount = heroAmount
 
+  // Party links data
+  const partyGroups = new Map<string, number>()
+  for (const d of declarations) {
+    const meta = getLegislatorMeta(d.name)
+    const party = meta?.party || '無黨籍'
+    partyGroups.set(party, (partyGroups.get(party) || 0) + 1)
+  }
+
   return (
     <div className="space-y-16">
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: '立委持股公開平台',
+        url: 'https://legislator-wealth.tw',
+        description: '台灣第十一屆立法委員股票及基金申報資料，資料來源為監察院公報，市值依據台灣證交所收盤價估算。',
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: 'https://legislator-wealth.tw/?q={search_term_string}',
+          'query-input': 'required name=search_term_string',
+        },
+      }} />
       {/* Title */}
       <header className="pt-8 sm:pt-16">
         <h1 className="font-heading text-5xl font-black tracking-tight sm:text-6xl">立委持股</h1>
@@ -184,6 +205,27 @@ export default function HomePage() {
       <section className="space-y-3">
         <h2 className="text-lg font-bold">全部立委</h2>
         <SearchableList legislators={listData}/>
+      </section>
+
+      {/* Party links */}
+      <section className="space-y-3">
+        <h2 className="text-lg font-bold">依政黨瀏覽</h2>
+        <div className="flex flex-wrap gap-2">
+          {Array.from(partyGroups.entries()).map(([party, count]) => {
+            const slug = PARTY_NAME_TO_SLUG[party]
+            if (!slug) return null
+            return (
+              <Link
+                key={party}
+                href={`/party/${slug}`}
+                className="inline-flex items-center gap-1.5 rounded-md border px-3 py-1.5 text-sm hover:bg-muted transition-colors"
+              >
+                {party}
+                <span className="text-xs text-muted-foreground">({count})</span>
+              </Link>
+            )
+          })}
+        </div>
       </section>
 
       {/* Footer */}

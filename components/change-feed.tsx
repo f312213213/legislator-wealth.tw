@@ -17,7 +17,7 @@ import { formatDate } from '@/lib/format'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import type { FlatChange } from '@/lib/data'
 
-export function ChangeFeed({ changes }: { changes: FlatChange[] }) {
+export function ChangeFeed({ changes, slugMap }: { changes: FlatChange[]; slugMap?: Record<string, string> }) {
   const [search, setSearch] = useState('')
   const [reasonFilter, setReasonFilter] = useState('全部原因')
 
@@ -89,7 +89,7 @@ export function ChangeFeed({ changes }: { changes: FlatChange[] }) {
                 <TableRow key={i}>
                   <TableCell>
                     <Link
-                      href={`/legislator/${encodeURIComponent(change.legislator)}`}
+                      href={`/legislator/${slugMap?.[change.legislator] ?? encodeURIComponent(change.legislator)}`}
                       className="font-medium text-primary hover:underline"
                     >
                       {change.legislator}

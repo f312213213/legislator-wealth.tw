@@ -1,12 +1,13 @@
-import { getAllDeclarations, getAllStockHoldings, getAggregatedStocks, getLegislatorMeta, lookupStockPrice, getSlugByName } from '@/lib/data'
+import { getAllDeclarations, getAllStockHoldings, getAggregatedStocks, getLegislatorMeta, lookupStockPrice, getSlugByName, getIndex } from '@/lib/data'
 import Link from 'next/link'
 import { StockTable } from '@/components/stock-table'
 import { PartyBarChart, type StockBarData } from '@/components/party-bar-chart'
 import { CurrencyDisplay } from '@/components/currency-display'
+import { JsonLd } from '@/components/json-ld'
 import type { LegislatorDeclaration } from '@/lib/types'
 
 export const metadata = {
-  title: '股票及基金',
+  title: '立委持股總覽 — 股票及基金申報明細',
   description: '所有立法委員申報的股票及基金持有明細，可依標的名稱或立委姓名搜尋及排序。',
 }
 
@@ -78,8 +79,25 @@ export default function StocksPage() {
     return { name: s.name, holderCount: s.holderCount, partyCounts }
   })
 
+  const stockListItems = aggregatedStocks.slice(0, 50).map((s, i) => ({
+    '@type': 'ListItem' as const,
+    position: i + 1,
+    item: {
+      '@type': 'Thing' as const,
+      name: s.name,
+      description: `${s.holderCount} 位立委持有`,
+    },
+  }))
+
   return (
     <div className="space-y-16">
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        name: '立法委員持有的股票及基金',
+        numberOfItems: aggregatedStocks.length,
+        itemListElement: stockListItems,
+      }} />
       <header className="pt-4">
         <h1 className="font-heading text-3xl font-black tracking-tight sm:text-4xl">股票及基金</h1>
         <p className="mt-2 text-sm text-muted-foreground">
@@ -114,7 +132,12 @@ export default function StocksPage() {
 
 
       {/* Full table */}
-      <StockTable rows={holdings} />
+      <StockTable rows={holdings} slugMap={(() => {
+        const index = getIndex()
+        const map: Record<string, string> = {}
+        for (const l of index.legislators) map[l.name] = l.slug
+        return map
+      })()} />
     </div>
   )
 }

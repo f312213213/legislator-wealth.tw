@@ -14,6 +14,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { SearchInput } from './search-input'
 import { CurrencyDisplay } from './currency-display'
 import { formatNTD } from '@/lib/format'
+import Link from 'next/link'
 import type { StockHolding, StockSource } from '@/lib/data'
 
 const SOURCE_LABELS: Record<StockSource, { label: string; variant: 'default' | 'secondary' | 'outline' }> = {
@@ -24,7 +25,7 @@ const SOURCE_LABELS: Record<StockSource, { label: string; variant: 'default' | '
 type SortKey = 'name' | 'legislator' | 'shares' | 'ntdTotal' | 'marketValue'
 type SortDir = 'asc' | 'desc'
 
-export function StockTable({ rows }: { rows: StockHolding[] }) {
+export function StockTable({ rows, slugMap }: { rows: StockHolding[]; slugMap?: Record<string, string> }) {
   const [search, setSearch] = useState('')
   const [sortKey, setSortKey] = useState<SortKey>('ntdTotal')
   const [sortDir, setSortDir] = useState<SortDir>('desc')
@@ -161,7 +162,11 @@ export function StockTable({ rows }: { rows: StockHolding[] }) {
                         {sourceInfo.label}
                       </Badge>
                     </TableCell>
-                    <TableCell>{row.legislator}</TableCell>
+                    <TableCell>
+                      {slugMap?.[row.legislator] ? (
+                        <Link href={`/legislator/${slugMap[row.legislator]}`} className="hover:underline">{row.legislator}</Link>
+                      ) : row.legislator}
+                    </TableCell>
                     <TableCell>{row.owner}</TableCell>
                     <TableCell className="text-right tabular-nums">{formatNTD(row.shares)}</TableCell>
                     <TableCell className="text-right tabular-nums">

@@ -253,6 +253,37 @@ export function getLegislatorMeta(name: string): LegislatorMeta | null {
   return map[name] ?? null
 }
 
+export function getLegislatorsByParty(party: string): LegislatorDeclaration[] {
+  const declarations = getAllDeclarations()
+  return declarations.filter(d => {
+    const meta = getLegislatorMeta(d.name)
+    return meta?.party === party
+  })
+}
+
+export function getAllParties(): string[] {
+  const metaMap = getLegislatorMetaMap()
+  const parties = new Set<string>()
+  for (const v of Object.values(metaMap)) {
+    if (v.party) parties.add(v.party)
+  }
+  return Array.from(parties)
+}
+
+export const PARTY_SLUG_MAP: Record<string, string> = {
+  'kmt': '中國國民黨',
+  'dpp': '民主進步黨',
+  'tpp': '台灣民眾黨',
+  'ind': '無黨籍',
+}
+
+export const PARTY_NAME_TO_SLUG: Record<string, string> = {
+  '中國國民黨': 'kmt',
+  '民主進步黨': 'dpp',
+  '台灣民眾黨': 'tpp',
+  '無黨籍': 'ind',
+}
+
 export function getStockPriceMap(): Record<string, { code: string; price: number }> {
   const prices = getStockPrices()
   const map: Record<string, { code: string; price: number }> = {}
