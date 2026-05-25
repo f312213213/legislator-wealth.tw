@@ -1,0 +1,116 @@
+# legislator-wealth.tw
+
+Taiwan legislator stock and fund holdings API. Data covers the 11th Legislative Yuan and is parsed from Control Yuan Gazette PDFs. Market values are estimates based on TWSE/TPEx closing prices when available.
+
+Base URL: https://legislator-wealth.tw
+API metadata: https://legislator-wealth.tw/api/_meta.json
+
+## Best Starting Points
+
+- GET /api/legislators?name={name} - look up one or more legislators by Chinese name. Exact/direct lookups include latestDeclaration and changes when five or fewer records match.
+- GET /api/legislators?slug={slug} - look up one legislator by pinyin slug.
+- GET /api/legislators?q={query} - search by name, slug, party, organization, or title.
+- GET /api/legislators?party={party} - filter by party. Supported party slugs: kmt, dpp, tpp, ind. Results include each legislator's stockSummary and holdings.
+- GET /api/stocks/holdings.json - all stock/fund holdings with price estimates.
+- GET /api/stocks/aggregated.json - holdings aggregated by security.
+- GET /api/changes-flat.json - flattened stock transaction/change feed.
+- GET /api/all.json - full data dump.
+
+## Query Examples
+
+```bash
+curl 'https://legislator-wealth.tw/api/legislators?name=黃捷'
+curl 'https://legislator-wealth.tw/api/legislators?slug=huang-jie'
+curl 'https://legislator-wealth.tw/api/legislators?q=民進黨&limit=10'
+curl 'https://legislator-wealth.tw/api/legislators?party=dpp&limit=20'
+curl 'https://legislator-wealth.tw/api/legislators?name=黃捷&include=details'
+curl 'https://legislator-wealth.tw/api/stocks/aggregated.json'
+```
+
+## Query Parameters For /api/legislators
+
+- name or legislator: Chinese legislator name. Accepts repeated params or comma-separated values.
+- slug: pinyin slug. Accepts repeated params or comma-separated values.
+- party: party name or slug. Slugs are kmt, dpp, tpp, ind.
+- q or search: free-text search across name, slug, party, organization, and title.
+- limit: max records to return. Maximum is 200.
+- offset: pagination offset.
+- include=details: include latestDeclaration and changes. This is only allowed for direct name or slug lookups with five or fewer matches.
+
+## Response Shape For /api/legislators
+
+```json
+{
+  "count": 1,
+  "limit": 1,
+  "offset": 0,
+  "query": {
+    "name": ["黃捷"],
+    "slug": [],
+    "party": [],
+    "q": "",
+    "include": []
+  },
+  "results": [
+    {
+      "name": "黃捷",
+      "slug": "huang-jie",
+      "party": "民主進步黨",
+      "avatar": "/avatars/黃捷.jpg",
+      "organization": "立法院",
+      "title": "立法委員",
+      "latestDeclarationDate": "YYYY-MM-DD",
+      "declarationCount": 1,
+      "changeCount": 0,
+      "stockSummary": {
+        "holdingCount": 1,
+        "stockCount": 1,
+        "fundCount": 0,
+        "declaredValueTotal": 10000,
+        "estimatedMarketValueTotal": 50000,
+        "pricedHoldingCount": 1
+      },
+      "holdings": [
+        {
+          "name": "台積電",
+          "owner": "黃捷",
+          "shares": 100,
+          "parValue": 10,
+          "ntdTotal": 1000,
+          "source": "stock",
+          "stockCode": "2330",
+          "marketPrice": 500,
+          "marketValue": 50000
+        }
+      ],
+      "latestDeclaration": {},
+      "changes": []
+    }
+  ]
+}
+```
+
+All `/api/legislators` responses include stockSummary and holdings. Summary-only responses omit latestDeclaration and changes.
+
+## Static JSON Endpoints
+
+- /api/_meta.json - API version, generatedAt, dataLastUpdated, and route list.
+- /api/index.json - raw legislator index.
+- /api/legislators.json - all legislators with metadata, counts, stockSummary, and holdings.
+- /api/legislators/{slug}.json - one legislator, stockSummary, holdings, latest declaration, and changes.
+- /api/documents.json - all parsed declaration and change documents.
+- /api/declarations.json - all declaration documents.
+- /api/latest-declarations.json - latest declaration per legislator.
+- /api/changes.json - all raw change documents.
+- /api/changes-flat.json - flattened change feed.
+- /api/parties.json - party list, counts, and legislators.
+- /api/stocks/holdings.json - stock/fund holdings with price estimates.
+- /api/stocks/aggregated.json - securities aggregated by holder count.
+- /api/stocks/prices.json - stock price lookup table.
+
+## Data Notes
+
+- Data is generated from public PDFs and may contain parser errors from source formatting or PDF text extraction.
+- Some legislators may not appear if no public declaration record was available when the site was built.
+- Market values are estimates and should not be treated as investment, legal, or financial advice.
+- API responses are public and CORS-enabled.

@@ -78,6 +78,8 @@ The build exports the parsed data as static JSON under `/api/`. Most endpoints a
 
 On Cloudflare Pages, use `pnpm run build` as the build command and `out` as the build output directory. The build command runs `pnpm run grab-data` first, so clean Cloudflare builds regenerate `data/legislators/`, `data/index.json`, and `public/api/` from the committed PDFs. Static API files are served with public CORS headers from `public/_headers`, and the query endpoint sets its own CORS headers.
 
+AI agents can discover API usage instructions at `/llms.txt`.
+
 | Endpoint | Description |
 |---|---|
 | `/api/_meta.json` | API metadata and route list |
@@ -87,9 +89,9 @@ On Cloudflare Pages, use `pnpm run build` as the build command and `out` as the 
 | `/api/legislators?name={name}` | Query legislators by Chinese name; returns declaration/change details for exact lookups |
 | `/api/legislators?slug={slug}` | Query one legislator by pinyin slug |
 | `/api/legislators?q={query}` | Search legislators by name, slug, party, organization, or title |
-| `/api/legislators?party={party}` | Filter legislators by party name or slug (`kmt`, `dpp`, `tpp`, `ind`) |
-| `/api/legislators.json` | Legislator list with party/photo metadata |
-| `/api/legislators/{slug}.json` | One legislator with latest declaration and changes |
+| `/api/legislators?party={party}` | Filter legislators by party name or slug (`kmt`, `dpp`, `tpp`, `ind`); results include `stockSummary` and `holdings` |
+| `/api/legislators.json` | Legislator list with party/photo metadata, stock summaries, and holdings |
+| `/api/legislators/{slug}.json` | One legislator with stock summary, holdings, latest declaration, and changes |
 | `/api/documents.json` | All parsed declaration and change documents |
 | `/api/declarations.json` | All declaration documents |
 | `/api/latest-declarations.json` | Latest declaration per legislator |

@@ -41,6 +41,35 @@ function loadDocuments(): LegislatorDocument[] {
   )
 }
 
+function stripLegislatorFromHolding(holding: ReturnType<typeof getAllStockHoldings>[number]) {
+  return {
+    name: holding.name,
+    owner: holding.owner,
+    shares: holding.shares,
+    parValue: holding.parValue,
+    currency: holding.currency,
+    ntdTotal: holding.ntdTotal,
+    source: holding.source,
+    stockCode: holding.stockCode,
+    marketPrice: holding.marketPrice,
+    marketValue: holding.marketValue,
+  }
+}
+
+function summarizeHoldings(holdings: ReturnType<typeof getAllStockHoldings>) {
+  return {
+    holdingCount: holdings.length,
+    stockCount: holdings.filter(h => h.source === 'stock').length,
+    fundCount: holdings.filter(h => h.source === 'fund').length,
+    declaredValueTotal: holdings.reduce((sum, h) => sum + h.ntdTotal, 0),
+    estimatedMarketValueTotal: holdings.reduce(
+      (sum, h) => sum + (h.marketValue ?? h.ntdTotal),
+      0
+    ),
+    pricedHoldingCount: holdings.filter(h => h.marketValue !== undefined).length,
+  }
+}
+
 function main() {
   if (!API_DIR.startsWith(`${PUBLIC_DIR}${path.sep}`)) {
     throw new Error(`Refusing to write API outside public/: ${API_DIR}`)
@@ -65,14 +94,26 @@ function main() {
   const stockHoldings = getAllStockHoldings()
   const aggregatedStocks = getAggregatedStocks()
   const stockPrices = getStockPriceMap()
+  const holdingsByLegislator = new Map<string, typeof stockHoldings>()
 
-  const legislators = index.legislators.map(leg => ({
-    ...leg,
-    meta: getLegislatorMeta(leg.name),
-    latestDeclaration: leg.declarations[0] || null,
-    declarationCount: leg.declarations.length,
-    changeCount: leg.changes?.length || 0,
-  }))
+  for (const holding of stockHoldings) {
+    const holdings = holdingsByLegislator.get(holding.legislator) || []
+    holdings.push(holding)
+    holdingsByLegislator.set(holding.legislator, holdings)
+  }
+
+  const legislators = index.legislators.map(leg => {
+    const holdings = holdingsByLegislator.get(leg.name) || []
+    return {
+      ...leg,
+      meta: getLegislatorMeta(leg.name),
+      latestDeclaration: leg.declarations[0] || null,
+      declarationCount: leg.declarations.length,
+      changeCount: leg.changes?.length || 0,
+      stockSummary: summarizeHoldings(holdings),
+      holdings: holdings.map(stripLegislatorFromHolding),
+    }
+  })
 
   const parties = getAllParties().map(name => ({
     name,
@@ -142,9 +183,12 @@ function main() {
 
   for (const leg of index.legislators) {
     const slug = safeSlug(leg.slug)
+    const holdings = holdingsByLegislator.get(leg.name) || []
     writeJson(`legislators/${slug}.json`, {
       ...leg,
       meta: getLegislatorMeta(leg.name),
+      stockSummary: summarizeHoldings(holdings),
+      holdings: holdings.map(stripLegislatorFromHolding),
       latestDeclaration: getDeclarationBySlug(leg.slug),
       changes: getChangesBySlug(leg.slug),
     })

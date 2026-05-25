@@ -68,6 +68,15 @@ function toSummary(legislator) {
     latestDeclarationDate: legislator.latestDeclarationDate,
     declarationCount: legislator.declarationCount,
     changeCount: legislator.changeCount,
+    stockSummary: legislator.stockSummary || {
+      holdingCount: 0,
+      stockCount: 0,
+      fundCount: 0,
+      declaredValueTotal: 0,
+      estimatedMarketValueTotal: 0,
+      pricedHoldingCount: 0,
+    },
+    holdings: legislator.holdings || [],
   }
 }
 
