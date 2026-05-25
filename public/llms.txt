@@ -4,6 +4,8 @@ Taiwan legislator stock and fund holdings API. Data covers the 11th Legislative 
 
 Base URL: https://legislator-wealth.tw
 API metadata: https://legislator-wealth.tw/api/_meta.json
+API docs: https://legislator-wealth.tw/api/docs.json
+API llms: https://legislator-wealth.tw/api/llms.txt
 
 ## Best Starting Points
 
@@ -94,6 +96,8 @@ All `/api/legislators` responses include stockSummary and holdings. Summary-only
 
 ## Static JSON Endpoints
 
+- /api/docs.json - structured API documentation.
+- /api/llms.txt - agent-readable API usage guide.
 - /api/_meta.json - API version, generatedAt, dataLastUpdated, and route list.
 - /api/index.json - raw legislator index.
 - /api/legislators.json - all legislators with metadata, counts, stockSummary, and holdings.

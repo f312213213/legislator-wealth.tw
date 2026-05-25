@@ -34,6 +34,12 @@ function writeJson(relativePath: string, data: unknown) {
   fs.writeFileSync(outputPath, `${JSON.stringify(data, null, 2)}\n`, 'utf-8')
 }
 
+function writeText(relativePath: string, data: string) {
+  const outputPath = path.join(API_DIR, relativePath)
+  fs.mkdirSync(path.dirname(outputPath), { recursive: true })
+  fs.writeFileSync(outputPath, data.endsWith('\n') ? data : `${data}\n`, 'utf-8')
+}
+
 function loadDocuments(): LegislatorDocument[] {
   const index = getIndex()
   return index.legislators.flatMap(leg =>
@@ -68,6 +74,180 @@ function summarizeHoldings(holdings: ReturnType<typeof getAllStockHoldings>) {
     ),
     pricedHoldingCount: holdings.filter(h => h.marketValue !== undefined).length,
   }
+}
+
+function buildApiDocs(routes: string[], generatedAt: string, dataLastUpdated: string) {
+  return {
+    apiVersion: 1,
+    title: 'Taiwan Legislator Wealth API',
+    baseUrl: SITE_URL,
+    generatedAt,
+    dataLastUpdated,
+    discovery: {
+      apiMetadata: '/api/_meta.json',
+      apiDocs: '/api/docs.json',
+      apiLlms: '/api/llms.txt',
+      siteLlms: '/llms.txt',
+    },
+    routes,
+    endpoints: [
+      {
+        path: '/api/legislators',
+        type: 'Cloudflare Pages Function',
+        description: 'Queryable legislator endpoint. Results include stockSummary and holdings.',
+        queryParameters: {
+          name: 'Chinese legislator name. Repeated params and comma-separated values are supported.',
+          legislator: 'Alias for name.',
+          slug: 'Pinyin slug. Repeated params and comma-separated values are supported.',
+          party: 'Party name or slug. Slugs: kmt, dpp, tpp, ind.',
+          q: 'Free-text search across name, slug, party, organization, and title.',
+          search: 'Alias for q.',
+          limit: 'Maximum records to return. Max 200.',
+          offset: 'Pagination offset.',
+          include: 'Use include=details for latestDeclaration and changes. Only direct name/slug lookups with <= 5 matches are allowed.',
+        },
+        examples: [
+          '/api/legislators?name=黃捷',
+          '/api/legislators?slug=huang-jie',
+          '/api/legislators?q=民進黨&limit=10',
+          '/api/legislators?party=dpp&limit=20',
+          '/api/legislators?name=黃捷&include=details',
+        ],
+      },
+      {
+        path: '/api/legislators.json',
+        type: 'static JSON',
+        description: 'All legislators with metadata, counts, stockSummary, and holdings.',
+      },
+      {
+        path: '/api/legislators/{slug}.json',
+        type: 'static JSON',
+        description: 'One legislator with stockSummary, holdings, latestDeclaration, and changes.',
+      },
+      {
+        path: '/api/stocks/holdings.json',
+        type: 'static JSON',
+        description: 'All stock/fund holdings with price estimates.',
+      },
+      {
+        path: '/api/stocks/aggregated.json',
+        type: 'static JSON',
+        description: 'Holdings aggregated by security.',
+      },
+      {
+        path: '/api/changes-flat.json',
+        type: 'static JSON',
+        description: 'Flattened stock transaction/change feed.',
+      },
+      {
+        path: '/api/all.json',
+        type: 'static JSON',
+        description: 'Full data dump.',
+      },
+    ],
+    partySlugs: {
+      kmt: '中國國民黨',
+      dpp: '民主進步黨',
+      tpp: '台灣民眾黨',
+      ind: '無黨籍',
+    },
+    responseFields: {
+      stockSummary: {
+        holdingCount: 'Total number of stock/fund holdings.',
+        stockCount: 'Number of stock holdings.',
+        fundCount: 'Number of fund holdings.',
+        declaredValueTotal: 'Sum of declaration values in NTD.',
+        estimatedMarketValueTotal: 'Sum of marketValue when priced, otherwise ntdTotal.',
+        pricedHoldingCount: 'Number of holdings with marketValue.',
+      },
+      holding: {
+        name: 'Security or fund name.',
+        owner: 'Declared owner.',
+        shares: 'Share/unit count.',
+        parValue: 'Par value for stocks or NAV for funds.',
+        currency: 'Currency when present in source data.',
+        ntdTotal: 'Declared value in NTD.',
+        source: 'stock or fund.',
+        stockCode: 'Matched Taiwan market code when available.',
+        marketPrice: 'Matched market price when available.',
+        marketValue: 'Estimated market value when available.',
+      },
+    },
+    notes: [
+      'Data is generated from public PDFs and may contain parser errors from source formatting or PDF text extraction.',
+      'Some legislators may not appear if no public declaration record was available when the site was built.',
+      'Market values are estimates and should not be treated as investment, legal, or financial advice.',
+      'API responses are public and CORS-enabled.',
+    ],
+  }
+}
+
+function buildApiLlmsText(): string {
+  return `# legislator-wealth.tw API
+
+Taiwan legislator stock and fund holdings API. Data covers the 11th Legislative Yuan and is parsed from Control Yuan Gazette PDFs. Market values are estimates based on TWSE/TPEx closing prices when available.
+
+Base URL: ${SITE_URL}
+API metadata: ${SITE_URL}/api/_meta.json
+API docs: ${SITE_URL}/api/docs.json
+
+## Best Starting Points
+
+- GET /api/legislators?name={name} - look up one or more legislators by Chinese name. Results include stockSummary and holdings. Direct lookups include latestDeclaration and changes when five or fewer records match.
+- GET /api/legislators?slug={slug} - look up one legislator by pinyin slug.
+- GET /api/legislators?q={query} - search by name, slug, party, organization, or title.
+- GET /api/legislators?party={party} - filter by party. Supported party slugs: kmt, dpp, tpp, ind. Results include each legislator's stockSummary and holdings.
+- GET /api/stocks/holdings.json - all stock/fund holdings with price estimates.
+- GET /api/stocks/aggregated.json - holdings aggregated by security.
+- GET /api/changes-flat.json - flattened stock transaction/change feed.
+- GET /api/all.json - full data dump.
+
+## Query Examples
+
+\`\`\`bash
+curl '${SITE_URL}/api/legislators?name=黃捷'
+curl '${SITE_URL}/api/legislators?slug=huang-jie'
+curl '${SITE_URL}/api/legislators?q=民進黨&limit=10'
+curl '${SITE_URL}/api/legislators?party=dpp&limit=20'
+curl '${SITE_URL}/api/legislators?name=黃捷&include=details'
+curl '${SITE_URL}/api/stocks/aggregated.json'
+\`\`\`
+
+## Stock Fields
+
+Every /api/legislators result includes stockSummary and holdings.
+
+- stockSummary.holdingCount: total stock/fund holdings.
+- stockSummary.stockCount: stock holdings count.
+- stockSummary.fundCount: fund holdings count.
+- stockSummary.declaredValueTotal: sum of declared NTD values.
+- stockSummary.estimatedMarketValueTotal: sum of estimated market values when available.
+- holdings[].name: security or fund name.
+- holdings[].source: stock or fund.
+- holdings[].shares: shares or fund units.
+- holdings[].ntdTotal: declared NTD value.
+- holdings[].stockCode: matched Taiwan market code when available.
+- holdings[].marketPrice: matched market price when available.
+- holdings[].marketValue: estimated market value when available.
+
+## Static JSON Endpoints
+
+- /api/docs.json - structured API documentation.
+- /api/llms.txt - this agent-readable API guide.
+- /api/_meta.json - API version, generatedAt, dataLastUpdated, and route list.
+- /api/index.json - raw legislator index.
+- /api/legislators.json - all legislators with metadata, counts, stockSummary, and holdings.
+- /api/legislators/{slug}.json - one legislator, stockSummary, holdings, latest declaration, and changes.
+- /api/documents.json - all parsed declaration and change documents.
+- /api/declarations.json - all declaration documents.
+- /api/latest-declarations.json - latest declaration per legislator.
+- /api/changes.json - all raw change documents.
+- /api/changes-flat.json - flattened change feed.
+- /api/parties.json - party list, counts, and legislators.
+- /api/stocks/holdings.json - stock/fund holdings with price estimates.
+- /api/stocks/aggregated.json - securities aggregated by holder count.
+- /api/stocks/prices.json - stock price lookup table.
+`
 }
 
 function main() {
@@ -126,6 +306,8 @@ function main() {
 
   const routes = [
     '/api/_meta.json',
+    '/api/docs.json',
+    '/api/llms.txt',
     '/api/all.json',
     '/api/index.json',
     '/api/legislators',
@@ -153,6 +335,8 @@ function main() {
     siteUrl: SITE_URL,
     routes,
   })
+  writeJson('docs.json', buildApiDocs(routes, generatedAt, index.lastUpdated))
+  writeText('llms.txt', buildApiLlmsText())
   writeJson('index.json', index)
   writeJson('legislators.json', legislators)
   writeJson('documents.json', documents)

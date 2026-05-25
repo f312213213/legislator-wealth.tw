@@ -4,6 +4,11 @@
   Access-Control-Allow-Headers: Content-Type
   Cache-Control: public, max-age=3600
 
+/api/llms.txt
+  Access-Control-Allow-Origin: *
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=3600
+
 /llms.txt
   Access-Control-Allow-Origin: *
   Content-Type: text/plain; charset=utf-8

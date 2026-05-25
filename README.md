@@ -83,6 +83,8 @@ AI agents can discover API usage instructions at `/llms.txt`.
 | Endpoint | Description |
 |---|---|
 | `/api/_meta.json` | API metadata and route list |
+| `/api/docs.json` | Structured API documentation for programs and agents |
+| `/api/llms.txt` | Agent-readable API usage guide |
 | `/api/all.json` | Full data dump plus derived datasets |
 | `/api/index.json` | Legislator index |
 | `/api/legislators` | Queryable Cloudflare Pages Function for legislator lookups |
