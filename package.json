@@ -5,17 +5,18 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "tsx scripts/build-index.ts && tsx scripts/generate-og.ts && next build && next-sitemap",
+    "build": "pnpm run grab-data && tsx scripts/generate-og.ts && next build && next-sitemap",
     "start": "next start",
     "lint": "eslint",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "typecheck": "tsc --noEmit",
-    "parse": "tsx scripts/parse-pdf.ts && tsx scripts/build-index.ts",
+    "parse": "tsx scripts/parse-pdf.ts && tsx scripts/build-index.ts && tsx scripts/export-api.ts",
     "build-index": "tsx scripts/build-index.ts",
     "fetch-legislators": "tsx scripts/fetch-legislators.ts",
     "fetch-stock-prices": "tsx scripts/fetch-stock-prices.ts",
     "generate-og": "tsx scripts/generate-og.ts",
-    "grab-data": "tsx scripts/fetch-stock-prices.ts && tsx scripts/fetch-legislators.ts && tsx scripts/parse-pdf.ts && tsx scripts/build-index.ts",
+    "export-api": "tsx scripts/export-api.ts",
+    "grab-data": "tsx scripts/fetch-stock-prices.ts && tsx scripts/fetch-legislators.ts && tsx scripts/parse-pdf.ts && tsx scripts/build-index.ts && tsx scripts/export-api.ts",
     "test:parse": "tsx scripts/test-parse.ts"
   },
   "dependencies": {

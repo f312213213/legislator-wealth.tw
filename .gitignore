@@ -36,6 +36,7 @@ pnpm-debug.log*
 /data/tpex_mainboard_quotes.json
 /data/tpex_esb_latest_statistics.json
 /public/avatars/
+/public/api/
 /public/og/
 /public/og.png
 
