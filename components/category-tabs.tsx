@@ -22,6 +22,7 @@ export interface HoldingRow {
   shares: number
   ntdTotal: number
   source: 'stock' | 'fund'
+  currency?: string
   marketPrice?: number
   marketValue?: number
 }

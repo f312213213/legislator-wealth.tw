@@ -96,6 +96,7 @@ function buildHoldings(data: LegislatorDeclaration): HoldingRow[] {
       shares: s.shares,
       ntdTotal: s.ntdTotal,
       source: 'stock',
+      currency: s.currency,
       marketPrice: p?.price,
       marketValue: p ? Math.round(s.shares * p.price) : undefined,
     })
@@ -108,6 +109,7 @@ function buildHoldings(data: LegislatorDeclaration): HoldingRow[] {
       shares: f.units,
       ntdTotal: f.ntdTotal,
       source: 'fund',
+      currency: f.currency,
       marketPrice: p?.price,
       marketValue: p ? Math.round(f.units * p.price) : undefined,
     })
@@ -191,8 +193,7 @@ export default async function LegislatorPage({ params }: { params: Promise<{ nam
 
       <PropertySummary data={data} />
       {holdings.length > 0 && (
-        <section className="space-y-3 overflow-hidden">
-          <h2 className="text-lg font-bold">持股配置</h2>
+        <section className="overflow-hidden">
           <HoldingsPie holdings={holdings} />
         </section>
       )}

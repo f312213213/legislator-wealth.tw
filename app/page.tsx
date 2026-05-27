@@ -104,7 +104,7 @@ export default function HomePage() {
         '@type': 'WebSite',
         name: '立委持股公開平台',
         url: 'https://legislator-wealth.tw',
-        description: '台灣第十一屆立法委員股票及基金申報資料，資料來源為監察院公報，市值依據台灣證交所收盤價估算。',
+        description: '台灣第十一屆立法委員股票及基金申報資料，資料來源為監察院公報，市值依據台灣證交所收盤價估算，並每日更新。',
         potentialAction: {
           '@type': 'SearchAction',
           target: 'https://legislator-wealth.tw/?q={search_term_string}',
@@ -115,7 +115,7 @@ export default function HomePage() {
       <header className="pt-8 sm:pt-16">
         <h1 className="font-heading text-5xl font-black tracking-tight sm:text-6xl">立委持股</h1>
         <div className="mt-3 space-y-1 text-sm text-muted-foreground">
-          <p>{declarations.length} 位第十一屆立法委員的股票及基金申報資料。資料來源為監察院公報，市值依據台灣證交所收盤價估算。</p>
+          <p>{declarations.length} 位第十一屆立法委員的股票及基金申報資料。資料來源為監察院公報，市值依據台灣證交所收盤價估算，並每日更新。</p>
           <p>部分立委尚無公開申報紀錄，故未列出。資料由程式自動解析申報 PDF，若有錯誤歡迎至 <a href="https://github.com/f312213213/legislator-wealth.tw/issues" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground">GitHub</a> 回報。</p>
         </div>
       </header>

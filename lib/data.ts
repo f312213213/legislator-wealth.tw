@@ -48,12 +48,30 @@ function getStockPrices(): Map<string, StockPrice> {
 
 let _strippedCache: Map<string, StockPrice> | null = null
 
+function normalizeStockName(name: string): string {
+  return name.replace(/[＊*]/g, '').replace(/\s*-\s*KY.*$/, '').trim()
+}
+
+function findUniqueContainedName(prices: Map<string, StockPrice>, cleaned: string): StockPrice | null {
+  if (cleaned.length < 3) return null
+
+  let match: StockPrice | null = null
+  for (const [name, price] of prices) {
+    const sourceName = normalizeStockName(name)
+    if (!sourceName.includes(cleaned) && !cleaned.includes(sourceName)) continue
+    if (match) return null
+    match = price
+  }
+
+  return match
+}
+
 export function lookupStockPrice(name: string): { code: string; price: number } | null {
   const prices = getStockPrices()
   const exact = prices.get(name)
   if (exact) return { code: exact.code, price: exact.closingPrice }
   // Try fuzzy: strip suffixes like ＊, *, -KY from input
-  const cleaned = name.replace(/[＊*]/g, '').replace(/\s*-\s*KY.*$/, '').trim()
+  const cleaned = normalizeStockName(name)
   if (cleaned !== name) {
     const found = prices.get(cleaned)
     if (found) return { code: found.code, price: found.closingPrice }
@@ -68,6 +86,8 @@ export function lookupStockPrice(name: string): { code: string; price: number } 
   }
   const fromStripped = _strippedCache.get(cleaned)
   if (fromStripped) return { code: fromStripped.code, price: fromStripped.closingPrice }
+  const contained = findUniqueContainedName(prices, cleaned)
+  if (contained) return { code: contained.code, price: contained.closingPrice }
   return null
 }
 

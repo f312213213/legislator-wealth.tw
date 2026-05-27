@@ -1,7 +1,6 @@
 import { getAllDeclarations, getLegislatorMeta, lookupStockPrice, getSlugByName, PARTY_NAME_TO_SLUG } from '@/lib/data'
 import { CurrencyDisplay } from '@/components/currency-display'
 import { JsonLd } from '@/components/json-ld'
-import { formatNTD } from '@/lib/format'
 import Link from 'next/link'
 /* eslint-disable @next/next/no-img-element */
 import type { LegislatorDeclaration } from '@/lib/types'
@@ -79,7 +78,7 @@ export default function RankingsPage() {
       <header className="pt-4">
         <h1 className="font-heading text-3xl font-black tracking-tight sm:text-4xl">持股市值排行榜</h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          {ranked.length} 位立法委員依持股市值由高至低排列，市值依據台灣證交所收盤價估算。
+          {ranked.length} 位立法委員依持股市值由高至低排列，市值依據台灣證交所收盤價估算，並每日更新。
         </p>
       </header>
 
