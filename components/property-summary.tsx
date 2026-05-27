@@ -22,7 +22,7 @@ export function PropertySummary({ data }: { data: LegislatorDeclaration }) {
 
   return (
     <div className="border-b pb-6 space-y-1">
-      <p className="text-sm text-muted-foreground">股票及基金市值</p>
+      <p className="text-sm text-muted-foreground">股票及基金市值，以台股最新收盤價計算</p>
       <p className="text-4xl font-black tracking-tight sm:text-5xl">
         <CurrencyDisplay amount={amount} />
       </p>

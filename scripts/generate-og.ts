@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import sharp from 'sharp'
-import type { LegislatorIndex } from '../lib/types'
+import type { LegislatorDeclaration, LegislatorIndex } from '../lib/types'
 
 const DATA_DIR = path.join(process.cwd(), 'data')
 const PUBLIC_DIR = path.join(process.cwd(), 'public')
@@ -11,7 +11,22 @@ function formatNTD(amount: number): string {
   return new Intl.NumberFormat('zh-TW').format(amount)
 }
 
-function calcMarketTotal(decl: any, priceMap: Map<string, number>): number {
+interface TwsePriceRow {
+  Name: string
+  ClosingPrice: string
+}
+
+interface TpexPriceRow {
+  CompanyName: string
+  Close: string
+}
+
+interface EsbPriceRow {
+  CompanyName: string
+  LatestPrice: string
+}
+
+function calcMarketTotal(decl: LegislatorDeclaration, priceMap: Map<string, number>): number {
   let total = 0
   for (const s of decl.securities?.stocks?.items || []) {
     const p = priceMap.get(s.name)
@@ -27,14 +42,14 @@ function calcMarketTotal(decl: any, priceMap: Map<string, number>): number {
 function loadPriceMap(): Map<string, number> {
   const map = new Map<string, number>()
   try {
-    const entries: any[] = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'STOCK_DAY_ALL.json'), 'utf-8'))
+    const entries = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'STOCK_DAY_ALL.json'), 'utf-8')) as TwsePriceRow[]
     for (const e of entries) {
       const p = parseFloat(e.ClosingPrice)
       if (p && !isNaN(p)) map.set(e.Name, p)
     }
   } catch {}
   try {
-    const entries: any[] = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'tpex_mainboard_quotes.json'), 'utf-8'))
+    const entries = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'tpex_mainboard_quotes.json'), 'utf-8')) as TpexPriceRow[]
     for (const e of entries) {
       if (map.has(e.CompanyName)) continue
       const p = parseFloat(e.Close)
@@ -42,7 +57,7 @@ function loadPriceMap(): Map<string, number> {
     }
   } catch {}
   try {
-    const entries: any[] = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'tpex_esb_latest_statistics.json'), 'utf-8'))
+    const entries = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'tpex_esb_latest_statistics.json'), 'utf-8')) as EsbPriceRow[]
     for (const e of entries) {
       if (map.has(e.CompanyName)) continue
       const p = parseFloat(e.LatestPrice)
@@ -73,7 +88,7 @@ function generateSiteSvg(): string {
 
 function generateLegislatorSvg(name: string, party: string, amount: number, avatarPath: string): string {
   const amountText = amount > 0 ? `NT$ ${formatNTD(amount)}` : '未持有股票'
-  const stockLabel = amount > 0 ? '股票及基金市值' : ''
+  const stockLabel = amount > 0 ? '股票及基金市值，以台股最新收盤價計算' : ''
 
   const partyColors: Record<string, string> = {
     '中國國民黨': '#1a5ccc',

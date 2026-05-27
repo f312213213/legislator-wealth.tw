@@ -40,7 +40,7 @@ interface LegislatorValueData {
 
 const valueConfig = {
   totalNTD: {
-    label: '股票及基金市值',
+    label: '股票及基金市值，以台股最新收盤價計算',
     color: 'oklch(0.45 0 0)',
   },
 } satisfies ChartConfig

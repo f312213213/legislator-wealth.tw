@@ -120,7 +120,7 @@ function StocksTab({ holdings }: { holdings: HoldingRow[] }) {
   return (
     <div className="space-y-2">
       <p className="text-sm">
-        股票及基金市值：<span className="font-semibold tabular-nums"><CurrencyDisplay amount={marketTotal} /></span>
+        股票及基金市值，以台股最新收盤價計算：<span className="font-semibold tabular-nums"><CurrencyDisplay amount={marketTotal} /></span>
       </p>
       <div className="border">
         <Table>
