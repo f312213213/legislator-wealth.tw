@@ -3,6 +3,7 @@ import { Noto_Sans_TC, Noto_Serif_TC } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { SiteHeader } from "@/components/site-header"
+import { SiteFooter } from "@/components/site-footer"
 import { cn } from "@/lib/utils"
 import type { Metadata } from "next"
 
@@ -72,6 +73,7 @@ export default function RootLayout({
           <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6 fade-up">
             {children}
           </main>
+          <SiteFooter />
         </ThemeProvider>
       </body>
     </html>

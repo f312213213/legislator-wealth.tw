@@ -228,13 +228,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t pt-6 pb-10 text-xs text-muted-foreground space-y-1">
-        <p>立委持股公開平台 — 資料來源為監察院公報，本站非官方網站。</p>
-        <p>
-          <a href="https://github.com/f312213213/legislator-wealth.tw" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground">GitHub</a>
-        </p>
-      </footer>
     </div>
   )
 }
