@@ -63,7 +63,7 @@ export default function HomePage() {
   )
 
   // Compute party breakdown for top stocks
-  const topStocks = aggregatedStocks.slice(0, 10).map((s) => {
+  const topStocks = aggregatedStocks.slice(0, 100).map((s) => {
     const partyCounts: Record<string, number> = {}
     const uniqueLegislators = new Set<string>()
     for (const h of s.holders) {
@@ -79,6 +79,8 @@ export default function HomePage() {
     name: s.name,
     holderCount: s.holderCount,
     partyCounts: s.partyCounts,
+    totalShares: s.totalShares,
+    marketValue: s.totalNTD,
   }))
   const hero = ranked[0]
   const heroMeta = hero ? getLegislatorMeta(hero.name) : null
@@ -248,7 +250,7 @@ export default function HomePage() {
       {/* Popular stocks */}
       <section className="space-y-3">
         <div className="flex items-baseline justify-between">
-          <h2 className="text-lg font-bold">最多立委持有的股票</h2>
+          <h2 className="text-lg font-bold">立委持股排行</h2>
           <Link
             href="/legislator/stocks"
             className="text-sm text-muted-foreground transition-colors hover:text-foreground"

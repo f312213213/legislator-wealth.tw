@@ -938,10 +938,11 @@ export function getAggregatedStocks(): AggregatedStock[] {
       shares: h.shares,
       ntdTotal: h.ntdTotal,
     }
+    const effectiveValue = h.marketValue ?? h.ntdTotal
     if (existing) {
       existing.holders.push(holder)
       existing.totalShares += h.shares
-      existing.totalNTD += h.ntdTotal
+      existing.totalNTD += effectiveValue
       existing.holderCount = new Set(
         existing.holders.map((x) => x.legislator)
       ).size
@@ -950,7 +951,7 @@ export function getAggregatedStocks(): AggregatedStock[] {
         name: h.name,
         holders: [holder],
         totalShares: h.shares,
-        totalNTD: h.ntdTotal,
+        totalNTD: effectiveValue,
         holderCount: 1,
       })
     }

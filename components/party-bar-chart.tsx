@@ -12,15 +12,68 @@ const PARTY_HEX: Record<string, string> = {
 export interface StockBarData {
   name: string
   holderCount: number
+  totalShares: number
+  marketValue: number
   partyCounts: Record<string, number>
 }
 
+type SortKey = 'holderCount' | 'totalShares' | 'marketValue'
+
+const SORT_OPTIONS: { key: SortKey; label: string }[] = [
+  { key: 'holderCount', label: '持有人數' },
+  { key: 'totalShares', label: '持股張數' },
+  { key: 'marketValue', label: '持有市值' },
+]
+
+const TOP_N_OPTIONS = [10, 50, 100]
+
+function formatMetric(s: StockBarData, key: SortKey): string {
+  if (key === 'holderCount') return `${s.holderCount} 人`
+  if (key === 'totalShares') return `${(s.totalShares / 1000).toLocaleString('zh-TW', { maximumFractionDigits: 0 })} 張`
+  const val = s.marketValue
+  if (val >= 100_000_000) return `${(val / 100_000_000).toFixed(1)} 億`
+  if (val >= 10_000) return `${Math.round(val / 10_000).toLocaleString('zh-TW')} 萬`
+  return `${val.toLocaleString('zh-TW')}`
+}
+
 export function PartyBarChart({ stocks }: { stocks: StockBarData[] }) {
-  const maxCount = stocks[0]?.holderCount || 1
+  const [sortKey, setSortKey] = useState<SortKey>('holderCount')
+  const [topN, setTopN] = useState(10)
   const [tooltip, setTooltip] = useState<{ color: string; x: number; y: number; stockName: string; party: string; count: number; total: number } | null>(null)
 
+  const sorted = [...stocks].sort((a, b) => b[sortKey] - a[sortKey]).slice(0, topN)
+  const maxValue = sorted[0]?.[sortKey] || 1
+
   return (
-    <div className="relative space-y-1">
+    <div className="relative space-y-3">
+      {/* Sort toggle + topN selector */}
+      <div className="flex items-center gap-2 flex-wrap">
+        <div className="flex gap-1">
+          {SORT_OPTIONS.map(o => (
+            <button
+              key={o.key}
+              onClick={() => setSortKey(o.key)}
+              className={`px-3 py-1 text-xs rounded-full border transition-colors ${
+                sortKey === o.key
+                  ? 'bg-foreground text-background border-foreground'
+                  : 'border-border text-muted-foreground hover:border-foreground'
+              }`}
+            >
+              {o.label}
+            </button>
+          ))}
+        </div>
+        <select
+          value={topN}
+          onChange={e => setTopN(Number(e.target.value))}
+          className="ml-auto text-xs border border-border rounded px-2 py-1 bg-background text-foreground"
+        >
+          {TOP_N_OPTIONS.map(n => (
+            <option key={n} value={n}>前 {n}</option>
+          ))}
+        </select>
+      </div>
+
       {/* Tooltip — fixed position, animated */}
       <div
         className="fixed z-50 pointer-events-none transition-opacity duration-100"
@@ -38,8 +91,8 @@ export function PartyBarChart({ stocks }: { stocks: StockBarData[] }) {
         )}
       </div>
 
-      {stocks.map(s => {
-        const pct = (s.holderCount / maxCount) * 100
+      {sorted.map(s => {
+        const pct = (s[sortKey] / maxValue) * 100
         const total = s.holderCount
         const parties = Object.entries(s.partyCounts).sort((a, b) => b[1] - a[1])
         return (
@@ -77,7 +130,7 @@ export function PartyBarChart({ stocks }: { stocks: StockBarData[] }) {
                 })}
               </div>
             </div>
-            <span className="w-14 text-right text-sm font-medium tabular-nums">{s.holderCount} 人</span>
+            <span className="w-20 text-right text-sm font-medium tabular-nums">{formatMetric(s, sortKey)}</span>
           </div>
         )
       })}
