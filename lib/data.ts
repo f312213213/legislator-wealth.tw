@@ -96,6 +96,14 @@ export function getIndex(): LegislatorIndex {
   return JSON.parse(raw)
 }
 
+export function getLatestDeclarationDate(): string {
+  const index = getIndex()
+  return index.legislators.reduce((latest, leg) => {
+    if (!leg.latestDeclarationDate) return latest
+    return leg.latestDeclarationDate > latest ? leg.latestDeclarationDate : latest
+  }, '')
+}
+
 export function getDocument(filename: string): LegislatorDocument {
   const raw = fs.readFileSync(path.join(DATA_DIR, 'legislators', filename), 'utf-8')
   return JSON.parse(raw)

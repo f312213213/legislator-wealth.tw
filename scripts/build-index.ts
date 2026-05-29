@@ -5,12 +5,23 @@ import type { LegislatorDocument, LegislatorIndex } from '../lib/types'
 
 const DATA_DIR = path.join(process.cwd(), 'data')
 const LEGISLATORS_DIR = path.join(DATA_DIR, 'legislators')
+const META_PATH = path.join(DATA_DIR, 'legislators-meta.json')
 
 function toSlug(name: string): string {
   // Convert Chinese name to pinyin, lowercase, hyphenated
   const py = pinyin(name, { toneType: 'none', separator: '-' }).toLowerCase()
   // Clean up: only keep alphanumeric and hyphens
   return py.replace(/[^a-z0-9-]/g, '').replace(/-+/g, '-')
+}
+
+function loadCurrentLegislatorNames(): Set<string> | null {
+  try {
+    const raw = fs.readFileSync(META_PATH, 'utf-8')
+    return new Set(Object.keys(JSON.parse(raw)))
+  } catch {
+    console.warn(`Warning: ${path.relative(process.cwd(), META_PATH)} not found; index will include all parsed legislators`)
+    return null
+  }
 }
 
 function main() {
@@ -34,10 +45,19 @@ function main() {
     declarations: string[]
     changes: string[]
   }>()
+  const currentLegislatorNames = loadCurrentLegislatorNames()
+  const skippedNames = new Set<string>()
+  let skippedFileCount = 0
 
   for (const file of files) {
     const raw = fs.readFileSync(path.join(LEGISLATORS_DIR, file), 'utf-8')
     const doc: LegislatorDocument = JSON.parse(raw)
+
+    if (currentLegislatorNames && !currentLegislatorNames.has(doc.name)) {
+      skippedNames.add(doc.name)
+      skippedFileCount++
+      continue
+    }
 
     const existing = legislatorMap.get(doc.name)
     if (existing) {
@@ -100,6 +120,9 @@ function main() {
   )
 
   console.log(`Index built: ${index.legislators.length} legislators from ${files.length} files (${index.legislators.reduce((s, l) => s + l.declarations.length, 0)} declarations, ${index.legislators.reduce((s, l) => s + l.changes.length, 0)} changes)`)
+  if (skippedFileCount > 0) {
+    console.log(`Skipped ${skippedFileCount} file(s) for ${skippedNames.size} non-current legislator(s): ${Array.from(skippedNames).sort((a, b) => a.localeCompare(b, 'zh-TW')).join(', ')}`)
+  }
 }
 
 main()
