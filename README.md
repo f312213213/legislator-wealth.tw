@@ -2,9 +2,20 @@
 
 A transparency platform showing stock and fund holdings declared by Taiwan's 11th Legislative Yuan members.
 
-Data sourced from [Control Yuan Gazette](https://www.cy.gov.tw/). Market values estimated using TWSE/TPEx closing prices.
+Declaration data is sourced from the Control Yuan public official property declaration system. Market values are estimated using TWSE/TPEx closing prices.
 
 **Live site: [legislator-wealth.tw](https://legislator-wealth.tw)**
+
+## Data Sources
+
+| Dataset | Source |
+|---|---|
+| Legislator property declarations | [Control Yuan Public Official Property Declaration Search](https://priso.cy.gov.tw/layout/baselist) |
+| Source PDFs | Control Yuan declaration/gazette PDFs stored in `raw-pdfs/` |
+| Current legislator names, parties, and photos | Legislative Yuan legislator list, fetched by `scripts/fetch-legislators.ts` |
+| Listed and OTC stock prices | TWSE, TPEx, and ESB quote feeds, fetched by `scripts/fetch-stock-prices.ts` |
+
+The Control Yuan declaration search is the canonical source for public official property declarations. This project parses the relevant declaration PDFs and only publishes derived stock/fund holdings and transaction records.
 
 ## Data Scope
 
