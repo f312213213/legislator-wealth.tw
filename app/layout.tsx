@@ -4,6 +4,8 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
+import { CurrencyFormatProvider } from "@/components/currency-format-provider"
+import { DisplayOptionsBar } from "@/components/display-options-bar"
 import { cn } from "@/lib/utils"
 import type { Metadata } from "next"
 
@@ -69,11 +71,14 @@ export default function RootLayout({
     >
       <body>
         <ThemeProvider>
-          <SiteHeader />
-          <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6 fade-up">
-            {children}
-          </main>
-          <SiteFooter />
+          <CurrencyFormatProvider>
+            <SiteHeader />
+            <DisplayOptionsBar />
+            <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6 fade-up">
+              {children}
+            </main>
+            <SiteFooter />
+          </CurrencyFormatProvider>
         </ThemeProvider>
       </body>
     </html>
