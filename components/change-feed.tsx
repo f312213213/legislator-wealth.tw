@@ -17,7 +17,17 @@ import { formatDate } from '@/lib/format'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import type { FlatChange } from '@/lib/data'
 
-export function ChangeFeed({ changes, slugMap }: { changes: FlatChange[]; slugMap?: Record<string, string> }) {
+export function ChangeFeed({
+  changes,
+  slugMap,
+  hrefMap,
+  personLabel = '立委',
+}: {
+  changes: FlatChange[]
+  slugMap?: Record<string, string>
+  hrefMap?: Record<string, string>
+  personLabel?: string
+}) {
   const [search, setSearch] = useState('')
   const [reasonFilter, setReasonFilter] = useState('全部原因')
 
@@ -49,7 +59,7 @@ export function ChangeFeed({ changes, slugMap }: { changes: FlatChange[]; slugMa
           <SearchInput
             value={search}
             onChange={setSearch}
-            placeholder="輸入立委姓名或股票名稱..."
+            placeholder={`輸入${personLabel}姓名或股票名稱...`}
           />
         </div>
         <Select value={reasonFilter} onValueChange={v => setReasonFilter(v ?? '全部原因')}>
@@ -69,7 +79,7 @@ export function ChangeFeed({ changes, slugMap }: { changes: FlatChange[]; slugMa
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>立委</TableHead>
+              <TableHead>{personLabel}</TableHead>
               <TableHead>股票</TableHead>
               <TableHead>原因</TableHead>
               <TableHead>持有人</TableHead>
@@ -89,7 +99,7 @@ export function ChangeFeed({ changes, slugMap }: { changes: FlatChange[]; slugMa
                 <TableRow key={i}>
                   <TableCell>
                     <Link
-                      href={`/legislator/${slugMap?.[change.legislator] ?? encodeURIComponent(change.legislator)}`}
+                      href={hrefMap?.[change.legislator] ?? `/legislator/${slugMap?.[change.legislator] ?? encodeURIComponent(change.legislator)}`}
                       className="font-medium text-primary hover:underline"
                     >
                       {change.legislator}

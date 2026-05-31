@@ -25,7 +25,19 @@ const SOURCE_LABELS: Record<StockSource, { label: string; variant: 'default' | '
 type SortKey = 'name' | 'legislator' | 'shares' | 'ntdTotal' | 'marketValue'
 type SortDir = 'asc' | 'desc'
 
-export function StockTable({ rows, slugMap }: { rows: StockHolding[]; slugMap?: Record<string, string> }) {
+export function StockTable({
+  rows,
+  slugMap,
+  hrefMap,
+  personLabel = '立委',
+  searchPlaceholder,
+}: {
+  rows: StockHolding[]
+  slugMap?: Record<string, string>
+  hrefMap?: Record<string, string>
+  personLabel?: string
+  searchPlaceholder?: string
+}) {
   const [search, setSearch] = useState('')
   const [sortKey, setSortKey] = useState<SortKey>('ntdTotal')
   const [sortDir, setSortDir] = useState<SortDir>('desc')
@@ -80,7 +92,7 @@ export function StockTable({ rows, slugMap }: { rows: StockHolding[]; slugMap?: 
           <SearchInput
             value={search}
             onChange={setSearch}
-            placeholder="輸入股票名稱或立委姓名..."
+            placeholder={searchPlaceholder ?? `輸入股票名稱或${personLabel}姓名...`}
           />
         </div>
         <Select value={sourceFilter} onValueChange={v => setSourceFilter(v ?? '全部類型')}>
@@ -163,8 +175,13 @@ export function StockTable({ rows, slugMap }: { rows: StockHolding[]; slugMap?: 
                       </Badge>
                     </TableCell>
                     <TableCell>
-                      {slugMap?.[row.legislator] ? (
-                        <Link href={`/legislator/${slugMap[row.legislator]}`} className="hover:underline">{row.legislator}</Link>
+                      {hrefMap?.[row.legislator] || slugMap?.[row.legislator] ? (
+                        <Link
+                          href={hrefMap?.[row.legislator] ?? `/legislator/${slugMap![row.legislator]}`}
+                          className="hover:underline"
+                        >
+                          {row.legislator}
+                        </Link>
                       ) : row.legislator}
                     </TableCell>
                     <TableCell>{row.owner}</TableCell>

@@ -29,10 +29,12 @@ async function extractText(filePath: string): Promise<string> {
 const args = process.argv.slice(2)
 let inputDir = './raw-pdfs'
 let outputDir = './data/legislators'
+let optionalInput = false
 
 for (let i = 0; i < args.length; i++) {
   if (args[i] === '--input' && args[i + 1]) inputDir = args[i + 1]
   if (args[i] === '--output' && args[i + 1]) outputDir = args[i + 1]
+  if (args[i] === '--optional') optionalInput = true
 }
 
 function parseInteger(str: string): number {
@@ -236,12 +238,20 @@ function parseHeader(text: string): Partial<LegislatorDeclaration> {
   // "申報 人" can also be split in older PDFs
   const name = findHeaderName(text)
   if (name) result.name = name
-  const orgLine = text.match(/1\.\s*(立法院|[^\s]+院)/)
-  if (orgLine) result.organization = orgLine[1]
-  const titleLine = text.match(/1\.\s*立法院\s+1\.\s*(立法委員|[^\s]+)/)
-  if (titleLine) result.title = titleLine[1]
+  const orgTitleLine = text.match(/1\.\s*([^\s]+(?:院|議會|代表會|公所))\s+1\.\s*([^\s]+)/)
+  if (orgTitleLine) {
+    result.organization = orgTitleLine[1]
+    result.title = orgTitleLine[2]
+  }
+  if (!result.organization) {
+    const orgLine = text.match(/1\.\s*([^\s]+(?:院|議會|代表會|公所))/)
+    if (orgLine) result.organization = orgLine[1]
+  }
   if (!result.title) {
     if (text.match(/立法委員/)) result.title = '立法委員'
+    else if (text.match(/副議長/)) result.title = '副議長'
+    else if (text.match(/議長/)) result.title = '議長'
+    else if (text.match(/議員/)) result.title = '議員'
   }
   // Year/month/day may be split across PDF cells: "1 02 年 1 2 月 3 0 日"
   const declarationDate = findDeclarationDate(text)
@@ -846,9 +856,21 @@ function parseChangeHeader(text: string): Partial<ChangeDeclaration> {
   const result: Partial<ChangeDeclaration> = {}
   const name = findHeaderName(text)
   if (name) result.name = name
-  const orgLine = text.match(/1\.\s*(立法院|[^\s]+院)/)
-  if (orgLine) result.organization = orgLine[1]
-  if (text.match(/立法委員/)) result.title = '立法委員'
+  const orgTitleLine = text.match(/1\.\s*([^\s]+(?:院|議會|代表會|公所))\s+1\.\s*([^\s]+)/)
+  if (orgTitleLine) {
+    result.organization = orgTitleLine[1]
+    result.title = orgTitleLine[2]
+  }
+  if (!result.organization) {
+    const orgLine = text.match(/1\.\s*([^\s]+(?:院|議會|代表會|公所))/)
+    if (orgLine) result.organization = orgLine[1]
+  }
+  if (!result.title) {
+    if (text.match(/立法委員/)) result.title = '立法委員'
+    else if (text.match(/副議長/)) result.title = '副議長'
+    else if (text.match(/議長/)) result.title = '議長'
+    else if (text.match(/議員/)) result.title = '議員'
+  }
   // Year/month/day may be split across PDF cells
   const declarationDate = findDeclarationDate(text)
   if (declarationDate) result.declarationDate = declarationDate
@@ -1200,6 +1222,11 @@ function validateParsedDocument(doc: LegislatorDocument, source: string): void {
 
 async function main() {
   if (!fs.existsSync(inputDir)) {
+    if (optionalInput) {
+      fs.mkdirSync(outputDir, { recursive: true })
+      console.log(`Optional input directory not found: ${inputDir}`)
+      return
+    }
     console.error(`Input directory not found: ${inputDir}`)
     process.exit(1)
   }
@@ -1209,7 +1236,8 @@ async function main() {
       fs.unlinkSync(path.join(outputDir, f))
     }
   }
-  const indexPath = path.join(path.dirname(outputDir), 'index.json')
+  const indexName = path.basename(outputDir) === 'councilors' ? 'councilors-index.json' : 'index.json'
+  const indexPath = path.join(path.dirname(outputDir), indexName)
   if (fs.existsSync(indexPath)) fs.unlinkSync(indexPath)
 
   fs.mkdirSync(outputDir, { recursive: true })

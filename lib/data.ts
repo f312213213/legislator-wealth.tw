@@ -1,10 +1,28 @@
-import type { LegislatorDeclaration, ChangeDeclaration, LegislatorDocument, LegislatorIndex } from './types'
+import type {
+  LegislatorDeclaration,
+  ChangeDeclaration,
+  LegislatorDocument,
+  LegislatorIndex,
+  CouncilorIndex,
+  CouncilorMeta,
+  CouncilorMetaFile,
+  DeclarationIndexEntry,
+} from './types'
+import {
+  getCouncilorCitySlug,
+  getCouncilorCitySlugFromOrganization,
+  getCouncilorMemberSlug,
+} from './councilor-routes'
 import fs from 'fs'
 import path from 'path'
 
 export type StockSource = 'stock' | 'fund'
 
 const DATA_DIR = path.join(process.cwd(), 'data')
+const LEGISLATORS_DIR = path.join(DATA_DIR, 'legislators')
+const COUNCILORS_DIR = path.join(DATA_DIR, 'councilors')
+const COUNCILORS_INDEX_PATH = path.join(DATA_DIR, 'councilors-index.json')
+const COUNCILORS_META_PATH = path.join(DATA_DIR, 'councilors-meta.json')
 
 // Stock price lookup from TWSE daily data
 interface StockPrice { code: string; name: string; closingPrice: number }
@@ -176,6 +194,111 @@ export function getIndex(): LegislatorIndex {
   return JSON.parse(raw)
 }
 
+export function getCouncilorIndex(): CouncilorIndex {
+  try {
+    const raw = fs.readFileSync(COUNCILORS_INDEX_PATH, 'utf-8')
+    return JSON.parse(raw)
+  } catch {
+    return { councilors: [], lastUpdated: '' }
+  }
+}
+
+let _councilorMetaCache: CouncilorMetaFile | null = null
+
+function emptyCouncilorMetaFile(): CouncilorMetaFile {
+  return {
+    source: {
+      title: '內政部地方公職人員資訊專區',
+      url: 'https://www.moi.gov.tw/LocalOfficial.aspx?n=573&TYP=KND0001',
+      fetchedAt: '',
+      cities: [],
+    },
+    councilors: {},
+  }
+}
+
+function getCouncilorMetaFile(): CouncilorMetaFile {
+  if (_councilorMetaCache) return _councilorMetaCache
+  try {
+    const raw = fs.readFileSync(COUNCILORS_META_PATH, 'utf-8')
+    _councilorMetaCache = JSON.parse(raw)
+  } catch {
+    return emptyCouncilorMetaFile()
+  }
+  return _councilorMetaCache!
+}
+
+export function getAllCouncilorMeta(): CouncilorMeta[] {
+  return Object.values(getCouncilorMetaFile().councilors).sort((a, b) => {
+    const byCity = a.city.localeCompare(b.city, 'zh-TW')
+    if (byCity !== 0) return byCity
+    const titleRank = (title: string) => {
+      if (title === '議長') return 0
+      if (title === '副議長') return 1
+      if (title.includes('代理')) return 2
+      return 3
+    }
+    const byTitle = titleRank(a.title) - titleRank(b.title)
+    if (byTitle !== 0) return byTitle
+    return a.name.localeCompare(b.name, 'zh-TW')
+  })
+}
+
+export function getCouncilorMetaBySlug(slug: string): CouncilorMeta | null {
+  return getCouncilorMetaFile().councilors[slug] ?? null
+}
+
+export function getCouncilorMetaByCity(citySlug: string): CouncilorMeta[] {
+  return getAllCouncilorMeta().filter(meta => getCouncilorCitySlug(meta.city) === citySlug)
+}
+
+export function getCouncilorIndexEntryBySlug(slug: string): DeclarationIndexEntry | null {
+  return getCouncilorIndex().councilors.find(councilor => councilor.slug === slug) ?? null
+}
+
+export function getCouncilorIndexByCity(citySlug: string): DeclarationIndexEntry[] {
+  return getCouncilorIndex().councilors.filter(councilor =>
+    getCouncilorCitySlugFromOrganization(councilor.organization) === citySlug
+  )
+}
+
+export function getCouncilorMetaByCityAndMemberSlug(citySlug: string, memberSlug: string): CouncilorMeta | null {
+  return getAllCouncilorMeta().find(meta =>
+    getCouncilorCitySlug(meta.city) === citySlug &&
+    (meta.slug === memberSlug || getCouncilorMemberSlug(meta.slug, citySlug) === memberSlug)
+  ) ?? null
+}
+
+export function getCouncilorIndexEntryByCityAndMemberSlug(
+  citySlug: string,
+  memberSlug: string
+): DeclarationIndexEntry | null {
+  return getCouncilorIndex().councilors.find(councilor =>
+    getCouncilorCitySlugFromOrganization(councilor.organization) === citySlug &&
+    (councilor.slug === memberSlug || getCouncilorMemberSlug(councilor.slug, citySlug) === memberSlug)
+  ) ?? null
+}
+
+export function getCouncilorSlugByCityAndMemberSlug(citySlug: string, memberSlug: string): string {
+  const meta = getCouncilorMetaByCityAndMemberSlug(citySlug, memberSlug)
+  if (meta) return meta.slug
+
+  const entry = getCouncilorIndexEntryByCityAndMemberSlug(citySlug, memberSlug)
+  if (entry) return entry.slug
+
+  return memberSlug.startsWith(`${citySlug}-`) ? memberSlug : `${citySlug}-${memberSlug}`
+}
+
+export function getCouncilorMeta(name: string, organization?: string): CouncilorMeta | null {
+  return getAllCouncilorMeta().find(meta =>
+    meta.name === name && (!organization || meta.organization === organization)
+  ) ?? null
+}
+
+export function getCouncilorMetaSource(): CouncilorMetaFile['source'] {
+  return getCouncilorMetaFile().source
+}
+
 export function getLatestDeclarationDate(): string {
   const index = getIndex()
   return index.legislators.reduce((latest, leg) => {
@@ -185,7 +308,12 @@ export function getLatestDeclarationDate(): string {
 }
 
 export function getDocument(filename: string): LegislatorDocument {
-  const raw = fs.readFileSync(path.join(DATA_DIR, 'legislators', filename), 'utf-8')
+  const raw = fs.readFileSync(path.join(LEGISLATORS_DIR, filename), 'utf-8')
+  return JSON.parse(raw)
+}
+
+export function getCouncilorDocument(filename: string): LegislatorDocument {
+  const raw = fs.readFileSync(path.join(COUNCILORS_DIR, filename), 'utf-8')
   return JSON.parse(raw)
 }
 
@@ -193,11 +321,22 @@ export function getDeclaration(filename: string): LegislatorDeclaration {
   return getDocument(filename) as LegislatorDeclaration
 }
 
+export function getCouncilorDeclaration(filename: string): LegislatorDeclaration {
+  return getCouncilorDocument(filename) as LegislatorDeclaration
+}
+
 export function getAllDeclarations(): LegislatorDeclaration[] {
   const index = getIndex()
   return index.legislators
     .filter(leg => leg.declarations.length > 0)
     .map(leg => getDeclaration(leg.declarations[0]))
+}
+
+export function getAllCouncilorDeclarations(): LegislatorDeclaration[] {
+  const index = getCouncilorIndex()
+  return index.councilors
+    .filter(councilor => councilor.declarations.length > 0)
+    .map(councilor => getCouncilorDeclaration(councilor.declarations[0]))
 }
 
 export function getDeclarationByName(name: string): LegislatorDeclaration | null {
@@ -214,11 +353,25 @@ export function getDeclarationBySlug(slug: string): LegislatorDeclaration | null
   return getDeclaration(legislator.declarations[0])
 }
 
+export function getCouncilorDeclarationBySlug(slug: string): LegislatorDeclaration | null {
+  const index = getCouncilorIndex()
+  const councilor = index.councilors.find(c => c.slug === slug)
+  if (!councilor || councilor.declarations.length === 0) return null
+  return getCouncilorDeclaration(councilor.declarations[0])
+}
+
 export function getChangesBySlug(slug: string): ChangeDeclaration[] {
   const index = getIndex()
   const legislator = index.legislators.find(l => l.slug === slug)
   if (!legislator || !legislator.changes || legislator.changes.length === 0) return []
   return legislator.changes.map(f => getDocument(f) as ChangeDeclaration)
+}
+
+export function getCouncilorChangesBySlug(slug: string): ChangeDeclaration[] {
+  const index = getCouncilorIndex()
+  const councilor = index.councilors.find(c => c.slug === slug)
+  if (!councilor || !councilor.changes || councilor.changes.length === 0) return []
+  return councilor.changes.map(f => getCouncilorDocument(f) as ChangeDeclaration)
 }
 
 export function getChangesByName(name: string): ChangeDeclaration[] {
@@ -234,10 +387,25 @@ export function getSlugByName(name: string): string {
   return legislator?.slug || encodeURIComponent(name)
 }
 
+export function getCouncilorSlugByName(name: string, organization?: string): string {
+  const index = getCouncilorIndex()
+  const councilor = index.councilors.find(c =>
+    c.name === name && (!organization || c.organization === organization)
+  )
+  return councilor?.slug || encodeURIComponent(name)
+}
+
 export function getAllChanges(): ChangeDeclaration[] {
   const index = getIndex()
   return index.legislators.flatMap(leg =>
     (leg.changes || []).map(f => getDocument(f) as ChangeDeclaration)
+  )
+}
+
+export function getAllCouncilorChanges(): ChangeDeclaration[] {
+  const index = getCouncilorIndex()
+  return index.councilors.flatMap(councilor =>
+    (councilor.changes || []).map(f => getCouncilorDocument(f) as ChangeDeclaration)
   )
 }
 

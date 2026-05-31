@@ -67,15 +67,44 @@ export interface ChangeDeclaration {
 
 export type LegislatorDocument = LegislatorDeclaration | ChangeDeclaration
 
+export interface DeclarationIndexEntry {
+  name: string
+  slug: string
+  latestDeclarationDate: string
+  organization: string
+  title: string
+  declarations: string[]
+  changes: string[]
+}
+
 export interface LegislatorIndex {
-  legislators: {
-    name: string
-    slug: string
-    latestDeclarationDate: string
-    organization: string
-    title: string
-    declarations: string[]
-    changes: string[]
-  }[]
+  legislators: DeclarationIndexEntry[]
   lastUpdated: string
+}
+
+export interface CouncilorIndex {
+  councilors: DeclarationIndexEntry[]
+  lastUpdated: string
+}
+
+export interface CouncilorMeta {
+  name: string
+  slug: string
+  city: string
+  organization: string
+  title: string
+  party: string
+  avatar: string
+  detailUrl: string
+  sourceId: string
+}
+
+export interface CouncilorMetaFile {
+  source: {
+    title: string
+    url: string
+    fetchedAt: string
+    cities: string[]
+  }
+  councilors: Record<string, CouncilorMeta>
 }

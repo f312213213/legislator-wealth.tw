@@ -32,6 +32,10 @@ pnpm-debug.log*
 /data/legislators/
 /data/index.json
 /data/legislators-meta.json
+/data/councilor/
+/data/councilors/
+/data/councilors-index.json
+/data/councilors-meta.json
 /data/STOCK_DAY_ALL.json
 /data/tpex_mainboard_quotes.json
 /data/tpex_esb_latest_statistics.json
