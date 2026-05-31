@@ -10,8 +10,10 @@
 import fs from 'fs'
 import path from 'path'
 import { execSync } from 'child_process'
+import { lookupStockPrice } from '../lib/data'
 
 const TEST_OUTPUT_DIR = path.join(process.cwd(), '.test-parse-output')
+const TEST_INPUT_DIR = path.join(process.cwd(), '.test-parse-input')
 
 interface TestCase {
   pdf: string
@@ -378,6 +380,85 @@ const tests: TestCase[] = [
     },
   },
 
+  // --- 李柏毅 corrected PDF: spaced correction marker in date ---
+  {
+    pdf: 'A0302-00052.pdf',
+    description: '李柏毅 corrected asset: spaced ★ marker does not erase declaration date',
+    checks: (doc) => [
+      eq('name', '李柏毅', doc.name),
+      eq('declarationDate', '2025-11-01', doc.declarationDate),
+      eq('stocks.totalNTD', 921680, doc.securities.stocks.totalNTD),
+      eq('stock sum matches total', 921680, doc.securities.stocks.items.reduce((s: number, x: any) => s + x.ntdTotal, 0)),
+    ].filter(Boolean) as string[],
+  },
+
+  // --- 廖偉翔: stock row split name/owner after numeric line ---
+  {
+    pdf: 'A0299-00351.pdf',
+    description: '廖偉翔: split stock row with unlisted company name after numeric cells',
+    checks: (doc) => {
+      const e: (string | null)[] = [
+        eq('name', '廖偉翔', doc.name),
+        eq('stocks.totalNTD', 2294680, doc.securities.stocks.totalNTD),
+        eq('stocks.length', 2, doc.securities.stocks.items.length),
+      ]
+      const unlisted = doc.securities.stocks.items.find((s: any) => s.name.includes('創意能源股份有限公司'))
+      e.push(unlisted ? null : 'missing split stock: 創意能源股份有限公司')
+      if (unlisted) {
+        e.push(eq('創意能源.owner', '廖偉翔', unlisted.owner))
+        e.push(eq('創意能源.ntdTotal', 2293120, unlisted.ntdTotal))
+        e.push(eq('創意能源.marketPrice', null, lookupStockPrice(unlisted.name, 'stock')))
+      }
+      return e.filter(Boolean) as string[]
+    },
+  },
+
+  // --- 韓國瑜: multiline non-listed stocks and split fund units ---
+  {
+    pdf: 'A0299-00001.pdf',
+    description: '韓國瑜: multiline non-listed stocks and split fund unit number',
+    checks: (doc) => {
+      const e: (string | null)[] = [
+        eq('name', '韓國瑜', doc.name),
+        eq('stocks.totalNTD', 2307690, doc.securities.stocks.totalNTD),
+        eq('stocks.length', 2, doc.securities.stocks.items.length),
+        eq('funds.totalNTD', 4837710, doc.securities.funds.totalNTD),
+        eq('funds.length', 4, doc.securities.funds.items.length),
+      ]
+      const stockNames = doc.securities.stocks.items.map((s: any) => s.name)
+      e.push(includes('stocks', stockNames, '強普'))
+      e.push(includes('stocks', stockNames, '晶隼'))
+      const aaFund = doc.securities.funds.items.find((f: any) => f.name.includes('AA穩定月'))
+      e.push(aaFund ? null : 'missing split fund: 聯博 AA')
+      if (aaFund) {
+        e.push(eq('AA fund units', 1520.174, aaFund.units))
+        e.push(eq('AA fund marketPrice', null, lookupStockPrice(aaFund.name, 'fund')))
+      }
+      return e.filter(Boolean) as string[]
+    },
+  },
+
+  // --- 賴士葆: fund numeric row before name/owner ---
+  {
+    pdf: 'A0302-00403.pdf',
+    description: '賴士葆: fund row where numbers precede name/owner',
+    checks: (doc) => {
+      const e: (string | null)[] = [
+        eq('name', '賴士葆', doc.name),
+        eq('funds.totalNTD', 1281200, doc.securities.funds.totalNTD),
+        eq('funds.length', 1, doc.securities.funds.items.length),
+      ]
+      const fund = doc.securities.funds.items[0]
+      if (fund) {
+        e.push(eq('fund.name', '元大台灣50', fund.name))
+        e.push(eq('fund.owner', '林良娥', fund.owner))
+        e.push(eq('fund.ntdTotal', 1281200, fund.ntdTotal))
+        e.push(eq('fund.marketCode', '0050', lookupStockPrice(fund.name, 'fund')?.code))
+      }
+      return e.filter(Boolean) as string[]
+    },
+  },
+
   // ════════════════════════════════════════
   // CHANGE DECLARATIONS
   // ════════════════════════════════════════
@@ -547,6 +628,52 @@ const tests: TestCase[] = [
     },
   },
 
+  // --- 徐欣瑩 change: spaced correction markers + multiline reasons ---
+  {
+    pdf: 'A0302-00198.pdf',
+    description: '徐欣瑩 change: correction markers, multiline reasons, and broker split',
+    checks: (doc) => {
+      const e: (string | null)[] = [
+        eq('type', 'change', doc.type),
+        eq('name', '徐欣瑩', doc.name),
+        eq('declarationDate', '2025-11-01', doc.declarationDate),
+        eq('changePeriod.from', '2024-04-30', doc.changePeriod?.from),
+        eq('changePeriod.to', '2025-11-01', doc.changePeriod?.to),
+        eq('stocks.length', 15, doc.stocks?.length || 0),
+      ]
+      const badNames = (doc.stocks || []).filter((s: any) => s.name === '1' || /★/.test(s.name + s.broker))
+      e.push(eq('no correction artifacts', 0, badNames.length))
+      const splitReason = doc.stocks?.find((s: any) => s.name === '國巨舊' && s.changeReason === '變更面額轉入(存)')
+      e.push(splitReason ? null : 'missing 國巨舊 變更面額轉入(存)')
+      const buy = doc.stocks?.find((s: any) => s.name === '國巨' && s.broker === '臺銀-新竹' && s.changeReason === '買')
+      e.push(buy ? null : 'missing 國巨 buy with broker 臺銀-新竹')
+      return e.filter(Boolean) as string[]
+    },
+  },
+
+  // --- 楊瓊瓔 special header layout ---
+  {
+    pdf: 'A0302-00372.pdf',
+    description: '楊瓊瓔 asset: name/date/type appear above header labels',
+    checks: (doc) => [
+      eq('name', '楊瓊瓔', doc.name),
+      eq('declarationDate', '2025-11-01', doc.declarationDate),
+      eq('declarationType', '定期申報', doc.declarationType),
+    ].filter(Boolean) as string[],
+  },
+
+  {
+    pdf: 'A0302-00376.pdf',
+    description: '楊瓊瓔 change: name/date appear above header labels',
+    checks: (doc) => [
+      eq('type', 'change', doc.type),
+      eq('name', '楊瓊瓔', doc.name),
+      eq('declarationDate', '2025-11-01', doc.declarationDate),
+      eq('changePeriod.from', '2024-11-01', doc.changePeriod?.from),
+      eq('changePeriod.to', '2025-11-01', doc.changePeriod?.to),
+    ].filter(Boolean) as string[],
+  },
+
   // ════════════════════════════════════════
   // MULTI-DECLARATION PDFs (Bug 2)
   // ════════════════════════════════════════
@@ -622,10 +749,28 @@ async function main() {
 
   console.log('Parsing test PDFs...')
   if (fs.existsSync(TEST_OUTPUT_DIR)) fs.rmSync(TEST_OUTPUT_DIR, { recursive: true })
+  if (fs.existsSync(TEST_INPUT_DIR)) fs.rmSync(TEST_INPUT_DIR, { recursive: true })
   fs.mkdirSync(TEST_OUTPUT_DIR, { recursive: true })
+  fs.mkdirSync(TEST_INPUT_DIR, { recursive: true })
+
+  const rawPdfDir = path.join(process.cwd(), 'raw-pdfs')
+  const inputPdfs = new Set([
+    ...fs.readdirSync(testPdfDir).filter(f => f.endsWith('.pdf')),
+    ...tests.map(t => t.pdf),
+  ])
+  for (const pdf of inputPdfs) {
+    const testPath = path.join(testPdfDir, pdf)
+    const rawPath = path.join(rawPdfDir, pdf)
+    const sourcePath = fs.existsSync(testPath) ? testPath : rawPath
+    if (!fs.existsSync(sourcePath)) {
+      console.error(`Missing test PDF: ${pdf}`)
+      process.exit(1)
+    }
+    fs.symlinkSync(sourcePath, path.join(TEST_INPUT_DIR, pdf))
+  }
 
   try {
-    execSync(`npx tsx scripts/parse-pdf.ts --input ./test-pdfs --output ${TEST_OUTPUT_DIR}`, { stdio: 'pipe' })
+    execSync(`npx tsx scripts/parse-pdf.ts --input ${TEST_INPUT_DIR} --output ${TEST_OUTPUT_DIR}`, { stdio: 'pipe' })
   } catch (e: any) {
     console.error('Parse failed:', e.stderr?.toString() || e.message)
     process.exit(1)
@@ -672,6 +817,7 @@ async function main() {
   }
 
   fs.rmSync(TEST_OUTPUT_DIR, { recursive: true })
+  fs.rmSync(TEST_INPUT_DIR, { recursive: true })
 
   console.log(`\n${passed} passed, ${failed} failed, ${skipped} skipped (${tests.length} tests)`)
   if (failed > 0) process.exit(1)

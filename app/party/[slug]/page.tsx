@@ -1,4 +1,4 @@
-import { getAllDeclarations, getLegislatorMeta, lookupStockPrice, getSlugByName, PARTY_SLUG_MAP, PARTY_NAME_TO_SLUG } from '@/lib/data'
+import { getAllDeclarations, getLegislatorMeta, lookupStockPrice, getSlugByName, PARTY_SLUG_MAP } from '@/lib/data'
 import { CurrencyDisplay } from '@/components/currency-display'
 import { JsonLd } from '@/components/json-ld'
 import { formatNTD } from '@/lib/format'
@@ -33,11 +33,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 function calcMarketTotal(data: LegislatorDeclaration): number {
   let total = 0
   for (const s of data.securities.stocks.items) {
-    const p = lookupStockPrice(s.name)
+    const p = lookupStockPrice(s.name, 'stock')
     total += p ? Math.round(s.shares * p.price) : s.ntdTotal
   }
   for (const f of data.securities.funds.items) {
-    const p = lookupStockPrice(f.name)
+    const p = lookupStockPrice(f.name, 'fund')
     total += p ? Math.round(f.units * p.price) : f.ntdTotal
   }
   return total

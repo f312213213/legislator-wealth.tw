@@ -11,11 +11,11 @@ import type { LegislatorDeclaration } from '@/lib/types'
 function calcMarketTotal(decl: LegislatorDeclaration): number {
   let total = 0
   for (const s of decl.securities.stocks.items) {
-    const p = lookupStockPrice(s.name)
+    const p = lookupStockPrice(s.name, 'stock')
     total += p ? Math.round(s.shares * p.price) : s.ntdTotal
   }
   for (const f of decl.securities.funds.items) {
-    const p = lookupStockPrice(f.name)
+    const p = lookupStockPrice(f.name, 'fund')
     total += p ? Math.round(f.units * p.price) : f.ntdTotal
   }
   return total

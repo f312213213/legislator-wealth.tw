@@ -2,6 +2,8 @@ import type { LegislatorDeclaration, ChangeDeclaration, LegislatorDocument, Legi
 import fs from 'fs'
 import path from 'path'
 
+export type StockSource = 'stock' | 'fund'
+
 const DATA_DIR = path.join(process.cwd(), 'data')
 
 // Stock price lookup from TWSE daily data
@@ -47,47 +49,125 @@ function getStockPrices(): Map<string, StockPrice> {
 }
 
 let _strippedCache: Map<string, StockPrice> | null = null
+let _normalizedCache: Map<string, StockPrice> | null = null
 
 function normalizeStockName(name: string): string {
-  return name.replace(/[＊*]/g, '').replace(/\s*-\s*KY.*$/, '').trim()
+  return name
+    .replace(/[＊*]/g, '')
+    .replace(/[－–—]/g, '-')
+    .replace(/\s*-\s*K\s*Y.*$/i, '')
+    .replace(/\s*-\s*KY.*$/i, '')
+    .replace(/\s+/g, '')
+    .trim()
 }
 
-function findUniqueContainedName(prices: Map<string, StockPrice>, cleaned: string): StockPrice | null {
+function getNormalizedPriceCache(prices: Map<string, StockPrice>): Map<string, StockPrice> {
+  if (_normalizedCache) return _normalizedCache
+  _normalizedCache = new Map()
+  for (const [name, price] of prices) {
+    const normalized = normalizeStockName(name)
+    if (normalized && !_normalizedCache.has(normalized)) {
+      _normalizedCache.set(normalized, price)
+    }
+  }
+  return _normalizedCache
+}
+
+function lookupExactOrNormalized(prices: Map<string, StockPrice>, name: string): StockPrice | null {
+  const exact = prices.get(name)
+  if (exact) return exact
+
+  const normalized = normalizeStockName(name)
+  return getNormalizedPriceCache(prices).get(normalized) ?? null
+}
+
+function hasUnlistedMarker(name: string): boolean {
+  return /未上市|非上市|未上櫃|非上櫃|未公開發行|非公開發行/.test(name)
+}
+
+function stripDeclarationDecorations(name: string): string {
+  return name
+    .replace(/新臺幣總額或折合新臺幣/g, '')
+    .replace(/[「『]?交付[^」』\s]*信託[」』]?/g, '')
+    .replace(/^\s*(?:上市|上櫃|興櫃|公開發行)股票?\s*[/／]\s*/g, '')
+    .trim()
+}
+
+function stockNameCandidates(name: string): string[] {
+  const base = stripDeclarationDecorations(name)
+  const candidates = [
+    base,
+    base.replace(/金融控股股份有限公司$/, '金'),
+    base.replace(/工程$/, ''),
+    base.replace(/輪胎$/, ''),
+    base.replace(/海運$/, ''),
+    base.replace(/航運$/, ''),
+    base.replace(/證券$/, '證'),
+    base.replace(/科技股份有限公司$/, ''),
+    base.replace(/科技$/, ''),
+    base.replace(/股份有限公司$/, ''),
+    base.replace(/有限公司$/, ''),
+  ]
+
+  return [...new Set(candidates.map(s => s.trim()).filter(Boolean))]
+}
+
+function isMarketFund(price: StockPrice): boolean {
+  return /^0/.test(price.code)
+}
+
+function findUniqueContainedFundName(prices: Map<string, StockPrice>, cleaned: string): StockPrice | null {
   if (cleaned.length < 3) return null
 
-  let match: StockPrice | null = null
+  const matches: { price: StockPrice; sourceName: string }[] = []
   for (const [name, price] of prices) {
+    if (!isMarketFund(price)) continue
     const sourceName = normalizeStockName(name)
+    if (sourceName.length < 4) continue
     if (!sourceName.includes(cleaned) && !cleaned.includes(sourceName)) continue
-    if (match) return null
-    match = price
+    matches.push({ price, sourceName })
   }
 
-  return match
+  matches.sort((a, b) => b.sourceName.length - a.sourceName.length)
+  if (matches.length === 0) return null
+  if (matches.length > 1 && matches[0].sourceName.length === matches[1].sourceName.length) return null
+  return matches[0].price
 }
 
-export function lookupStockPrice(name: string): { code: string; price: number } | null {
+export function lookupStockPrice(name: string, source: StockSource = 'stock'): { code: string; price: number } | null {
+  if (hasUnlistedMarker(name)) return null
+
   const prices = getStockPrices()
-  const exact = prices.get(name)
-  if (exact) return { code: exact.code, price: exact.closingPrice }
+  const exact = lookupExactOrNormalized(prices, name)
+  if (exact && (source === 'stock' || isMarketFund(exact))) {
+    return { code: exact.code, price: exact.closingPrice }
+  }
+
   // Try fuzzy: strip suffixes like ＊, *, -KY from input
   const cleaned = normalizeStockName(name)
-  if (cleaned !== name) {
-    const found = prices.get(cleaned)
-    if (found) return { code: found.code, price: found.closingPrice }
-  }
   // Build reverse lookup: source names stripped of * too
   if (!_strippedCache) {
     _strippedCache = new Map()
     for (const [k, v] of prices) {
-      const sk = k.replace(/[＊*]/g, '').replace(/\s*-\s*KY.*$/, '').trim()
+      const sk = normalizeStockName(k)
       if (sk !== k && !_strippedCache.has(sk)) _strippedCache.set(sk, v)
     }
   }
   const fromStripped = _strippedCache.get(cleaned)
-  if (fromStripped) return { code: fromStripped.code, price: fromStripped.closingPrice }
-  const contained = findUniqueContainedName(prices, cleaned)
-  if (contained) return { code: contained.code, price: contained.closingPrice }
+  if (fromStripped && (source === 'stock' || isMarketFund(fromStripped))) {
+    return { code: fromStripped.code, price: fromStripped.closingPrice }
+  }
+
+  if (source === 'stock') {
+    for (const candidate of stockNameCandidates(name)) {
+      const found = lookupExactOrNormalized(prices, candidate)
+      if (found) return { code: found.code, price: found.closingPrice }
+    }
+  } else {
+    const contained = findUniqueContainedFundName(prices, normalizeStockName(stripDeclarationDecorations(name)))
+    if (contained) return { code: contained.code, price: contained.closingPrice }
+  }
+
   return null
 }
 
@@ -161,8 +241,6 @@ export function getAllChanges(): ChangeDeclaration[] {
   )
 }
 
-export type StockSource = 'stock' | 'fund'
-
 export interface StockHolding {
   name: string
   owner: string
@@ -183,7 +261,7 @@ export function getAllStockHoldings(): StockHolding[] {
 
   for (const decl of declarations) {
     for (const s of decl.securities.stocks.items) {
-      const priceInfo = lookupStockPrice(s.name)
+      const priceInfo = lookupStockPrice(s.name, 'stock')
       holdings.push({
         name: s.name,
         owner: s.owner,
@@ -199,7 +277,7 @@ export function getAllStockHoldings(): StockHolding[] {
       })
     }
     for (const f of decl.securities.funds.items) {
-      const priceInfo = lookupStockPrice(f.name)
+      const priceInfo = lookupStockPrice(f.name, 'fund')
       holdings.push({
         name: f.name,
         owner: f.owner,

@@ -57,11 +57,11 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
 function calcMarketTotal(data: LegislatorDeclaration): number {
   let total = 0
   for (const s of data.securities.stocks.items) {
-    const p = lookupStockPrice(s.name)
+    const p = lookupStockPrice(s.name, 'stock')
     total += p ? Math.round(s.shares * p.price) : s.ntdTotal
   }
   for (const f of data.securities.funds.items) {
-    const p = lookupStockPrice(f.name)
+    const p = lookupStockPrice(f.name, 'fund')
     total += p ? Math.round(f.units * p.price) : f.ntdTotal
   }
   return total
@@ -70,14 +70,14 @@ function calcMarketTotal(data: LegislatorDeclaration): number {
 function getTopHolding(data: LegislatorDeclaration): { name: string; code?: string; value: number } | null {
   let top: { name: string; code?: string; value: number } | null = null
   for (const s of data.securities.stocks.items) {
-    const p = lookupStockPrice(s.name)
+    const p = lookupStockPrice(s.name, 'stock')
     const value = p ? Math.round(s.shares * p.price) : s.ntdTotal
     if (!top || value > top.value) {
       top = { name: s.name, code: p?.code, value }
     }
   }
   for (const f of data.securities.funds.items) {
-    const p = lookupStockPrice(f.name)
+    const p = lookupStockPrice(f.name, 'fund')
     const value = p ? Math.round(f.units * p.price) : f.ntdTotal
     if (!top || value > top.value) {
       top = { name: f.name, code: p?.code, value }
@@ -89,7 +89,7 @@ function getTopHolding(data: LegislatorDeclaration): { name: string; code?: stri
 function buildHoldings(data: LegislatorDeclaration): HoldingRow[] {
   const rows: HoldingRow[] = []
   for (const s of data.securities.stocks.items) {
-    const p = lookupStockPrice(s.name)
+    const p = lookupStockPrice(s.name, 'stock')
     rows.push({
       name: s.name,
       owner: s.owner,
@@ -102,7 +102,7 @@ function buildHoldings(data: LegislatorDeclaration): HoldingRow[] {
     })
   }
   for (const f of data.securities.funds.items) {
-    const p = lookupStockPrice(f.name)
+    const p = lookupStockPrice(f.name, 'fund')
     rows.push({
       name: f.name,
       owner: f.owner,
