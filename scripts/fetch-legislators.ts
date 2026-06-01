@@ -1,16 +1,17 @@
-import fs from 'fs'
-import path from 'path'
+import fs from "fs"
+import path from "path"
+import { ensureOptimizedAvatar, saveOptimizedAvatar } from "./avatar-image"
 
-const BASE_URL = 'https://www.ly.gov.tw'
+const BASE_URL = "https://www.ly.gov.tw"
 const LIST_URL = `${BASE_URL}/Pages/List.aspx?nodeid=109`
-const AVATAR_DIR = path.join(process.cwd(), 'public', 'avatars')
-const OUTPUT_PATH = path.join(process.cwd(), 'data', 'legislators-meta.json')
+const AVATAR_DIR = path.join(process.cwd(), "public", "avatars")
+const OUTPUT_PATH = path.join(process.cwd(), "data", "legislators-meta.json")
 
 const PARTY_MAP: Record<string, string> = {
-  '中國國民黨徽章': '中國國民黨',
-  '民主進步黨徽章': '民主進步黨',
-  '台灣民眾黨徽章': '台灣民眾黨',
-  '無徽章': '無黨籍',
+  中國國民黨徽章: "中國國民黨",
+  民主進步黨徽章: "民主進步黨",
+  台灣民眾黨徽章: "台灣民眾黨",
+  無徽章: "無黨籍",
 }
 
 interface LegislatorMeta {
@@ -24,30 +25,31 @@ function extractChineseName(fullName: string): string | null {
   return match ? match[0] : null
 }
 
-async function downloadImage(url: string, dest: string): Promise<void> {
+async function downloadImage(url: string, dest: string): Promise<boolean> {
   const res = await fetch(url)
   if (!res.ok) {
     console.warn(`  Failed to download ${url}: ${res.status}`)
-    return
+    return ensureOptimizedAvatar(dest)
   }
   const buffer = Buffer.from(await res.arrayBuffer())
-  fs.writeFileSync(dest, buffer)
+  return saveOptimizedAvatar(buffer, dest, url)
 }
 
 async function main() {
-  console.log('Fetching legislator list...')
+  console.log("Fetching legislator list...")
   const res = await fetch(LIST_URL)
   if (!res.ok) throw new Error(`Failed to fetch: ${res.status}`)
   const html = await res.text()
 
   // Only parse current legislators — cut off at the "離職" section
-  const resignedIdx = html.indexOf('離職')
+  const resignedIdx = html.indexOf("離職")
   const activeHtml = resignedIdx > 0 ? html.slice(0, resignedIdx) : html
 
   // Parse legislators from HTML
   const legislators: { name: string; party: string; avatarUrl: string }[] = []
 
-  const avatarRegex = /<img[^>]+src="(\/Images\/Legislators\/\d+\.jpg)"[^>]+alt="([^"]+)"/g
+  const avatarRegex =
+    /<img[^>]+src="(\/Images\/Legislators\/\d+\.jpg)"[^>]+alt="([^"]+)"/g
   const partyRegex = /<img[^>]+class="six-party-icon"[^>]+alt="([^"]+)"/g
   const nameRegex = /<div\s+class="legislatorname"[^>]*>([\s\S]*?)<\/div>/g
 
@@ -63,13 +65,15 @@ async function main() {
     parties.push(m[1])
   }
   while ((m = nameRegex.exec(activeHtml)) !== null) {
-    names.push(m[1].replace(/\s+/g, ' ').trim())
+    names.push(m[1].replace(/\s+/g, " ").trim())
   }
 
-  console.log(`Found ${names.length} names, ${avatars.length} avatars, ${parties.length} parties`)
+  console.log(
+    `Found ${names.length} names, ${avatars.length} avatars, ${parties.length} parties`
+  )
 
   if (names.length !== avatars.length || names.length !== parties.length) {
-    console.warn('Warning: count mismatch between names, avatars, and parties')
+    console.warn("Warning: count mismatch between names, avatars, and parties")
   }
 
   const count = Math.min(names.length, avatars.length, parties.length)
@@ -94,24 +98,30 @@ async function main() {
     const destFile = path.join(AVATAR_DIR, `${leg.name}.jpg`)
 
     console.log(`  ${leg.name} (${leg.party})`)
-    await downloadImage(leg.avatarUrl, destFile)
+    const avatarDownloaded = await downloadImage(leg.avatarUrl, destFile)
 
-    meta[leg.name] = { party: leg.party, avatar: avatarPath }
+    meta[leg.name] = {
+      party: leg.party,
+      avatar: avatarDownloaded ? avatarPath : leg.avatarUrl,
+    }
 
     // If name has non-Chinese suffix, add alias with just Chinese name
     const chineseName = extractChineseName(leg.name)
     if (chineseName && chineseName !== leg.name) {
-      meta[chineseName] = { party: leg.party, avatar: avatarPath }
+      meta[chineseName] = {
+        party: leg.party,
+        avatar: avatarDownloaded ? avatarPath : leg.avatarUrl,
+      }
     }
   }
 
   // Write output
-  fs.writeFileSync(OUTPUT_PATH, JSON.stringify(meta, null, 2) + '\n', 'utf-8')
+  fs.writeFileSync(OUTPUT_PATH, JSON.stringify(meta, null, 2) + "\n", "utf-8")
   console.log(`\nWrote ${OUTPUT_PATH}`)
   console.log(`Done! ${legislators.length} legislators processed.`)
 }
 
-main().catch(err => {
+main().catch((err) => {
   console.error(err)
   process.exit(1)
 })
