@@ -233,8 +233,6 @@ export default async function MayorDetailPage({
         {formatNTD(marketTotal)}。
       </p>
 
-      <DeclarationDownloads downloads={downloads} />
-
       <PropertySummary data={data} />
       {holdings.length > 0 && (
         <section className="overflow-hidden">
@@ -249,6 +247,8 @@ export default async function MayorDetailPage({
       >
         返回縣市首長名單
       </Link>
+
+      <DeclarationDownloads downloads={downloads} />
     </div>
   )
 }

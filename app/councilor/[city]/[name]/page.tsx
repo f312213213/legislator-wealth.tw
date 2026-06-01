@@ -232,7 +232,6 @@ export default async function CouncilorDetailPage({
             監察院財產申報資料，共持有 {stockCount} 檔有價證券，總市值約 NT${" "}
             {formatNTD(marketTotal)}。
           </p>
-          <DeclarationDownloads downloads={downloads} />
           <PropertySummary data={data} />
           {holdings.length > 0 && (
             <section className="overflow-hidden">
@@ -265,6 +264,8 @@ export default async function CouncilorDetailPage({
       >
         返回{cityName}議員名單
       </Link>
+
+      <DeclarationDownloads downloads={downloads} />
     </div>
   )
 }

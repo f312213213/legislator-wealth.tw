@@ -260,8 +260,6 @@ export default async function LegislatorPage({
 
       <LegislatorNav />
 
-      <DeclarationDownloads downloads={downloads} />
-
       <PropertySummary data={data} />
       {holdings.length > 0 && (
         <section className="overflow-hidden">
@@ -297,6 +295,8 @@ export default async function LegislatorPage({
           </div>
         </section>
       )}
+
+      <DeclarationDownloads downloads={downloads} />
     </div>
   )
 }
