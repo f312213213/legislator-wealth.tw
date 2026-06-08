@@ -108,7 +108,7 @@ export default function StocksPage() {
 
   // --- Top stocks party breakdown ---
   const topStocksData: StockBarData[] = aggregatedStocks
-    .slice(0, 10)
+    .slice(0, 100)
     .map((s) => {
       const partyCounts: Record<string, number> = {}
       const uniqueLegislators = new Set<string>()
@@ -119,7 +119,9 @@ export default function StocksPage() {
         const party = meta?.party || "其他"
         partyCounts[party] = (partyCounts[party] || 0) + 1
       }
-      return { name: s.name, holderCount: s.holderCount, partyCounts }
+      const p = lookupStockPrice(s.name, "stock") ?? lookupStockPrice(s.name, "fund")
+      const marketValue = p ? Math.round(s.totalShares * p.price) : s.totalNTD
+      return { name: s.name, holderCount: s.holderCount, totalShares: s.totalShares, marketValue, partyCounts }
     })
 
   const stockListItems = aggregatedStocks.slice(0, 50).map((s, i) => ({
@@ -164,7 +166,7 @@ export default function StocksPage() {
 
       {/* Top stocks by holder count with party breakdown */}
       <section className="space-y-4">
-        <h2 className="text-lg font-bold">最多立委持有的股票</h2>
+        <h2 className="text-lg font-bold">立委持股排行</h2>
         <PartyBarChart stocks={topStocksData} />
       </section>
 
