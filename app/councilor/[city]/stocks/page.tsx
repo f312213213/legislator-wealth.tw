@@ -148,7 +148,19 @@ export default async function CouncilorStocksPage({
           rows.find((row) => row.name === holder.legislator)?.party || "其他"
         partyCounts[party] = (partyCounts[party] || 0) + 1
       }
-      return { name: stock.name, holderCount: stock.holderCount, partyCounts }
+      const price =
+        lookupStockPrice(stock.name, "stock") ??
+        lookupStockPrice(stock.name, "fund")
+      const marketValue = price
+        ? Math.round(stock.totalShares * price.price)
+        : stock.totalNTD
+      return {
+        name: stock.name,
+        holderCount: stock.holderCount,
+        totalShares: stock.totalShares,
+        marketValue,
+        partyCounts,
+      }
     })
 
   const stockListItems = aggregatedStocks.slice(0, 50).map((stock, index) => ({
