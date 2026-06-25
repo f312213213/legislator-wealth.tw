@@ -13,34 +13,24 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
-      - name: Create data directory
-        run: mkdir -p data
+      - name: Install pnpm
+        uses: pnpm/action-setup@v5
+        with:
+          run_install: false
 
-      - name: Fetch TWSE STOCK_DAY_ALL
-        continue-on-error: true
-        run: |
-          curl -f --retry 3 --retry-delay 10 \
-            'https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL' \
-            -H 'accept: application/json' \
-            -o data/STOCK_DAY_ALL.json
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
 
-      - name: Fetch TPEx mainboard quotes
-        continue-on-error: true
-        run: |
-          curl -f --retry 3 --retry-delay 10 \
-            'https://www.tpex.org.tw/openapi/v1/tpex_mainboard_quotes' \
-            -H 'accept: application/json' \
-            -o data/tpex_mainboard_quotes.json
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
-      - name: Fetch TPEx ESB latest statistics
-        continue-on-error: true
-        run: |
-          curl -f --retry 3 --retry-delay 10 \
-            'https://www.tpex.org.tw/openapi/v1/tpex_esb_latest_statistics' \
-            -H 'accept: application/json' \
-            -o data/tpex_esb_latest_statistics.json
+      - name: Fetch stock price data
+        run: pnpm run fetch-stock-prices
 
       - name: Commit and push if changed
         run: |
