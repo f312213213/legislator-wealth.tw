@@ -41,11 +41,13 @@ const args = process.argv.slice(2)
 let inputDir = './raw-pdfs'
 let outputDir = './data/legislators'
 let optionalInput = false
+let strict = false
 
 for (let i = 0; i < args.length; i++) {
   if (args[i] === '--input' && args[i + 1]) inputDir = args[i + 1]
   if (args[i] === '--output' && args[i + 1]) outputDir = args[i + 1]
   if (args[i] === '--optional') optionalInput = true
+  if (args[i] === '--strict') strict = true
 }
 
 function parseInteger(str: string): number {
@@ -1658,6 +1660,8 @@ async function main() {
     return
   }
   console.log(`Found ${files.length} PDF file(s)`)
+  const failures: string[] = []
+
   for (const file of files) {
     console.log(`Parsing: ${file}`)
     try {
@@ -1678,9 +1682,18 @@ async function main() {
         console.log(`  → ${outFile}`)
       }
     } catch (err) {
+      failures.push(file)
       console.error(`  Error parsing ${file}:`, err)
     }
   }
+
+  if (failures.length > 0) {
+    console.error(
+      `Failed to parse ${failures.length} PDF file(s): ${failures.join(', ')}`
+    )
+    if (strict) process.exit(1)
+  }
+
   console.log('Done!')
 }
 

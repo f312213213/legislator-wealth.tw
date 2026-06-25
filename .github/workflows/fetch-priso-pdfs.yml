@@ -1,0 +1,100 @@
+name: Fetch Declaration PDFs
+
+on:
+  schedule:
+    - cron: '30 17 * * *' # 01:30 UTC+8 daily
+  workflow_dispatch:
+    inputs:
+      category:
+        description: 'Optional category list: legislators,councilors,mayors'
+        required: false
+        type: string
+      names:
+        description: 'Optional comma-separated display names'
+        required: false
+        type: string
+      force:
+        description: 'Re-download existing PDF files'
+        required: false
+        default: false
+        type: boolean
+      include_over_five_year:
+        description: 'Include PRISO rows marked over five years'
+        required: false
+        default: false
+        type: boolean
+
+concurrency:
+  group: fetch-priso-pdfs-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  fetch-and-commit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.32.1
+          run_install: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build current officeholder metadata
+        run: |
+          pnpm run fetch-legislators
+          pnpm run fetch-councilors
+          pnpm run fetch-mayors
+
+      - name: Fetch latest PRISO PDFs
+        env:
+          CATEGORY: ${{ github.event.inputs.category || '' }}
+          NAMES: ${{ github.event.inputs.names || '' }}
+          FORCE: ${{ github.event.inputs.force || 'false' }}
+          INCLUDE_OVER_FIVE_YEAR: ${{ github.event.inputs.include_over_five_year || 'false' }}
+        run: |
+          args=()
+          if [ -n "$CATEGORY" ]; then
+            args+=("--category=$CATEGORY")
+          fi
+          if [ -n "$NAMES" ]; then
+            args+=("--names=$NAMES")
+          fi
+          if [ "$FORCE" = "true" ]; then
+            args+=("--force")
+          fi
+          if [ "$INCLUDE_OVER_FIVE_YEAR" = "true" ]; then
+            args+=("--include-over-five-year")
+          fi
+          pnpm run fetch-priso-pdfs -- "${args[@]}"
+
+      - name: Build parsed declaration data
+        run: pnpm run parse:strict
+
+      - name: Clean stale PRISO PDFs
+        run: pnpm run cleanup-stale-pdfs
+
+      - name: Validate parsed declaration data after cleanup
+        run: pnpm run parse:strict
+
+      - name: Commit and push if PDFs changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A raw-pdfs
+          git diff --cached --quiet || git commit -m "data: update declaration PDFs $(TZ='Asia/Taipei' date +'%Y-%m-%d')"
+          git push

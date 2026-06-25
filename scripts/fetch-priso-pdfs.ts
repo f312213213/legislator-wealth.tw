@@ -474,6 +474,11 @@ function fallbackPdfName(row: PrisoRow, target: Target): string {
   return `${name}-${datePart}-${type}-${row.Seq}.pdf`
 }
 
+function pdfNameFromPrisoRow(row: PrisoRow): string | undefined {
+  if (!/^\d+$/.test(row.Period) || !/^\d+$/.test(row.Seq)) return undefined
+  return `A${row.Period.padStart(4, "0")}-${row.Seq.padStart(5, "0")}.pdf`
+}
+
 async function downloadRow(
   row: PrisoRow,
   target: Target,
@@ -482,6 +487,14 @@ async function downloadRow(
   if (args.dryRun) {
     const outputPath = path.join(target.outputDir, fallbackPdfName(row, target))
     return { skipped: `[dry-run] ${path.relative(process.cwd(), outputPath)}` }
+  }
+
+  const expectedFileName = pdfNameFromPrisoRow(row)
+  if (expectedFileName && !args.force) {
+    const expectedPath = path.join(target.outputDir, expectedFileName)
+    if (fs.existsSync(expectedPath) && fs.statSync(expectedPath).size > 0) {
+      return { skipped: path.relative(process.cwd(), expectedPath) }
+    }
   }
 
   const response = (await withRetry(

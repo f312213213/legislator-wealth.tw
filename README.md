@@ -81,7 +81,9 @@ After adding new PDFs to `raw-pdfs/`:
 pnpm run build        # Regenerate data/API files and rebuild the site
 ```
 
-Stock prices are also updated daily at 22:00 UTC+8 via [GitHub Action](.github/workflows/fetch-stock-data.yml).
+Declaration PDFs are fetched daily at 01:30 UTC+8 via [GitHub Action](.github/workflows/fetch-priso-pdfs.yml). The workflow commits new files under `raw-pdfs/`, removes stale PDFs that are no longer referenced by the current indexes, and validates that the parser can process the final PDF set.
+
+Stock prices are also updated on weekdays at 14:30 UTC+8 via [GitHub Action](.github/workflows/fetch-stock-data.yml).
 
 ## Static JSON API
 
@@ -142,6 +144,8 @@ curl 'https://legislator-wealth.tw/api/legislators?slug=huang-jie&include=detail
 | `pnpm run parse` | Parse PDFs, build index, and export API files |
 | `pnpm run fetch-stock-prices` | Fetch latest stock prices only |
 | `pnpm run fetch-legislators` | Fetch legislator photos and party only |
+| `pnpm run fetch-priso-pdfs` | Fetch latest Control Yuan declaration PDFs into `raw-pdfs/` |
+| `pnpm run cleanup-stale-pdfs` | Delete raw PDFs not referenced by generated indexes |
 | `pnpm run generate-og` | Generate OG images only |
 | `pnpm run export-api` | Export static JSON API files under `public/api/` |
 | `pnpm run build-index` | Build index only |
