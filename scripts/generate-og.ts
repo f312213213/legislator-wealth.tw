@@ -1,4 +1,5 @@
 import fs from "fs"
+import os from "os"
 import path from "path"
 import React from "react"
 import type { CSSProperties, ReactElement, ReactNode } from "react"
@@ -22,6 +23,15 @@ const OG_HEIGHT = 630
 const FONT_SANS = "Noto Sans TC"
 const FONT_SERIF = "Noto Serif TC"
 const FONT_DIR = path.join(process.cwd(), "node_modules", "@fontsource")
+const availableParallelism =
+  typeof os.availableParallelism === "function"
+    ? os.availableParallelism()
+    : os.cpus().length
+const OG_GENERATION_CONCURRENCY = Math.max(
+  1,
+  Number.parseInt(process.env.OG_GENERATION_CONCURRENCY || "", 10) ||
+    Math.min(4, availableParallelism)
+)
 const h = React.createElement
 type ImageResponseOptions = ConstructorParameters<typeof ImageResponse>[1]
 type ImageResponseFont = NonNullable<ImageResponseOptions>["fonts"][number]
@@ -151,6 +161,26 @@ function readJson<T>(filePath: string, fallback: T): T {
   } catch {
     return fallback
   }
+}
+
+async function runWithConcurrency<T, R>(
+  items: T[],
+  limit: number,
+  task: (item: T) => Promise<R>
+): Promise<R[]> {
+  const results = new Array<R>(items.length)
+  let index = 0
+  const workers = Array.from(
+    { length: Math.min(limit, items.length) },
+    async () => {
+      while (index < items.length) {
+        const current = index++
+        results[current] = await task(items[current])
+      }
+    }
+  )
+  await Promise.all(workers)
+  return results
 }
 
 function getDeclarationFromEntry(
@@ -613,97 +643,113 @@ async function main() {
       >
     }>(path.join(DATA_DIR, "mayors-meta.json"), {}).mayors ?? {}
 
+  console.log(
+    `Generating OG images with concurrency ${OG_GENERATION_CONCURRENCY}`
+  )
+
   // Site OG
-  await imageToPng(generateSiteImage(), path.join(PUBLIC_DIR, "og.png"))
+  await Promise.all([
+    imageToPng(generateSiteImage(), path.join(PUBLIC_DIR, "og.png")),
+    imageToPng(
+      generateSiteImage(
+        "地方議員持股",
+        "縣市議員財產申報、股票基金市值排行與個別明細",
+        "資料來源：監察院公報與內政部地方公職人員資訊"
+      ),
+      path.join(OG_DIR, "councilor.png")
+    ),
+    imageToPng(
+      generateSiteImage(
+        "縣市首長持股",
+        "直轄市長與縣市長財產申報、持股排行與個別明細",
+        "資料來源：監察院公報與內政部地方公職人員資訊"
+      ),
+      path.join(OG_DIR, "mayor.png")
+    ),
+  ])
   console.log("Generated og.png")
-  await imageToPng(
-    generateSiteImage(
-      "地方議員持股",
-      "縣市議員財產申報、股票基金市值排行與個別明細",
-      "資料來源：監察院公報與內政部地方公職人員資訊"
-    ),
-    path.join(OG_DIR, "councilor.png")
-  )
-  await imageToPng(
-    generateSiteImage(
-      "縣市首長持股",
-      "直轄市長與縣市長財產申報、持股排行與個別明細",
-      "資料來源：監察院公報與內政部地方公職人員資訊"
-    ),
-    path.join(OG_DIR, "mayor.png")
-  )
 
   // Per-legislator OG
-  let count = 0
-  for (const leg of index.legislators) {
-    if (leg.declarations.length === 0) continue
-    const decl = getDeclarationFromEntry(
-      leg,
-      path.join(DATA_DIR, "legislators")
-    )
-    if (!decl) continue
+  const legislatorResults = await runWithConcurrency(
+    index.legislators.filter((leg) => leg.declarations.length > 0),
+    OG_GENERATION_CONCURRENCY,
+    async (leg) => {
+      const decl = getDeclarationFromEntry(
+        leg,
+        path.join(DATA_DIR, "legislators")
+      )
+      if (!decl) return false
 
-    const amount = calcMarketTotal(decl, priceMap)
-    const meta = metaRaw[leg.name]
+      const amount = calcMarketTotal(decl, priceMap)
+      const meta = metaRaw[leg.name]
+      const image = await generatePersonImage({
+        name: leg.name,
+        party: meta?.party || "",
+        role: "第十一屆立法委員",
+        amount,
+        avatarPath: meta?.avatar || "",
+      })
+      await imageToPng(image, path.join(OG_DIR, `${leg.slug}.png`))
+      return true
+    }
+  )
+  const count = legislatorResults.filter(Boolean).length
 
-    const image = await generatePersonImage({
-      name: leg.name,
-      party: meta?.party || "",
-      role: "第十一屆立法委員",
-      amount,
-      avatarPath: meta?.avatar || "",
-    })
-    await imageToPng(image, path.join(OG_DIR, `${leg.slug}.png`))
-    count++
-  }
+  const councilorResults = await runWithConcurrency(
+    councilorIndex.councilors.filter(
+      (councilor) => councilor.declarations.length > 0
+    ),
+    OG_GENERATION_CONCURRENCY,
+    async (councilor) => {
+      const decl = getDeclarationFromEntry(
+        councilor,
+        path.join(DATA_DIR, "councilors")
+      )
+      if (!decl) return false
 
-  let councilorCount = 0
-  for (const councilor of councilorIndex.councilors) {
-    if (councilor.declarations.length === 0) continue
-    const decl = getDeclarationFromEntry(
-      councilor,
-      path.join(DATA_DIR, "councilors")
-    )
-    if (!decl) continue
+      const amount = calcMarketTotal(decl, priceMap)
+      const meta = councilorMetaRaw[councilor.slug]
+      const city = meta?.city ?? councilor.organization.replace(/議會$/g, "")
+      const title = meta?.title ?? councilor.title
+      const image = await generatePersonImage({
+        name: meta?.name ?? councilor.name,
+        party: meta?.party || "",
+        role: `${city}${title}`,
+        amount,
+        avatarPath: meta?.avatar || "",
+      })
+      await imageToPng(
+        image,
+        path.join(COUNCILOR_OG_DIR, `${councilor.slug}.png`)
+      )
+      return true
+    }
+  )
+  const councilorCount = councilorResults.filter(Boolean).length
 
-    const amount = calcMarketTotal(decl, priceMap)
-    const meta = councilorMetaRaw[councilor.slug]
-    const city = meta?.city ?? councilor.organization.replace(/議會$/g, "")
-    const title = meta?.title ?? councilor.title
-    const image = await generatePersonImage({
-      name: meta?.name ?? councilor.name,
-      party: meta?.party || "",
-      role: `${city}${title}`,
-      amount,
-      avatarPath: meta?.avatar || "",
-    })
-    await imageToPng(
-      image,
-      path.join(COUNCILOR_OG_DIR, `${councilor.slug}.png`)
-    )
-    councilorCount++
-  }
+  const mayorResults = await runWithConcurrency(
+    mayorIndex.mayors.filter((mayor) => mayor.declarations.length > 0),
+    OG_GENERATION_CONCURRENCY,
+    async (mayor) => {
+      const decl = getMergedMayorLatestDeclaration(mayor)
+      if (!decl) return false
 
-  let mayorCount = 0
-  for (const mayor of mayorIndex.mayors) {
-    if (mayor.declarations.length === 0) continue
-    const decl = getMergedMayorLatestDeclaration(mayor)
-    if (!decl) continue
-
-    const amount = calcMarketTotal(decl, priceMap)
-    const meta = mayorMetaRaw[mayor.slug]
-    const city = meta?.city ?? mayor.organization.replace(/政府$/g, "")
-    const title = meta?.title ?? mayor.title
-    const image = await generatePersonImage({
-      name: meta?.name ?? mayor.name,
-      party: meta?.party || "",
-      role: `${city}${title}`,
-      amount,
-      avatarPath: meta?.avatar || "",
-    })
-    await imageToPng(image, path.join(MAYOR_OG_DIR, `${mayor.slug}.png`))
-    mayorCount++
-  }
+      const amount = calcMarketTotal(decl, priceMap)
+      const meta = mayorMetaRaw[mayor.slug]
+      const city = meta?.city ?? mayor.organization.replace(/政府$/g, "")
+      const title = meta?.title ?? mayor.title
+      const image = await generatePersonImage({
+        name: meta?.name ?? mayor.name,
+        party: meta?.party || "",
+        role: `${city}${title}`,
+        amount,
+        avatarPath: meta?.avatar || "",
+      })
+      await imageToPng(image, path.join(MAYOR_OG_DIR, `${mayor.slug}.png`))
+      return true
+    }
+  )
+  const mayorCount = mayorResults.filter(Boolean).length
 
   // Clean up old SVGs
   for (const f of fs.readdirSync(OG_DIR).filter((f) => f.endsWith(".svg"))) {

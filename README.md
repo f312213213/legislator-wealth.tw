@@ -8,12 +8,12 @@ Declaration data is sourced from the Control Yuan public official property decla
 
 ## Data Sources
 
-| Dataset | Source |
-|---|---|
-| Legislator property declarations | [Control Yuan Public Official Property Declaration Search](https://priso.cy.gov.tw/layout/baselist) |
-| Source PDFs | Control Yuan declaration/gazette PDFs stored in `raw-pdfs/` |
-| Current legislator names, parties, and photos | Legislative Yuan legislator list, fetched by `scripts/fetch-legislators.ts` |
-| Listed and OTC stock prices | TWSE, TPEx, and ESB quote feeds, fetched by `scripts/fetch-stock-prices.ts` |
+| Dataset                                       | Source                                                                                              |
+| --------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| Legislator property declarations              | [Control Yuan Public Official Property Declaration Search](https://priso.cy.gov.tw/layout/baselist) |
+| Source PDFs                                   | Control Yuan declaration/gazette PDFs stored in `raw-pdfs/`                                         |
+| Current legislator names, parties, and photos | Legislative Yuan legislator list, fetched by `scripts/fetch-legislators.ts`                         |
+| Listed and OTC stock prices                   | TWSE, TPEx, and ESB quote feeds, fetched by `scripts/fetch-stock-prices.ts`                         |
 
 The Control Yuan declaration search is the canonical source for public official property declarations. This project parses the relevant declaration PDFs and only publishes derived stock/fund holdings and transaction records.
 
@@ -39,14 +39,14 @@ Other asset categories (real estate, deposits, debts, etc.) are not included.
 Control Yuan PDF → parse-pdf.ts → JSON → build-index.ts → export-api.ts → Next.js SSG → static HTML + JSON API
 ```
 
-| Script | Purpose |
-|---|---|
-| `scripts/fetch-stock-prices.ts` | Fetch latest prices from TWSE/TPEx/ESB |
-| `scripts/fetch-legislators.ts` | Scrape legislator photos and party from ly.gov.tw |
-| `scripts/parse-pdf.ts` | Parse gazette PDFs into structured JSON |
-| `scripts/build-index.ts` | Build legislator index with pinyin URL slugs |
-| `scripts/export-api.ts` | Export parsed and derived datasets as static JSON |
-| `scripts/generate-og.ts` | Generate per-legislator Open Graph preview images |
+| Script                          | Purpose                                           |
+| ------------------------------- | ------------------------------------------------- |
+| `scripts/fetch-stock-prices.ts` | Fetch latest prices from TWSE/TPEx/ESB            |
+| `scripts/fetch-legislators.ts`  | Scrape legislator photos and party from ly.gov.tw |
+| `scripts/parse-pdf.ts`          | Parse gazette PDFs into structured JSON           |
+| `scripts/build-index.ts`        | Build legislator index with pinyin URL slugs      |
+| `scripts/export-api.ts`         | Export parsed and derived datasets as static JSON |
+| `scripts/generate-og.ts`        | Generate per-legislator Open Graph preview images |
 
 ## Getting Started
 
@@ -93,29 +93,29 @@ On Cloudflare Pages, use `pnpm run build` as the build command and `out` as the 
 
 AI agents can discover API usage instructions at `/llms.txt`.
 
-| Endpoint | Description |
-|---|---|
-| `/api/_meta.json` | API metadata and route list |
-| `/api/docs.json` | Structured API documentation for programs and agents |
-| `/api/llms.txt` | Agent-readable API usage guide |
-| `/api/all.json` | Full data dump plus derived datasets |
-| `/api/index.json` | Legislator index |
-| `/api/legislators` | Queryable Cloudflare Pages Function for legislator lookups |
-| `/api/legislators?name={name}` | Query legislators by Chinese name; returns declaration/change details for exact lookups |
-| `/api/legislators?slug={slug}` | Query one legislator by pinyin slug |
-| `/api/legislators?q={query}` | Search legislators by name, slug, party, organization, or title |
+| Endpoint                         | Description                                                                                                          |
+| -------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `/api/_meta.json`                | API metadata and route list                                                                                          |
+| `/api/docs.json`                 | Structured API documentation for programs and agents                                                                 |
+| `/api/llms.txt`                  | Agent-readable API usage guide                                                                                       |
+| `/api/all.json`                  | Full data dump plus derived datasets                                                                                 |
+| `/api/index.json`                | Legislator index                                                                                                     |
+| `/api/legislators`               | Queryable Cloudflare Pages Function for legislator lookups                                                           |
+| `/api/legislators?name={name}`   | Query legislators by Chinese name; returns declaration/change details for exact lookups                              |
+| `/api/legislators?slug={slug}`   | Query one legislator by pinyin slug                                                                                  |
+| `/api/legislators?q={query}`     | Search legislators by name, slug, party, organization, or title                                                      |
 | `/api/legislators?party={party}` | Filter legislators by party name or slug (`kmt`, `dpp`, `tpp`, `ind`); results include `stockSummary` and `holdings` |
-| `/api/legislators.json` | Legislator list with party/photo metadata, stock summaries, and holdings |
-| `/api/legislators/{slug}.json` | One legislator with stock summary, holdings, latest declaration, and changes |
-| `/api/documents.json` | All parsed declaration and change documents |
-| `/api/declarations.json` | All declaration documents |
-| `/api/latest-declarations.json` | Latest declaration per legislator |
-| `/api/changes.json` | All raw change documents |
-| `/api/changes-flat.json` | Flattened change feed |
-| `/api/parties.json` | Party list and legislator counts |
-| `/api/stocks/holdings.json` | Stock/fund holdings with price estimates |
-| `/api/stocks/aggregated.json` | Holdings aggregated by security |
-| `/api/stocks/prices.json` | Stock price lookup table |
+| `/api/legislators.json`          | Legislator list with party/photo metadata, stock summaries, and holdings                                             |
+| `/api/legislators/{slug}.json`   | One legislator with stock summary, holdings, latest declaration, and changes                                         |
+| `/api/documents.json`            | All parsed declaration and change documents                                                                          |
+| `/api/declarations.json`         | All declaration documents                                                                                            |
+| `/api/latest-declarations.json`  | Latest declaration per legislator                                                                                    |
+| `/api/changes.json`              | All raw change documents                                                                                             |
+| `/api/changes-flat.json`         | Flattened change feed                                                                                                |
+| `/api/parties.json`              | Party list and legislator counts                                                                                     |
+| `/api/stocks/holdings.json`      | Stock/fund holdings with price estimates                                                                             |
+| `/api/stocks/aggregated.json`    | Holdings aggregated by security                                                                                      |
+| `/api/stocks/prices.json`        | Stock price lookup table                                                                                             |
 
 Generate only the API files locally after data exists with:
 
@@ -136,18 +136,35 @@ curl 'https://legislator-wealth.tw/api/legislators?slug=huang-jie&include=detail
 
 ## Scripts
 
-| Command | Description |
-|---|---|
-| `pnpm dev` | Start dev server |
-| `pnpm build` | Run the data pipeline, then build the static site, API files, and OG images |
-| `pnpm run grab-data` | Run all data fetching and processing |
-| `pnpm run parse` | Parse PDFs, build index, and export API files |
-| `pnpm run fetch-stock-prices` | Fetch latest stock prices only |
-| `pnpm run fetch-legislators` | Fetch legislator photos and party only |
-| `pnpm run fetch-priso-pdfs` | Fetch latest Control Yuan declaration PDFs into `raw-pdfs/` |
-| `pnpm run cleanup-stale-pdfs` | Delete raw PDFs not referenced by generated indexes |
-| `pnpm run generate-og` | Generate OG images only |
-| `pnpm run export-api` | Export static JSON API files under `public/api/` |
+| Command                       | Description                                                                 |
+| ----------------------------- | --------------------------------------------------------------------------- |
+| `pnpm dev`                    | Start dev server                                                            |
+| `pnpm build`                  | Run the data pipeline, then build the static site, API files, and OG images |
+| `pnpm run grab-data`          | Run all data fetching and processing                                        |
+| `pnpm run parse`              | Parse PDFs, build index, and export API files                               |
+| `pnpm run fetch-stock-prices` | Fetch latest stock prices only                                              |
+| `pnpm run fetch-legislators`  | Fetch legislator photos and party only                                      |
+| `pnpm run fetch-priso-pdfs`   | Fetch latest Control Yuan declaration PDFs into `raw-pdfs/`                 |
+| `pnpm run cleanup-stale-pdfs` | Delete raw PDFs not referenced by generated indexes                         |
+| `pnpm run generate-og`        | Generate OG images only                                                     |
+| `pnpm run export-api`         | Export static JSON API files under `public/api/`                            |
+
+### Build performance controls
+
+Parsed PDF documents are cached under `.next/cache/parsed-pdfs/`. Each source
+PDF is identified by a SHA-256 content hash, so subsequent builds only parse
+new or changed files. A parser or `pdfjs-dist` version change automatically
+invalidates the cache. Cloudflare Pages build caching must be enabled for this
+cache to survive between clean builds.
+
+```bash
+# Tune bounded PDF and OG generation concurrency (defaults to at most 4)
+PDF_PARSE_CONCURRENCY=3 OG_GENERATION_CONCURRENCY=4 pnpm run build
+
+# Ignore the PDF parse cache and rebuild every parsed document
+PDF_PARSE_FORCE=true pnpm run parse
+```
+
 | `pnpm run build-index` | Build index only |
 
 ## Known Limitations
