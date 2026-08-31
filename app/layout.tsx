@@ -1,4 +1,5 @@
 import { Noto_Sans_TC, Noto_Serif_TC } from "next/font/google"
+import Script from "next/script"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -23,6 +24,7 @@ const notoSerifTC = Noto_Serif_TC({
 const SITE_URL = 'https://legislator-wealth.tw'
 const SITE_NAME = '政治人物持股'
 const SITE_DESCRIPTION = '台灣民意代表與地方首長持股資料入口，分類瀏覽立法委員、縣市議員與縣市首長資料。'
+const GA_ID = process.env.GA_ID
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -69,6 +71,22 @@ export default function RootLayout({
       className={cn("antialiased font-sans", notoSansTC.variable, notoSerifTC.variable)}
     >
       <body>
+        {GA_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(GA_ID)}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', ${JSON.stringify(GA_ID)});
+              `}
+            </Script>
+          </>
+        )}
         <ThemeProvider>
           <CurrencyFormatProvider>
             <SiteHeader />
