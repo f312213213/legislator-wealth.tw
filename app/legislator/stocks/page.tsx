@@ -107,22 +107,30 @@ export default function StocksPage() {
     .sort((a, b) => b.pct - a.pct)
 
   // --- Top stocks party breakdown ---
-  const topStocksData: StockBarData[] = aggregatedStocks
-    .slice(0, 100)
-    .map((s) => {
-      const partyCounts: Record<string, number> = {}
-      const uniqueLegislators = new Set<string>()
-      for (const h of s.holders) {
-        if (uniqueLegislators.has(h.legislator)) continue
-        uniqueLegislators.add(h.legislator)
-        const meta = getLegislatorMeta(h.legislator)
-        const party = meta?.party || "其他"
-        partyCounts[party] = (partyCounts[party] || 0) + 1
-      }
-      const p = lookupStockPrice(s.name, "stock") ?? lookupStockPrice(s.name, "fund")
-      const marketValue = p ? Math.round(s.totalShares * p.price) : s.totalNTD
-      return { name: s.name, holderCount: s.holderCount, totalShares: s.totalShares, marketValue, partyCounts }
-    })
+  // PartyBarChart sorts independently for each metric. Pass the complete data
+  // set so high-value or high-volume stocks with few holders are not excluded
+  // by getAggregatedStocks()'s default holder-count ordering.
+  const topStocksData: StockBarData[] = aggregatedStocks.map((s) => {
+    const partyCounts: Record<string, number> = {}
+    const uniqueLegislators = new Set<string>()
+    for (const h of s.holders) {
+      if (uniqueLegislators.has(h.legislator)) continue
+      uniqueLegislators.add(h.legislator)
+      const meta = getLegislatorMeta(h.legislator)
+      const party = meta?.party || "其他"
+      partyCounts[party] = (partyCounts[party] || 0) + 1
+    }
+    const p =
+      lookupStockPrice(s.name, "stock") ?? lookupStockPrice(s.name, "fund")
+    const marketValue = p ? Math.round(s.totalShares * p.price) : s.totalNTD
+    return {
+      name: s.name,
+      holderCount: s.holderCount,
+      totalShares: s.totalShares,
+      marketValue,
+      partyCounts,
+    }
+  })
 
   const stockListItems = aggregatedStocks.slice(0, 50).map((s, i) => ({
     "@type": "ListItem" as const,

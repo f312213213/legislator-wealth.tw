@@ -63,7 +63,10 @@ export default function HomePage() {
   )
 
   // Compute party breakdown for top stocks
-  const topStocks = aggregatedStocks.slice(0, 100).map((s) => {
+  // PartyBarChart sorts independently for each metric. Pass the complete data
+  // set so high-value or high-volume stocks with few holders are not excluded
+  // by getAggregatedStocks()'s default holder-count ordering.
+  const topStocks = aggregatedStocks.map((s) => {
     const partyCounts: Record<string, number> = {}
     const uniqueLegislators = new Set<string>()
     for (const h of s.holders) {
