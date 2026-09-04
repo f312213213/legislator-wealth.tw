@@ -25,9 +25,15 @@ const SITE_URL = 'https://legislator-wealth.tw'
 const SITE_NAME = '政治人物持股'
 const SITE_DESCRIPTION = '台灣民意代表與地方首長持股資料入口，分類瀏覽立法委員、縣市議員與縣市首長資料。'
 const GA_ID = process.env.GA_ID
+const GOOGLE_ADSENSE_ACCOUNT = process.env.GOOGLE_ADSENSE_ACCOUNT
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  ...(GOOGLE_ADSENSE_ACCOUNT && {
+    other: {
+      'google-adsense-account': GOOGLE_ADSENSE_ACCOUNT,
+    },
+  }),
   title: {
     default: SITE_NAME,
     template: `%s — ${SITE_NAME}`,
