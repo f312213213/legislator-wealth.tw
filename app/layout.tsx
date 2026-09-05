@@ -93,6 +93,14 @@ export default function RootLayout({
             </Script>
           </>
         )}
+        {GOOGLE_ADSENSE_ACCOUNT && (
+          <Script
+            id="google-adsense"
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${encodeURIComponent(GOOGLE_ADSENSE_ACCOUNT)}`}
+            strategy="afterInteractive"
+            crossOrigin="anonymous"
+          />
+        )}
         <ThemeProvider>
           <CurrencyFormatProvider>
             <SiteHeader />

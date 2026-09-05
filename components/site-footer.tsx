@@ -3,6 +3,9 @@ import { ProductPromoDialog } from "@/components/product-promo-dialog"
 import { ThemeToggle } from "@/components/theme-toggle"
 
 export function SiteFooter() {
+  const adsenseClient = process.env.GOOGLE_ADSENSE_ACCOUNT
+  const adsenseSlot = process.env.GOOGLE_ADSENSE_SLOT
+
   return (
     <footer className="mx-auto max-w-6xl border-t px-4 pt-6 pb-10 sm:px-6">
       <div className="grid gap-x-8 gap-y-5 sm:grid-cols-[minmax(0,1fr)_auto] sm:gap-y-6">
@@ -41,7 +44,10 @@ export function SiteFooter() {
         </div>
 
         <div className="sm:justify-self-end">
-          <ProductPromoDialog />
+          <ProductPromoDialog
+            adsenseClient={adsenseClient}
+            adsenseSlot={adsenseSlot}
+          />
         </div>
       </div>
     </footer>
