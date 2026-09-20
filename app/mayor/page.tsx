@@ -1,5 +1,7 @@
 import { CurrencyDisplay } from "@/components/currency-display"
 import { JsonLd } from "@/components/json-ld"
+import { AdSenseInFeedAd } from "@/components/adsense-ad"
+import { AD_INSERT_AFTER_INDEX, getInFeedAdConfig, shouldShowInFeedAd } from "@/lib/adsense"
 import {
   getAllMayorMeta,
   getMayorDeclarationBySlug,
@@ -11,6 +13,7 @@ import { getMayorPath } from "@/lib/mayor-routes"
 import { createBreadcrumbList } from "@/lib/structured-data"
 import { RiArrowRightLine } from "@remixicon/react"
 import Link from "next/link"
+import { Fragment } from "react"
 import type { LegislatorDeclaration } from "@/lib/types"
 /* eslint-disable @next/next/no-img-element */
 
@@ -81,6 +84,8 @@ export default function MayorPage() {
     (a, b) => b.amount - a.amount || a.city.localeCompare(b.city, "zh-TW")
   )
   const leader = rankedMayors[0]
+  const restMayors = rankedMayors.slice(1)
+  const inFeedAd = getInFeedAdConfig()
 
   return (
     <div className="space-y-10">
@@ -142,44 +147,52 @@ export default function MayorPage() {
             </div>
           </Link>
 
-          {rankedMayors.length > 1 && (
+          {restMayors.length > 0 && (
             <div className="divide-y">
-              {rankedMayors.slice(1).map((mayor, index) => (
-                <Link
-                  key={mayor.slug}
-                  href={mayor.href}
-                  className="row-hover flex items-center gap-3 px-3 py-2.5 hover:bg-muted/50 sm:gap-4 sm:px-4"
-                >
-                  <span className="w-9 shrink-0 text-right text-lg font-black text-muted-foreground/25 tabular-nums">
-                    #{index + 2}
-                  </span>
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden bg-muted text-sm font-bold text-muted-foreground">
-                    {mayor.avatar ? (
-                      <img
-                        src={mayor.avatar}
-                        alt={mayor.name}
-                        className="h-full w-full object-cover"
-                        loading="lazy"
-                      />
-                    ) : (
-                      mayor.name.charAt(0)
-                    )}
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <span className="font-bold">{mayor.name}</span>
-                    <span className="ml-2 text-sm text-muted-foreground">
-                      {mayor.city}
+              {restMayors.map((mayor, index) => (
+                <Fragment key={mayor.slug}>
+                  <Link
+                    href={mayor.href}
+                    className="row-hover flex items-center gap-3 px-3 py-2.5 hover:bg-muted/50 sm:gap-4 sm:px-4"
+                  >
+                    <span className="w-9 shrink-0 text-right text-lg font-black text-muted-foreground/25 tabular-nums">
+                      #{index + 2}
                     </span>
-                  </div>
-                  <div className="shrink-0 text-right">
-                    <span className="font-bold tracking-tight tabular-nums">
-                      <CurrencyDisplay amount={mayor.amount} />
-                    </span>
-                    <span className="block text-xs text-muted-foreground">
-                      {mayor.stockCount} 檔
-                    </span>
-                  </div>
-                </Link>
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden bg-muted text-sm font-bold text-muted-foreground">
+                      {mayor.avatar ? (
+                        <img
+                          src={mayor.avatar}
+                          alt={mayor.name}
+                          className="h-full w-full object-cover"
+                          loading="lazy"
+                        />
+                      ) : (
+                        mayor.name.charAt(0)
+                      )}
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <span className="font-bold">{mayor.name}</span>
+                      <span className="ml-2 text-sm text-muted-foreground">
+                        {mayor.city}
+                      </span>
+                    </div>
+                    <div className="shrink-0 text-right">
+                      <span className="font-bold tracking-tight tabular-nums">
+                        <CurrencyDisplay amount={mayor.amount} />
+                      </span>
+                      <span className="block text-xs text-muted-foreground">
+                        {mayor.stockCount} 檔
+                      </span>
+                    </div>
+                  </Link>
+                  {shouldShowInFeedAd(inFeedAd, restMayors.length) && index === AD_INSERT_AFTER_INDEX && (
+                    <AdSenseInFeedAd
+                      client={inFeedAd.client}
+                      slot={inFeedAd.slot}
+                      layoutKey={inFeedAd.layoutKey}
+                    />
+                  )}
+                </Fragment>
               ))}
             </div>
           )}

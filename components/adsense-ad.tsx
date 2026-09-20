@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 
 import { cn } from "@/lib/utils"
 
@@ -8,16 +8,10 @@ type AdSenseWindow = Window & {
   adsbygoogle?: Record<string, never>[]
 }
 
-function useAdsbygoogleInit() {
-  const initialized = useRef(false)
-
-  useEffect(() => {
-    if (initialized.current) return
-    initialized.current = true
-    const adsenseWindow = window as AdSenseWindow
-    adsenseWindow.adsbygoogle = adsenseWindow.adsbygoogle ?? []
-    adsenseWindow.adsbygoogle.push({})
-  }, [])
+function pushAdsbygoogle() {
+  const win = window as AdSenseWindow
+  win.adsbygoogle = win.adsbygoogle ?? []
+  win.adsbygoogle.push({})
 }
 
 export function AdSenseAd({
@@ -29,7 +23,13 @@ export function AdSenseAd({
   slot: string
   className?: string
 }) {
-  useAdsbygoogleInit()
+  const initialized = useRef(false)
+
+  useEffect(() => {
+    if (initialized.current) return
+    initialized.current = true
+    pushAdsbygoogle()
+  }, [])
 
   return (
     <ins
@@ -43,6 +43,8 @@ export function AdSenseAd({
   )
 }
 
+type AdStatus = "pending" | "filled" | "unfilled"
+
 export function AdSenseInFeedAd({
   client,
   slot,
@@ -54,11 +56,35 @@ export function AdSenseInFeedAd({
   layoutKey: string
   className?: string
 }) {
-  useAdsbygoogleInit()
+  const insRef = useRef<HTMLModElement>(null)
+  const initialized = useRef(false)
+  const [status, setStatus] = useState<AdStatus>("pending")
+
+  useEffect(() => {
+    if (initialized.current || !insRef.current) return
+    initialized.current = true
+    pushAdsbygoogle()
+
+    const ins = insRef.current
+    const readStatus = () => {
+      const attr = ins.getAttribute("data-ad-status")
+      if (attr === "filled" || attr === "unfilled") setStatus(attr)
+    }
+    readStatus()
+    const observer = new MutationObserver(readStatus)
+    observer.observe(ins, {
+      attributes: true,
+      attributeFilter: ["data-ad-status"],
+    })
+    return () => observer.disconnect()
+  }, [])
+
+  if (status === "unfilled") return null
 
   return (
     <ins
-      className={cn("adsbygoogle", className)}
+      ref={insRef}
+      className={cn("adsbygoogle block min-h-[50px]", className)}
       style={{ display: "block" }}
       data-ad-client={client}
       data-ad-slot={slot}

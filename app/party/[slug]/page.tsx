@@ -7,10 +7,13 @@ import {
 } from "@/lib/data"
 import { CurrencyDisplay } from "@/components/currency-display"
 import { JsonLd } from "@/components/json-ld"
+import { AdSenseInFeedAd } from "@/components/adsense-ad"
+import { AD_INSERT_AFTER_INDEX, getInFeedAdConfig, shouldShowInFeedAd } from "@/lib/adsense"
 import { formatNTD } from "@/lib/format"
 import { createBreadcrumbList } from "@/lib/structured-data"
 import Link from "next/link"
 import { notFound } from "next/navigation"
+import { Fragment } from "react"
 /* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next"
 import type { LegislatorDeclaration } from "@/lib/types"
@@ -75,6 +78,7 @@ export default async function PartyPage({
 
   const totalValue = partyLegislators.reduce((sum, l) => sum + l.marketTotal, 0)
   const border = PARTY_BORDER[partyName] || ""
+  const inFeedAd = getInFeedAdConfig()
 
   const listItems = partyLegislators.map((l, i) => ({
     "@type": "ListItem" as const,
@@ -117,38 +121,46 @@ export default async function PartyPage({
 
       <div className="divide-y">
         {partyLegislators.map((l, i) => (
-          <Link
-            key={l.decl.name}
-            href={`/legislator/${getSlugByName(l.decl.name)}`}
-            className="row-hover flex items-center gap-3 px-3 py-2.5 sm:gap-4 sm:px-4"
-          >
-            <span className="w-6 shrink-0 text-right text-lg font-black text-muted-foreground/20 tabular-nums">
-              {i + 1}
-            </span>
-            <div
-              className={`flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden border-l-2 bg-muted ${border}`}
+          <Fragment key={l.decl.name}>
+            <Link
+              href={`/legislator/${getSlugByName(l.decl.name)}`}
+              className="row-hover flex items-center gap-3 px-3 py-2.5 sm:gap-4 sm:px-4"
             >
-              {l.meta?.avatar ? (
-                <img
-                  src={l.meta.avatar}
-                  alt={l.decl.name}
-                  width={40}
-                  height={40}
-                  className="h-full w-full object-cover"
-                />
-              ) : (
-                <span className="text-sm font-bold text-muted-foreground">
-                  {l.decl.name.charAt(0)}
-                </span>
-              )}
-            </div>
-            <div className="min-w-0 flex-1">
-              <span className="font-bold">{l.decl.name}</span>
-            </div>
-            <span className="font-bold tracking-tight tabular-nums">
-              <CurrencyDisplay amount={l.marketTotal} />
-            </span>
-          </Link>
+              <span className="w-6 shrink-0 text-right text-lg font-black text-muted-foreground/20 tabular-nums">
+                {i + 1}
+              </span>
+              <div
+                className={`flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden border-l-2 bg-muted ${border}`}
+              >
+                {l.meta?.avatar ? (
+                  <img
+                    src={l.meta.avatar}
+                    alt={l.decl.name}
+                    width={40}
+                    height={40}
+                    className="h-full w-full object-cover"
+                  />
+                ) : (
+                  <span className="text-sm font-bold text-muted-foreground">
+                    {l.decl.name.charAt(0)}
+                  </span>
+                )}
+              </div>
+              <div className="min-w-0 flex-1">
+                <span className="font-bold">{l.decl.name}</span>
+              </div>
+              <span className="font-bold tracking-tight tabular-nums">
+                <CurrencyDisplay amount={l.marketTotal} />
+              </span>
+            </Link>
+            {shouldShowInFeedAd(inFeedAd, partyLegislators.length) && i === AD_INSERT_AFTER_INDEX && (
+              <AdSenseInFeedAd
+                client={inFeedAd.client}
+                slot={inFeedAd.slot}
+                layoutKey={inFeedAd.layoutKey}
+              />
+            )}
+          </Fragment>
         ))}
       </div>
 

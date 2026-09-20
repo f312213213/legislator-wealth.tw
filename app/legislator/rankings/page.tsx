@@ -8,8 +8,11 @@ import {
 import { CurrencyDisplay } from "@/components/currency-display"
 import { JsonLd } from "@/components/json-ld"
 import { LegislatorNav } from "@/components/legislator-nav"
+import { AdSenseInFeedAd } from "@/components/adsense-ad"
+import { AD_INSERT_AFTER_INDEX, getInFeedAdConfig, shouldShowInFeedAd } from "@/lib/adsense"
 import { createBreadcrumbList } from "@/lib/structured-data"
 import Link from "next/link"
+import { Fragment } from "react"
 /* eslint-disable @next/next/no-img-element */
 import type { LegislatorDeclaration } from "@/lib/types"
 
@@ -41,6 +44,7 @@ function calcMarketTotal(data: LegislatorDeclaration): number {
 
 export default function RankingsPage() {
   const declarations = getAllDeclarations()
+  const inFeedAd = getInFeedAdConfig()
 
   const ranked = declarations
     .map((d) => {
@@ -146,46 +150,54 @@ export default function RankingsPage() {
         {ranked.map((l, i) => {
           const border = l.meta?.party ? PARTY_BORDER[l.meta.party] || "" : ""
           return (
-            <Link
-              key={l.decl.name}
-              href={`/legislator/${getSlugByName(l.decl.name)}`}
-              className="row-hover flex items-center gap-3 px-3 py-2.5 sm:gap-4 sm:px-4"
-            >
-              <span className="w-8 shrink-0 text-right text-lg font-black text-muted-foreground/20 tabular-nums">
-                {i + 1}
-              </span>
-              <div
-                className={`flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden border-l-2 bg-muted ${border}`}
+            <Fragment key={l.decl.name}>
+              <Link
+                href={`/legislator/${getSlugByName(l.decl.name)}`}
+                className="row-hover flex items-center gap-3 px-3 py-2.5 sm:gap-4 sm:px-4"
               >
-                {l.meta?.avatar ? (
-                  <img
-                    src={l.meta.avatar}
-                    alt={l.decl.name}
-                    width={40}
-                    height={40}
-                    className="h-full w-full object-cover"
-                  />
-                ) : (
-                  <span className="text-sm font-bold text-muted-foreground">
-                    {l.decl.name.charAt(0)}
+                <span className="w-8 shrink-0 text-right text-lg font-black text-muted-foreground/20 tabular-nums">
+                  {i + 1}
+                </span>
+                <div
+                  className={`flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden border-l-2 bg-muted ${border}`}
+                >
+                  {l.meta?.avatar ? (
+                    <img
+                      src={l.meta.avatar}
+                      alt={l.decl.name}
+                      width={40}
+                      height={40}
+                      className="h-full w-full object-cover"
+                    />
+                  ) : (
+                    <span className="text-sm font-bold text-muted-foreground">
+                      {l.decl.name.charAt(0)}
+                    </span>
+                  )}
+                </div>
+                <div className="min-w-0 flex-1">
+                  <span className="font-bold">{l.decl.name}</span>
+                  <span className="ml-2 text-sm text-muted-foreground">
+                    {l.meta?.party}
                   </span>
-                )}
-              </div>
-              <div className="min-w-0 flex-1">
-                <span className="font-bold">{l.decl.name}</span>
-                <span className="ml-2 text-sm text-muted-foreground">
-                  {l.meta?.party}
-                </span>
-              </div>
-              <div className="shrink-0 text-right">
-                <span className="font-bold tracking-tight tabular-nums">
-                  <CurrencyDisplay amount={l.marketTotal} />
-                </span>
-                <span className="block text-xs text-muted-foreground">
-                  {l.stockCount} 檔
-                </span>
-              </div>
-            </Link>
+                </div>
+                <div className="shrink-0 text-right">
+                  <span className="font-bold tracking-tight tabular-nums">
+                    <CurrencyDisplay amount={l.marketTotal} />
+                  </span>
+                  <span className="block text-xs text-muted-foreground">
+                    {l.stockCount} 檔
+                  </span>
+                </div>
+              </Link>
+              {shouldShowInFeedAd(inFeedAd, ranked.length) && i === AD_INSERT_AFTER_INDEX && (
+                <AdSenseInFeedAd
+                  client={inFeedAd.client}
+                  slot={inFeedAd.slot}
+                  layoutKey={inFeedAd.layoutKey}
+                />
+              )}
+            </Fragment>
           )
         })}
       </section>

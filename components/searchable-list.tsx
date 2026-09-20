@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { CurrencyDisplay } from './currency-display'
 import { SearchInput } from './search-input'
 import { AdSenseInFeedAd } from './adsense-ad'
+import { AD_INSERT_AFTER_INDEX, shouldShowInFeedAd, type InFeedAdConfig } from '@/lib/adsense'
 
 interface LegislatorItem {
   name: string
@@ -16,14 +17,6 @@ interface LegislatorItem {
   rank: number
   borderColor: string
 }
-
-export interface InFeedAdConfig {
-  client: string
-  slot: string
-  layoutKey: string
-}
-
-const AD_INSERT_AFTER_INDEX = 3
 
 export function SearchableList({
   legislators,
@@ -42,7 +35,7 @@ export function SearchableList({
     )
   }, [legislators, search])
 
-  const showAd = inFeedAd && filtered.length > AD_INSERT_AFTER_INDEX + 1
+  const showAd = shouldShowInFeedAd(inFeedAd, filtered.length)
 
   return (
     <div className="space-y-3">
@@ -54,27 +47,27 @@ export function SearchableList({
               href={`/legislator/${l.slug}`}
               className="row-hover flex items-center gap-3 bg-card px-3 py-2 hover:bg-muted/50"
             >
-              <div className={`flex h-8 w-8 shrink-0 items-center justify-center bg-muted text-xs font-medium text-muted-foreground overflow-hidden border-l-2 ${l.borderColor}`}>
+              <div className={`flex h-10 w-10 shrink-0 items-center justify-center bg-muted text-xs font-medium text-muted-foreground overflow-hidden border-l-2 ${l.borderColor}`}>
                 {l.avatar ? (
                   <img src={l.avatar} alt={l.name} className="h-full w-full object-cover" />
                 ) : (
                   l.name.charAt(0)
                 )}
               </div>
-              <span className="text-sm font-medium flex-1 min-w-0 truncate">{l.name}</span>
-              <span className="text-xs text-muted-foreground shrink-0">{l.party}</span>
+              <div className="min-w-0 flex-1">
+                <p className="text-sm font-medium truncate">{l.name}</p>
+                <p className="text-xs text-muted-foreground truncate">{l.party || '未標示黨籍'}</p>
+              </div>
               <span className="text-sm font-bold tabular-nums tracking-tight shrink-0">
                 {l.amount > 0 ? <CurrencyDisplay amount={l.amount} /> : <span className="text-muted-foreground font-normal">--</span>}
               </span>
             </Link>
             {showAd && i === AD_INSERT_AFTER_INDEX && (
-              <div className="bg-card px-3 py-2">
-                <AdSenseInFeedAd
-                  client={inFeedAd!.client}
-                  slot={inFeedAd!.slot}
-                  layoutKey={inFeedAd!.layoutKey}
-                />
-              </div>
+              <AdSenseInFeedAd
+                client={inFeedAd.client}
+                slot={inFeedAd.slot}
+                layoutKey={inFeedAd.layoutKey}
+              />
             )}
           </Fragment>
         ))}

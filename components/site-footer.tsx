@@ -1,6 +1,5 @@
 import { DataDateStatus } from "@/components/data-date-status"
 import { ProductPromoDialog } from "@/components/product-promo-dialog"
-import { ThemeToggle } from "@/components/theme-toggle"
 
 export function SiteFooter() {
   const adsenseClient = process.env.GOOGLE_ADSENSE_ACCOUNT
@@ -9,13 +8,7 @@ export function SiteFooter() {
   return (
     <footer className="mx-auto max-w-6xl border-t px-4 pt-6 pb-10 sm:px-6">
       <div className="grid gap-x-8 gap-y-5 sm:grid-cols-[minmax(0,1fr)_auto] sm:gap-y-6">
-        <div className="flex flex-wrap items-center gap-3">
-          <span className="text-xs font-medium text-muted-foreground">
-            色彩模式
-          </span>
-          <ThemeToggle />
-        </div>
-        <DataDateStatus className="sm:justify-self-end" />
+        <DataDateStatus className="sm:justify-self-end sm:col-start-2" />
 
         <div className="space-y-1 text-xs text-muted-foreground">
           <p>

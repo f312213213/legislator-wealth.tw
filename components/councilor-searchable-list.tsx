@@ -9,14 +9,12 @@ import { Button } from './ui/button'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select'
 import { RiSortAsc, RiSortDesc } from '@remixicon/react'
 import { AdSenseInFeedAd } from './adsense-ad'
-import type { InFeedAdConfig } from './searchable-list'
+import { AD_INSERT_AFTER_INDEX, shouldShowInFeedAd, type InFeedAdConfig } from '@/lib/adsense'
 import type { CouncilorListItem } from '@/lib/councilor-analytics'
 
 type SortKey = 'market' | 'declaration' | 'party' | 'title' | 'name'
 type SortDirection = 'desc' | 'asc'
 type StatusFilter = 'all' | 'with' | 'without'
-
-const AD_INSERT_AFTER_INDEX = 3
 
 function titleRank(title: string): number {
   if (title === '議長') return 0
@@ -195,14 +193,12 @@ export function CouncilorSearchableList({
                 )}
               </div>
             </Link>
-            {inFeedAd && i === AD_INSERT_AFTER_INDEX && filtered.length > AD_INSERT_AFTER_INDEX + 1 && (
-              <div className="bg-card px-3 py-2">
-                <AdSenseInFeedAd
-                  client={inFeedAd.client}
-                  slot={inFeedAd.slot}
-                  layoutKey={inFeedAd.layoutKey}
-                />
-              </div>
+            {shouldShowInFeedAd(inFeedAd, filtered.length) && i === AD_INSERT_AFTER_INDEX && (
+              <AdSenseInFeedAd
+                client={inFeedAd.client}
+                slot={inFeedAd.slot}
+                layoutKey={inFeedAd.layoutKey}
+              />
             )}
           </Fragment>
         ))}

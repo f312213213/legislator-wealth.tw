@@ -1,5 +1,5 @@
 import { CouncilorSearchableList } from "@/components/councilor-searchable-list"
-import type { InFeedAdConfig } from "@/components/searchable-list"
+import { getInFeedAdConfig } from "@/lib/adsense"
 import { CouncilorCityNav } from "@/components/councilor-city-nav"
 import { CurrencyDisplay } from "@/components/currency-display"
 import { JsonLd } from "@/components/json-ld"
@@ -132,14 +132,6 @@ function buildTopHoldings(rows: CouncilorListItem[]) {
     }))
     .sort((a, b) => b.holderCount - a.holderCount || b.total - a.total)
     .slice(0, 8)
-}
-
-function getInFeedAdConfig(): InFeedAdConfig | undefined {
-  const client = process.env.GOOGLE_ADSENSE_ACCOUNT
-  const slot = process.env.GOOGLE_ADSENSE_INFEED_SLOT
-  const layoutKey = process.env.GOOGLE_ADSENSE_INFEED_LAYOUT_KEY
-  if (!client || !slot || !layoutKey) return undefined
-  return { client, slot, layoutKey }
 }
 
 export default async function CouncilorCityPage({

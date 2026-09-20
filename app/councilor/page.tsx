@@ -1,10 +1,13 @@
 import { JsonLd } from "@/components/json-ld"
+import { AdSenseInFeedAd } from "@/components/adsense-ad"
+import { AD_INSERT_AFTER_INDEX, getInFeedAdConfig, shouldShowInFeedAd } from "@/lib/adsense"
 import { getCouncilorMetaSource } from "@/lib/data"
 import { getCouncilorCitySlug } from "@/lib/councilor-routes"
 import { getCouncilorCitySummary } from "@/lib/councilor-analytics"
 import { createOgImage } from "@/lib/metadata"
 import { createBreadcrumbList } from "@/lib/structured-data"
 import Link from "next/link"
+import { Fragment } from "react"
 
 const title = "地方議員財產申報 — 縣市議會持股資料"
 const description =
@@ -34,6 +37,7 @@ export const metadata = {
 export default function CouncilorPage() {
   const source = getCouncilorMetaSource()
   const citySummary = getCouncilorCitySummary()
+  const inFeedAd = getInFeedAdConfig()
   for (const city of source.cities) {
     const slug = getCouncilorCitySlug(city)
     citySummary[slug] ??= {
@@ -106,21 +110,29 @@ export default function CouncilorPage() {
         <h2 className="text-lg font-bold">依縣市瀏覽</h2>
         {cityRows.length > 0 ? (
           <div className="divide-y border-y">
-            {cityRows.map((city) => (
-              <Link
-                key={city.slug}
-                href={`/councilor/${city.slug}`}
-                className="row-hover block px-3 py-4 hover:bg-muted/50"
-              >
-                <div className="min-w-0">
-                  <h3 className="font-heading text-2xl font-black tracking-tight">
-                    {city.name}議員
-                  </h3>
-                  <p className="mt-1 text-xs text-muted-foreground">
-                    {city.partyCount} 種黨籍 · {city.councilors} 位議員
-                  </p>
-                </div>
-              </Link>
+            {cityRows.map((city, i) => (
+              <Fragment key={city.slug}>
+                <Link
+                  href={`/councilor/${city.slug}`}
+                  className="row-hover block px-3 py-4 hover:bg-muted/50"
+                >
+                  <div className="min-w-0">
+                    <h3 className="font-heading text-2xl font-black tracking-tight">
+                      {city.name}議員
+                    </h3>
+                    <p className="mt-1 text-xs text-muted-foreground">
+                      {city.partyCount} 種黨籍 · {city.councilors} 位議員
+                    </p>
+                  </div>
+                </Link>
+                {shouldShowInFeedAd(inFeedAd, cityRows.length) && i === AD_INSERT_AFTER_INDEX && (
+                  <AdSenseInFeedAd
+                    client={inFeedAd.client}
+                    slot={inFeedAd.slot}
+                    layoutKey={inFeedAd.layoutKey}
+                  />
+                )}
+              </Fragment>
             ))}
           </div>
         ) : (
