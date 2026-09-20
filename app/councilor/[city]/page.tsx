@@ -1,4 +1,5 @@
 import { CouncilorSearchableList } from "@/components/councilor-searchable-list"
+import type { InFeedAdConfig } from "@/components/searchable-list"
 import { CouncilorCityNav } from "@/components/councilor-city-nav"
 import { CurrencyDisplay } from "@/components/currency-display"
 import { JsonLd } from "@/components/json-ld"
@@ -133,6 +134,14 @@ function buildTopHoldings(rows: CouncilorListItem[]) {
     .slice(0, 8)
 }
 
+function getInFeedAdConfig(): InFeedAdConfig | undefined {
+  const client = process.env.GOOGLE_ADSENSE_ACCOUNT
+  const slot = process.env.GOOGLE_ADSENSE_INFEED_SLOT
+  const layoutKey = process.env.GOOGLE_ADSENSE_INFEED_LAYOUT_KEY
+  if (!client || !slot || !layoutKey) return undefined
+  return { client, slot, layoutKey }
+}
+
 export default async function CouncilorCityPage({
   params,
 }: {
@@ -145,6 +154,7 @@ export default async function CouncilorCityPage({
   }
 
   const rows = buildCouncilorRows(citySlug)
+  const inFeedAd = getInFeedAdConfig()
   const source = getCouncilorMetaSource()
   const ranked = rows
     .filter((row) => row.hasDeclaration)
@@ -365,7 +375,7 @@ export default async function CouncilorCityPage({
 
       <section className="space-y-3">
         <h2 className="text-lg font-bold">全部{cityName}議員</h2>
-        <CouncilorSearchableList councilors={rows} />
+        <CouncilorSearchableList councilors={rows} inFeedAd={inFeedAd} />
       </section>
 
       <Link

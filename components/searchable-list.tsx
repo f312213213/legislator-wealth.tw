@@ -1,10 +1,11 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { Fragment, useState, useMemo } from 'react'
 import Link from 'next/link'
 /* eslint-disable @next/next/no-img-element */
 import { CurrencyDisplay } from './currency-display'
 import { SearchInput } from './search-input'
+import { AdSenseInFeedAd } from './adsense-ad'
 
 interface LegislatorItem {
   name: string
@@ -16,7 +17,21 @@ interface LegislatorItem {
   borderColor: string
 }
 
-export function SearchableList({ legislators }: { legislators: LegislatorItem[] }) {
+export interface InFeedAdConfig {
+  client: string
+  slot: string
+  layoutKey: string
+}
+
+const AD_INSERT_AFTER_INDEX = 3
+
+export function SearchableList({
+  legislators,
+  inFeedAd,
+}: {
+  legislators: LegislatorItem[]
+  inFeedAd?: InFeedAdConfig
+}) {
   const [search, setSearch] = useState('')
 
   const filtered = useMemo(() => {
@@ -27,29 +42,41 @@ export function SearchableList({ legislators }: { legislators: LegislatorItem[] 
     )
   }, [legislators, search])
 
+  const showAd = inFeedAd && filtered.length > AD_INSERT_AFTER_INDEX + 1
+
   return (
     <div className="space-y-3">
       <SearchInput value={search} onChange={setSearch} placeholder="搜尋立委姓名或黨籍..." />
       <div className="space-y-px">
-        {filtered.map(l => (
-          <Link
-            key={`${l.name}-${l.rank}`}
-            href={`/legislator/${l.slug}`}
-            className="row-hover flex items-center gap-3 bg-card px-3 py-2 hover:bg-muted/50"
-          >
-            <div className={`flex h-8 w-8 shrink-0 items-center justify-center bg-muted text-xs font-medium text-muted-foreground overflow-hidden border-l-2 ${l.borderColor}`}>
-              {l.avatar ? (
-                <img src={l.avatar} alt={l.name} className="h-full w-full object-cover" />
-              ) : (
-                l.name.charAt(0)
-              )}
-            </div>
-            <span className="text-sm font-medium flex-1 min-w-0 truncate">{l.name}</span>
-            <span className="text-xs text-muted-foreground shrink-0">{l.party}</span>
-            <span className="text-sm font-bold tabular-nums tracking-tight shrink-0">
-              {l.amount > 0 ? <CurrencyDisplay amount={l.amount} /> : <span className="text-muted-foreground font-normal">--</span>}
-            </span>
-          </Link>
+        {filtered.map((l, i) => (
+          <Fragment key={`${l.name}-${l.rank}`}>
+            <Link
+              href={`/legislator/${l.slug}`}
+              className="row-hover flex items-center gap-3 bg-card px-3 py-2 hover:bg-muted/50"
+            >
+              <div className={`flex h-8 w-8 shrink-0 items-center justify-center bg-muted text-xs font-medium text-muted-foreground overflow-hidden border-l-2 ${l.borderColor}`}>
+                {l.avatar ? (
+                  <img src={l.avatar} alt={l.name} className="h-full w-full object-cover" />
+                ) : (
+                  l.name.charAt(0)
+                )}
+              </div>
+              <span className="text-sm font-medium flex-1 min-w-0 truncate">{l.name}</span>
+              <span className="text-xs text-muted-foreground shrink-0">{l.party}</span>
+              <span className="text-sm font-bold tabular-nums tracking-tight shrink-0">
+                {l.amount > 0 ? <CurrencyDisplay amount={l.amount} /> : <span className="text-muted-foreground font-normal">--</span>}
+              </span>
+            </Link>
+            {showAd && i === AD_INSERT_AFTER_INDEX && (
+              <div className="bg-card px-3 py-2">
+                <AdSenseInFeedAd
+                  client={inFeedAd!.client}
+                  slot={inFeedAd!.slot}
+                  layoutKey={inFeedAd!.layoutKey}
+                />
+              </div>
+            )}
+          </Fragment>
         ))}
         {filtered.length === 0 && (
           <p className="py-8 text-center text-sm text-muted-foreground">查無符合條件的立委</p>

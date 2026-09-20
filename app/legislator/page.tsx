@@ -7,7 +7,7 @@ import {
   PARTY_NAME_TO_SLUG,
 } from "@/lib/data"
 import { CurrencyDisplay } from "@/components/currency-display"
-import { SearchableList } from "@/components/searchable-list"
+import { SearchableList, type InFeedAdConfig } from "@/components/searchable-list"
 import { PartyBarChart, type StockBarData } from "@/components/party-bar-chart"
 import { JsonLd } from "@/components/json-ld"
 import { LegislatorNav } from "@/components/legislator-nav"
@@ -49,9 +49,18 @@ const PARTY_BAR: Record<string, string> = {
   無黨籍: "bar-ind",
 }
 
+function getInFeedAdConfig(): InFeedAdConfig | undefined {
+  const client = process.env.GOOGLE_ADSENSE_ACCOUNT
+  const slot = process.env.GOOGLE_ADSENSE_INFEED_SLOT
+  const layoutKey = process.env.GOOGLE_ADSENSE_INFEED_LAYOUT_KEY
+  if (!client || !slot || !layoutKey) return undefined
+  return { client, slot, layoutKey }
+}
+
 export default function HomePage() {
   const declarations = getAllDeclarations()
   const aggregatedStocks = getAggregatedStocks()
+  const inFeedAd = getInFeedAdConfig()
 
   const marketTotals = new Map<string, number>()
   for (const d of declarations) {
@@ -267,7 +276,7 @@ export default function HomePage() {
       {/* All legislators */}
       <section className="space-y-3">
         <h2 className="text-lg font-bold">全部立委</h2>
-        <SearchableList legislators={listData} />
+        <SearchableList legislators={listData} inFeedAd={inFeedAd} />
       </section>
 
       {/* Party links */}

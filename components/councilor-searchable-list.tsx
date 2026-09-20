@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { Fragment, useMemo, useState } from 'react'
 import Link from 'next/link'
 /* eslint-disable @next/next/no-img-element */
 import { CurrencyDisplay } from './currency-display'
@@ -8,11 +8,15 @@ import { SearchInput } from './search-input'
 import { Button } from './ui/button'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select'
 import { RiSortAsc, RiSortDesc } from '@remixicon/react'
+import { AdSenseInFeedAd } from './adsense-ad'
+import type { InFeedAdConfig } from './searchable-list'
 import type { CouncilorListItem } from '@/lib/councilor-analytics'
 
 type SortKey = 'market' | 'declaration' | 'party' | 'title' | 'name'
 type SortDirection = 'desc' | 'asc'
 type StatusFilter = 'all' | 'with' | 'without'
+
+const AD_INSERT_AFTER_INDEX = 3
 
 function titleRank(title: string): number {
   if (title === '議長') return 0
@@ -25,7 +29,13 @@ function compareText(a: string, b: string): number {
   return a.localeCompare(b, 'zh-TW')
 }
 
-export function CouncilorSearchableList({ councilors }: { councilors: CouncilorListItem[] }) {
+export function CouncilorSearchableList({
+  councilors,
+  inFeedAd,
+}: {
+  councilors: CouncilorListItem[]
+  inFeedAd?: InFeedAdConfig
+}) {
   const [search, setSearch] = useState('')
   const [sortKey, setSortKey] = useState<SortKey>('market')
   const [sortDirection, setSortDirection] = useState<SortDirection>('desc')
@@ -146,45 +156,55 @@ export function CouncilorSearchableList({ councilors }: { councilors: CouncilorL
         顯示 {filtered.length} / {councilors.length} 位議員
       </p>
       <div className="space-y-px">
-        {filtered.map(councilor => (
-          <Link
-            key={councilor.slug}
-            href={councilor.href}
-            className="row-hover grid grid-cols-[2.25rem_minmax(0,1fr)_auto] items-center gap-3 bg-card px-3 py-2 hover:bg-muted/50 sm:grid-cols-[2.5rem_2.25rem_minmax(0,1fr)_auto]"
-          >
-            <span className="hidden text-right text-sm font-black tabular-nums text-muted-foreground/35 sm:block">
-              {councilor.rank ? `#${councilor.rank}` : '--'}
-            </span>
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden bg-muted text-xs font-medium text-muted-foreground">
-              {councilor.avatar ? (
-                <img src={councilor.avatar} alt={councilor.name} className="h-full w-full object-cover" loading="lazy" />
-              ) : (
-                councilor.name.charAt(0)
-              )}
-            </div>
-            <div className="min-w-0 flex-1">
-              <div className="flex min-w-0 items-baseline gap-2">
-                <span className="truncate text-sm font-medium">{councilor.name}</span>
-                <span className="shrink-0 text-xs text-muted-foreground">{councilor.title}</span>
+        {filtered.map((councilor, i) => (
+          <Fragment key={councilor.slug}>
+            <Link
+              href={councilor.href}
+              className="row-hover grid grid-cols-[2.25rem_minmax(0,1fr)_auto] items-center gap-3 bg-card px-3 py-2 hover:bg-muted/50 sm:grid-cols-[2.5rem_2.25rem_minmax(0,1fr)_auto]"
+            >
+              <span className="hidden text-right text-sm font-black tabular-nums text-muted-foreground/35 sm:block">
+                {councilor.rank ? `#${councilor.rank}` : '--'}
+              </span>
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden bg-muted text-xs font-medium text-muted-foreground">
+                {councilor.avatar ? (
+                  <img src={councilor.avatar} alt={councilor.name} className="h-full w-full object-cover" loading="lazy" />
+                ) : (
+                  councilor.name.charAt(0)
+                )}
               </div>
-              <p className="truncate text-xs text-muted-foreground">
-                {councilor.party || '未標示黨籍'}
-                {councilor.declarationDate ? ` · 申報日 ${councilor.declarationDate}` : ''}
-              </p>
-            </div>
-            <div className="shrink-0 text-right">
-              {councilor.hasDeclaration ? (
-                <>
-                  <span className="block text-sm font-bold tabular-nums tracking-tight">
-                    <CurrencyDisplay amount={councilor.amount} />
-                  </span>
-                  <span className="block text-xs text-muted-foreground">{councilor.stockCount} 檔</span>
-                </>
-              ) : (
-                <span className="text-xs text-muted-foreground">尚無申報</span>
-              )}
-            </div>
-          </Link>
+              <div className="min-w-0 flex-1">
+                <div className="flex min-w-0 items-baseline gap-2">
+                  <span className="truncate text-sm font-medium">{councilor.name}</span>
+                  <span className="shrink-0 text-xs text-muted-foreground">{councilor.title}</span>
+                </div>
+                <p className="truncate text-xs text-muted-foreground">
+                  {councilor.party || '未標示黨籍'}
+                  {councilor.declarationDate ? ` · 申報日 ${councilor.declarationDate}` : ''}
+                </p>
+              </div>
+              <div className="shrink-0 text-right">
+                {councilor.hasDeclaration ? (
+                  <>
+                    <span className="block text-sm font-bold tabular-nums tracking-tight">
+                      <CurrencyDisplay amount={councilor.amount} />
+                    </span>
+                    <span className="block text-xs text-muted-foreground">{councilor.stockCount} 檔</span>
+                  </>
+                ) : (
+                  <span className="text-xs text-muted-foreground">尚無申報</span>
+                )}
+              </div>
+            </Link>
+            {inFeedAd && i === AD_INSERT_AFTER_INDEX && filtered.length > AD_INSERT_AFTER_INDEX + 1 && (
+              <div className="bg-card px-3 py-2">
+                <AdSenseInFeedAd
+                  client={inFeedAd.client}
+                  slot={inFeedAd.slot}
+                  layoutKey={inFeedAd.layoutKey}
+                />
+              </div>
+            )}
+          </Fragment>
         ))}
         {filtered.length === 0 && (
           <p className="py-8 text-center text-sm text-muted-foreground">查無符合條件的議員</p>
