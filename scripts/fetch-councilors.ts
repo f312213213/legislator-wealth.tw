@@ -184,6 +184,14 @@ async function fetchSource(source: CouncilorSource): Promise<CouncilorMeta[]> {
     councilors.push(...parseCouncilors(await fetchPage(source, page)))
   }
 
+  // MOI sometimes serves a 200 maintenance page; an empty list would wipe
+  // every councilor downstream (index, pages, and cleanup-stale-pdfs).
+  if (councilors.length === 0) {
+    throw new Error(
+      `MOI councilor fetch for ${source.title} returned no parseable rows`
+    )
+  }
+
   return councilors
 }
 

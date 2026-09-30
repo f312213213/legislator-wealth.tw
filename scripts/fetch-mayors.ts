@@ -162,6 +162,14 @@ async function fetchSource(source: MayorSource): Promise<MayorMeta[]> {
     mayors.push(...parseMayors(await fetchPage(source, page)))
   }
 
+  // MOI sometimes serves a 200 maintenance page; an empty list would wipe
+  // every mayor downstream (index, pages, and cleanup-stale-pdfs).
+  if (mayors.length === 0) {
+    throw new Error(
+      `MOI mayor fetch for ${source.title} returned no parseable rows`
+    )
+  }
+
   return mayors
 }
 

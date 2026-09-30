@@ -101,9 +101,14 @@ function cleanupGroup(
   dryRun: boolean
 ): { stale: string[]; kept: number } {
   const referenced = collectReferencedPdfs(config)
-  const stale = listRawPdfs(config.rawDir).filter(
-    (filename) => !referenced.has(filename)
-  )
+  const rawPdfs = listRawPdfs(config.rawDir)
+  const stale = rawPdfs.filter((filename) => !referenced.has(filename))
+
+  if (referenced.size === 0 && rawPdfs.length > 0) {
+    throw new Error(
+      `${config.label}: index references no PDFs but ${rawPdfs.length} exist; refusing to delete them all (upstream fetch likely failed)`
+    )
+  }
 
   if (!dryRun) {
     for (const filename of stale) {
