@@ -1,5 +1,6 @@
 import { CategoryTabs, type HoldingRow } from "@/components/category-tabs"
 import { HoldingsPie } from "@/components/holdings-pie"
+import { getInFeedAdConfig } from "@/lib/adsense"
 import { JsonLd } from "@/components/json-ld"
 import { PropertySummary } from "@/components/property-summary"
 import { DeclarationDownloads } from "@/components/declaration-downloads"
@@ -236,7 +237,7 @@ export default async function MayorDetailPage({
       <PropertySummary data={data} />
       {holdings.length > 0 && (
         <section className="overflow-hidden">
-          <HoldingsPie holdings={holdings} />
+          <HoldingsPie holdings={holdings} inFeedAd={getInFeedAdConfig()} />
         </section>
       )}
       <CategoryTabs holdings={holdings} changes={changes} />

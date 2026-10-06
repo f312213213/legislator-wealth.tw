@@ -1,9 +1,11 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { Fragment, useState, useMemo } from 'react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import type { InFeedAdConfig } from '@/lib/adsense'
 import { cn } from '@/lib/utils'
+import { AdSenseInFeedAd } from './adsense-ad'
 import { CurrencyDisplay } from './currency-display'
 import type { HoldingRow } from './category-tabs'
 
@@ -140,7 +142,13 @@ function buildPortfolioSummary(holdings: HoldingRow[]): PortfolioSummary {
   }
 }
 
-export function HoldingsPie({ holdings }: { holdings: HoldingRow[] }) {
+export function HoldingsPie({
+  holdings,
+  inFeedAd,
+}: {
+  holdings: HoldingRow[]
+  inFeedAd?: InFeedAdConfig
+}) {
   const [showAll, setShowAll] = useState(false)
 
   const portfolio = useMemo(() => buildPortfolioSummary(holdings), [holdings])
@@ -158,50 +166,59 @@ export function HoldingsPie({ holdings }: { holdings: HoldingRow[] }) {
           const quantity = formatQuantity(row)
 
           return (
-            <div
-              key={row.key}
-              className={cn(
-                'border-b px-3 py-3 last:border-b-0',
-                index === 0 && 'bg-muted/25'
+            <Fragment key={row.key}>
+              {inFeedAd && index === MAX_VISIBLE_ROWS && (
+                <AdSenseInFeedAd
+                  client={inFeedAd.client}
+                  slot={inFeedAd.slot}
+                  layoutKey={inFeedAd.layoutKey}
+                  className="border-b"
+                />
               )}
-            >
-              <div className="flex min-w-0 items-start justify-between gap-3">
-                <div className="min-w-0 flex-1">
-                  <div className="flex min-w-0 items-center gap-2">
-                    <span className="w-5 shrink-0 text-xs tabular-nums text-muted-foreground">
-                      {index + 1}
-                    </span>
-                    <span
-                      className="h-2.5 w-2.5 shrink-0"
-                      style={{ backgroundColor: row.color }}
-                      aria-hidden="true"
-                    />
-                    <span className="min-w-0 truncate text-base font-semibold">{row.name}</span>
-                    <Badge variant={sourceVariant(row.source)} className="hidden shrink-0 text-xs min-[380px]:inline-flex">
-                      {sourceLabel(row.source)}
-                    </Badge>
+              <div
+                className={cn(
+                  'border-b px-3 py-3 last:border-b-0',
+                  index === 0 && 'bg-muted/25'
+                )}
+              >
+                <div className="flex min-w-0 items-start justify-between gap-3">
+                  <div className="min-w-0 flex-1">
+                    <div className="flex min-w-0 items-center gap-2">
+                      <span className="w-5 shrink-0 text-xs tabular-nums text-muted-foreground">
+                        {index + 1}
+                      </span>
+                      <span
+                        className="h-2.5 w-2.5 shrink-0"
+                        style={{ backgroundColor: row.color }}
+                        aria-hidden="true"
+                      />
+                      <span className="min-w-0 truncate text-base font-semibold">{row.name}</span>
+                      <Badge variant={sourceVariant(row.source)} className="hidden shrink-0 text-xs min-[380px]:inline-flex">
+                        {sourceLabel(row.source)}
+                      </Badge>
+                    </div>
+                    <div className="mt-1 truncate pl-9 text-xs text-muted-foreground">
+                      {formatOwners(row.owners)}
+                    </div>
                   </div>
-                  <div className="mt-1 truncate pl-9 text-xs text-muted-foreground">
-                    {formatOwners(row.owners)}
+
+                  <div className="shrink-0 text-right tabular-nums">
+                    <div className="font-heading text-lg font-black leading-tight">{quantity.primary}</div>
+                    {quantity.secondary && (
+                      <div className="text-xs text-muted-foreground">{quantity.secondary}</div>
+                    )}
                   </div>
                 </div>
 
-                <div className="shrink-0 text-right tabular-nums">
-                  <div className="font-heading text-lg font-black leading-tight">{quantity.primary}</div>
-                  {quantity.secondary && (
-                    <div className="text-xs text-muted-foreground">{quantity.secondary}</div>
-                  )}
+                <div className="mt-3 flex items-center gap-3 pl-9">
+                  <div className="text-xs tabular-nums text-muted-foreground">
+                    <span className="font-semibold text-foreground">{formatPct(row.pct)}</span>
+                    <span className="mx-1.5">·</span>
+                    <CurrencyDisplay amount={row.value} />
+                  </div>
                 </div>
               </div>
-
-              <div className="mt-3 flex items-center gap-3 pl-9">
-                <div className="text-xs tabular-nums text-muted-foreground">
-                  <span className="font-semibold text-foreground">{formatPct(row.pct)}</span>
-                  <span className="mx-1.5">·</span>
-                  <CurrencyDisplay amount={row.value} />
-                </div>
-              </div>
-            </div>
+            </Fragment>
           )
         })}
 
