@@ -5,6 +5,7 @@ import React from "react"
 import type { CSSProperties, ReactElement, ReactNode } from "react"
 import { ImageResponse } from "next/og"
 import sharp from "sharp"
+import { lookupStockPrice } from "../lib/data"
 import type {
   CouncilorIndex,
   DeclarationIndexEntry,
@@ -68,75 +69,17 @@ function formatNTD(amount: number): string {
   return new Intl.NumberFormat("zh-TW").format(amount)
 }
 
-interface TwsePriceRow {
-  Name: string
-  ClosingPrice: string
-}
-
-interface TpexPriceRow {
-  CompanyName: string
-  Close: string
-}
-
-interface EsbPriceRow {
-  CompanyName: string
-  LatestPrice: string
-}
-
-function calcMarketTotal(
-  decl: LegislatorDeclaration,
-  priceMap: Map<string, number>
-): number {
+function calcMarketTotal(decl: LegislatorDeclaration): number {
   let total = 0
   for (const s of decl.securities?.stocks?.items || []) {
-    const p = priceMap.get(s.name)
-    total += p ? Math.round(s.shares * p) : s.ntdTotal
+    const p = lookupStockPrice(s.name, "stock")
+    total += p ? Math.round(s.shares * p.price) : s.ntdTotal
   }
   for (const f of decl.securities?.funds?.items || []) {
-    const p = priceMap.get(f.name)
-    total += p ? Math.round(f.units * p) : f.ntdTotal
+    const p = lookupStockPrice(f.name, "fund")
+    total += p ? Math.round(f.units * p.price) : f.ntdTotal
   }
   return total
-}
-
-function loadPriceMap(): Map<string, number> {
-  const map = new Map<string, number>()
-  try {
-    const entries = JSON.parse(
-      fs.readFileSync(path.join(DATA_DIR, "STOCK_DAY_ALL.json"), "utf-8")
-    ) as TwsePriceRow[]
-    for (const e of entries) {
-      const p = parseFloat(e.ClosingPrice)
-      if (p && !isNaN(p)) map.set(e.Name, p)
-    }
-  } catch {}
-  try {
-    const entries = JSON.parse(
-      fs.readFileSync(
-        path.join(DATA_DIR, "tpex_mainboard_quotes.json"),
-        "utf-8"
-      )
-    ) as TpexPriceRow[]
-    for (const e of entries) {
-      if (map.has(e.CompanyName)) continue
-      const p = parseFloat(e.Close)
-      if (p && !isNaN(p)) map.set(e.CompanyName, p)
-    }
-  } catch {}
-  try {
-    const entries = JSON.parse(
-      fs.readFileSync(
-        path.join(DATA_DIR, "tpex_esb_latest_statistics.json"),
-        "utf-8"
-      )
-    ) as EsbPriceRow[]
-    for (const e of entries) {
-      if (map.has(e.CompanyName)) continue
-      const p = parseFloat(e.LatestPrice)
-      if (p && !isNaN(p)) map.set(e.CompanyName, p)
-    }
-  } catch {}
-  return map
 }
 
 function div(style: CSSProperties, children?: ReactNode): ReactElement {
@@ -608,7 +551,6 @@ async function main() {
     path.join(DATA_DIR, "mayors-index.json"),
     { mayors: [], lastUpdated: "" }
   )
-  const priceMap = loadPriceMap()
 
   let metaRaw: Record<string, { party: string; avatar: string }> = {}
   try {
@@ -680,7 +622,7 @@ async function main() {
       )
       if (!decl) return false
 
-      const amount = calcMarketTotal(decl, priceMap)
+      const amount = calcMarketTotal(decl)
       const meta = metaRaw[leg.name]
       const image = await generatePersonImage({
         name: leg.name,
@@ -707,7 +649,7 @@ async function main() {
       )
       if (!decl) return false
 
-      const amount = calcMarketTotal(decl, priceMap)
+      const amount = calcMarketTotal(decl)
       const meta = councilorMetaRaw[councilor.slug]
       const city = meta?.city ?? councilor.organization.replace(/議會$/g, "")
       const title = meta?.title ?? councilor.title
@@ -734,7 +676,7 @@ async function main() {
       const decl = getMergedMayorLatestDeclaration(mayor)
       if (!decl) return false
 
-      const amount = calcMarketTotal(decl, priceMap)
+      const amount = calcMarketTotal(decl)
       const meta = mayorMetaRaw[mayor.slug]
       const city = meta?.city ?? mayor.organization.replace(/政府$/g, "")
       const title = meta?.title ?? mayor.title
