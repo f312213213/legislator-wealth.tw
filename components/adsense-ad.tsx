@@ -81,17 +81,21 @@ export function AdSenseInFeedAd({
 
   if (status === "unfilled") return null
 
-  // No min-height here: AdSense reads the <ins>'s computed height and, if it
-  // has one, uses it verbatim instead of deriving height from the layout key.
+  // AdSense uses the <ins>'s computed height verbatim when it is non-zero and
+  // only falls back to the layout key at 0px. Keep the <ins> bare (no
+  // min-height, border or padding) and let the wrapper take list styling such
+  // as divide-y borders, which would otherwise make it "1px" tall.
   return (
-    <ins
-      ref={insRef}
-      className={cn("adsbygoogle block", className)}
-      style={{ display: "block" }}
-      data-ad-client={client}
-      data-ad-slot={slot}
-      data-ad-format="fluid"
-      data-ad-layout-key={layoutKey}
-    />
+    <div className={className}>
+      <ins
+        ref={insRef}
+        className="adsbygoogle block"
+        style={{ display: "block" }}
+        data-ad-client={client}
+        data-ad-slot={slot}
+        data-ad-format="fluid"
+        data-ad-layout-key={layoutKey}
+      />
+    </div>
   )
 }
