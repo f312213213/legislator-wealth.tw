@@ -81,10 +81,12 @@ export function AdSenseInFeedAd({
 
   if (status === "unfilled") return null
 
+  // No min-height here: AdSense reads the <ins>'s computed height and, if it
+  // has one, uses it verbatim instead of deriving height from the layout key.
   return (
     <ins
       ref={insRef}
-      className={cn("adsbygoogle block min-h-[50px]", className)}
+      className={cn("adsbygoogle block", className)}
       style={{ display: "block" }}
       data-ad-client={client}
       data-ad-slot={slot}
