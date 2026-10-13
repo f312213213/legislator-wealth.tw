@@ -5,6 +5,7 @@ import sharp from "sharp"
 const MAX_AVATAR_DIMENSION = 800
 const JPEG_QUALITY = 82
 const MAX_DEPLOY_FILE_BYTES = 24 * 1024 * 1024
+const AVATAR_FETCH_TIMEOUT_MS = 30_000
 
 interface DecodedBitmap {
   data: Buffer
@@ -99,7 +100,34 @@ async function canUseExistingAvatar(
 }
 
 function formatError(error: unknown): string {
-  return error instanceof Error ? error.message : String(error)
+  if (!(error instanceof Error)) return String(error)
+  // undici reports network failures as a bare "fetch failed" with the
+  // useful detail (e.g. ConnectTimeoutError) on `cause`.
+  return error.cause
+    ? `${error.message} (${formatError(error.cause)})`
+    : error.message
+}
+
+// Avatars are optional (callers fall back to the remote URL), so an
+// unreachable or stalled image host must not fail the whole build.
+export async function fetchAvatar(
+  url: string,
+  init: RequestInit = {}
+): Promise<Buffer | null> {
+  try {
+    const response = await fetch(url, {
+      ...init,
+      signal: AbortSignal.timeout(AVATAR_FETCH_TIMEOUT_MS),
+    })
+    if (!response.ok) {
+      console.warn(`  Failed to download ${url}: ${response.status}`)
+      return null
+    }
+    return Buffer.from(await response.arrayBuffer())
+  } catch (error) {
+    console.warn(`  Failed to download ${url}: ${formatError(error)}`)
+    return null
+  }
 }
 
 export async function buildOptimizedAvatar(buffer: Buffer): Promise<Buffer> {

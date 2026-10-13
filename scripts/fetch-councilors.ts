@@ -3,7 +3,11 @@ import path from "path"
 import { pinyin } from "pinyin-pro"
 import { getCouncilorCitySlug } from "../lib/councilor-routes"
 import type { CouncilorMeta, CouncilorMetaFile } from "../lib/types"
-import { ensureOptimizedAvatar, saveOptimizedAvatar } from "./avatar-image"
+import {
+  ensureOptimizedAvatar,
+  fetchAvatar,
+  saveOptimizedAvatar,
+} from "./avatar-image"
 
 const SOURCE_URL = "https://www.moi.gov.tw/LocalOfficial.aspx"
 const OUTPUT_PATH = path.join(process.cwd(), "data", "councilors-meta.json")
@@ -102,19 +106,13 @@ async function downloadImage(url: string, dest: string): Promise<boolean> {
     return true
   }
 
-  const response = await fetch(url, {
+  const buffer = await fetchAvatar(url, {
     headers: {
       "user-agent": "legislator-wealth.tw data fetcher",
       "accept-language": "zh-TW,zh;q=0.9",
     },
   })
-  if (!response.ok) {
-    console.warn(`  Failed to download ${url}: ${response.status}`)
-    return false
-  }
-
-  const buffer = Buffer.from(await response.arrayBuffer())
-  return saveOptimizedAvatar(buffer, dest, url)
+  return buffer ? saveOptimizedAvatar(buffer, dest, url) : false
 }
 
 async function runWithConcurrency<T>(

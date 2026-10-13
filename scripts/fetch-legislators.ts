@@ -1,6 +1,10 @@
 import fs from "fs"
 import path from "path"
-import { ensureOptimizedAvatar, saveOptimizedAvatar } from "./avatar-image"
+import {
+  ensureOptimizedAvatar,
+  fetchAvatar,
+  saveOptimizedAvatar,
+} from "./avatar-image"
 
 const BASE_URL = "https://www.ly.gov.tw"
 const LIST_URL = `${BASE_URL}/Pages/List.aspx?nodeid=109`
@@ -26,12 +30,8 @@ function extractChineseName(fullName: string): string | null {
 }
 
 async function downloadImage(url: string, dest: string): Promise<boolean> {
-  const res = await fetch(url)
-  if (!res.ok) {
-    console.warn(`  Failed to download ${url}: ${res.status}`)
-    return ensureOptimizedAvatar(dest)
-  }
-  const buffer = Buffer.from(await res.arrayBuffer())
+  const buffer = await fetchAvatar(url)
+  if (!buffer) return ensureOptimizedAvatar(dest)
   return saveOptimizedAvatar(buffer, dest, url)
 }
 
