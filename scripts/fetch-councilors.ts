@@ -142,20 +142,62 @@ function parseMaxPage(html: string): number {
   return pages.length > 0 ? Math.max(...pages) : 1
 }
 
+// The listing is a sequence of <div class="block"> cards. Each card is parsed
+// on its own: a single lazy regex over the whole page used to run past a card
+// whose organization span was empty and take the organization, party and
+// detail link of the next card (and drop that next councilor entirely).
+const BLOCK_START = '<div class="block">'
+
+interface ListingBlock {
+  avatar?: string
+  avatarAlt?: string
+  name: string
+  city: string
+  organization: string
+  title: string
+  party: string
+  detailUrl: string
+}
+
+function parseListingBlock(block: string): ListingBlock | null {
+  const img = block.match(/<img\s+src="([^"]+)"\s+alt="([^"]*)"/)
+  const caption = block.match(/<div class="caption">\s*<span>([^<]*)<\/span>/)
+  const locate = block.match(/<div class="locate">\s*<span>([^<]*)<\/span>/)
+  const position = block.match(
+    /<div class="position">\s*<span>([^<]*)<\/span>\s*<span>([^<]*)<\/span>/
+  )
+  const group = block.match(/<div class="group">\s*<span>([^<]*)<\/span>/)
+  const detail = block.match(/<a href="([^"]+)"[^>]*>詳細資訊<\/a>/)
+  if (!caption || !locate || !position || !detail) return null
+
+  return {
+    avatar: img?.[1],
+    avatarAlt: img?.[2],
+    name: caption[1],
+    city: locate[1],
+    organization: position[1],
+    title: position[2],
+    party: group?.[1] ?? "",
+    detailUrl: detail[1],
+  }
+}
+
 function parseCouncilors(html: string): CouncilorMeta[] {
-  const itemRe =
-    /<div class="block">[\s\S]*?<img\s+src="([^"]+)"\s+alt="([^"]*)"[^>]*\/>[\s\S]*?<div class="caption">\s*<span>([^<]+)<\/span>[\s\S]*?<div class="locate">\s*<span>([^<]+)<\/span>[\s\S]*?<div class="position">\s*<span>([^<]+)<\/span>\s*<span>([^<]+)<\/span>[\s\S]*?<div class="group">\s*<span>([^<]+)<\/span>[\s\S]*?<a href="([^"]+)"[^>]*>詳細資訊<\/a>/g
   const councilors: CouncilorMeta[] = []
 
-  for (const match of html.matchAll(itemRe)) {
-    const city = normalizeText(match[4])
-    const name = normalizeText(match[3] || match[2])
-    const organization = normalizeText(match[5])
-    const title = normalizeText(match[6])
-    const party = normalizeParty(match[7])
-    const detailUrl = absoluteUrl(match[8])
+  for (const block of html.split(BLOCK_START).slice(1)) {
+    const parsed = parseListingBlock(block)
+    if (!parsed) continue
 
-    if (!name || !city || !organization || !title) continue
+    const city = normalizeText(parsed.city)
+    const name = normalizeText(parsed.name || parsed.avatarAlt || "")
+    // A few cards (by-election winners) ship with an empty organization.
+    const organization = normalizeText(parsed.organization) || `${city}議會`
+    const title = normalizeText(parsed.title)
+    const party = normalizeParty(parsed.party)
+    const detailUrl = absoluteUrl(parsed.detailUrl)
+
+    if (!name || !city || !title) continue
 
     councilors.push({
       name,
@@ -164,7 +206,7 @@ function parseCouncilors(html: string): CouncilorMeta[] {
       organization,
       title,
       party,
-      avatar: absoluteUrl(match[1]),
+      avatar: parsed.avatar ? absoluteUrl(parsed.avatar) : "",
       detailUrl,
       sourceId: sourceIdFromUrl(detailUrl),
     })
@@ -259,7 +301,9 @@ async function main() {
     async (item) => {
       avatarResults.set(
         item.slug,
-        await downloadImage(item.councilor.avatar, item.avatarFile)
+        item.councilor.avatar
+          ? await downloadImage(item.councilor.avatar, item.avatarFile)
+          : false
       )
     }
   )

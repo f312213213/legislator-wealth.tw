@@ -416,6 +416,7 @@ function isLikelyShortCjkPersonName(name: string): boolean {
 // Name corrections for characters lost in PDF text extraction
 const NAME_CORRECTIONS: Record<string, string> = {
   陳秀: "陳秀寳",
+  蕭妤: "蕭妤亘",
 }
 
 function correctName(name: string): string {
