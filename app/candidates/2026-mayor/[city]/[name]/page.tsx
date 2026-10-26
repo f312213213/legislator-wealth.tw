@@ -1,5 +1,6 @@
 import { AdSenseAd } from "@/components/adsense-ad"
 import { CandidateAmount } from "@/components/candidate-amount"
+import { CandidateDetails } from "@/components/candidate-details"
 import { CandidatePortrait } from "@/components/candidate-portrait"
 import { StocksTab } from "@/components/category-tabs"
 import { CurrencyDisplay } from "@/components/currency-display"
@@ -241,6 +242,23 @@ export default async function CandidateDetailPage({
           amountFields.map((field) => field.key)
         ) && <p className="text-xs text-muted-foreground">＊ 由明細加總</p>}
       </section>
+
+      {(candidate.details.length > 0 || candidate.notes) && (
+        <section className="space-y-4" aria-labelledby="details-title">
+          <h2 id="details-title" className="text-lg font-bold">
+            財產明細
+          </h2>
+          <CandidateDetails tables={candidate.details} />
+          {candidate.notes && (
+            <div className="space-y-2">
+              <h3 className="text-sm font-bold">備註</h3>
+              <p className="text-sm leading-relaxed whitespace-pre-line">
+                {candidate.notes}
+              </p>
+            </div>
+          )}
+        </section>
+      )}
 
       <section className="space-y-3" aria-labelledby="sources-title">
         <h2 id="sources-title" className="text-sm font-bold">

@@ -164,6 +164,13 @@ export interface CandidateSource {
   note: string
 }
 
+/** One itemized section of the declaration, cells as printed in the text version. */
+export interface CandidateDetailTable {
+  title: string
+  columns: string[]
+  rows: string[][]
+}
+
 /** Portrait from an earlier election bulletin or official page, with its source for attribution. */
 export interface CandidatePhoto {
   src: string
@@ -201,6 +208,10 @@ export interface CandidateDeclaration {
     currency: string | null
     ntd: number
   }[]
+  /** Itemized sections other than stocks and funds, in declaration order. */
+  details: CandidateDetailTable[]
+  /** The declarant's 備註, null when left blank. */
+  notes: string | null
   /** Amounts whose printed total was blank, so the value is the sum of line items (0 = section left unfilled). */
   derived: CandidateAmountKey[]
   uncertain: string[]
