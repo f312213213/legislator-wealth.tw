@@ -2,6 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import { pinyin } from 'pinyin-pro'
 import { getCouncilorCitySlugFromOrganization } from '../lib/councilor-routes'
+import { personMatchKey } from '../lib/person-name'
 import type {
   CouncilorIndex,
   CouncilorMetaFile,
@@ -43,7 +44,7 @@ function loadCurrentCouncilorMeta(): Map<string, string> | null {
     const data: CouncilorMetaFile = JSON.parse(raw)
     const map = new Map<string, string>()
     for (const meta of Object.values(data.councilors)) {
-      map.set(`${meta.organization}:${meta.name}`, meta.slug)
+      map.set(personMatchKey(meta.organization, meta.name), meta.slug)
     }
     return map
   } catch {
@@ -58,7 +59,7 @@ function loadCurrentMayorMeta(): Map<string, string> | null {
     const data: MayorMetaFile = JSON.parse(raw)
     const map = new Map<string, string>()
     for (const meta of Object.values(data.mayors)) {
-      map.set(`${meta.organization}:${meta.name}`, meta.slug)
+      map.set(personMatchKey(meta.organization, meta.name), meta.slug)
     }
     return map
   } catch {
@@ -190,12 +191,16 @@ function main() {
     console.log(`Skipped ${legislatorResult.skippedFileCount} file(s) for ${legislatorResult.skippedNames.size} non-current legislator(s): ${Array.from(legislatorResult.skippedNames).sort((a, b) => a.localeCompare(b, 'zh-TW')).join(', ')}`)
   }
 
+  // Documents are matched to the current officeholder lists with
+  // personMatchKey so that spelling differences between the PDF header and
+  // the MOI list (romanised names, middle dots, variant characters) do not
+  // drop a current councilor from the index.
   const currentCouncilorMeta = loadCurrentCouncilorMeta()
   const councilorResult = buildEntries({
     documentsDir: COUNCILORS_DIR,
-    keyForDoc: doc => `${doc.organization}:${doc.name}`,
-    slugForDoc: doc => currentCouncilorMeta?.get(`${doc.organization}:${doc.name}`) ?? `${getCouncilorCitySlugFromOrganization(doc.organization)}-${toSlug(doc.name)}`,
-    shouldInclude: doc => !currentCouncilorMeta || currentCouncilorMeta.has(`${doc.organization}:${doc.name}`),
+    keyForDoc: doc => personMatchKey(doc.organization, doc.name),
+    slugForDoc: doc => currentCouncilorMeta?.get(personMatchKey(doc.organization, doc.name)) ?? `${getCouncilorCitySlugFromOrganization(doc.organization)}-${toSlug(doc.name)}`,
+    shouldInclude: doc => !currentCouncilorMeta || currentCouncilorMeta.has(personMatchKey(doc.organization, doc.name)),
   })
 
   const councilorIndex: CouncilorIndex = {
@@ -217,9 +222,9 @@ function main() {
   const currentMayorMeta = loadCurrentMayorMeta()
   const mayorResult = buildEntries({
     documentsDir: MAYORS_DIR,
-    keyForDoc: doc => `${doc.organization}:${doc.name}`,
-    slugForDoc: doc => currentMayorMeta?.get(`${doc.organization}:${doc.name}`) ?? toSlug(doc.name),
-    shouldInclude: doc => !currentMayorMeta || currentMayorMeta.has(`${doc.organization}:${doc.name}`),
+    keyForDoc: doc => personMatchKey(doc.organization, doc.name),
+    slugForDoc: doc => currentMayorMeta?.get(personMatchKey(doc.organization, doc.name)) ?? toSlug(doc.name),
+    shouldInclude: doc => !currentMayorMeta || currentMayorMeta.has(personMatchKey(doc.organization, doc.name)),
   })
 
   const mayorIndex: MayorIndex = {

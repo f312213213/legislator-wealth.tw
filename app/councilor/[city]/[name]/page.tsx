@@ -5,6 +5,7 @@ import { JsonLd } from "@/components/json-ld"
 import { PropertySummary } from "@/components/property-summary"
 import { DeclarationDownloads } from "@/components/declaration-downloads"
 import {
+  getAllCouncilorMeta,
   getCouncilorChangesBySlug,
   getCouncilorDeclarationBySlug,
   getCouncilorIndex,
@@ -16,6 +17,7 @@ import {
 } from "@/lib/data"
 import {
   getCouncilorCityName,
+  getCouncilorCitySlug,
   getCouncilorCitySlugFromOrganization,
   getCouncilorMemberSlug,
 } from "@/lib/councilor-routes"
@@ -29,14 +31,18 @@ import { notFound } from "next/navigation"
 /* eslint-disable @next/next/no-img-element */
 
 export async function generateStaticParams() {
+  // Every councilor the city index links to needs a page: everyone on the
+  // MOI list, with or without a parsed declaration, plus anyone in the
+  // declaration index. Mirrors the hrefs built by buildCouncilorRows.
   const params = new Map<string, { city: string; name: string }>()
 
+  for (const meta of getAllCouncilorMeta()) {
+    const city = getCouncilorCitySlug(meta.city)
+    const name = getCouncilorMemberSlug(meta.slug, city)
+    params.set(`${city}/${name}`, { city, name })
+  }
+
   for (const councilor of getCouncilorIndex().councilors) {
-    if (
-      councilor.declarations.length === 0 ||
-      !getCouncilorDeclarationBySlug(councilor.slug)
-    )
-      continue
     const city = getCouncilorCitySlugFromOrganization(councilor.organization)
     const name = getCouncilorMemberSlug(councilor.slug, city)
     params.set(`${city}/${name}`, { city, name })
@@ -56,14 +62,15 @@ export async function generateMetadata({
   const meta = getCouncilorMetaByCityAndMemberSlug(citySlug, memberSlug)
   const entry = getCouncilorIndexEntryByCityAndMemberSlug(citySlug, memberSlug)
   const data = getCouncilorDeclarationBySlug(slug)
-  if (!cityName || !data) return { title: memberSlug }
+  if (!cityName || (!data && !meta && !entry)) return { title: memberSlug }
 
   const displayName = meta?.name ?? data?.name ?? entry?.name ?? memberSlug
   const title = `${displayName} ${cityName}議員財產申報`
   const amount = data ? calcMarketTotal(data) : 0
   const canonicalName = getCouncilorMemberSlug(slug, citySlug)
   const url = `/councilor/${citySlug}/${canonicalName}/`
-  const image = `/og/councilors/${slug}.png`
+  // Per-person OG images only exist for parsed declarations.
+  const image = data ? `/og/councilors/${slug}.png` : "/og/councilor.png"
   const description = data
     ? `${displayName}的${cityName}議員財產申報資料，共持有股票及基金市值約 NT$ ${formatNTD(amount)}。`
     : `${displayName}的${cityName}議員頁面，名單資料取自內政部地方公職人員資訊專區。`
@@ -148,11 +155,11 @@ export default async function CouncilorDetailPage({
   const data = getCouncilorDeclarationBySlug(slug)
   const changes = getCouncilorChangesBySlug(slug)
 
-  if (!data) {
-    notFound()
-  }
+  // Councilors on the MOI list without a parsed declaration still get a page
+  // (the city index links to them); only unknown slugs are a 404.
+  if (!data && !meta && !entry) notFound()
 
-  const displayName = meta?.name ?? data.name ?? entry!.name
+  const displayName = meta?.name ?? data?.name ?? entry?.name ?? memberSlug
   const canonicalMemberSlug = getCouncilorMemberSlug(slug, citySlug)
   const avatar = meta?.avatar
   const holdings = data ? buildHoldings(data) : []
@@ -242,19 +249,24 @@ export default async function CouncilorDetailPage({
           <CategoryTabs holdings={holdings} changes={changes} />
         </>
       ) : (
-        <section className="border-y py-8">
-          <p className="text-sm text-muted-foreground">
-            目前尚無已解析的股票或基金申報資料。
-          </p>
-          {meta?.detailUrl && (
-            <a
-              href={meta.detailUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-3 inline-flex text-sm underline hover:text-foreground"
-            >
-              內政部議員資料
-            </a>
+        <section className="space-y-6 border-y py-8">
+          <div>
+            <p className="text-sm text-muted-foreground">
+              目前尚無已解析的股票或基金申報資料。
+            </p>
+            {meta?.detailUrl && (
+              <a
+                href={meta.detailUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex text-sm underline hover:text-foreground"
+              >
+                內政部議員資料
+              </a>
+            )}
+          </div>
+          {changes.length > 0 && (
+            <CategoryTabs holdings={[]} changes={changes} />
           )}
         </section>
       )}

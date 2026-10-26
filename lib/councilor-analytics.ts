@@ -2,6 +2,7 @@ import type { AggregatedStock, FlatChange, StockHolding } from './data'
 import {
   getAllCouncilorMeta,
   getAllCouncilorChanges,
+  getCouncilorChangesBySlug,
   getCouncilorDeclarationBySlug,
   getCouncilorIndex,
   getCouncilorIndexByCity,
@@ -15,6 +16,7 @@ import {
   getCouncilorPath,
 } from './councilor-routes'
 import { formatDate } from './format'
+import { personMatchKey } from './person-name'
 import type { DeclarationIndexEntry, LegislatorDeclaration } from './types'
 
 export interface CouncilorListItem {
@@ -235,7 +237,13 @@ export function getCouncilorHrefMap(citySlug?: string): Record<string, string> {
   const map: Record<string, string> = {}
 
   for (const entry of entries) {
-    map[entry.name] = getCouncilorPath(entry)
+    const href = getCouncilorPath(entry)
+    map[entry.name] = href
+    // Parsed PDFs may spell the name differently from the index entry (for
+    // example without the romanised part), so register those spellings too.
+    const declaration = getCouncilorDeclarationBySlug(entry.slug)
+    if (declaration) map[declaration.name] = href
+    for (const change of getCouncilorChangesBySlug(entry.slug)) map[change.name] = href
   }
 
   if (citySlug) {
@@ -251,11 +259,11 @@ export function getCouncilorFlatChanges(citySlug?: string): FlatChange[] {
   const allowed = citySlug
     ? new Set(getCouncilorIndexByCity(citySlug).map(entry => entry.slug))
     : null
-  const slugByKey = new Map(getCouncilorIndex().councilors.map(entry => [`${entry.organization}:${entry.name}`, entry.slug]))
+  const slugByKey = new Map(getCouncilorIndex().councilors.map(entry => [personMatchKey(entry.organization, entry.name), entry.slug]))
   const flat: FlatChange[] = []
 
   for (const change of getAllCouncilorChanges()) {
-    const slug = slugByKey.get(`${change.organization}:${change.name}`)
+    const slug = slugByKey.get(personMatchKey(change.organization, change.name))
     if (allowed && (!slug || !allowed.has(slug))) continue
 
     for (const stock of change.stocks ?? []) {

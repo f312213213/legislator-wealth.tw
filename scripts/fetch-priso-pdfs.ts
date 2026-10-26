@@ -1,6 +1,13 @@
 import fs from "fs"
 import path from "path"
 import { setTimeout as sleep } from "timers/promises"
+import {
+  extractChineseName,
+  leadingChineseName,
+  nameVariants,
+  normalizeComparable,
+  normalizeText,
+} from "../lib/person-name"
 import type { CouncilorMetaFile, MayorMetaFile } from "../lib/types"
 
 const PRISO_API_BASE = "https://priso.cy.gov.tw/api"
@@ -173,23 +180,6 @@ function readJson<T>(relativePath: string): T {
   return JSON.parse(fs.readFileSync(filePath, "utf-8")) as T
 }
 
-function normalizeText(value: string): string {
-  return value
-    .normalize("NFKC")
-    .replace(/[\u3000\s]+/g, "")
-    .trim()
-}
-
-function normalizeComparable(value: string): string {
-  return normalizeText(value)
-    .replace(/[台臺]/g, "台")
-    .replace(/[·‧・．.()（）\-_/]/g, "")
-}
-
-function extractChineseName(value: string): string | undefined {
-  return normalizeText(value).match(/^[\u3400-\u9fff○]+/)?.[0]
-}
-
 function unique(values: (string | undefined)[]): string[] {
   return Array.from(
     new Set(values.filter((value): value is string => Boolean(value)))
@@ -197,8 +187,16 @@ function unique(values: (string | undefined)[]): string[] {
 }
 
 function buildQueryNames(name: string): string[] {
+  // PRISO search is an exact-character match, so query the Chinese part as
+  // written, with middle dots removed, the full name, and every variant
+  // character spelling (李啓維 on the MOI list is 李啟維 on PRISO).
   const chineseName = extractChineseName(name)
-  return unique([chineseName, name])
+  return unique([
+    leadingChineseName(name),
+    chineseName,
+    name,
+    ...(chineseName ? nameVariants(chineseName) : []),
+  ])
 }
 
 function targetMatchesNameFilter(target: Target, names?: Set<string>): boolean {
@@ -474,9 +472,16 @@ function fallbackPdfName(row: PrisoRow, target: Target): string {
   return `${name}-${datePart}-${type}-${row.Seq}.pdf`
 }
 
-function pdfNameFromPrisoRow(row: PrisoRow): string | undefined {
-  if (!/^\d+$/.test(row.Period) || !/^\d+$/.test(row.Seq)) return undefined
-  return `A${row.Period.padStart(4, "0")}-${row.Seq.padStart(5, "0")}.pdf`
+function pdfNameFromPrisoRow(
+  row: Pick<PrisoRow, "Period" | "PublishPage">
+): string | undefined {
+  // PRISO names files after the gazette issue and the first page of the
+  // entry: issue 301 pages 349-352 is A0301-00349.pdf. `Seq` is only the row
+  // number inside the search result; using it here made the "already
+  // downloaded" check look at somebody else's file and skip the download.
+  const page = row.PublishPage.match(/^P?(\d+)/)
+  if (!/^\d+$/.test(row.Period) || !page) return undefined
+  return `A${row.Period.padStart(4, "0")}-${page[1].padStart(5, "0")}.pdf`
 }
 
 async function downloadRow(
@@ -485,7 +490,10 @@ async function downloadRow(
   args: Args
 ): Promise<{ file?: string; skipped?: string }> {
   if (args.dryRun) {
-    const outputPath = path.join(target.outputDir, fallbackPdfName(row, target))
+    const outputPath = path.join(
+      target.outputDir,
+      pdfNameFromPrisoRow(row) ?? fallbackPdfName(row, target)
+    )
     return { skipped: `[dry-run] ${path.relative(process.cwd(), outputPath)}` }
   }
 
@@ -528,7 +536,9 @@ async function downloadRow(
   const fileName =
     parseContentDispositionFilename(
       response.headers.get("content-disposition")
-    ) ?? fallbackPdfName(row, target)
+    ) ??
+    pdfNameFromPrisoRow(row) ??
+    fallbackPdfName(row, target)
   const outputPath = path.join(target.outputDir, path.basename(fileName))
 
   if (
@@ -553,7 +563,7 @@ async function processTarget(
     const queryResults = await Promise.all(
       target.queryNames.map(async (queryName) => {
         try {
-          const cacheKey = normalizeComparable(queryName)
+          const cacheKey = normalizeText(queryName)
           const existing = queryCache.get(cacheKey)
           if (existing) return { queryName, rows: await existing }
           const query = queryPrisoByName(queryName)
