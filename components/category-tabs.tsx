@@ -71,7 +71,7 @@ function EmptyState({ message }: { message: string }) {
 type SortKey = 'name' | 'shares' | 'marketValue' | 'ntdTotal'
 type SortDir = 'asc' | 'desc'
 
-function StocksTab({ holdings }: { holdings: HoldingRow[] }) {
+export function StocksTab({ holdings, showTotal = true }: { holdings: HoldingRow[]; showTotal?: boolean }) {
   const [sortKey, setSortKey] = useState<SortKey>('marketValue')
   const [sortDir, setSortDir] = useState<SortDir>('desc')
 
@@ -119,9 +119,9 @@ function StocksTab({ holdings }: { holdings: HoldingRow[] }) {
 
   return (
     <div className="space-y-2">
-      <p className="text-sm">
+      {showTotal && <p className="text-sm">
         股票及基金市值，以台股最新收盤價計算：<span className="font-semibold tabular-nums"><CurrencyDisplay amount={marketTotal} /></span>
-      </p>
+      </p>}
       <div className="border">
         <Table>
           <TableHeader>

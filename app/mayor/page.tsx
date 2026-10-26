@@ -8,6 +8,7 @@ import {
   getMayorIndex,
   lookupStockPrice,
 } from "@/lib/data"
+import { CANDIDATE_BASE_PATH } from "@/lib/candidates"
 import { createOgImage } from "@/lib/metadata"
 import { getMayorPath } from "@/lib/mayor-routes"
 import { createBreadcrumbList } from "@/lib/structured-data"
@@ -113,6 +114,13 @@ export default function MayorPage() {
         <h1 className="font-heading text-3xl font-black tracking-tight sm:text-4xl">
           縣市首長財產申報
         </h1>
+        <Link
+          href={CANDIDATE_BASE_PATH}
+          className="inline-flex items-center gap-1 text-sm font-bold underline-offset-4 hover:underline"
+        >
+          2026 縣市長候選人財產申報特輯
+          <RiArrowRightLine className="size-4" />
+        </Link>
       </header>
 
       {leader && (

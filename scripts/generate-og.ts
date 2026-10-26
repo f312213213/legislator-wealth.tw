@@ -5,6 +5,14 @@ import React from "react"
 import type { CSSProperties, ReactElement, ReactNode } from "react"
 import { ImageResponse } from "next/og"
 import sharp from "sharp"
+import {
+  CANDIDATE_ELECTION_ID,
+  getAllCandidates,
+  getCandidateAvatar,
+  getCandidateMarketTotal,
+  getCandidateOffice,
+} from "../lib/candidates"
+import { getCouncilorCitySlug } from "../lib/councilor-routes"
 import { lookupStockPrice } from "../lib/data"
 import type {
   CouncilorIndex,
@@ -19,6 +27,7 @@ const PUBLIC_DIR = path.join(process.cwd(), "public")
 const OG_DIR = path.join(PUBLIC_DIR, "og")
 const COUNCILOR_OG_DIR = path.join(OG_DIR, "councilors")
 const MAYOR_OG_DIR = path.join(OG_DIR, "mayors")
+const CANDIDATE_OG_DIR = path.join(OG_DIR, "candidates", CANDIDATE_ELECTION_ID)
 const OG_WIDTH = 1200
 const OG_HEIGHT = 630
 const FONT_SANS = "Noto Sans TC"
@@ -538,6 +547,7 @@ async function main() {
   fs.mkdirSync(OG_DIR, { recursive: true })
   fs.mkdirSync(COUNCILOR_OG_DIR, { recursive: true })
   fs.mkdirSync(MAYOR_OG_DIR, { recursive: true })
+  fs.mkdirSync(CANDIDATE_OG_DIR, { recursive: true })
 
   const index = readJson<LegislatorIndex>(path.join(DATA_DIR, "index.json"), {
     legislators: [],
@@ -607,6 +617,14 @@ async function main() {
         "資料來源：監察院公報與內政部地方公職人員資訊"
       ),
       path.join(OG_DIR, "mayor.png")
+    ),
+    imageToPng(
+      generateSiteImage(
+        "縣市長候選人財產",
+        "2026 直轄市長與縣市長候選人財產申報特輯",
+        "資料來源：中央選舉委員會 政治獻金及財產申報公開平台"
+      ),
+      path.join(OG_DIR, `candidates-${CANDIDATE_ELECTION_ID}.png`)
     ),
   ])
   console.log("Generated og.png")
@@ -693,6 +711,28 @@ async function main() {
   )
   const mayorCount = mayorResults.filter(Boolean).length
 
+  const candidateResults = await runWithConcurrency(
+    getAllCandidates(),
+    OG_GENERATION_CONCURRENCY,
+    async (candidate) => {
+      const image = await generatePersonImage({
+        name: candidate.name,
+        party: candidate.party ?? "",
+        role: `2026 ${getCandidateOffice(candidate.city)}候選人`,
+        amount: getCandidateMarketTotal(candidate),
+        avatarPath: getCandidateAvatar(candidate) ?? "",
+      })
+      await imageToPng(
+        image,
+        path.join(
+          CANDIDATE_OG_DIR,
+          `${getCouncilorCitySlug(candidate.city)}-${candidate.slug}.png`
+        )
+      )
+      return true
+    }
+  )
+
   // Clean up old SVGs
   for (const f of fs.readdirSync(OG_DIR).filter((f) => f.endsWith(".svg"))) {
     fs.unlinkSync(path.join(OG_DIR, f))
@@ -703,6 +743,7 @@ async function main() {
   console.log(`Generated ${count} legislator OG images (PNG)`)
   console.log(`Generated ${councilorCount} councilor OG images (PNG)`)
   console.log(`Generated ${mayorCount} mayor OG images (PNG)`)
+  console.log(`Generated ${candidateResults.length} candidate OG images (PNG)`)
 }
 
 main()

@@ -14,6 +14,7 @@ Declaration data is sourced from the Control Yuan public official property decla
 | Source PDFs                                   | Control Yuan declaration/gazette PDFs stored in `raw-pdfs/`                                         |
 | Current legislator names, parties, and photos | Legislative Yuan legislator list, fetched by `scripts/fetch-legislators.ts`                         |
 | Listed and OTC stock prices                   | TWSE, TPEx, and ESB quote feeds, fetched by `scripts/fetch-stock-prices.ts`                         |
+| 2026 mayoral candidate declarations           | [CEC political donation and property declaration platform](https://pdps-dec.cec.gov.tw/)            |
 
 The Control Yuan declaration search is the canonical source for public official property declarations. This project parses the relevant declaration PDFs and only publishes derived stock/fund holdings and transaction records.
 
@@ -24,6 +25,10 @@ The Control Yuan declaration search is the canonical source for public official 
 - Stock transaction records from change declarations
 
 Other asset categories (real estate, deposits, debts, etc.) are not included.
+
+### 2026 mayoral candidate special (`/candidates/2026-mayor/`)
+
+Candidate declarations filed with the CEC are summarised per category (cash, deposits, securities, valuables, claims, debts, business investments, trust totals, and land/building/vehicle/insurance counts) together with every declared stock and fund. The data lives in `data/candidates/2026-mayor.json` and is committed, not generated at build time: it was transcribed from OCR'd, hand-checked text versions of the CEC PDFs, which are served from `public/candidate-pdfs/2026-mayor/{fileId}.pdf`. `derived` lists totals that were blank on the form and summed from line items (shown with ＊). `sources[].note` (the transcriber's cross-check log) and `uncertain` (doubtful readings) are kept for maintainers and not rendered. Portraits come from the person's existing mayor, legislator or councilor page when there is one; otherwise `photo` points to a cropped copy in `public/avatars/candidates/` taken from an earlier CEC election bulletin, a government page, or a freely licensed Commons file, with the credit and source URL shown on the candidate page. Replace these with the 2026 election bulletin photos once the CEC publishes it.
 
 ## Tech Stack
 

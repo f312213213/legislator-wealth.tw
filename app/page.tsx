@@ -6,6 +6,11 @@ import {
   getAllMayorDeclarations,
   getHoldingStat,
 } from "@/lib/data"
+import {
+  CANDIDATE_BASE_PATH,
+  getAllCandidates,
+  getCandidateCities,
+} from "@/lib/candidates"
 import { createWebSiteJsonLd } from "@/lib/structured-data"
 import {
   RiArrowRightLine,
@@ -27,6 +32,8 @@ export default function PortalPage() {
   const legislatorStat = getHoldingStat(getAllDeclarations())
   const councilorStat = getHoldingStat(getAllCouncilorDeclarations())
   const mayorStat = getHoldingStat(getAllMayorDeclarations())
+  const candidateCount = getAllCandidates().length
+  const candidateCityCount = getCandidateCities().length
 
   const sections = [
     {
@@ -100,6 +107,32 @@ export default function PortalPage() {
           </p>
         </div>
       </header>
+
+      <Link
+        href={CANDIDATE_BASE_PATH}
+        className="group fade-up block border-2 border-foreground bg-foreground text-background transition-all duration-200 ease-out hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[8px_8px_0_0_var(--muted-foreground)]"
+      >
+        <div className="flex flex-col gap-5 p-5 sm:flex-row sm:items-end sm:justify-between">
+          <div className="space-y-2">
+            <p className="flex items-center gap-2 text-[11px] font-bold tracking-[0.18em]">
+              <span className="bg-background px-1.5 py-0.5 text-foreground">
+                特輯
+              </span>
+              <span className="opacity-70">2026 地方選舉</span>
+            </p>
+            <h2 className="font-heading text-3xl leading-none font-black tracking-tight sm:text-4xl">
+              縣市長候選人財產申報
+            </h2>
+            <p className="text-sm opacity-70">
+              {candidateCityCount} 縣市 · {candidateCount} 位候選人
+            </p>
+          </div>
+          <span className="inline-flex shrink-0 items-center gap-1.5 text-sm font-black tracking-wide">
+            進入特輯
+            <RiArrowRightLine className="size-4 transition-transform duration-200 ease-out group-hover:translate-x-1.5" />
+          </span>
+        </div>
+      </Link>
 
       <section className="grid gap-5 lg:grid-cols-3">
         {sections.map((section, i) => {

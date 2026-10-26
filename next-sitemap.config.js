@@ -84,6 +84,7 @@ function createPaths() {
     "/legislator/changes",
     "/councilor",
     "/mayor",
+    "/candidates/2026-mayor",
   ])
 
   for (const partySlug of PARTY_SLUGS) {
@@ -126,6 +127,15 @@ function createPaths() {
     paths.add(`/mayor/${citySlug}/${memberSlug}`)
   }
 
+  const candidateFile = readJson("candidates/2026-mayor.json", {
+    candidates: [],
+  })
+  for (const candidate of candidateFile.candidates ?? []) {
+    const citySlug = getCitySlug(candidate.city)
+    paths.add(`/candidates/2026-mayor/${citySlug}`)
+    paths.add(`/candidates/2026-mayor/${citySlug}/${candidate.slug}`)
+  }
+
   return [...paths].sort()
 }
 
@@ -144,6 +154,8 @@ const config = {
     "/councilor/[city]",
     "/councilor/[city]/*",
     "/mayor/[city]/*",
+    "/candidates/2026-mayor/[city]",
+    "/candidates/2026-mayor/[city]/*",
   ],
   additionalPaths: async (config) => {
     const fields = await Promise.all(

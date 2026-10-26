@@ -12,6 +12,7 @@ const NAV_LINKS = [
   { href: "/legislator", label: "立法委員" },
   { href: "/councilor", label: "縣市議員" },
   { href: "/mayor", label: "縣市首長" },
+  { href: "/candidates/2026-mayor", label: "候選人特輯" },
 ] as const
 
 function blindDelay(index: number, open: boolean): CSSProperties {

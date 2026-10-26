@@ -1,12 +1,12 @@
 export interface LegislatorDeclaration {
-  type: 'declaration'
-  declarationForm?: 'asset' | 'trust' | 'merged'
+  type: "declaration"
+  declarationForm?: "asset" | "trust" | "merged"
   name: string
   organization: string
   title: string
   declarationDate: string
   declarationType: string
-  spouse?: { relation: '配偶'; name: string }
+  spouse?: { relation: "配偶"; name: string }
   minorChildren?: { relation: string; name: string }[]
 
   securities: {
@@ -40,7 +40,7 @@ export interface LegislatorDeclaration {
 }
 
 export interface ChangeDeclaration {
-  type: 'change'
+  type: "change"
   name: string
   organization: string
   title: string
@@ -49,7 +49,7 @@ export interface ChangeDeclaration {
     from: string
     to: string
   }
-  spouse?: { relation: '配偶'; name: string }
+  spouse?: { relation: "配偶"; name: string }
   minorChildren?: { relation: string; name: string }[]
 
   stocks?: {
@@ -137,4 +137,83 @@ export interface MayorMetaFile {
     cities: string[]
   }
   mayors: Record<string, MayorMeta>
+}
+
+export type CandidateAmountKey =
+  | "cash"
+  | "deposits"
+  | "securities"
+  | "stocksTotal"
+  | "bondsTotal"
+  | "fundsTotal"
+  | "otherSecuritiesTotal"
+  | "valuables"
+  | "virtualAssets"
+  | "claims"
+  | "debts"
+  | "investments"
+  | "trustTotal"
+
+export type CandidateCountKey = "land" | "buildings" | "vehicles" | "insurance"
+
+export interface CandidateSource {
+  fileId: string
+  url: string
+  textPdf: string
+  originalPages: number
+  note: string
+}
+
+/** Portrait from an earlier election bulletin or official page, with its source for attribution. */
+export interface CandidatePhoto {
+  src: string
+  credit: string
+  url: string
+}
+
+export interface CandidateDeclaration {
+  slug: string
+  name: string
+  city: string
+  party: string | null
+  ballotNumber: number | null
+  incumbent: boolean | null
+  photo: CandidatePhoto | null
+  declarationDate: string | null
+  submittedDate: string | null
+  isCorrection: boolean
+  counts: Record<CandidateCountKey, number | null>
+  amounts: Record<CandidateAmountKey, number | null>
+  stocks: {
+    name: string
+    owner: string
+    shares: number
+    parValue: number | null
+    currency: string | null
+    ntd: number
+  }[]
+  funds: {
+    name: string
+    owner: string
+    trustee: string
+    units: number
+    nav: number | null
+    currency: string | null
+    ntd: number
+  }[]
+  /** Amounts whose printed total was blank, so the value is the sum of line items (0 = section left unfilled). */
+  derived: CandidateAmountKey[]
+  uncertain: string[]
+  sources: CandidateSource[]
+}
+
+export interface CandidateElectionFile {
+  election: {
+    id: string
+    title: string
+    electionDate: string
+    updatedAt: string
+    source: { title: string; url: string }
+  }
+  candidates: CandidateDeclaration[]
 }
