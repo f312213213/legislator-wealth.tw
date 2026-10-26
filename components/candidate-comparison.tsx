@@ -12,7 +12,6 @@ import {
   hasCandidateSummedAmount,
 } from "@/lib/candidate-fields"
 import type { CandidateDeclaration } from "@/lib/types"
-import { cn } from "@/lib/utils"
 
 export interface CandidateComparisonColumn extends Pick<
   CandidateDeclaration,
@@ -24,15 +23,7 @@ export interface CandidateComparisonColumn extends Pick<
 }
 
 const ROW_HEADER =
-  "sticky left-0 z-10 bg-background px-3 py-2.5 text-left font-medium whitespace-nowrap"
-
-function maxOf(values: (number | null)[]): number {
-  return Math.max(0, ...values.map((value) => value ?? 0))
-}
-
-function isMax(value: number | null, max: number): boolean {
-  return max > 0 && (value ?? 0) === max
-}
+  "sticky left-0 z-10 bg-background px-3 py-2.5 text-left font-normal whitespace-nowrap"
 
 export function CandidateComparison({
   caption,
@@ -55,23 +46,15 @@ export function CandidateComparison({
       [...amountFields, ...securitiesFields].map((field) => field.key)
     )
   )
-  const marketMax = maxOf(columns.map((column) => column.market))
 
   function renderAmountRow(field: (typeof amountFields)[number]) {
-    const max = maxOf(columns.map((column) => column.amounts[field.key]))
     return (
       <tr key={field.key}>
         <th scope="row" className={ROW_HEADER}>
           {field.label}
         </th>
         {columns.map((column) => (
-          <td
-            key={column.slug}
-            className={cn(
-              "px-3 py-2.5 text-right tabular-nums",
-              isMax(column.amounts[field.key], max) && "font-black"
-            )}
-          >
+          <td key={column.slug} className="px-3 py-2.5 text-right tabular-nums">
             <CandidateAmount candidate={column} field={field.key} />
           </td>
         ))}
@@ -81,7 +64,8 @@ export function CandidateComparison({
 
   return (
     <>
-      <div className="overflow-x-auto border-y">
+      {/* The site serif only ships 700/900, so the light table swaps in its regular cut */}
+      <div className="overflow-x-auto border-y [--font-serif:var(--font-serif-regular)]">
         <table className="w-full min-w-max text-sm">
           <caption className="sr-only">{caption}</caption>
           <thead>
@@ -96,12 +80,9 @@ export function CandidateComparison({
                 <th
                   key={column.slug}
                   scope="col"
-                  className="min-w-32 px-3 py-2.5 text-right"
+                  className="min-w-32 px-3 py-2.5 text-right font-normal"
                 >
-                  <Link
-                    href={column.href}
-                    className="font-bold hover:underline"
-                  >
+                  <Link href={column.href} className="hover:underline">
                     {column.name}
                   </Link>
                 </th>
@@ -117,13 +98,10 @@ export function CandidateComparison({
               {columns.map((column) => (
                 <td
                   key={column.slug}
-                  className={cn(
-                    "px-3 py-2.5 text-right tabular-nums",
-                    isMax(column.market, marketMax) && "font-black"
-                  )}
+                  className="px-3 py-2.5 text-right tabular-nums"
                 >
                   <CurrencyDisplay amount={column.market} />
-                  <span className="block text-xs font-normal text-muted-foreground">
+                  <span className="block text-xs text-muted-foreground">
                     {column.holdingCount} 檔
                   </span>
                 </td>
@@ -149,32 +127,24 @@ export function CandidateComparison({
                 ))}
               </tr>
             )}
-            {CANDIDATE_COUNT_FIELDS.map((field) => {
-              const max = maxOf(
-                columns.map((column) => column.counts[field.key])
-              )
-              return (
-                <tr key={field.key}>
-                  <th scope="row" className={ROW_HEADER}>
-                    {field.label}
-                  </th>
-                  {columns.map((column) => {
-                    const value = column.counts[field.key]
-                    return (
-                      <td
-                        key={column.slug}
-                        className={cn(
-                          "px-3 py-2.5 text-right font-heading tabular-nums",
-                          isMax(value, max) && "font-black"
-                        )}
-                      >
-                        {value === null ? "--" : `${value} ${field.unit}`}
-                      </td>
-                    )
-                  })}
-                </tr>
-              )
-            })}
+            {CANDIDATE_COUNT_FIELDS.map((field) => (
+              <tr key={field.key}>
+                <th scope="row" className={ROW_HEADER}>
+                  {field.label}
+                </th>
+                {columns.map((column) => {
+                  const value = column.counts[field.key]
+                  return (
+                    <td
+                      key={column.slug}
+                      className="px-3 py-2.5 text-right font-heading tabular-nums"
+                    >
+                      {value === null ? "--" : `${value} ${field.unit}`}
+                    </td>
+                  )
+                })}
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

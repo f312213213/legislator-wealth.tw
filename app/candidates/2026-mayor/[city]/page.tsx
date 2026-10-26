@@ -177,7 +177,7 @@ export default async function CandidateCityPage({
         <section className="space-y-3" aria-labelledby="compare-title">
           <div className="flex flex-wrap items-center gap-3">
             <h2 id="compare-title" className="text-lg font-bold">
-              財產並列
+              財產比較
             </h2>
             <CandidateSelectionBadge />
           </div>

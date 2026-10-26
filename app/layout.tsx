@@ -21,6 +21,14 @@ const notoSerifTC = Noto_Serif_TC({
   variable: '--font-serif',
 })
 
+// Separate family so adding 400 doesn't thin serif text elsewhere that relies on falling back to 700
+const notoSerifTCRegular = Noto_Serif_TC({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-serif-regular',
+  preload: false,
+})
+
 const SITE_URL = 'https://legislator-wealth.tw'
 const SITE_NAME = '政治人物持股'
 const SITE_DESCRIPTION = '台灣民意代表與地方首長持股資料入口，分類瀏覽立法委員、縣市議員與縣市首長資料。'
@@ -74,7 +82,7 @@ export default function RootLayout({
     <html
       lang="zh-TW"
       suppressHydrationWarning
-      className={cn("antialiased font-sans", notoSansTC.variable, notoSerifTC.variable)}
+      className={cn("antialiased font-sans", notoSansTC.variable, notoSerifTC.variable, notoSerifTCRegular.variable)}
     >
       <body>
         {GA_ID && (

@@ -179,9 +179,34 @@ export default async function CandidateDetailPage({
         )}
       </header>
 
+      <section className="space-y-4" aria-labelledby="holdings-title">
+        <div className="space-y-1 border-b pb-6">
+          <h2 id="holdings-title" className="text-lg font-bold">
+            持股市值
+          </h2>
+          <p className="text-4xl font-black tracking-tight sm:text-5xl">
+            <CurrencyDisplay amount={marketTotal} animate />
+          </p>
+          <p className="text-sm text-muted-foreground">
+            {candidate.stocks.length > 0 && `${candidate.stocks.length} 檔股票`}
+            {candidate.stocks.length > 0 && candidate.funds.length > 0 && " · "}
+            {candidate.funds.length > 0 && `${candidate.funds.length} 檔基金`}
+            {holdings.length === 0 && "無股票或基金"}
+          </p>
+        </div>
+        {holdings.length > 0 && (
+          <>
+            <div className="overflow-hidden">
+              <HoldingsPie holdings={holdings} inFeedAd={getInFeedAdConfig()} />
+            </div>
+            <StocksTab holdings={holdings} showTotal={false} />
+          </>
+        )}
+      </section>
+
       <section className="space-y-3" aria-labelledby="assets-title">
         <h2 id="assets-title" className="text-lg font-bold">
-          財產
+          其他已申報財產
         </h2>
         <dl className="grid grid-cols-2 border-t border-l sm:grid-cols-4">
           {amountFields.map((field) => (
@@ -215,31 +240,6 @@ export default async function CandidateDetailPage({
           candidate,
           amountFields.map((field) => field.key)
         ) && <p className="text-xs text-muted-foreground">＊ 由明細加總</p>}
-      </section>
-
-      <section className="space-y-4" aria-labelledby="holdings-title">
-        <div className="space-y-1 border-b pb-6">
-          <h2 id="holdings-title" className="text-lg font-bold">
-            持股市值
-          </h2>
-          <p className="text-4xl font-black tracking-tight sm:text-5xl">
-            <CurrencyDisplay amount={marketTotal} animate />
-          </p>
-          <p className="text-sm text-muted-foreground">
-            {candidate.stocks.length > 0 && `${candidate.stocks.length} 檔股票`}
-            {candidate.stocks.length > 0 && candidate.funds.length > 0 && " · "}
-            {candidate.funds.length > 0 && `${candidate.funds.length} 檔基金`}
-            {holdings.length === 0 && "無股票或基金"}
-          </p>
-        </div>
-        {holdings.length > 0 && (
-          <>
-            <div className="overflow-hidden">
-              <HoldingsPie holdings={holdings} inFeedAd={getInFeedAdConfig()} />
-            </div>
-            <StocksTab holdings={holdings} showTotal={false} />
-          </>
-        )}
       </section>
 
       <section className="space-y-3" aria-labelledby="sources-title">
