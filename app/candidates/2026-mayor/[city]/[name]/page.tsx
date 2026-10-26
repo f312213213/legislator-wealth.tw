@@ -1,10 +1,11 @@
+import { AdSenseAd } from "@/components/adsense-ad"
 import { CandidateAmount } from "@/components/candidate-amount"
 import { CandidatePortrait } from "@/components/candidate-portrait"
 import { StocksTab } from "@/components/category-tabs"
 import { CurrencyDisplay } from "@/components/currency-display"
 import { HoldingsPie } from "@/components/holdings-pie"
 import { JsonLd } from "@/components/json-ld"
-import { getInFeedAdConfig } from "@/lib/adsense"
+import { getDisplayAdConfig, getInFeedAdConfig } from "@/lib/adsense"
 import {
   CANDIDATE_BASE_PATH,
   getAllCandidates,
@@ -98,6 +99,7 @@ export default async function CandidateDetailPage({
     [candidate]
   )
   const path = getCandidatePath(candidate)
+  const displayAd = getDisplayAdConfig()
 
   return (
     <div className="space-y-10">
@@ -286,6 +288,8 @@ export default async function CandidateDetailPage({
           )}
         </ul>
       </section>
+
+      {displayAd && <AdSenseAd {...displayAd} />}
 
       {opponents.length > 0 && (
         <nav aria-labelledby="opponents-title" className="space-y-3">

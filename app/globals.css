@@ -170,6 +170,11 @@
   transform: translateX(4px);
 }
 
+/* Collapse display ads AdSense could not fill instead of leaving a blank block */
+ins.adsbygoogle[data-ad-status="unfilled"] {
+  display: none !important;
+}
+
 /* Colorize: party-colored bar fills */
 .bar-kmt { background-color: var(--party-kmt); opacity: 0.25; }
 .bar-dpp { background-color: var(--party-dpp); opacity: 0.25; }

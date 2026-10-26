@@ -12,6 +12,18 @@ export function getInFeedAdConfig(): InFeedAdConfig | undefined {
   return { client, slot, layoutKey }
 }
 
+export interface DisplayAdConfig {
+  client: string
+  slot: string
+}
+
+export function getDisplayAdConfig(): DisplayAdConfig | undefined {
+  const client = process.env.GOOGLE_ADSENSE_ACCOUNT
+  const slot = process.env.GOOGLE_ADSENSE_SLOT
+  if (!client || !slot) return undefined
+  return { client, slot }
+}
+
 export const AD_INSERT_AFTER_INDEX = 3
 
 export function shouldShowInFeedAd(

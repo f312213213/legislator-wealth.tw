@@ -1,3 +1,4 @@
+import { AdSenseAd } from "@/components/adsense-ad"
 import {
   CandidateComparison,
   type CandidateComparisonColumn,
@@ -10,6 +11,7 @@ import {
   SelectedCandidate,
 } from "@/components/candidate-selection"
 import { JsonLd } from "@/components/json-ld"
+import { getDisplayAdConfig } from "@/lib/adsense"
 import {
   CANDIDATE_BASE_PATH,
   getCandidateAvatar,
@@ -86,6 +88,7 @@ export default async function CandidateCityPage({
   const otherCities = getCandidateCities().filter(
     (other) => other.slug !== city.slug
   )
+  const displayAd = getDisplayAdConfig()
 
   return (
     <div className="space-y-10">
@@ -185,6 +188,8 @@ export default async function CandidateCityPage({
           <CandidateSelectionDialog />
         </section>
       </CandidateSelectionProvider>
+
+      {displayAd && <AdSenseAd {...displayAd} />}
 
       <nav aria-labelledby="other-cities-title" className="space-y-3">
         <h2 id="other-cities-title" className="text-sm font-bold">

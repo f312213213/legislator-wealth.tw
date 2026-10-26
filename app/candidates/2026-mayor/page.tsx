@@ -1,9 +1,11 @@
+import { AdSenseAd } from "@/components/adsense-ad"
 import {
   CandidateRanking,
   type CandidateRankingRow,
 } from "@/components/candidate-ranking"
 import { CurrencyDisplay } from "@/components/currency-display"
 import { JsonLd } from "@/components/json-ld"
+import { getDisplayAdConfig } from "@/lib/adsense"
 import {
   CANDIDATE_BASE_PATH,
   getAllCandidates,
@@ -77,6 +79,7 @@ export default function CandidateSpecialPage() {
   const { election } = getCandidateElection()
   const candidates = getAllCandidates()
   const cities = getCandidateCities()
+  const displayAd = getDisplayAdConfig()
   const rankingRows: CandidateRankingRow[] = candidates.map((candidate) => ({
     slug: `${candidate.city}-${candidate.slug}`,
     name: candidate.name,
@@ -187,6 +190,8 @@ export default function CandidateSpecialPage() {
         </h2>
         <CandidateRanking rows={rankingRows} />
       </section>
+
+      {displayAd && <AdSenseAd {...displayAd} />}
 
       {topHoldings.length > 0 && (
         <section className="space-y-3" aria-labelledby="holdings-title">
